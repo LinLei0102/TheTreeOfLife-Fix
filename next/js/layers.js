@@ -11230,7 +11230,7 @@ addLayer("n", {
                         description(){
                                 return "Existence of 0 affects fuel square rooting factor and you can buy each buyable every tick"
                         },
-                        cost:() => new Decimal(player.extremeMode ? 2.15e40 : 1.44e42),
+                        cost:() => new Decimal(player.extremeMode ? 2.15e40 : 1.5e42),
                         unlocked(){
                                 return hasMilestone("p", 4) || hasUpgrade("n", 53) || player.l.unlocked
                         }, // hasUpgrade("n", 54)
