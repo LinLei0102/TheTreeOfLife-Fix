@@ -10183,7 +10183,7 @@ addLayer("c", {
                                 return "Add a ln(x) component to Constant"
                         },
                         cost(){
-                                return Decimal.pow(10, player.extremeMode ? 8319e6 : 11840e3)
+                                return Decimal.pow(10, player.extremeMode ? 8319e6 : 12078e3)
                         },
                         unlocked(){
                                 return (hasMilestone("n", 10) && player.p.unlocked) || hasUpgrade("c", 34)
