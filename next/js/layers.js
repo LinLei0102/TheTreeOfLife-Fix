@@ -58658,7 +58658,7 @@ addLayer("mini", {
                         description(){
                                 return "Reduce Iterations exponent to x+1<sup>x</sup> and bulk 5x all minigame buyables" 
                         },
-                        cost:() => Decimal.pow(10, player.extremeMode ? 1037e3 : 787029),
+                        cost:() => Decimal.pow(10, player.extremeMode ? 1037e3 : 787074),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
                         currencyDisplayName:() => "D Points",
