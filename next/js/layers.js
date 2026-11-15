@@ -11166,7 +11166,7 @@ addLayer("n", {
                                 if (!hasUpgrade("n", 45)) return b + br + a
                                 return a
                         },
-                        cost:() => new Decimal(1.80e36),
+                        cost:() => new Decimal(player.extremeMode ? 1.80e36 : 1.86e36),
                         unlocked(){
                                 return hasMilestone("p", 4) || hasUpgrade("n", 44) || player.l.unlocked
                         }, // hasUpgrade("n", 45)
