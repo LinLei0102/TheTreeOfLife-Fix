@@ -11242,7 +11242,7 @@ addLayer("n", {
                         description(){
                                 return "E Points multiply D Points (up to 1e50000)"
                         },
-                        cost:() => new Decimal(player.extremeMode ? 1.63e50 : 4.75e53),
+                        cost:() => new Decimal(player.extremeMode ? 1.63e50 : 4.88e53),
                         unlocked(){
                                 return hasMilestone("p", 4) || hasUpgrade("n", 54) || player.l.unlocked
                         }, // hasUpgrade("n", 55)
