@@ -58628,7 +58628,7 @@ addLayer("mini", {
                         description(){
                                 return "Make the inner log10 of commutativity of addition ln and E Points<sup>.1</sup> multiplies D Points" 
                         },
-                        cost:() => Decimal.pow(10, player.extremeMode ? 937500 : 691315),
+                        cost:() => Decimal.pow(10, player.extremeMode ? 937500 : 691325),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
                         currencyDisplayName:() => "D Points",
