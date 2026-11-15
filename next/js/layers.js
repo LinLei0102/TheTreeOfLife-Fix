@@ -10655,7 +10655,7 @@ addLayer("o", {
                         description(){
                                 return "Nitrogen<sup>.26</sup> multiplies E Point gain and you bulk 5x E buyables"
                         },
-                        cost:() => Decimal.pow(10, player.extremeMode ? 1.31e11 : (player.hardMode ? 404e6 : 403e6)),
+                        cost:() => Decimal.pow(10, player.extremeMode ? 1.31e11 : (player.hardMode ? 404e6 : 414.5e6)),
                         unlocked(){
                                 return (hasMilestone("n", 10) && player.p.unlocked) || hasUpgrade("c", 35)
                         }, // hasUpgrade("o", 35)
