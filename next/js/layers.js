@@ -10169,7 +10169,7 @@ addLayer("c", {
                                 return "Square the ln(x) component in Quadratic"
                         },
                         cost(){
-                                return Decimal.pow(10, player.extremeMode ? 7198e6 : (player.hardMode ? 10550e3 : 10530e3))
+                                return Decimal.pow(10, player.extremeMode ? 7198e6 : (player.hardMode ? 10550e3 : 10680e3))
                         },
                         unlocked(){
                                 return (hasMilestone("n", 10) && player.p.unlocked) || hasUpgrade("o", 34)
