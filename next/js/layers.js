@@ -10643,7 +10643,7 @@ addLayer("o", {
                         description(){
                                 return "Commutativity of addition outer log10 becomes ln" 
                         },
-                        cost:() => Decimal.pow(10, player.extremeMode ? 52118e3 : 29185e3),
+                        cost:() => Decimal.pow(10, player.extremeMode ? 52118e3 : 29855e3),
                         unlocked(){
                                 return (hasMilestone("n", 10) && player.p.unlocked) || hasUpgrade("o", 33)
                         }, // hasUpgrade("o", 34)
