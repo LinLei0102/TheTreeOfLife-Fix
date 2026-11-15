@@ -10140,7 +10140,7 @@ addLayer("c", {
                                 return a
                         },
                         cost(){
-                                return Decimal.pow(10, player.extremeMode ? 6553e3 : 6296e3)
+                                return Decimal.pow(10, player.extremeMode ? 6553e3 : 6386e3)
                         },
                         unlocked(){
                                 return (hasMilestone("n", 10) && player.p.unlocked) || hasUpgrade("n", 55)
