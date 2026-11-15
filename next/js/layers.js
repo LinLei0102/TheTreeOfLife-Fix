@@ -58643,7 +58643,7 @@ addLayer("mini", {
                         description(){
                                 return "Each existence of 1 multiples E point gain by 1.02" 
                         },
-                        cost:() => Decimal.pow(10, player.extremeMode ? 1026117 : 775628),
+                        cost:() => Decimal.pow(10, player.extremeMode ? 1026117 : 775704),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
                         currencyDisplayName:() => "D Points",
