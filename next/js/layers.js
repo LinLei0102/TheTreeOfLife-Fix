@@ -10631,7 +10631,7 @@ addLayer("o", {
                         description(){
                                 return "Square " + makeBlue("a") + " and you bulk 2x E buyables per upgrade in this row"
                         },
-                        cost:() => Decimal.pow(10, player.extremeMode ? 23511e3 : 28274e3),
+                        cost:() => Decimal.pow(10, player.extremeMode ? 23511e3 : 28812e3),
                         unlocked(){
                                 return (hasMilestone("n", 10) && player.p.unlocked) || hasUpgrade("c", 33)
                         }, // hasUpgrade("o", 33)
