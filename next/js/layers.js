@@ -12535,7 +12535,7 @@ addLayer("p", {
                                 if (player.extremeMode) a = a.replace("doubles", "quintuples")
                                 return a
                         },
-                        cost:() => new Decimal(player.extremeMode ? "e1.6e46" : "e3.5e45"),
+                        cost:() => new Decimal(player.extremeMode ? "e1.6e46" : "e4e45"),
                         unlocked(){
                                 return player.a.unlocked || player.l.challenges[11] >= (player.extremeMode ? 91 : 94)
                         }, // hasUpgrade("p", 52)
@@ -12547,7 +12547,7 @@ addLayer("p", {
                         description(){
                                 return "Each Dilation completion after 90 doubles Life gain and token cost exponent is .44"
                         },
-                        cost:() => new Decimal(player.extremeMode ? "e1.8e46" : "e13e45"),
+                        cost:() => new Decimal(player.extremeMode ? "e1.8e46" : "ee47"),
                         unlocked(){
                                 if (player.extremeMode) return player.a.unlocked || player.l.challenges[11] >= 93
                                 return player.a.unlocked || player.l.challenges[11] >= 97 && player.l.best.gte(5e133)
