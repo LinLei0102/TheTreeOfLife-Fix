@@ -12560,7 +12560,7 @@ addLayer("p", {
                         description(){
                                 return "Life Milestone 21 is ee46 and add .01 to Constant base"
                         },
-                        cost:() => new Decimal(player.extremeMode ? "e2e46" : "e15e45"),
+                        cost:() => new Decimal(player.extremeMode ? "e2e46" : "e1.5e47"),
                         unlocked(){
                                 return player.l.challenges[11] >= (player.extremeMode ? 95 : 98) || player.a.unlocked
                         }, // hasUpgrade("p", 54)
