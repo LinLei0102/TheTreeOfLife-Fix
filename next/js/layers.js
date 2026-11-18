@@ -15849,11 +15849,11 @@ addLayer("l", {
                 25: {
                         requirementDescription(){
                                 if (player.extremeMode) return "2.26e116 Lives"
-                                return "5.00e113 Lives"
+                                return "3.50e113 Lives"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(2.26e116)
-                                return player.l.points.gte(5e113)
+                                return player.l.points.gte(3.5e113)
                         },
                         unlocked(){
                                 return true
