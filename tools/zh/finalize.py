@@ -362,6 +362,83 @@ def apply_misc_units():
         open(p,'w',encoding='utf-8',newline='').write(s)
     return total
 
+def apply_mod_text():
+    """mod.js 顶部状态栏与模式切换确认框里的漏网展示串。"""
+    return apply_contains({'js/mod.js':{
+        'THE GAME IS PAUSED':'游戏已暂停',
+        ' ms/tick = ':' 毫秒/帧 = ',
+        '[cancel]':'[取消]',
+        '[okay]':'[确定]',
+    }})
+
+def apply_options_text():
+    """系统设置里里程碑显示模式的两个英文枚举值。"""
+    p=os.path.join(ROOT,'js','utils','options.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    pairs=[('"INCOMPLETE", "NONE"','"仅未完成", "不显示"')]
+    n=0
+    for a,b in pairs:
+        c=s.count(a); s=s.replace(a,b); n+=c
+    if n: open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_connector_words():
+    """中文句子里夹带的英文连接词 and / and,（只改字符串字面量）。"""
+    return apply_contains({'js/layers.js':{
+        ' and, ':' 和 ',
+        ' and ':' 和 ',
+    }})
+
+def apply_list_punctuation():
+    """器官升级数量列表的连接标点与句号中文化（须在 and 替换之后运行）。"""
+    p=os.path.join(ROOT,'js','layers.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    pairs=[
+        ('e = e1[0] + "," + e1[1] + " 和 " + e1[2] + "."',
+         'e = e1[0] + "、" + e1[1] + " 和 " + e1[2] + "。"'),
+        ('e = e1[0] + " 和 " + e1[1] + "."',
+         'e = e1[0] + " 和 " + e1[1] + "。"'),
+        ('e = e1[0] + "."', 'e = e1[0] + "。"'),
+    ]
+    n=0
+    for a,b in pairs:
+        c=s.count(a); s=s.replace(a,b); n+=c
+        if c==0: print('  WARN 列表标点未命中:',a[:48],file=sys.stderr)
+    if n: open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_gem_descriptions():
+    """宝石效果说明（gemSupport.js 的前两段描述对象）此前完全未覆盖。
+
+    只翻译 <br> 前的说明短语，公式部分原样保留；数字 id 与函数名不受影响。
+    """
+    mp=json.load(open(os.path.join(D,'gem_terms.json'),encoding='utf-8'))
+    p=os.path.join(ROOT,'js','utils','gemSupport.js')
+    if not os.path.exists(p): return 0
+    s=open(p,encoding='utf-8',newline='').read()
+    strings,_=scan(s)
+    edits=[]
+    for x in strings:
+        if s.count('\n',0,x['start'])+1 > 133: break  # 后面是公式与工具函数
+        val=decode_js_string(x['raw'],x['quote'])
+        m=re.match(r"(<bdi style='[^']+'>)(.*)(</bdi>)$",val)
+        if m: pre,inner,post=m.group(1),m.group(2),m.group(3)
+        else: pre,inner,post='',val,''
+        if '<br>' not in inner: continue
+        left,right=inner.split('<br>',1)
+        if left not in mp: continue
+        newval=pre+mp[left]+'<br>'+right+post
+        if newval==val: continue
+        out=newval.replace('\\','\\\\').replace('\n','\\n')
+        if x['quote']=="'": out=out.replace("'","\\'")
+        elif x['quote']=='"': out=out.replace('"','\\"')
+        edits.append((x['start'],x['end'],x['quote'],out))
+    edits.sort(key=lambda e:e[0],reverse=True)
+    for st,enp,q,out in edits:
+        s=s[:st]+q+out+q+s[enp:]
+    if edits: open(p,'w',encoding='utf-8',newline='').write(s)
+    return len(edits)
+
 def apply_save_ui():
     """存档管理/导入导出弹窗里的英文提示中文化。只改展示字符串字面量。"""
     mp=json.load(open(os.path.join(D,'save_ui_zh.json'),encoding='utf-8'))
@@ -434,6 +511,11 @@ def main():
     print("零散单位:",apply_misc_units())
     print("资源显示名:",apply_resource_names())
     print("公式普通词:",apply_formula_words())
+    print("英文连接词:",apply_connector_words())
+    print("列表标点:",apply_list_punctuation())
+    print("mod.js 状态栏:",apply_mod_text())
+    print("设置枚举值:",apply_options_text())
+    print("宝石效果说明:",apply_gem_descriptions())
     print("方括号占位符:",apply_bracket_tokens())
     print("内置存档名:",apply_save_names())
     print("存档弹窗提示:",apply_save_ui())

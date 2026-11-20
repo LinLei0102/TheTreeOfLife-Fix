@@ -30,7 +30,11 @@
     "return \"减少其中的科学家 \" + player.chem.focus + \" by 1\"": "return \"从 \" + player.chem.focus + \" 减少 1 名科学家\"",
     "title: \"6 \" + \"D\" + \"e\" + \"caseconds\"": "title: \"6 十秒\"",
     "makeOrange(\"multiplies\")": "makeOrange(\"乘以\")",
-    "return \"<bdi style='font-size: 80%'>log10(组织) multiplies \" + makeBlue(\"DB\") + \" 产出且每次器官升级你获得你的 1% 的 \" + makePurple(\"OB\") + \"/s while beating out and 1% of your \" + makeBlue(\"DB\") + \"/s while beating in</bdi>\"": "return \"<bdi style='font-size: 80%'>log10(组织) 乘以 \" + makeBlue(\"DB\") + \" 产出，每次器官升级时，若产出高于投入，你获得你 \" + makePurple(\"OB\") + \"/s 的 1%；若投入高于产出，你获得你 \" + makeBlue(\"DB\") + \"/s 的 1%</bdi>\""
+    "return \"<bdi style='font-size: 80%'>log10(组织) multiplies \" + makeBlue(\"DB\") + \" 产出且每次器官升级你获得你的 1% 的 \" + makePurple(\"OB\") + \"/s while beating out and 1% of your \" + makeBlue(\"DB\") + \"/s while beating in</bdi>\"": "return \"<bdi style='font-size: 80%'>log10(组织) 乘以 \" + makeBlue(\"DB\") + \" 产出，每次器官升级时，若产出高于投入，你获得你 \" + makePurple(\"OB\") + \"/s 的 1%；若投入高于产出，你获得你 \" + makeBlue(\"DB\") + \"/s 的 1%</bdi>\"",
+    "a += \" 干细胞可购买项\" + (player.cells.challenges[21] > 0 ? \"s\" : \"\")": "a += \" 干细胞可购买项\"",
+    "d += \"gain\"": "d += \"\"",
+    "d += \"REMOVE\"": "d += \"移除\"",
+    "d.replace(\"下一个：移除\", \"\")": "d.replace(\"下一个: 移除\", \"\")"
   },
   "js/technical/displays.js": {
     "?\"Finish\":\"提前退出\"):(hasChallenge(layer, id)?\"Completed\":\"Start\")": "?\"完成\":\"提前退出\"):(hasChallenge(layer, id)?\"已完成\":\"开始\")"

@@ -25481,7 +25481,7 @@ addLayer("cells", {
                         fullDisplay(){
                                 let a = "禁用第一项" 
                                 if (player.cells.challenges[21] > 0) a += " " + formatWhole(player.cells.challenges[21] + 1) 
-                                a += " 干细胞可购买项" + (player.cells.challenges[21] > 0 ? "s" : "")
+                                a += " 干细胞可购买项"
                                 let b = "目标: " + format(tmp.cells.challenges[21].goal) + " 干细胞"
                                 let c = "奖励：查看所有奖励请前往信息标签页"
                                 let d = "下一个: "
@@ -25489,7 +25489,7 @@ addLayer("cells", {
                                         case 0:
                                                 d += "每次细胞升级 log10(log10(点数)) 乘以DNA "
                                                 if (player.extremeMode) d += " 与DNA科学 "
-                                                d += "gain"
+                                                d += ""
                                                 break
                                         case 1:
                                                 d += "每次完成，log10(9+log10(10+Best 组织)) 使组织产出倍增"
@@ -25501,13 +25501,13 @@ addLayer("cells", {
                                                 d += "代币II 可购买项的花费为 ceil(x<sup>.9</sup>)"
                                                 break
                                         case 4:
-                                                if (!player.extremeMode) d += "REMOVE"
+                                                if (!player.extremeMode) d += "移除"
                                                 else d += "移除神经科学的花费基础，log10(干细胞) 按每 sqrt(he) 倍增污染物产出"
                                                 break 
                                         default:
-                                                d += "REMOVE"
+                                                d += "移除"
                                 }
-                                d = d.replace("下一个：移除", "")
+                                d = d.replace("下一个: 移除", "")
                                 let e = br2 + "完成次数: " + player.cells.challenges[21] + "/" + formatWhole(tmp.cells.challenges[21].completionLimit)
                                 
                                 return a + br + b + br2 + c + br2 + d + e
@@ -30478,7 +30478,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 I"
                         },
                         description(){
-                                let a = "每次器官升级乘以 " + makePurple("OB") + " and " + makeBlue("DB") + " 由 log10(log10(组织)) 加成"
+                                let a = "每次器官升级乘以 " + makePurple("OB") + " 和 " + makeBlue("DB") + " 由 log10(log10(组织)) 加成"
                                 if (player.sp.unlocked) a = a.replaceAll("log10", makePurple("log2"))
                                 return a + br + " 当前: *" + format(tmp.or.upgrades[101].base) + " 每次升级"
                         },
@@ -34436,7 +34436,7 @@ addLayer("or", {
                                         ["display-text", 
                                                 function (){
                                                         let a = "你可能获得 " + format(tmp.or.heart.getOBGain)
-                                                        a += " " + makePurple("OB") + " and " + format(tmp.or.heart.getDBGain)
+                                                        a += " " + makePurple("OB") + " 和 " + format(tmp.or.heart.getDBGain)
                                                         return a + " " + makeBlue("DB") + " 每秒"
                                                 }
                                         ],
@@ -34648,9 +34648,9 @@ addLayer("or", {
                                         if (hasUpgrade("or", 14)) e1.push(br + formatWhole(tmp.or.upgrades.kidneyUpgradesLength) + " 肾脏升级")
                                         if (hasUpgrade("or", 215)) e1.push(br + formatWhole(tmp.or.upgrades.lungUpgradesLength) + " 肺部升级")
                                         let e
-                                        if (e1.length == 1) e = e1[0] + "."
-                                        if (e1.length == 2) e = e1[0] + " and " + e1[1] + "."
-                                        if (e1.length == 3) e = e1[0] + "," + e1[1] + " and " + e1[2] + "."
+                                        if (e1.length == 1) e = e1[0] + "。"
+                                        if (e1.length == 2) e = e1[0] + " 和 " + e1[1] + "。"
+                                        if (e1.length == 3) e = e1[0] + "、" + e1[1] + " 和 " + e1[2] + "。"
 
                                         return part1 + br2 + e
                                 }],
@@ -37542,7 +37542,7 @@ addLayer("an", {
                                         let c = "注意三级挑战完成次数永远不会被重置。"
                                         let d1 = "动物效果影响器官、DNA、细胞、干细胞、组织、<br>μ、λ、κ、ι，" + (player.extremeMode ? "器官科学， " : "")
                                         let d2 = "能量、空气、<u>in</u>TEStine 数量、<br>IN<u>tes</u>tine 数量、污染物，" + makeBlue("DB")
-                                        d2 += " and, " + makePurple("OB") + " 获得。"
+                                        d2 += " 和 " + makePurple("OB") + " 获得。"
                                         let d = d1 + d2
 
                                         let part1 = a + br2 + b + br + c + br2 + d
@@ -38623,7 +38623,7 @@ addLayer("ch", {
                         },
                         effectDescription(){
                                 let a = "奖励：全能花费公式为1e9^(x<sup>1.08</sup>)，每超过234条染色体使分类学可购买项上限提高2，最高1210，但禁用组织"
-                                a += "XI, XIV, XXVIII, XXXVIII, XLII, LI, LIII, LIV, LIX, LXI, LXV, LXIX, and LXXV"
+                                a += "XI, XIV, XXVIII, XXXVIII, XLII, LI, LIII, LIV, LIX, LXI, LXV, LXIX, 和 LXXV"
                                 if (player.extremeMode) a = a.replace("9", "11").replace("1210", "1213")
                                 return a + "（组织XLII仍乘以DNA产出指数，组织LXXV仍使魅夸克基于最佳值）。"
                         },
@@ -40370,7 +40370,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 III"
                         },
                         description(){
-                                let a = "物种效果乘以 " + makePurple("OB") + " and " + makeBlue("DB")
+                                let a = "物种效果乘以 " + makePurple("OB") + " 和 " + makeBlue("DB")
                                 return a + " 每个代币II<sup>1.5</sup> 的产出"
                         },
                         cost:() => decimalOne,
@@ -51761,7 +51761,7 @@ addLayer("mh", {
         baseAmount(){return player.points},
         type: "custom",
         tooltip(){
-                let a = format(player.or.deoxygenated_blood.points) + makeBlue(" DB") + " and "
+                let a = format(player.or.deoxygenated_blood.points) + makeBlue(" DB") + " 和 "
                 return a + format(player.or.oxygenated_blood.points) + makePurple(" OB")
         },
         getResetGain(){
@@ -51821,7 +51821,7 @@ addLayer("mh", {
                                                 ["display-text", 
                                                         function (){
                                                                 let a = "你可能获得 " + format(tmp.or.heart.getOBGain)
-                                                                a += " " + makePurple("OB") + " and " + format(tmp.or.heart.getDBGain)
+                                                                a += " " + makePurple("OB") + " 和 " + format(tmp.or.heart.getDBGain)
                                                                 return a + " " + makeBlue("DB") + " 每秒"
                                                         }
                                                 ],
@@ -59280,7 +59280,7 @@ addLayer("mini", {
                                                 b += "f<sup> " + formatWhole(data.getMaxInterations) + "</sup>(0)="
                                                 b += format(data.getRecursionValue) + br
                                                 c += br
-                                                c += "f<sup>1</sup>(x) = f(x) and f<sup> n+1</sup>(x) = f(f<sup> n</sup>(x))"
+                                                c += "f<sup>1</sup>(x) = f(x) 和 f<sup> n+1</sup>(x) = f(f<sup> n</sup>(x))"
                                         }
 
                                         return a + br + b + c
@@ -59966,7 +59966,7 @@ addLayer("tokens", {
                                         let cost = "<b><h2>花费</h2>: " + format(getBuyableCost("tokens", 21)) + " 代币</b><br>"
                                 
                                         if (hasMilestone("cells", 24)) eff2 = eff2.replace("氘", "干细胞")
-                                        if (hasUpgrade("t", 62)) eff2 = eff2.replace("ll", "lls and 细胞")
+                                        if (hasUpgrade("t", 62)) eff2 = eff2.replace("ll", "lls 和 细胞")
                                 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -63329,7 +63329,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 72 and 73</bdi>"
+                                        let a = "<bdi style='color: #863813'>Locks upgrades 72 和 73</bdi>"
                                         let b = "<br>当前要求：<br>!72 && !73"
 
                                         if (hasUpgrade("h", 73)) {
@@ -63361,7 +63361,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 71 and 73</bdi>"
+                                        let a = "<bdi style='color: #863813'>Locks upgrades 71 和 73</bdi>"
                                         let b = "<br>当前要求：<br>!71 && !73"
 
                                         if (hasUpgrade("h", 73)) {
@@ -63393,7 +63393,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 71 and 72</bdi>"
+                                        let a = "<bdi style='color: #863813'>Locks upgrades 71 和 72</bdi>"
                                         let b = "<br>当前要求：<br>!71 && !72"
 
                                         if (hasUpgrade("h", 73)) {

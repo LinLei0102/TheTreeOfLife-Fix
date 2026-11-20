@@ -108,11 +108,11 @@ var displayThings = [
 			p2 = "</bdi>"
 		}
 
-		let msptFinal = " ms/tick = " + p1 + formatWhole(val) + p2
+		let msptFinal = " 毫秒/帧 = " + p1 + formatWhole(val) + p2
 		return saveFinal + msptFinal
 	}, 
 	function(){
-		if (paused || player.paused) return "<bdi style='color:#CC0033'>THE GAME IS PAUSED</bdi>"
+		if (paused || player.paused) return "<bdi style='color:#CC0033'>游戏已暂停</bdi>"
 		if (player.cells.slowTime > 0) return "接下来的 " + makeGreen(formatTime(player.cells.slowTime)) + " 真实秒，<br>游戏将以 100 倍慢速运行"
 		if (inChallenge("l", 11)) return "膨胀指数当前为 1/" + format(getPointDilationExponent().pow(-1))
 		if (player.keepGoing && isEndgameRaw()) return makeBlue("你已通关，<br>游戏可能会在这里出问题。")
@@ -224,7 +224,7 @@ function enterHardMode(){
 	if (player.extremeMode) {
 		if (!confirm("你已处于极限模式，不建议这样做。" + s)) return 
 	}
-	if (confirm("要将其应用到当前存档 [cancel] 还是创建新存档 [okay]？")) {
+	if (confirm("要将其应用到当前存档 [取消] 还是创建新存档 [确定]？")) {
 		// this means you said okay so create a new save
 		newSave("hard")
 	} else {
@@ -240,7 +240,7 @@ function enterExtremeMode(){
 	if (player.hardmode) {
 		if (!confirm("你已处于困难模式，不建议这样做。" + s)) return 
 	}
-	if (confirm("要将其应用到当前存档 [cancel] 还是创建新存档 [okay]？")) {
+	if (confirm("要将其应用到当前存档 [取消] 还是创建新存档 [确定]？")) {
 		// this means you said okay so create a new save
 		newSave("extreme")
 	} else {
@@ -253,7 +253,7 @@ function enterExtremeMode(){
 function enterEasyMode(){
 	let s = "确定要进入简单模式吗？此操作无法撤销。"
 	if (!confirm(s)) return 
-	if (confirm("要将其应用到当前存档 [cancel] 还是创建新存档 [okay]？")) {
+	if (confirm("要将其应用到当前存档 [取消] 还是创建新存档 [确定]？")) {
 		// this means you said okay so create a new save
 		newSave("easy")
 	} else {
