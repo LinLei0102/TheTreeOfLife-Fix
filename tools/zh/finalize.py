@@ -284,6 +284,25 @@ def apply_theme_name():
         return 1
     return 0
 
+def apply_formula_words():
+    """公式/描述串里夹带的普通英文词（Thoughts→思想、resets→重置次数等）。
+
+    采用整串精确替换，避免误伤 makeBlue()/方括号占位符/英文 replace 检索键。
+    make/him/gonna/Tapeworm/Hual 等混淆词与台词梗是游戏玩法内容，刻意保留。
+    """
+    mp = json.load(open(os.path.join(D,'formula_words.json'),encoding='utf-8'))
+    total=0
+    for f,pairs in mp.items():
+        p=os.path.join(ROOT,f)
+        if not os.path.exists(p): continue
+        s=open(p,encoding='utf-8',newline='').read()
+        for a,b in pairs.items():
+            c=s.count(a)
+            if c==0: print('  WARN 公式词未命中:',f,repr(a[:48]),file=sys.stderr)
+            s=s.replace(a,b); total+=c
+        open(p,'w',encoding='utf-8',newline='').write(s)
+    return total
+
 def apply_resource_names():
     """improveName() 把子资源 id 动态拼成英文（genes→Genes、widgets→Widgets）。
 
@@ -368,5 +387,6 @@ def main():
     print("主题名:",apply_theme_name())
     print("零散单位:",apply_misc_units())
     print("资源显示名:",apply_resource_names())
+    print("公式普通词:",apply_formula_words())
 
 if __name__=='__main__': main()

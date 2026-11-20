@@ -1365,7 +1365,7 @@ addLayer("h", {
                         },
                         description(){
                                 if (!hasUpgrade("tokens", 71) && !player.shiftAlias && !hasUpgrade("h", 71)) return "需要代币升级 71<br>按住 shift 查看效果"
-                                if (player.shiftAlias ^ hasUpgrade("tokens", 71)) return "获得 10 倍金币，每次升级 min(5, log10(coins + 10)) 使氧产出倍增"
+                                if (player.shiftAlias ^ hasUpgrade("tokens", 71)) return "获得 10 倍金币，每次升级 min(5, log10(金币 + 10)) 使氧产出倍增"
                                 a = "min(5, log10(金币 + 10))"
                                 return a
                         },
@@ -6877,7 +6877,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Hydrogen)^x<br>" + format(tmp.sci.buyables[13].base) + "^x"
+                                let eformula = "log10(氢)^x<br>" + format(tmp.sci.buyables[13].base) + "^x"
                                 if (hasUpgrade("sci", 121)) eformula = eformula.replace("log10", "ln")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -9478,11 +9478,11 @@ addLayer("sci", {
 
                                         let ret0 = a + br2 + b + br2
                                         if (hasUpgrade("sci", 305)) ret0 = ""
-                                        let c = "氧科学基础产出为 log10(Hydrogen 科学)*log10(氧)*log10(碳)"
+                                        let c = "氧科学基础产出为 log10(氢科学)*log10(氧)*log10(碳)"
                                         
                                         if (!hasUpgrade("sci", 125) && !player.n.unlocked) return ret0 + c
 
-                                        let d = "碳科学基础产出为log10(氧科学)*log10(C点)*10<sup>tokens+slots-50</sup>"
+                                        let d = "碳科学基础产出为log10(氧科学)*log10(C点)*10<sup>代币+槽位-50</sup>"
                                         let ret1 = ret0 + c + br2 + d
                                         if (hasUpgrade("sci", 402)) ret1 = d
 
@@ -10031,9 +10031,9 @@ addLayer("c", {
                         description(){
                                 if (!player.shiftAlias) {
                                         if (player.extremeMode) return "多项式基础值 +.01，紫外基础值乘以 17"
-                                        return "cbrt(max(10h, seconds played))乘以紫外线基础，多项式基础加.01<br>当前：" + format(tmp.c.upgrades[22].effect)
+                                        return "cbrt(max(10h, 游玩时间))乘以紫外线基础，多项式基础加.01<br>当前：" + format(tmp.c.upgrades[22].effect)
                                 }
-                                a = "cbrt(max(36000, seconds played))"
+                                a = "cbrt(max(36000, 游玩时间))"
                                 if (hasUpgrade("c", 24)) a += "+1000"
                                 if (hasUpgrade("c", 22)) return a
                                 if (player.extremeMode) a = ""
@@ -12616,7 +12616,7 @@ addLayer("p", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>磷酸盐 III"
                         },
                         description(){
-                                return "每次升级使氮科学产出乘以 min(1e30, log10(Phosphorus))"
+                                return "每次升级使氮科学产出乘以 min(1e30, log10(磷))"
                         },
                         cost:() => new Decimal(5e135),
                         unlocked(){
@@ -13417,7 +13417,7 @@ addLayer("mu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>µ III"
                         },
                         description(){
-                                let a = "每个 µ 将磷产出乘以 log10(Phosphorus)"
+                                let a = "每个 µ 将磷产出乘以 log10(磷)"
                                 let b = "当前: " + formatWhole(tmp.mu.upgrades[13].effect)
                                 if (hasUpgrade("mu", 31)) a = a.replace("log10", player.extremeMode ? "log3" : "log4")
                                 else if (hasUpgrade("mu", 25)) a = a.replace("log10", "log5")
@@ -18164,13 +18164,13 @@ addLayer("l", {
                                                 let challStart = makeBlue("挑战的效果") + ":" + br
                                                 let c2 = "挑战 2：每层深度给 µ 花费指数增加 .01"
                                                 let c3 = "挑战 3：氧和碳产出每深度膨胀 ^.99+1 选 2"
-                                                let c4 = "挑战 4：膨胀指数减去 floor(35*depth<sup>.5</sup>)/1000"
-                                                let c5 = "挑战 5：生命点产出膨胀 ^.665<sup>sqrt(depth)</sup>"
-                                                let c6 = "挑战 6：每挑战 2 深度 + 86 使生命点产出膨胀 ^(.96^depth<sup>1/8</sup>)"
-                                                let c7 = "挑战 7：挑战 6 基础值降低 .023*depth<sup>.56</sup>"
+                                                let c4 = "挑战 4：膨胀指数减去 floor(35*深度<sup>.5</sup>)/1000"
+                                                let c5 = "挑战 5：生命点产出膨胀 ^.665<sup>sqrt(深度)</sup>"
+                                                let c6 = "挑战 6：每挑战 2 深度 + 86 使生命点产出膨胀 ^(.96^深度<sup>1/8</sup>)"
+                                                let c7 = "挑战 7：挑战 6 基础值降低 .023*深度<sup>.56</sup>"
                                                 let c8 = "挑战8：挑战3至7的深度提高3.3+深度/2倍，<br>挑战2提高.5+深度/2倍"
                                                 if (player.extremeMode) {
-                                                        c3 = c3.replace(".99", ".985-depth/200")
+                                                        c3 = c3.replace(".99", ".985-深度/200")
                                                         c5 = c5.replace(".665", ".713")
                                                         c6 = c6.replace(".96", ".951")
                                                         c6 = c6.replace("1/8", "1/10")
@@ -21065,7 +21065,7 @@ addLayer("a", {
                                         
                                         if (!hasUpgrade("a", 11)) return part2
 
-                                        let i = "基础蛋白质产出为 log10(10+Amino Acid)"
+                                        let i = "基础蛋白质产出为 log10(10+氨基酸)"
                                         let boostExp = tmp.a.protein.mRNAtRNABoostExp
                                         let j1 = "当前你的 mRNA 和 tRNA 使非 mRNA 和非 tRNA 加成<br>实际为 ^" + format(boostExp)
                                         j1 += " 意味着 2 倍蛋白质产出提升净得 " + format(Decimal.pow(2, boostExp)) + " 更多总蛋白质"
@@ -22226,12 +22226,12 @@ addLayer("d", {
                                 "main-display",
                                 ["display-text", function(){
                                         let div = player.extremeMode ? "8e315" : "4.4e144"
-                                        let a1 = "初始DNA产出：(sqrt(log10(Amino Acid/" + div + "))/2-1.50)<sup>2</sup>"
+                                        let a1 = "初始DNA产出：(sqrt(log10(氨基酸/" + div + "))/2-1.50)<sup>2</sup>"
                                         if (player.extremeMode) a1 = a1.replace("1.50", "4.00")
 
                                         let char = tmp.d.getBaseGainAddition.gte(0) ? "+" : "-"
                                         let exp = "<sup>" + format(tmp.d.getGainExp) + "</sup>"
-                                        let a2 = "当前DNA产出：(sqrt(log10(Amino Acid/" + div + "))/2" + char + format(tmp.d.getBaseGainAddition.abs()) + ")" + exp 
+                                        let a2 = "当前DNA产出：(sqrt(log10(氨基酸/" + div + "))/2" + char + format(tmp.d.getBaseGainAddition.abs()) + ")" + exp 
                                         a2 = a2.replace("+0.00", "")
                                         if (hasUpgrade("or", 222)) a2 = "当前DNA产出：(2^[Tokens II])" + exp
                                         if (hasUpgrade("or", 21)) a2 = a2.replace("2", "4")
@@ -23719,7 +23719,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Mu I"
                         },
                         description(){
-                                let a = "log10(10+total μ) 乘以 μ 和细胞产出"
+                                let a = "log10(10+总 μ) 乘以 μ 和细胞产出"
                                 return a + br + "当前: " + format(tmp.cells.upgrades[111].effect)
                         },
                         effect(){
@@ -23806,7 +23806,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Λ I"
                         },
                         description(){
-                                let a = "log10(10+total λ) 乘以 λ 和细胞产出"
+                                let a = "log10(10+总 λ) 乘以 λ 和细胞产出"
                                 return a + br + "当前: " + format(tmp.cells.upgrades[211].effect)
                         },
                         effect(){
@@ -23901,7 +23901,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>κ I"
                         },
                         description(){
-                                let a = "log10(10+total κ) 乘以 κ 和细胞产出"
+                                let a = "log10(10+总 κ) 乘以 κ 和细胞产出"
                                 return a + br + "当前: " + format(tmp.cells.upgrades[311].effect)
                         },
                         effect(){
@@ -23996,7 +23996,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>ι I"
                         },
                         description(){
-                                let a = "log10(10+total ι) 乘以 ι 和细胞产出"
+                                let a = "log10(10+总 ι) 乘以 ι 和细胞产出"
                                 return a + br + "当前: " + format(tmp.cells.upgrades[411].effect)
                         },
                         effect(){
@@ -24017,7 +24017,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>ι II"
                         },
                         description(){
-                                let a = "每次升级，log10(log10(total ι)) 使 κ、μ 和 λ 产出倍增"
+                                let a = "每次升级，log10(log10(总 ι)) 使 κ、μ 和 λ 产出倍增"
                                 return a + br + "当前: " + format(tmp.cells.upgrades[412].effect)
                         },
                         effect(){
@@ -41169,7 +41169,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>强化效果 XVIII"
                         },
                         description(){
-                                return "真核生物 IV 数量<sup>Mastery 代币</sup> 使基因产出倍增"
+                                return "真核生物 IV 数量<sup>精通代币</sup> 使基因产出倍增"
                         },
                         cost:() => new Decimal("5e629"),
                         unlocked(){
@@ -41217,7 +41217,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>强化效果 XXII"
                         },
                         description(){
-                                return "原核生物 II 数量<sup>Mastery 代币/100</sup> 使动物产出倍增"
+                                return "原核生物 II 数量<sup>精通代币/100</sup> 使动物产出倍增"
                         },
                         cost:() => new Decimal("2e1028"),
                         unlocked(){
@@ -41273,7 +41273,7 @@ addLayer("sp", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：每次重置保留一个动物、染色体和细胞核里程碑，污染率在你拥有11条染色体前为1%，并增加floor(cbrt(resets))个有效细胞核，上限3。"
+                                return "奖励：每次重置保留一个动物、染色体和细胞核里程碑，污染率在你拥有11条染色体前为1%，并增加floor(cbrt(重置次数))个有效细胞核，上限3。"
                         },
                 }, // hasMilestone("sp", 1)
                 2: {
@@ -42550,7 +42550,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 IX"
                         },
                         description(){
-                                return "DNA 产出指数乘以 sqrt(Mastery 代币)，多能干细胞花费基数减半"
+                                return "DNA 产出指数乘以 sqrt(精通代币)，多能干细胞花费基数减半"
                         },
                         cost:() => new Decimal(1e86),
                         unlocked(){
@@ -44986,7 +44986,7 @@ addLayer("hu", {
                 return "重置以获得 <b>" + formatWhole(tmp.hu.getResetGain) + "</b> 人类" + b
         },
         tooltip(){
-                return formatWhole(player.hu.points) + " 人类和 " + format(player.hu.thoughts.points) + " Thoughts"
+                return formatWhole(player.hu.points) + " 人类和 " + format(player.hu.thoughts.points) + " 思想"
         },
         layerShown(){
                 if (tmp.hu.deactivated) return false
@@ -49291,7 +49291,7 @@ addLayer("hu", {
                                 "main-display",
                                 ["display-text", function(){
                                         let a = "人类重置所有先前层级。为解锁人类，始终批量购买染色体。"
-                                        let b = "效果公式：10<sup>sqrt(Thoughts)</sup>"
+                                        let b = "效果公式：10<sup>sqrt(思想)</sup>"
                                         let c = "初始人类产出：(log10(生物质/1e44,000)/2,000)<sup>3</sup>"
                                         c += br + "当前人类产出：(log10(生物质/1e44,000)/DIV)<sup>EXP</sup>"
                                         if (hasMilestone("hu", 49)) c = c.replace("/DIV", "")
@@ -49649,7 +49649,7 @@ addLayer("r", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：人类可购买项自动购买器速度乘以[resets]，前50次重置每次使细胞核花费指数减.0002，<b>全部</b>和<b>无</b>对<i>Hual</i>基础的减半立即生效。"
+                                return "奖励：人类可购买项自动购买器速度乘以[重置次数]，前50次重置每次使细胞核花费指数减.0002，<b>全部</b>和<b>无</b>对<i>Hual</i>基础的减半立即生效。"
                         },
                 }, // hasMilestone("r", 2)
                 3: {
@@ -55675,7 +55675,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(log10(Hydrogen))<sup>x</sup><br>" + format(getBuyableBase("mini", 112)) + "^x"
+                                let eformula = "(log10(氢))<sup>x</sup><br>" + format(getBuyableBase("mini", 112)) + "^x"
                                 if (hasChallenge("n", 12)) eformula = eformula.replace("log10", "ln")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -58152,7 +58152,7 @@ addLayer("mini", {
                                 return "<bdi style='color: #FF0000'>咖啡</bdi>"
                         },
                         description(){
-                                return "自动购买 C 可购买项，log10(Hydrogen) 使 C 点产出倍增，玉米间隔缩短至 6"
+                                return "自动购买 C 可购买项，log10(氢) 使 C 点产出倍增，玉米间隔缩短至 6"
                         },
                         cost:() => Decimal.pow(10, 777),
                         currencyLocation:() => player.mini.c_points,
