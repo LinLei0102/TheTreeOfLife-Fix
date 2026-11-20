@@ -362,6 +362,41 @@ def apply_misc_units():
         open(p,'w',encoding='utf-8',newline='').write(s)
     return total
 
+def apply_save_ui():
+    """存档管理/导入导出弹窗里的英文提示中文化。只改展示字符串字面量。"""
+    mp=json.load(open(os.path.join(D,'save_ui_zh.json'),encoding='utf-8'))
+    return apply_contains({'js/utils/save.js':mp})
+
+def apply_save_names():
+    """内置存档名（CUSTOM_SAVES 的对象键）中文化。
+
+    存档名既是 UI 显示文本，也是 importSave 的查找键（CUSTOM_SAVES_IDS =
+    Object.keys(CUSTOM_SAVES)，点击原样传回），因此翻译键会同步生效。
+    只改「字符串字面量恰好等于存档名」的项（即键），base64 值不匹配任何
+    存档名、绝不改动。保留 EX: 前缀（key.slice(0,2)=='EX' 与 .replace 依赖）。
+    """
+    mp=json.load(open(os.path.join(D,'save_names.json'),encoding='utf-8'))
+    p=os.path.join(ROOT,'js','technical','customSaves.js')
+    if not os.path.exists(p): return 0
+    s=open(p,encoding='utf-8',newline='').read()
+    strings,_=scan(s)
+    # 只把「字面量值恰好是英文存档名」的项列为编辑；最长优先避免子串误伤
+    edits=[]
+    for x in strings:
+        if x['end']-x['start']>200: continue  # 跳过超长 base64
+        val=decode_js_string(x['raw'],x['quote'])
+        if val in mp:
+            new=mp[val]
+            if new!=val: edits.append((x['start'],x['end'],x['quote'],new))
+    edits.sort(key=lambda e:e[0],reverse=True)
+    for st,enp,q,new in edits:
+        out=new.replace('\\','\\\\').replace('\n','\\n')
+        if q=="'": out=out.replace("'","\\'")
+        elif q=='"': out=out.replace('"','\\"')
+        s=s[:st]+q+out+q+s[enp:]
+    if edits: open(p,'w',encoding='utf-8',newline='').write(s)
+    return len(edits)
+
 def main():
     print("数字函数:",apply_number_fn())
     locale={
@@ -400,5 +435,7 @@ def main():
     print("资源显示名:",apply_resource_names())
     print("公式普通词:",apply_formula_words())
     print("方括号占位符:",apply_bracket_tokens())
+    print("内置存档名:",apply_save_names())
+    print("存档弹窗提示:",apply_save_ui())
 
 if __name__=='__main__': main()

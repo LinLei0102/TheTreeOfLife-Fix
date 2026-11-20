@@ -1,0 +1,19 @@
+{
+  "Are you sure you want to do this? You will lose all your progress!": "确定要这样做吗？你将失去所有进度！",
+  "saved at ": "保存于 ",
+  "Enter save name: ": "输入存档名：",
+  "Sorry, that name is used in the game's data, so you can't use it personally or it will cause terrible glitches!": "抱歉，该名称已被游戏数据占用，你不能自用，否则会导致严重故障！",
+  "That name is taken already, sorry!": "该名称已被占用，抱歉！",
+  "This name is too long!": "该名称太长！",
+  "Are you sure you wish to delete your save named ": "确定要删除名为 ",
+  "Old: ": "旧：",
+  ", New: ": "，新：",
+  "Congratulations! You have reached the end and beaten this game, but for now...": "恭喜！你已抵达终点并通关本游戏，不过现在……",
+  "Invalid value found in player, named '": "在玩家数据中发现无效值，名为“",
+  "'. Please let the creator of this mod know! You can refresh the page, and you will be un-NaNed.": "”。请告知本 Mod 作者！刷新页面即可恢复正常数值。",
+  "Save Exported!": "存档已导出！",
+  "Paste your save here": "在此粘贴你的存档",
+  "This save appears to be for a different mod! Are you sure you want to import?": "该存档似乎属于另一个 Mod！确定要导入吗？",
+  "Are you sure you want to import the '": "确定要导入“",
+  "' save?": "”存档吗？"
+}

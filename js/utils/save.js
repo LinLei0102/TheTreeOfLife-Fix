@@ -11,7 +11,7 @@ function save(name = allSaves.set, force) {
 }
 
 function hardReset(resetOptions) {
-	if (!confirm("Are you sure you want to do this? You will lose all your progress!")) return
+	if (!confirm("确定要这样做吗？你将失去所有进度！")) return
 	player = getStartPlayer()
 	save()
 	window.location.reload()
@@ -19,7 +19,7 @@ function hardReset(resetOptions) {
 
 function setLocalStorage() {
 	let t = new Date().getTime()
-	if (logSave) console.log("saved at " + t)
+	if (logSave) console.log("保存于 " + t)
 	if (!(player === null)) player.lastSave = t
 	localStorage.setItem(modInfo.id, btoa(unescape(encodeURIComponent(JSON.stringify(allSaves)))))
 	localStorage.setItem(modInfo.id+"_options", btoa(unescape(encodeURIComponent(JSON.stringify(options)))))
@@ -36,16 +36,16 @@ function loadSave(name) {
 }
 
 function renameSave(name) {
-	let newName = prompt("Enter save name: ")
+	let newName = prompt("输入存档名：")
 	newName = newName.replace(saveRegexCode, "") // Removes all non-alphanumeric characters
 	if (newName=="set") {
-		alert("Sorry, that name is used in the game's data, so you can't use it personally or it will cause terrible glitches!")
+		alert("抱歉，该名称已被游戏数据占用，你不能自用，否则会导致严重故障！")
 		return
 	} else if (allSaves[newName] !== undefined) {
-		alert("That name is taken already, sorry!")
+		alert("该名称已被占用，抱歉！")
 		return
 	} else if (newName.length>20) {
-		alert("This name is too long!")
+		alert("该名称太长！")
 		return
 	} else {
 		if (name==allSaves.set) save()
@@ -62,7 +62,7 @@ function deleteSave(name) {
 		hardReset()
 		return
 	}
-	if (!confirm("Are you sure you wish to delete your save named " + name + "?")) return
+	if (!confirm("确定要删除名为 " + name + "?")) return
 	allSaves[name] = undefined
 	if (name == allSaves.set) {
 		let valid = Object.keys(allSaves).filter(x => (x != "set" && (allSaves[x] !== undefined || x == name)))
@@ -74,16 +74,16 @@ function deleteSave(name) {
 }
 
 function newSave(mode) {
-	let newName = prompt("Enter save name: ")
+	let newName = prompt("输入存档名：")
 	newName = newName.replace(saveRegexCode, "") // Removes all non-alphanumeric characters
 	if (newName=="set") {
-		alert("Sorry, that name is used in the game's data, so you can't use it personally or it will cause terrible glitches!")
+		alert("抱歉，该名称已被游戏数据占用，你不能自用，否则会导致严重故障！")
 		return
 	} else if (allSaves[newName] !== undefined) {
-		alert("That name is taken already, sorry!")
+		alert("该名称已被占用，抱歉！")
 		return
 	} else if (newName.length > 20) {
-		alert("This name is too long!")
+		alert("该名称太长！")
 		return
 	} else {
 		startPlayer = getStartPlayer()
@@ -106,7 +106,7 @@ function moveSave(name, dir) {
 	let valid = Object.keys(allSaves).filter(x => (x!="set" && allSaves[x]!==undefined))
 	let oldPos = valid.indexOf(name)
 	let newPos = Math.min(Math.max(oldPos+dir, 0), valid.length-1)
-	console.log("Old: "+oldPos+", New: "+newPos)
+	console.log("旧："+oldPos+"，新："+newPos)
 	if (oldPos==newPos) return
 	
 	let name1 = valid[oldPos]
@@ -189,7 +189,7 @@ function loadOptions() {
 
 function setupModInfo() {
 	modInfo.changelog = CHANGELOGS[0]
-	modInfo.winText = winText ? winText : `Congratulations! You have reached the end and beaten this game, but for now...`
+	modInfo.winText = winText ? winText : `恭喜！你已抵达终点并通关本游戏，不过现在……`
 }
 
 function fixNaNs() {
@@ -209,7 +209,7 @@ function NaNcheck(data) {
 				clearInterval(interval)
 				NaNalert = true
 				console.log(data, item)
-				alert("Invalid value found in player, named '" + item + "'. Please let the creator of this mod know! You can refresh the page, and you will be un-NaNed.")
+				alert("在玩家数据中发现无效值，名为“" + item + "”。请告知本 Mod 作者！刷新页面即可恢复正常数值。")
 				return false
 			}
 		}
@@ -233,15 +233,15 @@ function exportSave() {
 	el.setSelectionRange(0, 99999)
 	document.execCommand("copy")
 	document.body.removeChild(el)
-	doPopup("export", "", "Save Exported!", 1, "#25B9E3");
+	doPopup("export", "", "存档已导出！", 1, "#25B9E3");
 }
 
 function importSave(imported = undefined, forced = false, fromCustomSaves = false) {
-	if (imported === undefined) imported = prompt("Paste your save here")
+	if (imported === undefined) imported = prompt("在此粘贴你的存档")
 	try {
-		let confirmString = "This save appears to be for a different mod! Are you sure you want to import?"
+		let confirmString = "该存档似乎属于另一个 Mod！确定要导入吗？"
 		if (CUSTOM_SAVES_IDS.includes(imported)) {
-			let cString = "Are you sure you want to import the '" + imported + "' save?" 
+			let cString = "确定要导入“" + imported + "”存档吗？" 
 			if (fromCustomSaves) if (!confirm(cString.replace("EX: ", ""))) return 
 			imported = CUSTOM_SAVES[imported]
 		}
