@@ -21090,11 +21090,11 @@ addLayer("a", {
                                         let j = j1 + j2 + br
 
                                         if (tmp.a.protein.getAUpgBase.gt(1)) {
-                                                j += br + "Each "
+                                                j += br + "每个 "
                                                 j += makeBlue("氨基酸升级") + " 给出一个 " + doEndingFormula(tmp.a.protein.getAUpgBase)
                                         }
                                         if (tmp.a.protein.getSciUpgBase.gt(1)) {
-                                                j += br + "Each "
+                                                j += br + "每个 "
                                                 j += makeBlue("蛋白质科学升级") + " 给出一个 " + doEndingFormula(tmp.a.protein.getSciUpgBase)
                                         }
                                         if (hasUpgrade("a", 13)) {
@@ -21147,8 +21147,8 @@ addLayer("a", {
                                         }
                                         let mBase = tmp.a.protein.getAMilestoneBase
                                         if (mBase.gt(1)) {
-                                                j += br + "Each "
-                                                j += makeBlue("milestone") + " 给出一个 " + doEndingFormula(mBase)
+                                                j += br + "每个 "
+                                                j += makeBlue("里程碑") + " 给出一个 " + doEndingFormula(mBase)
                                         }
                                         if (hasMilestone("a", 29)) {
                                                 let base = getBuyableAmount("a", 13).div(100).plus(1)
@@ -53086,7 +53086,7 @@ addLayer("ach", {
                                 "main-display-goals",
                                 "clickables",
                                 ["display-text",function(){
-                                        return "你已完成第一个 " + formatWhole(player.ach.completedRows) + " rows"
+                                        return "你已完成前 " + formatWhole(player.ach.completedRows) + " 行"
                                 }],
                                 "achievements",
                         ],
@@ -62999,7 +62999,7 @@ addLayer("tokens", {
                         cost:() => decimalThree,
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return true
@@ -63027,7 +63027,7 @@ addLayer("tokens", {
                         cost:() => decimalFive,
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasUpgrade("tokens", 11) || hasMilestone("tokens", 18)
@@ -63055,7 +63055,7 @@ addLayer("tokens", {
                         cost:() => decimalFive,
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasUpgrade("tokens", 11) || hasMilestone("tokens", 18)
@@ -63083,7 +63083,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(30),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) ||  hasMilestone("tokens", 18) || hasUpgrade("o", 23) && (hasUpgrade("tokens", 21) || hasUpgrade("tokens", 22))
@@ -63111,7 +63111,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(30),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || hasUpgrade("o", 23) && (hasUpgrade("tokens", 21) || hasUpgrade("tokens", 22))
@@ -63139,7 +63139,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(30),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || hasUpgrade("o", 23) && (hasUpgrade("tokens", 21) || hasUpgrade("tokens", 22))
@@ -63167,7 +63167,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(30),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || hasUpgrade("o", 23) && (hasUpgrade("tokens", 21) || hasUpgrade("tokens", 22))
@@ -63189,7 +63189,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(60),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || hasUpgrade("tokens", 31) || hasUpgrade("tokens", 32) || hasUpgrade("tokens", 33) || hasUpgrade("tokens", 34)
@@ -63211,7 +63211,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(60),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || hasUpgrade("tokens", 31) || hasUpgrade("tokens", 32) || hasUpgrade("tokens", 33) || hasUpgrade("tokens", 34)
@@ -63239,7 +63239,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(100),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 if (hasMilestone("n", 5) || hasMilestone("tokens", 18)) return true
@@ -63269,7 +63269,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(100),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 if (hasMilestone("n", 5) || hasMilestone("tokens", 18)) return true
@@ -63294,7 +63294,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(200),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || (hasUpgrade("tokens", 51) || hasUpgrade("tokens", 52)) && player.tokens.total.gte(20)
@@ -63316,7 +63316,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(250),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || (hasUpgrade("tokens", 51) || hasUpgrade("tokens", 52)) && player.tokens.total.gte(20)
@@ -63348,7 +63348,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(3000),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || (hasUpgrade("tokens", 61) || hasUpgrade("tokens", 62)) && player.tokens.total.gte(22)
@@ -63380,7 +63380,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(3000),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || (hasUpgrade("tokens", 61) || hasUpgrade("tokens", 62)) && player.tokens.total.gte(22)
@@ -63412,7 +63412,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(2000),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasMilestone("n", 5) || hasMilestone("tokens", 18) || (hasUpgrade("tokens", 61) || hasUpgrade("tokens", 62)) && player.tokens.total.gte(22)
@@ -63443,7 +63443,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(player.extremeMode ? 3e4 : 2e4),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 let v = player.extremeMode ? 42 : 41
@@ -63475,7 +63475,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(player.extremeMode ? 3e4 : 2e4),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 let v = player.extremeMode ? 42 : 41
@@ -63498,7 +63498,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(1e5),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasUpgrade("tokens", 91) || player.tokens.total.gte(54) || hasMilestone("n", 5)
@@ -63520,7 +63520,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(2e5),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasUpgrade("tokens", 92) || player.tokens.total.gte(56) || hasMilestone("n", 5)
@@ -63542,7 +63542,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(3e5),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasUpgrade("tokens", 93) || player.tokens.total.gte(61) || hasMilestone("n", 5)
@@ -63564,7 +63564,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(1e6),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasUpgrade("tokens", 94) || player.tokens.total.gte(63) || hasMilestone("n", 5)
@@ -63586,7 +63586,7 @@ addLayer("tokens", {
                         cost:() => new Decimal(3e6),
                         currencyLocation:() => player.tokens.coins,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Coins",
+                        currencyDisplayName:() => "硬币",
                         unlocked(){
                                 if (hasUpgrade("t", 61) || hasUpgrade("or", 11) || player.hu.unlocked) return false
                                 return hasUpgrade("tokens", 95) || player.tokens.total.gte(64) || hasMilestone("n", 5)

@@ -34,7 +34,11 @@
     "a += \" 干细胞可购买项\" + (player.cells.challenges[21] > 0 ? \"s\" : \"\")": "a += \" 干细胞可购买项\"",
     "d += \"gain\"": "d += \"\"",
     "d += \"REMOVE\"": "d += \"移除\"",
-    "d.replace(\"下一个：移除\", \"\")": "d.replace(\"下一个: 移除\", \"\")"
+    "d.replace(\"下一个：移除\", \"\")": "d.replace(\"下一个: 移除\", \"\")",
+    "return \"你已完成第一个 \" + formatWhole(player.ach.completedRows) + \" rows\"": "return \"你已完成前 \" + formatWhole(player.ach.completedRows) + \" 行\"",
+    "j += br + \"Each \"": "j += br + \"每个 \"",
+    "j += makeBlue(\"milestone\") + \" 给出一个 \"": "j += makeBlue(\"里程碑\") + \" 给出一个 \"",
+    "currencyDisplayName:() => \"Coins\"": "currencyDisplayName:() => \"硬币\""
   },
   "js/technical/displays.js": {
     "?\"Finish\":\"提前退出\"):(hasChallenge(layer, id)?\"Completed\":\"Start\")": "?\"完成\":\"提前退出\"):(hasChallenge(layer, id)?\"已完成\":\"开始\")"
