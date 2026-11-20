@@ -34,7 +34,8 @@ function changeTheme() {
 }
 
 function getThemeName() {
-	return options.theme? options.theme : "default";
+	var t = options.theme? options.theme : "default";
+	return {"default":"默认","aqua":"水蓝"}[t] || t;
 }
 
 function switchTheme() {

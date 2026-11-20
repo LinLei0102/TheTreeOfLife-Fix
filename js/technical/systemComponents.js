@@ -132,113 +132,113 @@ var systemComponents = {
 		<h3>{{VERSION.withName}}</h3>
 		<span v-if="modInfo.author">
 		<br>
-		Made by {{modInfo.author}}	
+		制作者：{{modInfo.author}}	
 		</span>
 		<br>
-		The Modding Tree <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a> by Acamaeda
+		The Modding Tree <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a>，作者 Acamaeda
 		<br>
-		The Prestige Tree made by Jacorb and Aarex
+		The Prestige Tree，作者 Jacorb 与 Aarex
 			<br><br>
 		<span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
 		<a class="link" href="https://discord.gg/F3xveHV" target="_blank" v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">The Modding Tree Discord</a><br>
-		<a class="link" href="http://discord.gg/wwQfgPa" target="_blank" v-bind:style="{'font-size': '16px'}">Main Prestige Tree server</a><br>
+		<a class="link" href="http://discord.gg/wwQfgPa" target="_blank" v-bind:style="{'font-size': '16px'}">主声望树服务器</a><br>
 
-		<button class="opt" onclick="player.modTab = !player.modTab"><span>{{player.modTab ? "Show info tab":"Show mod selection tab"}}</button>
+		<button class="opt" onclick="player.modTab = !player.modTab"><span>{{player.modTab ? "显示信息页":"显示模组选择页"}}</button>
 
 		<span v-if="player.modTab">
 		<br><br>
-		Enter Modes: 
+		进入模式：
 		<table>
 			<tr>
 				<td>
 					<button class="opt" onclick="enterHardMode()">
-						<span v-if="player.hardMode"><bdi style='color:#CC0033'>{{"In hard mode"}}</bdi></span>
-						<span v-if="!player.hardMode"><bdi style='color:#3300CC'>{{"Enter hard mode"}}</bdi></span>
+						<span v-if="player.hardMode"><bdi style='color:#CC0033'>{{"困难模式中"}}</bdi></span>
+						<span v-if="!player.hardMode"><bdi style='color:#3300CC'>{{"进入困难模式"}}</bdi></span>
 					</button>
 				</td>
 				<td>
 					<button class="opt" onclick="enterExtremeMode()">
-						<span v-if="player.extremeMode"><bdi style='color:#CC0033'>{{"In extreme mode"}}</bdi></span>
-						<span v-if="!player.extremeMode"><bdi style='color:#3300CC'>{{"Enter extreme mode"}}</bdi></span>
+						<span v-if="player.extremeMode"><bdi style='color:#CC0033'>{{"极限模式中"}}</bdi></span>
+						<span v-if="!player.extremeMode"><bdi style='color:#3300CC'>{{"进入极限模式"}}</bdi></span>
 					</button>
 				</td>
 				<td>
 					<button class="opt" onclick="enterEasyMode()">
-						<span v-if="player.easyMode"><bdi style='color:#CC0033'>{{"In easy mode"}}</bdi></span>
-						<span v-if="!player.easyMode"><bdi style='color:#3300CC'>{{"Enter easy mode"}}</bdi></span>
+						<span v-if="player.easyMode"><bdi style='color:#CC0033'>{{"简单模式中"}}</bdi></span>
+						<span v-if="!player.easyMode"><bdi style='color:#3300CC'>{{"进入简单模式"}}</bdi></span>
 					</button>
 				</td>
 			</tr>
 		</table>
 		<br><br>
-		<h2 style='color: #FF0066'>Hard mode</h2>:<br>
-		Most passive gains are 4x less and various other smaller nerfs<br><br>
+		<h2 style='color: #FF0066'>困难模式</h2>:<br>
+		大多数被动产出降低为四分之一，另有若干较小的削弱<br><br>
 
-		<h2 style='color: #FF0066'>Easy mode</h2>:<br>
-		All bulk buying is done by default<br>
-		Gain 2x of all prestige currencies, and 4x of all passive gain currencies<br>
-		Gain 2x resets at once and pre-Phosphorus resource gain ^1.001<br><br>
+		<h2 style='color: #FF0066'>简单模式</h2>:<br>
+		默认启用全部批量购买<br>
+		所有声望货币产出翻倍，所有被动产出货币产出翻四倍<br>
+		一次性转生收益翻倍，磷之前资源产出 ^1.001<br><br>
 
-		<h2 style='color: #FF0066'>Extreme mode</h2>:<br>
-		Gain of all currencies is raised ^.75 (after everything except dilation).<br>
-		In exchange, unlock a new layer, Science!<br>
-		For protein, boosts from things other than mRNA and tRNA are ^.75<br><br>
+		<h2 style='color: #FF0066'>极限模式</h2>:<br>
+		所有货币产出取 ^.75 次幂（在除膨胀外的所有加成之后）。<br>
+		作为交换，解锁新层级：科学！<br>
+		对于蛋白质，除 mRNA 和 tRNA 外的加成取 ^.75 次幂<br><br>
 		
 		</span>
 		
 		<span v-if="!player.modTab">
 		<br>
-		Time Played: {{ formatTime(player.timePlayed) }}<br>
-		<h1 style='color: #FF0066'>Shift to see details!</h1><br>
-		Toggles:
+		游戏时长：{{ formatTime(player.timePlayed) }}<br>
+		<h1 style='color: #FF0066'>按住 Shift 查看详情！</h1><br>
+		开关：
 		<table>
 			<tr>
-				<td><button class="opt" onclick="toggleShift()">Force toggle shift<span><bdi style='color:#CC0033'><br>{{shiftDown?"Down":"Up"}}</bdi></span></button></td>
-				<td><button class="opt" onclick="toggleControl()">Force toggle control<span><bdi style='color:#CC0033'><br>{{controlDown?"Down":"Up"}}</bdi></span></button></td>
-				<td><button class="opt" onclick="toggleUndulating()">Toggle Undulating Colors<span><bdi style='color:#CC0033'><br>{{player.undulating?"On":"Off"}}</bdi></span></button></td>
-				<td><button class="opt" onclick="toggleArrowHotkeys()">Toggle Arrow Hotkeys<span><bdi style='color:#CC0033'><br>{{player.arrowHotkeys?"On":"Off"}}</bdi></span></button></td>
-				<td><button class="opt" onclick="player.spaceBarPauses = !player.spaceBarPauses">Toggle space bar pausing<span><bdi style='color:#CC0033'><br>{{player.spaceBarPauses?"Yes":"No"}}</bdi></span></button></td>
-				<td><button class="opt" onclick="player.paused = !player.paused">Toggle pause<span><bdi style='color:#CC0033'><br>{{player.paused?"Paused":"Running"}}</bdi></span></button></td>
+				<td><button class="opt" onclick="toggleShift()">强制切换 Shift<span><bdi style='color:#CC0033'><br>{{shiftDown?"按下":"抬起"}}</bdi></span></button></td>
+				<td><button class="opt" onclick="toggleControl()">强制切换 Ctrl<span><bdi style='color:#CC0033'><br>{{controlDown?"按下":"抬起"}}</bdi></span></button></td>
+				<td><button class="opt" onclick="toggleUndulating()">切换流动色彩<span><bdi style='color:#CC0033'><br>{{player.undulating?"开":"关"}}</bdi></span></button></td>
+				<td><button class="opt" onclick="toggleArrowHotkeys()">切换方向键热键<span><bdi style='color:#CC0033'><br>{{player.arrowHotkeys?"开":"关"}}</bdi></span></button></td>
+				<td><button class="opt" onclick="player.spaceBarPauses = !player.spaceBarPauses">切换空格键暂停<span><bdi style='color:#CC0033'><br>{{player.spaceBarPauses?"是":"否"}}</bdi></span></button></td>
+				<td><button class="opt" onclick="player.paused = !player.paused">切换暂停<span><bdi style='color:#CC0033'><br>{{player.paused?"已暂停":"运行中"}}</bdi></span></button></td>
 			</tr>
 		</table>
-		Others:
+		其他：
 		<table>
 			<tr>
-				<td><button class="opt" onclick="save()">Save<span><br>{{formatTime((new Date().getTime()-player.lastSave)/1000, true)}}</span></button></td>
-				<td><button class="opt" onclick="player.showBuiltInSaves = true">Show built in saves</button></td>
-				<td><button class="opt" onclick="setUpPGSettings()">Make your settings the same as the dev</button></td>
-				<span v-if="player.keepGoing"><td><button class="opt" onclick="player.keepGoing = false">Re-show endgame screen</button></td></span>
+				<td><button class="opt" onclick="save()">保存<span><br>{{formatTime((new Date().getTime()-player.lastSave)/1000, true)}}</span></button></td>
+				<td><button class="opt" onclick="player.showBuiltInSaves = true">显示内置存档</button></td>
+				<td><button class="opt" onclick="setUpPGSettings()">将设置改为开发者默认</button></td>
+				<span v-if="player.keepGoing"><td><button class="opt" onclick="player.keepGoing = false">重新显示终局画面</button></td></span>
 			</tr>
 		</table>
 		
 		<br><br>
-		<h2 style='color: #00FF99'>Hotkeys</h2><br>
+		<h2 style='color: #00FF99'>热键</h2><br>
 		<span v-for="key in hotkeys" v-if="player[key.layer].unlocked && tmp[key.layer].hotkeys[key.id].unlocked"><span v-html="getDescriptionFromKey(key)"></span><br></span>
 		<br><br>
 
-		<h2 style='color: #7D5D9E'>Acknowledgements</h2><br>
-		Thank you to <b>Jacorb</b> for letting me use his multi save code!<br>
-		Thank you to <b>Digiprime</b> for the idea for the Organ layer!<br>
-		Thank you to <b>Lordshinjo</b> for a specific and accurate bug report on "autobuying"<br>buyables and helping to subsequently fix.<br>
-		Thank you to <b>Virgil</b> for suggesting Taxonomy ranks and the general idea.<br>
+		<h2 style='color: #7D5D9E'>致谢</h2><br>
+		感谢 <b>Jacorb</b> 允许我使用他的多存档代码！<br>
+		感谢 <b>Digiprime</b> 提出器官层级的想法！<br>
+		感谢 <b>Lordshinjo</b> 提交了一份关于“自动购买”的具体且准确的错误报告，并协助随后修复。<br>
+		感谢 <b>Virgil</b> 建议了分类学等级和整体构想。<br>
 
 		<br><br><span v-if="player.showBuiltInSaves">
-			<h2 style='color: #00FF99'>Built-in saves</h2><br>
-			<bdi style='color: #F16105'>Warning: Scrolling past here may contain spoilers.</bdi><br><br>
+			<h2 style='color: #00FF99'>内置存档</h2><br>
+			<bdi style='color: #F16105'>警告：继续向下滚动可能包含剧透。</bdi><br><br>
 
-			<button class="opt" onclick="player.CUSTOM_SAVES_PAGE = Math.max(0, player.CUSTOM_SAVES_PAGE - (player.shiftAlias ? 5 : 1))">Previous<br>page<br>(Shift 5x)</button>
-			<button class="opt" onclick="player.CUSTOM_SAVES_PAGE = Math.min(Math.floor(CUSTOM_SAVE_IDS.length / 20), player.CUSTOM_SAVES_PAGE + (player.shiftAlias ? 5 : 1))">Next<br>page<br>(Shift 5x)</button>
+			<button class="opt" onclick="player.CUSTOM_SAVES_PAGE = Math.max(0, player.CUSTOM_SAVES_PAGE - (player.shiftAlias ? 5 : 1))">上一页<br>（Shift 翻 5 页）</button>
+			<button class="opt" onclick="player.CUSTOM_SAVES_PAGE = Math.min(Math.floor(CUSTOM_SAVE_IDS.length / 20), player.CUSTOM_SAVES_PAGE + (player.shiftAlias ? 5 : 1))">下一页<br>（Shift 翻 5 页）</button>
 			<br>
-			<span>Page {{player.CUSTOM_SAVES_PAGE+1}} / {{1+Math.floor(CUSTOM_SAVE_IDS.length / 20)}}</span>
+			<span>第 {{player.CUSTOM_SAVES_PAGE+1}} / {{1+Math.floor(CUSTOM_SAVE_IDS.length / 20)}}</span>
 			<br><br>
 
 			<template v-for="(key, i) in CUSTOM_SAVES_IDS">
 				<table>
 					<tr v-if="i >= 20 * player.CUSTOM_SAVES_PAGE && i < (player.CUSTOM_SAVES_PAGE + 1) * 20">
 						<button class="savebutton" v-on:click="importSave(key, false, true)">
-							<span v-if="key.slice(0,2) == 'EX' " style='color: #AA3333'>EXTREME </span>
-							<span v-if="key.slice(0,2) != 'EX' " style='color: #339966'>NORMAL </span>
-							Import '{{key.replace("EX: ", "")}}' save
+							<span v-if="key.slice(0,2) == 'EX' " style='color: #AA3333'>极限 </span>
+							<span v-if="key.slice(0,2) != 'EX' " style='color: #339966'>普通 </span>
+							导入“{{key.replace("EX: ", "")}}”存档
 						</button>
 					</tr>
 				</table>
@@ -256,29 +256,29 @@ var systemComponents = {
 	<div>
         <table>
             <tr>
-                <td><button class="opt" onclick="save()">Save</button></td>
+                <td><button class="opt" onclick="save()">保存</button></td>
                 <td><button class="opt" onclick="switchLanguage()">语言 / Language: {{ getLangLabel() }}</button></td>
-                <td><button class="opt" onclick="toggleOpt('autosave')">Autosave: {{ options.autosave?"ON":"OFF" }}</button></td>
-                <td><button class="opt" onclick="hardReset()">HARD RESET</button></td>
+                <td><button class="opt" onclick="toggleOpt('autosave')">自动保存：{{ options.autosave?"开":"关" }}</button></td>
+                <td><button class="opt" onclick="hardReset()">硬重置</button></td>
             </tr>
             <tr>
-                <td><button class="opt" onclick="exportSave()">Export to clipboard</button></td>
-                <td><button class="opt" onclick="importSave()">Import</button></td>
-                <td><button class="opt" onclick="toggleOpt('offlineProd')">Offline Prod: {{ options.offlineProd?"ON":"OFF" }}</button></td>
+                <td><button class="opt" onclick="exportSave()">导出到剪贴板</button></td>
+                <td><button class="opt" onclick="importSave()">导入</button></td>
+                <td><button class="opt" onclick="toggleOpt('offlineProd')">离线产出：{{ options.offlineProd?"开":"关" }}</button></td>
             </tr>
             <tr>
-                <td><button class="opt" onclick="switchTheme()">Theme: {{ getThemeName() }}</button></td>
-                <td><button class="opt" onclick="adjustMSDisp()">Show Milestones: {{ MS_DISPLAYS[MS_SETTINGS.indexOf(options.msDisplay)]}}</button></td>
-                <td><button class="opt" onclick="toggleOpt('hqTree')">High-Quality Tree: {{ options.hqTree?"ON":"OFF" }}</button></td>
+                <td><button class="opt" onclick="switchTheme()">主题：{{ getThemeName() }}</button></td>
+                <td><button class="opt" onclick="adjustMSDisp()">显示里程碑：{{ MS_DISPLAYS[MS_SETTINGS.indexOf(options.msDisplay)]}}</button></td>
+                <td><button class="opt" onclick="toggleOpt('hqTree')">高清树：{{ options.hqTree?"开":"关" }}</button></td>
             </tr>
             <tr>
-                <td><button class="opt" onclick="toggleOpt('hideChallenges')">Completed Challenges: {{ options.hideChallenges?"HIDDEN":"SHOWN" }}</button></td>
-                <td><button class="opt" onclick="toggleOpt('forceOneTab'); needsCanvasUpdate = true">Single-Tab Mode: {{ options.forceOneTab?"ALWAYS":"AUTO" }}</button></td>
-		<td><button class="opt" onclick="toggleOpt('forceTooltips'); needsCanvasUpdate = true">Shift-Click to Toggle Tooltips: {{ options.forceTooltips?"ON":"OFF" }}</button></td>
+                <td><button class="opt" onclick="toggleOpt('hideChallenges')">已完成挑战：{{ options.hideChallenges?"隐藏":"显示" }}</button></td>
+                <td><button class="opt" onclick="toggleOpt('forceOneTab'); needsCanvasUpdate = true">单标签模式：{{ options.forceOneTab?"总是":"自动" }}</button></td>
+		<td><button class="opt" onclick="toggleOpt('forceTooltips'); needsCanvasUpdate = true">Shift+点击切换提示：{{ options.forceTooltips?"开":"关" }}</button></td>
 	    </tr> 
 	    <tr>
-	    	<td><button class="opt" onclick="toggleOpt('hideMilestonePopups'); needsCanvasUpdate = false">Popups are: {{ options.hideMilestonePopups?"HIDDEN":"SHOWN" }}</button></td>
-		<td><button class="opt" onclick="showAllSaves()">Show your saves</button></td>
+	    	<td><button class="opt" onclick="toggleOpt('hideMilestonePopups'); needsCanvasUpdate = false">弹窗：{{ options.hideMilestonePopups?"隐藏":"显示" }}</button></td>
+		<td><button class="opt" onclick="showAllSaves()">显示你的存档</button></td>
 		<td></td>
 	    </tr>
         </table>

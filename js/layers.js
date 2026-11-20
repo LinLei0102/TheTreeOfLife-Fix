@@ -33545,8 +33545,8 @@ addLayer("or", {
                                 if (hasUpgrade("an", 13))  logBase = decimalTwo
                                 eformula = eformula.replaceAll("(log10", "(log" + formatWhole(logBase))
                                 eformula = eformula.replaceAll("log2.72", "ln")
-                                if (hasMilestone("an", 34)) eformula = eformula.replace("log10(log2(能量)", "Nucleuses")
-                                if (hasMilestone("sp", 25)) eformula = eformula.replace("Nucleuses", "log10(物种)")
+                                if (hasMilestone("an", 34)) eformula = eformula.replace("log10(log2(能量)", "细胞核")
+                                if (hasMilestone("sp", 25)) eformula = eformula.replace("细胞核", "log10(物种)")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -37216,8 +37216,8 @@ addLayer("an", {
                         },
                         tooltip(){
                                 if (hasAchievement("an", 12) && player.extremeMode) return "奖励：给调节<sup>2</sup>基础值增加 .01"
-                                if (player.extremeMode) return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于155 [shift for primes]"
-                                return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于140 [shift for primes]"
+                                if (player.extremeMode) return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于155 [按住 Shift 查看素数]"
+                                return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于140 [按住 Shift 查看素数]"
                         }, // hasAchievement("an", 12)
                 },
                 13: {
@@ -37287,8 +37287,8 @@ addLayer("an", {
                                 return a >= 17
                         },
                         tooltip(){
-                                if (player.extremeMode) return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于85 [shift for primes]<br>奖励：PRI I的OFF效果始终激活"
-                                return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于105 [shift for primes]<br>奖励：PRI I的OFF效果始终激活"
+                                if (player.extremeMode) return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于85 [按住 Shift 查看素数]<br>奖励：PRI I的OFF效果始终激活"
+                                return "让17个分类学可购买项处于质数等级。所有分类学可购买项必须小于105 [按住 Shift 查看素数]<br>奖励：PRI I的OFF效果始终激活"
                         }, // hasAchievement("an", 22)
                 },
                 23: {
@@ -37441,9 +37441,9 @@ addLayer("an", {
                         content: [
                                 "main-display",
                                 ["display-text", function(){
-                                        if (player.shiftAlias) return br2 + "Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 141, 149, 151"
+                                        if (player.shiftAlias) return br2 + "素数：2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 141, 149, 151"
                                         if (hasAchievement("an", 11) || player.nu.unlocked) {
-                                                let a = "可点击物带有 " + makeRed("red") + " 边界在切换时重置分类学数量和基因"
+                                                let a = "可点击物带有 " + makeRed("红色") + " 边界在切换时重置分类学数量和基因"
                                                 return br2 + a + br + "而具有 <bdi style='color:#7AEEFC'>天蓝色</bdi> 背景的效果始终激活。"
                                         }
                                         return br2 + br2 + br2 
@@ -49691,7 +49691,7 @@ addLayer("r", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：<b>坏</b>的两种完成效果立即生效，<b>不正确</b>的" + makeRed("red") + " 效果为每次 .35%。" 
+                                return "奖励：<b>坏</b>的两种完成效果立即生效，<b>不正确</b>的" + makeRed("红色") + " 效果为每次 .35%。" 
                         },
                 }, // hasMilestone("r", 5)
                 6: {
@@ -52314,7 +52314,7 @@ addLayer("ach", {
                 },
                 {
                         key: "Control+C", 
-                        description: "Control+C：前往更新日志", onPress(){
+                        description: "Ctrl+C：前往更新日志", onPress(){
                                 showTab("changelog-tab")
                         },
                         unlocked(){
@@ -52399,7 +52399,7 @@ addLayer("ach", {
                 },
                 {
                         key: "Control+S", 
-                        description: "Control+S：保存", 
+                        description: "Ctrl+S：保存", 
                         onPress(){
                                 save()
                         },
@@ -52409,7 +52409,7 @@ addLayer("ach", {
                 },
                 {
                         key: "shift+Control+S", 
-                        description: "Shift+Control+S：保存", 
+                        description: "Shift+Ctrl+S：保存", 
                         onPress(){
                                 save()
                         },
@@ -52419,7 +52419,7 @@ addLayer("ach", {
                 },
                 {
                         key: "shift+Control+E", 
-                        description: "Shift+Control+E：强制通关",
+                        description: "Shift+Ctrl+E：强制通关",
                         onPress(){ // forces the endgame screen to pop up 
                                 forceEndgame = true
                                 player.keepGoing = false
@@ -52430,7 +52430,7 @@ addLayer("ach", {
                 },
                 {
                         key: " ", 
-                        description: "Space: 切换暂停", 
+                        description: "空格：切换暂停", 
                         onPress(){
                                 if (player.spaceBarPauses) player.paused = !player.paused
                         },

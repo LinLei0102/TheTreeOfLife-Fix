@@ -1,88 +1,88 @@
 
 
 var TAXONOMY_EFFECTS = {
-        101:() => hasUpgrade("sp", 114) ? "IN<u>tes</u>tine gain per Nucleuses" : "nothing (currently)",
-        102:() => hasUpgrade("sp", 141) ? "Organ gain per Token II" : "nothing (currently)",
-        103:() => hasUpgrade("sp", 142) ? "all Energy buyable amount gain" : "nothing (currently)",
-        104:() => hasUpgrade("sp", 143) ? "gene gain per Mastery Tokens" : "nothing (currently)",
-        105:() => hasUpgrade("sp", 144) ? "Animal gain" : "nothing (currently)",
-        106:() => hasUpgrade("sp", 145) ? "species gain per .02" : "nothing (currently)",
-        107:() => hasUpgrade("sp", 151) ? "Energy gain per Nucleus*2" : "nothing (currently)",
-        108:() => hasUpgrade("sp", 152) ? "Animal gain per Mastery Token/100" : "nothing (currently)",
+        101:() => hasUpgrade("sp", 114) ? "IN<u>tes</u>tine 产出 per 细胞核" : "暂无（当前）",
+        102:() => hasUpgrade("sp", 141) ? "每代币 II 获得的器官产出" : "暂无（当前）",
+        103:() => hasUpgrade("sp", 142) ? "所有能量可购买项数量产出" : "暂无（当前）",
+        104:() => hasUpgrade("sp", 143) ? "每精通代币获得的基因产出" : "暂无（当前）",
+        105:() => hasUpgrade("sp", 144) ? "动物产出" : "暂无（当前）",
+        106:() => hasUpgrade("sp", 145) ? "每 .02 获得的物种产出" : "暂无（当前）",
+        107:() => hasUpgrade("sp", 151) ? "每 细胞核*2 获得的能量产出" : "暂无（当前）",
+        108:() => hasUpgrade("sp", 152) ? "每 100 精通代币获得的动物产出" : "暂无（当前）",
 
-        202:() => hasUpgrade("sp", 35) ? "to Bottom Quark base per .06" : "nothing (currently)",
-        203:() => hasUpgrade("nu", 24) ? "Organ gain per Chromosomes" : "nothing (currently)",
-        204:() => hasUpgrade("sp", 41) ? "in<u>tes</u>TINE gain per sqrt(Nucleuses)" : "nothing (currently)",
-        205:() => hasUpgrade("sp", 42) ? "inTES<u>tine</u> gain per 8" : "nothing (currently)",
-        206:() => hasUpgrade("sp", 43) ? "<u>in</u>tesTINE gain per sqrt(Token II)" : "nothing (currently)",
-        207:() => hasUpgrade("sp", 44) ? "Contaminant gain per Nucleuses<sup>6</sup>" : "nothing (currently)",
-        208:() => hasUpgrade("sp", 45) ? "DNA gain per Nucleuses<sup>9</sup>" : "nothing (currently)",
+        202:() => hasUpgrade("sp", 35) ? "每 .06 增加底夸克基础值" : "暂无（当前）",
+        203:() => hasUpgrade("nu", 24) ? "每 染色体 获得的器官产出" : "暂无（当前）",
+        204:() => hasUpgrade("sp", 41) ? "in<u>tes</u>TINE 产出 per sqrt(细胞核)" : "暂无（当前）",
+        205:() => hasUpgrade("sp", 42) ? "inTES<u>tine</u> 产出 per 8" : "暂无（当前）",
+        206:() => hasUpgrade("sp", 43) ? "<u>in</u>tesTINE 产出 per sqrt(代币 II)" : "暂无（当前）",
+        207:() => hasUpgrade("sp", 44) ? "每 细胞核<sup>6</sup> 获得的污染物产出" : "暂无（当前）",
+        208:() => hasUpgrade("sp", 45) ? "每 细胞核<sup>9</sup> 获得的 DNA 产出" : "暂无（当前）",
 
-        303:() => hasUpgrade("ch", 41) ? "Organ gain per Nucleuses" : "nothing (currently)",
-        304:() => hasUpgrade("ch", 35) ? "intes<u>TINE</u> gain" : "nothing (currently)",
-        305:() => hasMilestone("ch", 21) ? "Contaminant gain per Chromosomes<sup>4</sup>" : "nothing (currently)",
-        306:() => hasMilestone("an", 28) ? "Gene gain" : "nothing (currently)",
-        307:() => hasMilestone("an", 39) ? "Tissue gain per Chromosomes<sup>3</sup>" : "nothing (currently)",
-        308:() => hasMilestone("sp", 21) ? "Organ gain per Chromosome" : player.an.achActive[13] && hasAchievement("an", 13) || hasAchievement("an", 23) ? "Organ gain per Chromosome/17" : "nothing (currently)",
+        303:() => hasUpgrade("ch", 41) ? "每 细胞核 获得的器官产出" : "暂无（当前）",
+        304:() => hasUpgrade("ch", 35) ? "intes<u>TINE</u> 产出" : "暂无（当前）",
+        305:() => hasMilestone("ch", 21) ? "每 染色体<sup>4</sup> 获得的污染物产出" : "暂无（当前）",
+        306:() => hasMilestone("an", 28) ? "基因产出" : "暂无（当前）",
+        307:() => hasMilestone("an", 39) ? "每 染色体<sup>3</sup> 获得的组织产出" : "暂无（当前）",
+        308:() => hasMilestone("sp", 21) ? "每 染色体 获得的器官产出" : player.an.achActive[13] && hasAchievement("an", 13) || hasAchievement("an", 23) ? "每 17 染色体 获得的器官产出" : "暂无（当前）",
 
-        404:() => hasMilestone("an", 23) ? "Energy gain per Chromosomes" : "nothing (currently)",
-        405:() => hasUpgrade("ch", 21) ? "in<u>TES</u>tine gain per Chromosome upgrades" : "nothing (currently)",
-        406:() => hasUpgrade("an", 41) ? "Cell gain per Carnivora II<sup>3</sup>" : "nothing (currently)",
-        407:() => hasUpgrade("ch", 13) ? "<u>IN</u>testine gain per 7" : "nothing (currently)",
-        408:() => hasUpgrade("ch", 11) ? "INtes<u>tine</u> gain" : "nothing (currently)",
+        404:() => hasMilestone("an", 23) ? "每 染色体 获得的能量产出" : "暂无（当前）",
+        405:() => hasUpgrade("ch", 21) ? "in<u>TES</u>tine 产出 per 染色体 upgrades" : "暂无（当前）",
+        406:() => hasUpgrade("an", 41) ? "每级食肉目 II<sup>3</sup> 获得的细胞产出" : "暂无（当前）",
+        407:() => hasUpgrade("ch", 13) ? "<u>IN</u>testine 产出 per 7" : "暂无（当前）",
+        408:() => hasUpgrade("ch", 11) ? "INtes<u>tine</u> 产出" : "暂无（当前）",
 
-        505:() => hasUpgrade("an", 22) ? "Air gain per Psittaciformes" : "nothing (currently)",
-        506:() => hasUpgrade("an", 23) ? "Organ gain" : "nothing (currently)",
-        507:() => hasUpgrade("an", 31) ? "<u>in</u>TEStine gain" : "nothing (currently)",
-        508:() => hasMilestone("an", 22) ? "Animal gain per .01" : "nothing (currently)",
+        505:() => hasUpgrade("an", 22) ? "每级鹦形目获得的空气产出" : "暂无（当前）",
+        506:() => hasUpgrade("an", 23) ? "器官产出" : "暂无（当前）",
+        507:() => hasUpgrade("an", 31) ? "<u>in</u>TEStine 产出" : "暂无（当前）",
+        508:() => hasMilestone("an", 22) ? "每 .01 获得的动物产出" : "暂无（当前）",
 
-        606:() => hasUpgrade("an", 14) ? "Tissue gain per milestones<sup>2</sup>" : "nothing (currently)",
-        607:() => hasUpgrade("an", 15) ? "Energy gain" : "nothing (currently)",
-        608:() => hasUpgrade("an", 21) ? "Contaminant gain per Taxonomy levels" : "nothing (currently)",
+        606:() => hasUpgrade("an", 14) ? "每 里程碑<sup>2</sup> 获得的组织产出" : "暂无（当前）",
+        607:() => hasUpgrade("an", 15) ? "能量产出" : "暂无（当前）",
+        608:() => hasUpgrade("an", 21) ? "每级分类学等级获得的污染物产出" : "暂无（当前）",
 
-        707:() => hasMilestone("an", 17) ? makeBlue("DB") + " gain" : "nothing (currently)",
-        708:() => hasMilestone("an", 18) ? makePurple("OB") + " gain" : "nothing (currently)",
+        707:() => hasMilestone("an", 17) ? makeBlue("DB") + " 产出" : "暂无（当前）",
+        708:() => hasMilestone("an", 18) ? makePurple("OB") + " 产出" : "暂无（当前）",
 
-        808:() => hasMilestone("an", 16) ? "Air gain" : "nothing (currently)",
+        808:() => hasMilestone("an", 16) ? "空气产出" : "暂无（当前）",
 }
 
 var TAXONOMY_NAMES = {
-        101: "Eukaryote I",
-        202: "Animalia I",
-        303: "Chordata I",
-        404: "Mammalia I",
-        505: "Primates",
-        606: "Hominidae",
-        707: "Homo",
-        808: "Sapien",
-        102: "Eukaryote II",
-        203: "Animalia II",
-        304: "Chordata II",
-        405: "Mammalia II",
-        506: "Carnivora I",
-        607: "Canidae",
-        708: "Canis",
-        103: "Eukaryote III",
-        204: "Animalia III",
-        305: "Chordata III",
-        406: "Mammalia III",
-        507: "Carnivora II",
-        608: "Felidae",
-        104: "Eukaryote IV",
-        205: "Animalia IV",
-        306: "Chordata IV",
-        407: "Aves",
-        508: "Psittaciformes",
-        105: "Bacteria I",
-        206: "Eubacteria I",
-        307: "Proteobacteria I",
-        408: "Gammaproteobacteria",
-        106: "Bacteria II",
-        207: "Eubacteria II",
-        308: "Proteobacteria II",
-        107: "Prokaryota I",
-        208: "Archaebacteria",
-        108: "Prokaryota II ",
+        101: "真核生物 I",
+        202: "动物界 I",
+        303: "脊索动物 I",
+        404: "哺乳纲 I",
+        505: "灵长目",
+        606: "人科",
+        707: "人属",
+        808: "智人",
+        102: "真核生物 II",
+        203: "动物界 II",
+        304: "脊索动物 II",
+        405: "哺乳纲 II",
+        506: "食肉目 I",
+        607: "犬科",
+        708: "犬属",
+        103: "真核生物 III",
+        204: "动物界 III",
+        305: "脊索动物 III",
+        406: "哺乳纲 III",
+        507: "食肉目 II",
+        608: "猫科",
+        104: "真核生物 IV",
+        205: "动物界 IV",
+        306: "脊索动物 IV",
+        407: "鸟纲",
+        508: "鹦形目",
+        105: "细菌 I",
+        206: "真细菌 I",
+        307: "变形菌 I",
+        408: "γ-变形菌",
+        106: "细菌 II",
+        207: "真细菌 II",
+        308: "变形菌 II",
+        107: "原核生物 I",
+        208: "古菌",
+        108: "原核生物 II ",
 }
 
 var TAXONOMY_COSTS = {
@@ -245,35 +245,35 @@ function updateTaxonomyAmounts(diff) {
         for (i in TAXONOMY_KEYS) {
                 let id = TAXONOMY_KEYS[i]
 
-                let gain = Decimal.pow(tmp.ch.effect, getLevels(id)).sub(1)
-                if (id > 200) gain = gain.times(getExtras(id-100).plus(1)).times(getExtras(id-101).plus(1))
+                let 产出 = Decimal.pow(tmp.ch.effect, getLevels(id)).sub(1)
+                if (id > 200) 产出 = 产出.times(getExtras(id-100).plus(1)).times(getExtras(id-101).plus(1))
                 if ((data.achActive[12] || hasMilestone("ch", 16)) && hasAchievement("an", 12) && player.ch.points.gte(180)) {
                         let exp = (data.achActive[22] || hasUpgrade("ch", 41)) && hasAchievement("an", 22) ? 1.25 : 1
-                        gain = gain.times(getLevels(id).pow(exp).plus(2).log(2))
+                        产出 = 产出.times(getLevels(id).pow(exp).plus(2).log(2))
                 }
                 if (id > 700) {
                         let ret = tmp.sci.buyables[622].main_effect
                         if (ret.gte(1e10) && !hasUpgrade("sci", 663)) ret = ret.log10().pow(10)
-                        gain = gain.times(ret)
+                        产出 = 产出.times(ret)
                 }
                 if (id > 400) {
                         let ret = Decimal.pow(1.01, tmp.sci.buyables[623].effect)
                         if (hasUpgrade("or", 45) && id < 500) ret = ret.root(4)
-                        gain = gain.times(ret)
+                        产出 = 产出.times(ret)
                 } else if (id > 300 && hasMilestone("an", 28)) {
                         let ret = Decimal.pow(1.01, tmp.sci.buyables[623].effect.sqrt())
-                        gain = gain.times(ret)
+                        产出 = 产出.times(ret)
                 }
-                gain = gain.times(layerEff[Math.floor(id/100)])
+                产出 = 产出.times(layerEff[Math.floor(id/100)])
 
-                if (hasUpgrade("pl", 14))       gain = gain.pow(1.001)
-                if (player.extremeMode)         gain = gain.pow(.75)
-                if (hasUpgrade("sci", 661))     gain = gain.pow(tmp.sci.upgrades[661].effect)
+                if (hasUpgrade("pl", 14))       产出 = 产出.pow(1.001)
+                if (player.extremeMode)         产出 = 产出.pow(.75)
+                if (hasUpgrade("sci", 661))     产出 = 产出.pow(tmp.sci.upgrades[661].effect)
 
                 if (hasAchievement("an", 33)) {
-                        data.grid[id].extras = gain
+                        data.grid[id].extras = 产出
                 } else {
-                        data.grid[id].extras = getLogisticAmount(player.an.grid[id].extras, gain, contamRate, diff)
+                        data.grid[id].extras = getLogisticAmount(player.an.grid[id].extras, 产出, contamRate, diff)
                 }
         }
 }

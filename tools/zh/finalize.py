@@ -144,6 +144,91 @@ def apply_template_text():
     open(p,'w',encoding='utf-8',newline='').write(s)
     return n
 
+def apply_system_ui():
+    """系统设置页 / 信息页的固定 UI 文案（此前未被提取器覆盖）。"""
+    p=os.path.join(ROOT,'js','technical','systemComponents.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    mp=json.load(open(os.path.join(D,'system_ui_zh.json'),encoding='utf-8'))
+    n=0; miss=[]
+    # 长键优先，避免短键先命中破坏上下文
+    for a in sorted(mp,key=lambda x:-len(x)):
+        b=mp[a]
+        c=s.count(a)
+        if c==0: miss.append(a)
+        s=s.replace(a,b); n+=c
+    if miss:
+        print('  WARN 系统面板未命中:',len(miss),file=sys.stderr)
+        for a in miss[:8]: print('   ',repr(a[:60]),file=sys.stderr)
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_formula_display():
+    """分类学上限公式说明页（formulaDisplaySupport.js，此前完全未覆盖）。"""
+    p=os.path.join(ROOT,'js','utils','formulaDisplaySupport.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    mp=json.load(open(os.path.join(D,'formula_zh.json'),encoding='utf-8'))
+    n=0
+    for a in sorted(mp,key=lambda x:-len(x)):
+        b=mp[a]
+        if a==b: continue
+        c=s.count(a)
+        s=s.replace(a,b); n+=c
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_taxonomy_tables():
+    """分类学效果表 TAXONOMY_EFFECTS / TAXONOMY_NAMES（此前未覆盖）。"""
+    p=os.path.join(ROOT,'js','utils','taxonomySupport.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    mp=json.load(open(os.path.join(D,'taxonomy_zh.json'),encoding='utf-8'))
+    n=0
+    for a in sorted(mp,key=lambda x:-len(x)):
+        b=mp[a]
+        if a==b: continue
+        c=s.count(a)
+        s=s.replace(a,b); n+=c
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_theme_name():
+    """主题显示为中文名，不影响 options.theme 存储值。"""
+    p=os.path.join(ROOT,'js','utils','themes.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    old='\treturn options.theme? options.theme : "default";'
+    new='\tvar t = options.theme? options.theme : "default";\n\treturn {"default":"默认","aqua":"水蓝"}[t] || t;'
+    if old in s:
+        s=s.replace(old,new,1)
+        open(p,'w',encoding='utf-8',newline='').write(s)
+        return 1
+    return 0
+
+def apply_misc_units():
+    """零散资源单位与成就文案漏译。"""
+    total=0
+    files={
+      'js/layers.js':[
+        ('[shift for primes]','[按住 Shift 查看素数]'),
+        ('Primes: ','素数：'),
+        ('makeRed("red")','makeRed("红色")'),
+        ('"Click"','"点击"'),
+        ('"Get 20 Hydrogen"','"获得 20 氢"'),
+        ('"Chromosome"','"染色体"'),
+        ('"Nucleus"','"细胞核"'),
+        ('"Nucleuses"','"细胞核"'),
+        ('"Tokens II"','"代币 II"'),
+        ('"Space: 切换暂停"','"空格：切换暂停"'),
+        ('description: "Control+','description: "Ctrl+'),
+        ('description: "Shift+Control+','description: "Shift+Ctrl+'),
+      ],
+    }
+    for f,pairs in files.items():
+        p=os.path.join(ROOT,f)
+        s=open(p,encoding='utf-8',newline='').read()
+        for a,b in pairs:
+            c=s.count(a); s=s.replace(a,b); total+=c
+        open(p,'w',encoding='utf-8',newline='').write(s)
+    return total
+
 def main():
     print("数字函数:",apply_number_fn())
     locale={
@@ -166,5 +251,10 @@ def main():
     print("公式检索词:",apply_formula_replacements())
     print("标签页按钮:",apply_tab_labels())
     print("模板文案:",apply_template_text())
+    print("系统面板:",apply_system_ui())
+    print("公式说明页:",apply_formula_display())
+    print("分类学效果表:",apply_taxonomy_tables())
+    print("主题名:",apply_theme_name())
+    print("零散单位:",apply_misc_units())
 
 if __name__=='__main__': main()
