@@ -20549,9 +20549,9 @@ addLayer("a", {
                                 }
 
                                 let eformula = "[非零宝石挑战]^x<br>" + format(tmp.a.buyables[21].base) + "^x"
-                                if (hasMilestone("cells", 18))  eformula = eformula.replace("[非零宝石挑战]", "64+sqrt(Omnipotent)")
-                                if (hasMilestone("cells", 35))  eformula = eformula.replace("+sqrt(Omnipotent)", "*Omnipotent")
-                                if (hasMilestone("cells", 54))  eformula = eformula.replace("64*Omnipotent", "log10(生命)")
+                                if (hasMilestone("cells", 18))  eformula = eformula.replace("[非零宝石挑战]", "64+sqrt(万能)")
+                                if (hasMilestone("cells", 35))  eformula = eformula.replace("+sqrt(万能)", "*万能")
+                                if (hasMilestone("cells", 54))  eformula = eformula.replace("64*万能", "log10(生命)")
                                 if (hasUpgrade("cells", 63))    eformula = eformula.replace("log10(生命)", "(代币<sup>代币II</sup>)")
                                 if (player.extremeMode)         eformula = eformula.replace("II", "II<sup>1.5</sup>")
 
@@ -28056,7 +28056,7 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 LVIII"
                         },
                         description(){
-                                let a = "自动购买 Pluripotent"
+                                let a = "自动购买多能"
                                 let b = "<br>需要：90 次次级挑战完成</bdi>"
                                 if (!hasUpgrade("t", 123)) return a + b
                                 return a + "</bdi>"
@@ -28483,7 +28483,7 @@ addLayer("t", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：将 cbrt(Pluripotent)/20 添加到全能基础值。"
+                                return "奖励：将 cbrt(多能)/20 添加到全能基础值。"
                         },
                 }, // hasMilestone("t", 7)
                 8: {
@@ -46502,7 +46502,7 @@ addLayer("hu", {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.hu.buyables[21]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: +"
                                         let eff2 = format(tmp.hu.buyables[21].effect, 4) + " 加到奇夸克系数和多能干细胞基础值上</b><br>"
-                                        if (hasMilestone("hu", 41)) eff2 = eff2.replace(" 以及 Pluripotent 基础", "")
+                                        if (hasMilestone("hu", 41)) eff2 = eff2.replace(" 和多能干细胞基础值上", "上")
                                         let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("hu", 21)) + " 思绪</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"

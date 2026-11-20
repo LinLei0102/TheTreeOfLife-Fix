@@ -44,7 +44,13 @@
     "\"netting a *\" + format(tmp.cells.challenges[11].rewardEffect) + \" multiplier\"": "\"净获得 *\" + format(tmp.cells.challenges[11].rewardEffect) + \" 倍加成\"",
     "\"netting a *\" + format(tmp.cells.challenges[12].rewardEffect) + \" multiplier\"": "\"净获得 *\" + format(tmp.cells.challenges[12].rewardEffect) + \" 倍加成\"",
     "<bdi style='color: #863813'>Locks upgrades ": "<bdi style='color: #863813'>锁定升级 ",
-    "ln(best 氘])": "ln(最高氘])"
+    "ln(best 氘])": "ln(最高氘])",
+    "自动购买 Pluripotent": "自动购买多能",
+    "cbrt(Pluripotent)/20": "cbrt(多能)/20",
+    "eff2.replace(\" 以及 Pluripotent 基础\", \"\")": "eff2.replace(\" 和多能干细胞基础值上\", \"上\")",
+    "eformula.replace(\"[Non zero gem challenges]\", \"64+sqrt(Omnipotent)\")": "eformula.replace(\"[Non zero gem challenges]\", \"64+sqrt(万能)\")",
+    "eformula.replace(\"+sqrt(Omnipotent)\", \"*Omnipotent\")": "eformula.replace(\"+sqrt(万能)\", \"*万能\")",
+    "eformula.replace(\"64*Omnipotent\", \"log10(生命)\")": "eformula.replace(\"64*万能\", \"log10(生命)\")"
   },
   "js/technical/displays.js": {
     "?\"Finish\":\"提前退出\"):(hasChallenge(layer, id)?\"Completed\":\"Start\")": "?\"完成\":\"提前退出\"):(hasChallenge(layer, id)?\"已完成\":\"开始\")"
