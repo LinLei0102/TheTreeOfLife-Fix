@@ -1,0 +1,29 @@
+# 依赖与运行时
+node_modules/
+tools/zh/nodeenv/
+__pycache__/
+*.pyc
+
+# 抓取缓存 / 中间产物 / 临时验证文件
+tools/zh/_cand_layers.json
+tools/zh/candidates.json
+tools/zh/cand_*.json
+tools/zh/chunk_*.json
+tools/zh/out_*.json
+tools/zh/desc_*.json
+tools/zh/extra_words*.json
+tools/zh/styled_miss*.json
+tools/zh/tail_words.json
+tools/zh/rule_labels.json
+tools/zh/to_translate.json
+tools/zh/before_replay.md5
+tools/zh/after_replay.md5
+tools/zh/*.png
+*.log
+
+# 项目数据（非游戏内容）
+.workbuddy/
+
+# 系统文件
+.DS_Store
+Thumbs.db

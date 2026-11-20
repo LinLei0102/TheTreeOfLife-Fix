@@ -1,0 +1,30 @@
+function getNumberNameLT1000(n){ // 中文数字读法（支持到 1000）
+        if (n < 100) return getNumberNameLT100(n)
+        const d = Math.floor(n / 100), r = n % 100
+        let s = getNumberNameLT100(d) + "百"
+        if (r === 0) return s
+        if (r < 10) return s + "零" + getNumberNameLT100(r)
+        return s + getNumberNameLT100(r)
+}
+
+function getNumberName(n){ // 中文数字读法（支持到 1e6）
+        if (n < 1000) return getNumberNameLT1000(n)
+        if (n < 1e6) {
+                const d = Math.floor(n / 1000), r = n % 1000
+                let s = getNumberNameLT1000(d) + "千"
+                if (r === 0) return s
+                if (r < 100) return s + "零" + getNumberNameLT1000(r)
+                return s + getNumberNameLT1000(r)
+        }
+}
+
+function getNumberNameLT100(n){
+        const c = ["零","一","二","三","四","五","六","七","八","九"]
+        if (n === 0) return "零"
+        if (n < 10) return c[n]
+        if (n === 10) return "十"
+        if (n < 20) return "十" + (n % 10 === 0 ? "" : c[n % 10])
+        const t = Math.floor(n / 10), u = n % 10
+        return c[t] + "十" + (u === 0 ? "" : c[u])
+}
+

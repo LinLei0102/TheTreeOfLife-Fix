@@ -1,7 +1,7 @@
 // Set your version in num and name
 var VERSION = {
 	num: "2.069",
-	name: "Advil's Auspicious Acension",
+	name: "Advil 的吉祥飞升",
 }
 
 var forceEndgame = false
@@ -2782,8 +2782,8 @@ function fixOldSave(oldVersion){
 	if (player.version < "1.103" && player.extremeMode) {
 		player.extremeMode = false
 		player.extremeFromBeginning = false
-		let s = "Your save had extreme mode active in a patch before it did anything."
-		s += "To keep the save balanced, you have been kicked out of extreme mode."
+		let s = "你的存档在某个补丁中曾激活极限模式，而当时它尚未生效。"
+		s += "为保持存档平衡，你已被踢出极限模式。"
 		alert(s)
 	}
 	if (player.version < "1.151.1") {

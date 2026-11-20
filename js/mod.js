@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Tree of Life",
+	name: "生命之树",
 	id: "tree_of_life",
 	author: "pg132",
-	pointsName: "Life Points",
+	pointsName: "生命点",
 	modFiles: ["layers.js", "tree.js"],
 	discordName: "",
 	discordLink: "",
@@ -10,7 +10,7 @@ let modInfo = {
 	offlineLimit: 0,  // In hours
 }
 
-let winText = `Congratulations! You have reached the end of this patch! More content is to come...`
+let winText = `恭喜！你已抵达本版本的终点！更多内容即将推出……`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -76,7 +76,7 @@ function addedPlayerData() { return {
 }}
 
 function getLastSaveDisplay(a){
-	return "Last save was: " + formatTime((new Date().getTime()-player.lastSave)/1000, a) + " ago. "
+	return "上次保存时间: " + formatTime((new Date().getTime()-player.lastSave)/1000, a) + " 前。"
 }
 
 // Display extra things at the top of the page
@@ -113,10 +113,10 @@ var displayThings = [
 	}, 
 	function(){
 		if (paused || player.paused) return "<bdi style='color:#CC0033'>THE GAME IS PAUSED</bdi>"
-		if (player.cells.slowTime > 0) return "For the next " + makeGreen(formatTime(player.cells.slowTime)) + " real seconds,<br>the game will tick 100x slower"
-		if (inChallenge("l", 11)) return "Dilation exponent is currently 1/" + format(getPointDilationExponent().pow(-1))
-		if (player.keepGoing && isEndgameRaw()) return makeBlue("You are past endgame,<br>and the game might break here.")
-		if (player.extremeMode) return "You are in extreme mode"
+		if (player.cells.slowTime > 0) return "接下来的 " + makeGreen(formatTime(player.cells.slowTime)) + " 真实秒，<br>游戏将以 100 倍慢速运行"
+		if (inChallenge("l", 11)) return "膨胀指数当前为 1/" + format(getPointDilationExponent().pow(-1))
+		if (player.keepGoing && isEndgameRaw()) return makeBlue("你已通关，<br>游戏可能会在这里出问题。")
+		if (player.extremeMode) return "你处于极限模式"
 	},
 ]
 
@@ -219,12 +219,12 @@ function toggleUndulating(){
 }
 
 function enterHardMode(){
-	let s = "Are you sure you want to enter hard mode? This cannot be undone."
+	let s = "确定要进入困难模式吗？此操作无法撤销。"
 	if (!confirm(s)) return 
 	if (player.extremeMode) {
-		if (!confirm("You are already in extreme mode, this is not advised." + s)) return 
+		if (!confirm("你已处于极限模式，不建议这样做。" + s)) return 
 	}
-	if (confirm("Would you like to apply that to this save [cancel] or create a new save [okay]?")) {
+	if (confirm("要将其应用到当前存档 [cancel] 还是创建新存档 [okay]？")) {
 		// this means you said okay so create a new save
 		newSave("hard")
 	} else {
@@ -235,12 +235,12 @@ function enterHardMode(){
 }
 
 function enterExtremeMode(){
-	let s = "Are you sure you want to enter extreme mode? This cannot be undone."
+	let s = "确定要进入极限模式吗？此操作无法撤销。"
 	if (!confirm(s)) return 
 	if (player.hardmode) {
-		if (!confirm("You are already in hard mode, this is not advised." + s)) return 
+		if (!confirm("你已处于困难模式，不建议这样做。" + s)) return 
 	}
-	if (confirm("Would you like to apply that to this save [cancel] or create a new save [okay]?")) {
+	if (confirm("要将其应用到当前存档 [cancel] 还是创建新存档 [okay]？")) {
 		// this means you said okay so create a new save
 		newSave("extreme")
 	} else {
@@ -251,9 +251,9 @@ function enterExtremeMode(){
 }
 
 function enterEasyMode(){
-	let s = "Are you sure you want to enter easy mode? This cannot be undone."
+	let s = "确定要进入简单模式吗？此操作无法撤销。"
 	if (!confirm(s)) return 
-	if (confirm("Would you like to apply that to this save [cancel] or create a new save [okay]?")) {
+	if (confirm("要将其应用到当前存档 [cancel] 还是创建新存档 [okay]？")) {
 		// this means you said okay so create a new save
 		newSave("easy")
 	} else {

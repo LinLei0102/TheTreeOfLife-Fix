@@ -9,7 +9,7 @@ function prestigeButtonText(layer) {
 	if (tmp[layer].type == "none")
 		return ""
     
-        return "You need prestige button text"
+        return "你需要转生按钮文本"
 }
 
 function constructNodeStyle(layer){
@@ -32,7 +32,7 @@ function challengeStyle(layer, id) {
 }
 
 function challengeButtonText(layer, id) {
-    return (player[layer].activeChallenge==(id)?(canCompleteChallenge(layer, id)?"Finish":"Exit Early"):(hasChallenge(layer, id)?"Completed":"Start"))
+    return (player[layer].activeChallenge==(id)?(canCompleteChallenge(layer, id)?"Finish":"提前退出"):(hasChallenge(layer, id)?"Completed":"Start"))
 
 }
 

@@ -1,0 +1,29 @@
+.unlock-hint {
+    display: block;
+    max-width: 640px;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: normal;
+    color: var(--color);
+    opacity: .72;
+}
+.chem-assignment-qol { max-width: 640px; }
+.chem-assignment-row { padding: 8px 12px; }
+.chem-assignment-row label { font-size: 13px; font-weight: normal; }
+.chem-assignment-row input[type="range"] { width: 300px; max-width: 90%; accent-color: #AA0456; transition: none; }
+
+/* Explicit descendants also cover elements with their own default text color. */
+.normal-update { --color: #FFFFFF; color: #FFFFFF; }
+.normal-update span { color: #FFFFFF; }
+.normal-update h3 { color: #CC6600; }
+
+.chem-periodic-scroll { max-width: 100%; overflow-x: auto; }
+.chem-periodic-grid { display: grid; grid-template-columns: repeat(8, 60px); grid-auto-rows: 60px; width: 480px; margin: 0 auto; }
+
+.continuation-import-file { max-width: 620px; padding: 18px 12px; }
+.continuation-import-file label { font-size: 14px; }
+.continuation-import-file input { max-width: 95%; font-size: 13px; margin-top: 10px; }
+
+
+.chem-periodic-grid .chem-automated { outline: 3px solid #FFD166; outline-offset: -4px; }

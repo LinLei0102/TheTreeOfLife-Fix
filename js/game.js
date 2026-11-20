@@ -4,7 +4,7 @@ var needCanvasUpdate = true;
 // Don't change this
 const TMT_VERSION = {
 	tmtNum: "2.6.6.2",
-	tmtName: "Fixed Reality"
+	tmtName: "固定现实"
 }
 
 function getResetGain(layer, useType = null) {
@@ -222,7 +222,7 @@ function doReset(layer, force = false) {
 }
 
 function resetRow(row) {
-	if (prompt('Are you sure you want to reset this row? It is highly recommended that you wait until the end of your current run before doing this! Type "I WANT TO RESET THIS" to confirm')!="I WANT TO RESET THIS") return
+	if (prompt('你确定要重置此行吗？强烈建议你等到当前轮回结束再这样做！输入“I WANT TO RESET THIS”确认')!="我要重置这个") return
 	let pre_layers = ROW_LAYERS[row-1]
 	let layers = ROW_LAYERS[row]
 	let post_layers = ROW_LAYERS[row+1]
@@ -293,7 +293,7 @@ function completeChallenge(layer, x) {
 	updateChallengeTemp(layer)
 }
 
-VERSION.withoutName = "v" + VERSION.num + (VERSION.pre ? " Pre-Release " + VERSION.pre : VERSION.pre ? " Beta " + VERSION.beta : "")
+VERSION.withoutName = "v" + VERSION.num + (VERSION.pre ? " 预发布 " + VERSION.pre : VERSION.pre ? " Beta " + VERSION.beta : "")
 VERSION.withName = VERSION.withoutName + (VERSION.name ? ": " + VERSION.name : "")
 
 

@@ -184,7 +184,7 @@ function loadVue() {
 				<span v-html="tmp[layer].challenges[data].challengeDescription"></span><br>
 				Goal:  <span v-if="tmp[layer].challenges[data].goalDescription" v-html="tmp[layer].challenges[data].goalDescription"></span><span v-else>{{format(tmp[layer].challenges[data].goal)}} {{tmp[layer].challenges[data].currencyDisplayName ? tmp[layer].challenges[data].currencyDisplayName : modInfo.pointsName}}</span><br>
 				Reward: <span v-html="tmp[layer].challenges[data].rewardDescription"></span><br>
-				<span v-if="layers[layer].challenges[data].rewardDisplay!==undefined">Currently: <span v-html="(tmp[layer].challenges[data].rewardDisplay) ? (run(layers[layer].challenges[data].rewardDisplay, layers[layer].challenges[data])) : format(tmp[layer].challenges[data].rewardEffect)"></span></span>
+				<span v-if="layers[layer].challenges[data].rewardDisplay!==undefined">当前: <span v-html="(tmp[layer].challenges[data].rewardDisplay) ? (run(layers[layer].challenges[data].rewardDisplay, layers[layer].challenges[data])) : format(tmp[layer].challenges[data].rewardEffect)"></span></span>
 			</span>
 			<node-mark :layer='layer' :data='tmp[layer].challenges[data].marked' :offset="20" :scale="1.5"></node-mark></span>
 
@@ -322,7 +322,7 @@ function loadVue() {
 			<button class = "mediumUpg can small-gap" v-on:mousedown="handleMouseEvent" v-bind:style="name==player.chem.focus ? {'background-color': '#AA5555'} : {}">
 			<h2 v-html="name" v-bind:style="name==player.chem.focus ? {'color': '#3388CC'} : {}">x</h2><br><br>
 			<span style='font-size: 65%' v-if="player.chem.toggle == 1" v-html='"Amount:<br>" + format(player.chem.amount[name])'></span>
-			<span style='font-size: 65%' v-if="player.chem.toggle == 2" v-html='"Levels:<br>" + formatWhole(player.chem.amount[name].lt(10) ? 0 : player.chem.amount[name].div(5).log(2).floor())'></span>
+			<span style='font-size: 65%' v-if="player.chem.toggle == 2" v-html='"等级:<br>" + formatWhole(player.chem.amount[name].lt(10) ? 0 : player.chem.amount[name].div(5).log(2).floor())'></span>
 			<span style='font-size: 65%' v-if="player.chem.toggle == 3" v-html='"Progress:<br>" + format(player.chem.buildingProgress[name])'></span>
 			<span style='font-size: 65%' v-if="player.chem.toggle == 4" v-html='"Workers:<br>" + formatWhole(player.chem.workers[name])'></span>
 			<span style='font-size: 65%' v-if="player.chem.toggle == 5" v-html='"Scientists:<br>" + formatWhole(player.chem.scientists[name])'></span>
@@ -360,8 +360,8 @@ function loadVue() {
 			<span v-else>
 				<span v-if= "tmp[layer].upgrades[data].title"><h3 v-html="tmp[layer].upgrades[data].title"></h3><br></span>
 				<span v-html="tmp[layer].upgrades[data].description"></span>
-				<span v-if="layers[layer].upgrades[data].effectDisplay"><br>Currently: <span v-html="run(layers[layer].upgrades[data].effectDisplay, layers[layer].upgrades[data])"></span></span>
-				<br><br>Cost: {{ formatWhole(tmp[layer].upgrades[data].cost) }} 
+				<span v-if="layers[layer].upgrades[data].effectDisplay"><br>当前: <span v-html="run(layers[layer].upgrades[data].effectDisplay, layers[layer].upgrades[data])"></span></span>
+				<br><br>花费: {{ formatWhole(tmp[layer].upgrades[data].cost) }} 
 				<span v-html="tmp[layer].upgrades[data].currencyDisplayName ? tmp[layer].upgrades[data].currencyDisplayName : tmp[layer].resource"></span>
 			</span>
 			<tooltip v-if="tmp[layer].upgrades[data].tooltip" :text="tmp[layer].upgrades[data].tooltip"></tooltip>
@@ -397,7 +397,7 @@ function loadVue() {
 		props: ['layer', 'data', 'number'],
 		template: `
 		<td v-if="tmp[layer].milestones && tmp[layer].milestones[data]!== undefined && milestoneShown(layer, data) && tmp[layer].milestones[data].unlocked" v-bind:style="[tmp[layer].milestones[data].style]" v-bind:class="{milestone: !hasMilestone(layer, data), tooltipBox: true, milestoneDone: hasMilestone(layer, data)}">
-			<h3 v-html="'Requires: ' + tmp[layer].milestones[data].requirementDescription + ' (' + number + ')'"></h3><br>
+			<h3 v-html="'需要: ' + tmp[layer].milestones[data].requirementDescription + ' (' + number + ')'"></h3><br>
 			<span v-html="run(layers[layer].milestones[data].effectDescription, layers[layer].milestones[data])"></span><br>
 			<tooltip v-if="tmp[layer].milestones[data].tooltip" :text="tmp[layer].milestones[data].tooltip"></tooltip>
 
@@ -427,42 +427,42 @@ function loadVue() {
 	Vue.component('main-display', {
 		props: ['layer', 'data'],
 		template: `
-		<div><span v-if="player[layer].points.lt('1e1000')">You have </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{data ? format(player[layer].points, data) : formatWhole(player[layer].points)}}</h2> {{tmp[layer].resource}}<span v-if="layers[layer].effectDescription"><span v-html="getFullEffectDescription(layer)"></span></span><br><br></div>
+		<div><span v-if="player[layer].points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{data ? format(player[layer].points, data) : formatWhole(player[layer].points)}}</h2> {{tmp[layer].resource}}<span v-if="layers[layer].effectDescription"><span v-html="getFullEffectDescription(layer)"></span></span><br><br></div>
 		`
 	})
 
 	Vue.component('secondary-display', {
 		props: ['layer', 'data'],
 		template: `
-		<div><span v-if="player[layer][data].points.lt('1e1000')">You have </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{formatCurrency(player[layer][data].points)}}</h2> {{improveName(data)}}<br><br></div>
+		<div><span v-if="player[layer][data].points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{formatCurrency(player[layer][data].points)}}</h2> {{improveName(data)}}<br><br></div>
 		`
 	})
 
 	Vue.component('secondary-display-blood', {
 		props: ['layer'],
 		template: `
-		<div><span v-if="player.or.deoxygenated_blood.points.lt('1e1000')">You have </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.oxygenated_blood.points)}}</h2> <bdi style='color:#66297D'>{{"OB"}}</bdi> and </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.deoxygenated_blood.points)}}</h2> <bdi style='color:#3379E3'>{{"DB"}}</bdi><br></div>
+		<div><span v-if="player.or.deoxygenated_blood.points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.oxygenated_blood.points)}}</h2> <bdi style='color:#66297D'>{{"OB"}}</bdi> and </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.deoxygenated_blood.points)}}</h2> <bdi style='color:#3379E3'>{{"DB"}}</bdi><br></div>
 		`
 	})
 
 	Vue.component('secondary-display-biomass', {
 		props: ['layer'],
 		template: `
-		<div><span v-if="player.pl.biomass.points.lt('1e1000')">You have </span><h2 v-bind:style="{'color': tmp.pl.color, 'text-shadow': '0px 0px 10px ' + tmp.pl.color}">{{formatCurrency(player.pl.biomass.points)}}</h2> Biomass (+{{formatCurrency(tmp.pl.biomass.getResetGain)}}/s)<br></div>
+		<div><span v-if="player.pl.biomass.points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp.pl.color, 'text-shadow': '0px 0px 10px ' + tmp.pl.color}">{{formatCurrency(player.pl.biomass.points)}}</h2> Biomass (+{{formatCurrency(tmp.pl.biomass.getResetGain)}}/s)<br></div>
 		`
 	})
 
 	Vue.component('secondary-display3', {
 		props: ['layer', 'data'],
 		template: `
-		<div><span v-if="player[layer][data].points.lt('1e1000')">You have </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{format(player[layer][data].points, 3)}}</h2> {{improveName(data)}}<br><br></div>
+		<div><span v-if="player[layer][data].points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{format(player[layer][data].points, 3)}}</h2> {{improveName(data)}}<br><br></div>
 		`
 	})
 
 	Vue.component('secondary-display-tokens2', {
 		props: ['layer', 'data'],
 		template: `
-		<div><span v-if="player[layer][data].points.lt('1e1000')">You have </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{formatCurrency(player[layer][data].points)}}</h2> {{"Tokens II"}}<br><br></div>
+		<div><span v-if="player[layer][data].points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{formatCurrency(player[layer][data].points)}}</h2> {{"Tokens II"}}<br><br></div>
 		`
 	})
 
@@ -471,11 +471,11 @@ function loadVue() {
 		props: ['layer'],
 		template: `
 		<div style="margin-top: -13px">
-			<span v-if="tmp[layer].baseAmount"><br>You have {{formatWhole(tmp[layer].baseAmount)}} {{tmp[layer].baseResource}}</span>
+			<span v-if="tmp[layer].baseAmount"><br>你有 {{formatWhole(tmp[layer].baseAmount)}} {{tmp[layer].baseResource}}</span>
 			<span v-if="tmp[layer].passiveGeneration"><br>You are gaining {{format(tmp[layer].resetGain.times(tmp[layer].passiveGeneration))}} {{tmp[layer].resource}} per second</span>
 			<br><br>
 			<span v-if="tmp[layer].showBest">Your best {{tmp[layer].resource}} is {{formatWhole(player[layer].best)}}<br></span>
-			<span v-if="tmp[layer].showTotal">You have made a total of {{formatWhole(player[layer].total)}} {{tmp[layer].resource}}<br></span>
+			<span v-if="tmp[layer].showTotal">你有 made a total of {{formatWhole(player[layer].total)}} {{tmp[layer].resource}}<br></span>
 		</div>
 		`
 	})

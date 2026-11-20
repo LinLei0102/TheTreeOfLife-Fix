@@ -1,0 +1,152 @@
+{
+  "functionsCalled": 3702,
+  "cjk": 3426,
+  "latinOnly": [
+    {
+      "where": "d.upgrades[13].title()",
+      "text": "DNA III"
+    },
+    {
+      "where": "d.upgrades[22].title()",
+      "text": "DNA VII"
+    },
+    {
+      "where": "d.upgrades[23].title()",
+      "text": "DNA VIII"
+    },
+    {
+      "where": "d.upgrades[32].title()",
+      "text": "DNA XII"
+    },
+    {
+      "where": "d.upgrades[33].title()",
+      "text": "DNA XIII"
+    },
+    {
+      "where": "d.upgrades[34].title()",
+      "text": "DNA XIV"
+    },
+    {
+      "where": "or.buyables[411].title",
+      "text": "INtestine"
+    },
+    {
+      "where": "or.buyables[412].title",
+      "text": "inTEStine"
+    },
+    {
+      "where": "or.buyables[413].title",
+      "text": "intesTINE"
+    },
+    {
+      "where": "or.buyables[421].title",
+      "text": "INtestine"
+    },
+    {
+      "where": "or.buyables[422].title",
+      "text": "inTEStine"
+    },
+    {
+      "where": "or.buyables[423].title",
+      "text": "intesTINE"
+    },
+    {
+      "where": "an.clickables[41].title()",
+      "text": "PRO III (OFF)"
+    },
+    {
+      "where": "an.clickables[42].title()",
+      "text": "PRI III (OFF)"
+    },
+    {
+      "where": "an.clickables[43].title()",
+      "text": "COM III (OFF)"
+    },
+    {
+      "where": "an.clickables[44].title()",
+      "text": "ONE III (OFF)"
+    }
+  ],
+  "samples": [
+    {
+      "where": "h.upgrades[11].title()",
+      "text": "氢 I"
+    },
+    {
+      "where": "h.upgrades[11].description()",
+      "text": "ln([best Hydrogen]) 乘以生命点产出"
+    },
+    {
+      "where": "h.upgrades[12].title()",
+      "text": "氢 II"
+    },
+    {
+      "where": "h.upgrades[12].description()",
+      "text": "每次升级使氢产出公式的最大值 +1"
+    },
+    {
+      "where": "h.upgrades[13].title()",
+      "text": "氢 III"
+    },
+    {
+      "where": "h.upgrades[13].description()",
+      "text": "1+成就 乘以氢产出"
+    },
+    {
+      "where": "h.upgrades[14].title()",
+      "text": "氢 IV"
+    },
+    {
+      "where": "h.upgrades[14].description()",
+      "text": "将氢 I 提升至 ln([Hydrogen upgrades]"
+    },
+    {
+      "where": "h.upgrades[15].title()",
+      "text": "氢 V"
+    },
+    {
+      "where": "h.upgrades[15].description()",
+      "text": "解锁氘 (2H) 与原子氢 (H2) 升级，但购买其中一个会大幅提高另一个的价格并将其隐藏"
+    },
+    {
+      "where": "h.upgrades[21].title()",
+      "text": "氘 I"
+    },
+    {
+      "where": "h.upgrades[21].description()",
+      "text": "在你的氢中寻找特殊的 .02% —— 氘"
+    },
+    {
+      "where": "h.upgrades[22].title()",
+      "text": "氘 II"
+    },
+    {
+      "where": "h.upgrades[22].description()",
+      "text": "ln(ln(10+[best 氘])) 乘生命点与氢产出"
+    },
+    {
+      "where": "h.upgrades[23].title()",
+      "text": "氘 III"
+    },
+    {
+      "where": "h.upgrades[23].description()",
+      "text": "ln([best 氘]) 乘以氘产出"
+    },
+    {
+      "where": "h.upgrades[24].title()",
+      "text": "氘 IV"
+    },
+    {
+      "where": "h.upgrades[24].description()",
+      "text": "将氘 II 提升到本排升级次数次方"
+    },
+    {
+      "where": "h.upgrades[25].title()",
+      "text": "氘 V"
+    },
+    {
+      "where": "h.upgrades[25].description()",
+      "text": "每次升级将生命点产出提升至 ^1.01"
+    }
+  ]
+}
