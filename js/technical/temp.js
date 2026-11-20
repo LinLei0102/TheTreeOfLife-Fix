@@ -1,3 +1,11 @@
+function tmpKeyZh(k){
+  var M={getInit:"初始值",getCostBase:"花费基数",cost:"花费",exp:"指数",
+    unlocked:"解锁条件",effect:"效果",effectDescription:"效果描述",
+    display:"显示",fullDisplay:"完整显示",layerShown:"层级显示",
+    deactivated:"已停用",startData:"初始数据",doReset:"重置",update:"更新",
+    canBuy:"可购买",buy:"购买",buyMax:"最大购买",onPress:"按下时",onClick:"点击时"};
+  return M[k] ? M[k]+"（"+k+"）" : k;
+}
 var tmp = {}
 var temp = tmp // Proxy for tmp
 var funcs = {}
@@ -145,7 +153,7 @@ function updateTempData(layerData, tmpData, funcsData, useThis, noError = false,
 			if (value !== value || checkDecimalNaN(value)){
 				if (!NaNalert && !noError) {
 					console.log("a", value, "b", item, "c", layerData[item], layerData, funcsData, tmpData, useThis)
-					confirm("tmp 中发现无效值，名称：'" + item + "'。请把控制台截图和存档发给本模组作者！刷新页面即可恢复正常。")
+					confirm("tmp 中发现无效值，名称：'" + tmpKeyZh(item) + "'。请把控制台截图和存档发给本模组作者！刷新页面即可恢复正常。")
 					clearInterval(interval);
 					NaNalert = true;
 					return

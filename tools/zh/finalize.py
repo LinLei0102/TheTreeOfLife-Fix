@@ -372,12 +372,40 @@ def apply_mod_text():
     }})
 
 def apply_engine_text():
-    """引擎 NaN 检测弹窗（tmp.js）里的英文提示中文化，保留调试输出与拼接变量。"""
-    return apply_contains({'js/technical/temp.js':{
+    """引擎 NaN 检测弹窗（tmp.js）中文化。
+
+    名称是运行时变量 item（getInit/cost/exp 等），不只是固定文案：
+    常见 tmp 函数名译成中文并保留原名，未收录的名字原样显示，
+    保证任意名称下中文句式都成立。
+    """
+    n = apply_contains({'js/technical/temp.js':{
         "Invalid value found in tmp, named '": "tmp 中发现无效值，名称：'",
         "'. Please let the creator of this mod know with a screenshot of the console and the save! You can refresh the page, and you will be un-NaNed.":
             "'。请把控制台截图和存档发给本模组作者！刷新页面即可恢复正常。",
     }})
+    p = os.path.join(ROOT, 'js', 'technical', 'temp.js')
+    s = open(p, encoding='utf-8', newline='').read()
+    if 'function tmpKeyZh' not in s:
+        helper = (
+            'function tmpKeyZh(k){\n'
+            '  var M={getInit:"初始值",getCostBase:"花费基数",cost:"花费",exp:"指数",\n'
+            '    unlocked:"解锁条件",effect:"效果",effectDescription:"效果描述",\n'
+            '    display:"显示",fullDisplay:"完整显示",layerShown:"层级显示",\n'
+            '    deactivated:"已停用",startData:"初始数据",doReset:"重置",update:"更新",\n'
+            '    canBuy:"可购买",buy:"购买",buyMax:"最大购买",onPress:"按下时",onClick:"点击时"};\n'
+            '  return M[k] ? M[k]+"（"+k+"）" : k;\n'
+            '}\n'
+        )
+        s = helper + s
+        open(p, 'w', encoding='utf-8', newline='').write(s)
+        n += 1
+    s = open(p, encoding='utf-8', newline='').read()
+    needle = "名称：'\" + item + \"'"
+    if needle in s and 'tmpKeyZh(item)' not in s:
+        s = s.replace(needle, "名称：'\" + tmpKeyZh(item) + \"'")
+        open(p, 'w', encoding='utf-8', newline='').write(s)
+        n += 1
+    return n
 
 def apply_options_text():
     """系统设置里里程碑显示模式的两个英文枚举值。"""
