@@ -678,11 +678,11 @@ addLayer("h", {
                         },
                         description(){
                                 if (!player.shiftAlias) {
-                                        if (player.extremeMode && player.hardMode) return "ln([best 氢]) 使生命点产出倍增，并解锁实验室"
-                                        return "ln([best 氢]) 乘以生命点产出"
+                                        if (player.extremeMode && player.hardMode) return "ln([最高氢]) 使生命点产出倍增，并解锁实验室"
+                                        return "ln([最高氢]) 乘以生命点产出"
                                 }
-                                let a = "ln([best 氢])"
-                                if (hasUpgrade("h", 14)) a = "(ln([best 氢]))^[氢 IV 效果]"
+                                let a = "ln([最高氢])"
+                                if (hasUpgrade("h", 14)) a = "(ln([最高氢]))^[氢 IV 效果]"
                                 if (hasUpgrade("h", 33)) a = a.replace("ln", "log2")
                                 if (hasUpgrade("h", 11)) return a
                                 return a + br + "预计时间: " + logisticTimeUntil(tmp.h.upgrades[11].cost, player.h.points, tmp.h.getResetGain, tmp.h.getLossRate)
@@ -816,9 +816,9 @@ addLayer("h", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氘 II"
                         },
                         description(){
-                                if (!player.shiftAlias) return "<bdi style='font-size: 80%'>ln(ln(10+[best 氘])) 乘生命点与氢产出</bdi>"
-                                let a = "ln(ln(10+[best 氘]))"
-                                if (hasUpgrade("h", 24)) a = "(ln(ln(10+[best 氘])))^[本行升级]"
+                                if (!player.shiftAlias) return "<bdi style='font-size: 80%'>ln(ln(10+[最高氘])) 乘生命点与氢产出</bdi>"
+                                let a = "ln(ln(10+[最高氘]))"
+                                if (hasUpgrade("h", 24)) a = "(ln(ln(10+[最高氘])))^[本行升级]"
                                 if (hasUpgrade("h", 22)) return a
                                 return a + br + "预计时间: " + logisticTimeUntil(tmp.h.upgrades[22].cost, player.h.deuterium.points, tmp.h.deuterium.getResetGain, tmp.h.deuterium.getLossRate)
                         },
@@ -848,8 +848,8 @@ addLayer("h", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氘 III"
                         },
                         description(){
-                                if (!player.shiftAlias) return "ln([best 氘]) 乘以氘产出"
-                                let a = "ln(best 氘])"
+                                if (!player.shiftAlias) return "ln([最高氘]) 乘以氘产出"
+                                let a = "ln(最高氘])"
                                 if (hasUpgrade("h", 23)) return a
                                 return a + br + "预计时间: " + logisticTimeUntil(tmp.h.upgrades[23].cost, player.h.deuterium.points, tmp.h.deuterium.getResetGain, tmp.h.deuterium.getLossRate)
                         },
@@ -5791,7 +5791,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci IV"
                         },
                         description(){
-                                if (player.nu.everMile3) return "Subtract " + makeRed(".5") + " 从全能基础值并增加 " + makeRed("1") + " 到净化基础" 
+                                if (player.nu.everMile3) return "从全能基础值中减去 " + makeRed(".5") + "，并给净化基础增加 " + makeRed("1") 
                                 let a = "前50级make等级从万能基础减去.01，并给净化基础加.02"
                                 let b = "<br>需要：40 我思等级</bdi>"
                                 if (!hasUpgrade("sci", 604)) return a + b
@@ -9492,19 +9492,19 @@ addLayer("sci", {
 
                                         if (!hasMilestone("n", 14) && !player.p.unlocked) return ret1 + br + e
 
-                                        let f = "氮科学基础产出为<br>log10(碳科学)*log10(氮)*2<sup>tokens+4*[氮 challenge completions]-90</sup>"
+                                        let f = "氮科学基础产出为<br>log10(碳科学)*log10(氮)*2<sup>tokens+4*[氮挑战完成次数]-90</sup>"
                                         let ret2 = ret1 + br + e + br2 + f
                                         if (hasUpgrade("sci", 454)) ret2 = ""
                                         else if (hasUpgrade("sci", 415)) ret2 = f
                                         
                                         if (!hasUpgrade("a", 23) && !player.d.unlocked) return ret2
 
-                                        let g = "蛋白质科学基础产出为<br>log10(氮科学)*log10(蛋白质)*2<sup>tokens+4*[Non-0 gem challenges]-400</sup>"
+                                        let g = "蛋白质科学基础产出为<br>log10(氮科学)*log10(蛋白质)*2<sup>tokens+4*[非零宝石挑战]-400</sup>"
 
                                         if (!layers.l.grid.getGemEffect(705) && !player.cells.unlocked) return ret2 + br2 + g
 
                                         let h = "DNA 科学基础产出为<br>log10(DNA)*log10(蛋白质 科学)<br>*2<sup>"
-                                        h += "tokens+5*[Anti- challenge completions]+2*[Non-0 gem challenges]-600</sup>"
+                                        h += "tokens+5*[反挑战完成次数]+2*[非零宝石挑战]-600</sup>"
 
                                         if (!hasUpgrade("sci", 595) && !player.an.unlocked) return ret2 + br2 + g + br2 + h
 
@@ -25312,12 +25312,12 @@ addLayer("cells", {
                         },
                         fullDisplay(){
                                 let func = hasUpgrade("t", 83) ? format : formatWhole
-                                let a = "Subtract " + func(tmp.cells.challenges[11].challengeEffect) + " 来自全能基础"
+                                let a = "从全能基础中减去 " + func(tmp.cells.challenges[11].challengeEffect)
                                 let b = "目标: " + format(tmp.cells.challenges[11].goal) + " 干细胞"
                                 let c = "奖励：按细胞挑战完成次数倍增干细胞产出"
                                 if (player.extremeMode) c = c.replace("细胞", "细胞与DNA科学")
                                 let d = "当前: *" + format(tmp.cells.challenges[11].rewardBase) + " 每次挑战<br>"
-                                let e = "netting a *" + format(tmp.cells.challenges[11].rewardEffect) + " multiplier"
+                                let e = "净获得 *" + format(tmp.cells.challenges[11].rewardEffect) + " 倍加成"
                                 let f = br + "完成次数: " + player.cells.challenges[11] + "/" + formatWhole(tmp.cells.challenges[11].completionLimit)
                                 
                                 return a + br + b + br + c + br + d + e + f
@@ -25425,7 +25425,7 @@ addLayer("cells", {
                                 let b = "目标: " + format(tmp.cells.challenges[12].goal) + " 干细胞"
                                 let c = "奖励：按细胞挑战完成次数倍增细胞产出"
                                 let d = "当前: *" + format(tmp.cells.challenges[12].rewardBase) + " 每次挑战<br>"
-                                let e = "netting a *" + format(tmp.cells.challenges[12].rewardEffect) + " multiplier"
+                                let e = "净获得 *" + format(tmp.cells.challenges[12].rewardEffect) + " 倍加成"
                                 let f = br + "完成次数: " + player.cells.challenges[12] + "/95"
 
                                 if (player.extremeMode) a +=  "<sup>*</sup>"
@@ -62446,7 +62446,7 @@ addLayer("tokens", {
                                 }
                                 let b = "当前: " + format(tmp.tokens.milestones[1].effect)
                                 if (player.shiftAlias) {
-                                        let formula = "公式：[total 代币]"
+                                        let formula = "公式：[总代币]"
                                         return a + formula
                                 }
                                 return a + b
@@ -62476,7 +62476,7 @@ addLayer("tokens", {
                                 }
                                 let b = "当前: " + format(tmp.tokens.milestones[2].effect)
                                 if (player.shiftAlias) {
-                                        let formula = "公式：[total 代币]"
+                                        let formula = "公式：[总代币]"
                                         return a + formula
                                 }
                                 return a + b
@@ -62505,7 +62505,7 @@ addLayer("tokens", {
                                 else a += " 成就数量使氧和碳产出倍增，并自动购买 1/n^2。<br>"   
                                 let b = "当前: " + format(tmp.tokens.milestones[3].effect)
                                 if (player.shiftAlias) {
-                                        let formula = "公式：[total 代币]"
+                                        let formula = "公式：[总代币]"
                                         return a + formula
                                 }
                                 return a + b
@@ -62576,7 +62576,7 @@ addLayer("tokens", {
 
                                 let b = "当前: ^" + format(tmp.tokens.milestones[6].effect)
                                 if (player.shiftAlias) {
-                                        let formula = "公式：[total 代币]"
+                                        let formula = "公式：[总代币]"
                                         return a + formula
                                 }
                                 return a + b
@@ -63329,7 +63329,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 72 和 73</bdi>"
+                                        let a = "<bdi style='color: #863813'>锁定升级 72 和 73</bdi>"
                                         let b = "<br>当前要求：<br>!72 && !73"
 
                                         if (hasUpgrade("h", 73)) {
@@ -63361,7 +63361,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 71 和 73</bdi>"
+                                        let a = "<bdi style='color: #863813'>锁定升级 71 和 73</bdi>"
                                         let b = "<br>当前要求：<br>!71 && !73"
 
                                         if (hasUpgrade("h", 73)) {
@@ -63393,7 +63393,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 71 和 72</bdi>"
+                                        let a = "<bdi style='color: #863813'>锁定升级 71 和 72</bdi>"
                                         let b = "<br>当前要求：<br>!71 && !72"
 
                                         if (hasUpgrade("h", 73)) {
@@ -63425,7 +63425,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 82</bdi>"
+                                        let a = "<bdi style='color: #863813'>锁定升级 82</bdi>"
                                         let b = "<br>当前要求：<br>!82"
                                         if (hasUpgrade("mini", 31)) {
                                                 a = "<bdi style='color: #863813'></bdi>"
@@ -63457,7 +63457,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (player.shiftAlias) {
-                                        let a = "<bdi style='color: #863813'>Locks upgrades 81</bdi>"
+                                        let a = "<bdi style='color: #863813'>锁定升级 81</bdi>"
                                         let b = "<br>当前要求：<br>!81"
                                         if (hasUpgrade("mini", 31)) {
                                                 a = "<bdi style='color: #863813'></bdi>"

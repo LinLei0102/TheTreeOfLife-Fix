@@ -38,7 +38,13 @@
     "return \"你已完成第一个 \" + formatWhole(player.ach.completedRows) + \" rows\"": "return \"你已完成前 \" + formatWhole(player.ach.completedRows) + \" 行\"",
     "j += br + \"Each \"": "j += br + \"每个 \"",
     "j += makeBlue(\"milestone\") + \" 给出一个 \"": "j += makeBlue(\"里程碑\") + \" 给出一个 \"",
-    "currencyDisplayName:() => \"Coins\"": "currencyDisplayName:() => \"硬币\""
+    "currencyDisplayName:() => \"Coins\"": "currencyDisplayName:() => \"硬币\"",
+    "\"Subtract \" + makeRed(\".5\") + \" 从全能基础值并增加 \" + makeRed(\"1\") + \" 到净化基础\"": "\"从全能基础值中减去 \" + makeRed(\".5\") + \"，并给净化基础增加 \" + makeRed(\"1\")",
+    "let a = \"Subtract \" + func(tmp.cells.challenges[11].challengeEffect) + \" 来自全能基础\"": "let a = \"从全能基础中减去 \" + func(tmp.cells.challenges[11].challengeEffect)",
+    "\"netting a *\" + format(tmp.cells.challenges[11].rewardEffect) + \" multiplier\"": "\"净获得 *\" + format(tmp.cells.challenges[11].rewardEffect) + \" 倍加成\"",
+    "\"netting a *\" + format(tmp.cells.challenges[12].rewardEffect) + \" multiplier\"": "\"净获得 *\" + format(tmp.cells.challenges[12].rewardEffect) + \" 倍加成\"",
+    "<bdi style='color: #863813'>Locks upgrades ": "<bdi style='color: #863813'>锁定升级 ",
+    "ln(best 氘])": "ln(最高氘])"
   },
   "js/technical/displays.js": {
     "?\"Finish\":\"提前退出\"):(hasChallenge(layer, id)?\"Completed\":\"Start\")": "?\"完成\":\"提前退出\"):(hasChallenge(layer, id)?\"已完成\":\"开始\")"

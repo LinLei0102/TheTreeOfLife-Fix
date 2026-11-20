@@ -28,5 +28,11 @@
   "[B points]": "[B点]",
   "[amount]": "[数量]",
   "[amounts]": "[数量]",
-  "[buyables]": "[可购买项]"
+  "[buyables]": "[可购买项]",
+ "[best 氢]": "[最高氢]",
+ "[best 氘]": "[最高氘]",
+ "[氮 challenge completions]": "[氮挑战完成次数]",
+ "[Non-0 gem challenges]": "[非零宝石挑战]",
+ "[Anti- challenge completions]": "[反挑战完成次数]",
+ "[total 代币]": "[总代币]"
 }
