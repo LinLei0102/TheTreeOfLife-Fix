@@ -17,6 +17,8 @@ function combineStrings(l){
 // ***************************
 
 function improveName(s){
+	const ZH_RESOURCE_NAMES = {"deuterium":"氘", "atomic_hydrogen":"原子氢", "hydrogen_science":"氢科学", "oxygen_science":"氧科学", "carbon_science":"碳科学", "nitrogen_science":"氮科学", "protein_science":"蛋白质科学", "dna_science":"DNA 科学", "organ_science":"器官科学", "nucleus_science":"细胞核科学", "protein":"蛋白质", "mu":"μ", "lambda":"λ", "kappa":"κ", "iota":"ι", "stem_cells":"干细胞", "contaminants":"污染物", "air":"空气", "energy":"能量", "genes":"基因", "thoughts":"思想", "widgets":"小部件", "a_points":"A 点", "b_points":"B 点", "c_points":"C 点", "d_points":"D 点", "e_points":"E 点", "mastery_tokens":"精通代币", "coins":"硬币"};
+	if (ZH_RESOURCE_NAMES[s] !== undefined) return ZH_RESOURCE_NAMES[s];
 	if (s == "dna_science") return "DNA 科学"
 	let x = s.split("_")
 	ret = ""

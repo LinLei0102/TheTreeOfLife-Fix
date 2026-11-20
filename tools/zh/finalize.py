@@ -284,6 +284,27 @@ def apply_theme_name():
         return 1
     return 0
 
+def apply_resource_names():
+    """improveName() 把子资源 id 动态拼成英文（genes→Genes、widgets→Widgets）。
+
+    这些英文串在源码里不存在（运行时生成），静态词典/扫描都抓不到。
+    给 improveName 注入一张 id→中文映射，命中即返回中文。
+    """
+    p=os.path.join(ROOT,'js','utils.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    if 'ZH_RESOURCE_NAMES' in s: return 0
+    mp=json.load(open(os.path.join(D,'resource_names.json'),encoding='utf-8'))
+    pairs=', '.join(json.dumps(k,ensure_ascii=False)+':'+json.dumps(v,ensure_ascii=False) for k,v in mp.items())
+    inj=('function improveName(s){\n'
+         '\tconst ZH_RESOURCE_NAMES = {'+pairs+'};\n'
+         '\tif (ZH_RESOURCE_NAMES[s] !== undefined) return ZH_RESOURCE_NAMES[s];')
+    old='function improveName(s){'
+    if old not in s:
+        print('  WARN improveName 未找到',file=sys.stderr); return 0
+    s=s.replace(old,inj,1)
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return 1
+
 def apply_misc_units():
     """零散资源单位与成就文案漏译。"""
     total=0
@@ -346,5 +367,6 @@ def main():
     print("分类学效果表:",apply_taxonomy_tables())
     print("主题名:",apply_theme_name())
     print("零散单位:",apply_misc_units())
+    print("资源显示名:",apply_resource_names())
 
 if __name__=='__main__': main()

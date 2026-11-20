@@ -472,10 +472,10 @@ function loadVue() {
 		template: `
 		<div style="margin-top: -13px">
 			<span v-if="tmp[layer].baseAmount"><br>你有 {{formatWhole(tmp[layer].baseAmount)}} {{tmp[layer].baseResource}}</span>
-			<span v-if="tmp[layer].passiveGeneration"><br>You are gaining {{format(tmp[layer].resetGain.times(tmp[layer].passiveGeneration))}} {{tmp[layer].resource}} per second</span>
+			<span v-if="tmp[layer].passiveGeneration"><br>你每秒获得 {{format(tmp[layer].resetGain.times(tmp[layer].passiveGeneration))}} {{tmp[layer].resource}}/秒</span>
 			<br><br>
-			<span v-if="tmp[layer].showBest">Your best {{tmp[layer].resource}} is {{formatWhole(player[layer].best)}}<br></span>
-			<span v-if="tmp[layer].showTotal">你有 made a total of {{formatWhole(player[layer].total)}} {{tmp[layer].resource}}<br></span>
+			<span v-if="tmp[layer].showBest">你的最高 {{tmp[layer].resource}} 为 {{formatWhole(player[layer].best)}}<br></span>
+			<span v-if="tmp[layer].showTotal">你累计获得了 {{formatWhole(player[layer].total)}} {{tmp[layer].resource}}<br></span>
 		</div>
 		`
 	})

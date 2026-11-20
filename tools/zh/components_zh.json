@@ -31,5 +31,10 @@
   "- Versions will be vA.B.C": "- 版本号格式为 vA.B.C",
   "- A will be big releases.": "- A 为大版本。",
   "- B will be each content patch.": "- B 为每次内容更新。",
-  "- C will be small patches without content (bug/wording fixes).": "- C 为无内容的小补丁（错误/文字修正）。"
+  "- C will be small patches without content (bug/wording fixes).": "- C 为无内容的小补丁（错误/文字修正）。",
+  "You are gaining ": "你每秒获得 ",
+  " per second</span>": "/秒</span>",
+  "Your best ": "你的最高 ",
+  " is {{formatWhole(player[layer].best)}}": " 为 {{formatWhole(player[layer].best)}}",
+  "你有 made a total of ": "你累计获得了 "
 }
