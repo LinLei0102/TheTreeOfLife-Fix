@@ -27,21 +27,21 @@ function loadVue() {
 	Vue.component("changelog", {
 		template: `
 			<span>
-				<h1 style='color: #AA0033'>Changelog</h1>
+				<h1 style='color: #AA0033'>更新日志</h1>
 				<br>
 				<span>Page {{player.CHANGELOG_PAGE+1}} / {{1+Math.floor(CHANGELOGS.length / 20)}}</span>
 				<br>
-				<button class="opt" onclick="player.CHANGELOG_PAGE = Math.max(0, player.CHANGELOG_PAGE - (player.shiftAlias ? 5 : 1))">Previous<br>page<br>(Shift 5x)</button>
-				<button class="opt" onclick="player.CHANGELOG_PAGE = Math.min(Math.floor(CHANGELOGS.length / 20), player.CHANGELOG_PAGE + (player.shiftAlias ? 5 : 1))">Next<br>page<br>(Shift 5x)</button>
+				<button class="opt" onclick="player.CHANGELOG_PAGE = Math.max(0, player.CHANGELOG_PAGE - (player.shiftAlias ? 5 : 1))">上一页<br>(Shift 5倍)</button>
+				<button class="opt" onclick="player.CHANGELOG_PAGE = Math.min(Math.floor(CHANGELOGS.length / 20), player.CHANGELOG_PAGE + (player.shiftAlias ? 5 : 1))">下一页<br>(Shift 5倍)</button>
 				<br>
 				
 				<br><h2 style='color: #DDDD00'>Endgame:</h2><br>
-					Reaching the endgame screen (updated at least as of <span v-html="CHANELOG_VERSION">let me know if you see this</span>)<br><br>
-				<br><h2 style='color: #00CC00'>Notes</h2><br>
-					- Versions will be vA.B.C<br>
-					- A will be big releases.<br>
-					- B will be each content patch.<br>
-					- C will be small patches without content (bug/wording fixes).<br><br>
+					抵达结局界面（至少更新至 <span v-html="CHANELOG_VERSION">let me know if you see this</span>)<br><br>
+				<br><h2 style='color: #00CC00'>说明</h2><br>
+					- 版本号格式为 vA.B.C<br>
+					- A 为大版本。<br>
+					- B 为每次内容更新。<br>
+					- C 为无内容的小补丁（错误/文字修正）。<br><br>
 
 				<template v-for="(key, i) in CHANGELOGS">
 					<table>
@@ -182,8 +182,8 @@ function loadVue() {
 			<span v-if="layers[layer].challenges[data].fullDisplay" v-html="run(layers[layer].challenges[data].fullDisplay, layers[layer].challenges[data])"></span>
 			<span v-else>
 				<span v-html="tmp[layer].challenges[data].challengeDescription"></span><br>
-				Goal:  <span v-if="tmp[layer].challenges[data].goalDescription" v-html="tmp[layer].challenges[data].goalDescription"></span><span v-else>{{format(tmp[layer].challenges[data].goal)}} {{tmp[layer].challenges[data].currencyDisplayName ? tmp[layer].challenges[data].currencyDisplayName : modInfo.pointsName}}</span><br>
-				Reward: <span v-html="tmp[layer].challenges[data].rewardDescription"></span><br>
+				目标:  <span v-if="tmp[layer].challenges[data].goalDescription" v-html="tmp[layer].challenges[data].goalDescription"></span><span v-else>{{format(tmp[layer].challenges[data].goal)}} {{tmp[layer].challenges[data].currencyDisplayName ? tmp[layer].challenges[data].currencyDisplayName : modInfo.pointsName}}</span><br>
+				奖励: <span v-html="tmp[layer].challenges[data].rewardDescription"></span><br>
 				<span v-if="layers[layer].challenges[data].rewardDisplay!==undefined">当前: <span v-html="(tmp[layer].challenges[data].rewardDisplay) ? (run(layers[layer].challenges[data].rewardDisplay, layers[layer].challenges[data])) : format(tmp[layer].challenges[data].rewardEffect)"></span></span>
 			</span>
 			<node-mark :layer='layer' :data='tmp[layer].challenges[data].marked' :offset="20" :scale="1.5"></node-mark></span>
@@ -311,7 +311,7 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 		<button class = "upg96 can" v-on:mousedown="player.chem.toggle = data" v-bind:style="data==player.chem.toggle ? {'background-color': '#AAFFFF'} : {}">
-			<b v-html="['Amount', 'Levels', 'Building Progress', 'Workers', 'Scientists'][data-1]"></b>
+			<b v-html="['数量', '等级', '建筑进度', '工人', '科学家'][data-1]"></b>
 		</button>
 		`
 	})
@@ -321,11 +321,11 @@ function loadVue() {
 		template: `
 			<button class = "mediumUpg can small-gap" v-on:mousedown="handleMouseEvent" v-bind:style="name==player.chem.focus ? {'background-color': '#AA5555'} : {}">
 			<h2 v-html="name" v-bind:style="name==player.chem.focus ? {'color': '#3388CC'} : {}">x</h2><br><br>
-			<span style='font-size: 65%' v-if="player.chem.toggle == 1" v-html='"Amount:<br>" + format(player.chem.amount[name])'></span>
+			<span style='font-size: 65%' v-if="player.chem.toggle == 1" v-html='"数量:<br>" + format(player.chem.amount[name])'></span>
 			<span style='font-size: 65%' v-if="player.chem.toggle == 2" v-html='"等级:<br>" + formatWhole(player.chem.amount[name].lt(10) ? 0 : player.chem.amount[name].div(5).log(2).floor())'></span>
-			<span style='font-size: 65%' v-if="player.chem.toggle == 3" v-html='"Progress:<br>" + format(player.chem.buildingProgress[name])'></span>
-			<span style='font-size: 65%' v-if="player.chem.toggle == 4" v-html='"Workers:<br>" + formatWhole(player.chem.workers[name])'></span>
-			<span style='font-size: 65%' v-if="player.chem.toggle == 5" v-html='"Scientists:<br>" + formatWhole(player.chem.scientists[name])'></span>
+			<span style='font-size: 65%' v-if="player.chem.toggle == 3" v-html='"进度:<br>" + format(player.chem.buildingProgress[name])'></span>
+			<span style='font-size: 65%' v-if="player.chem.toggle == 4" v-html='"工人:<br>" + formatWhole(player.chem.workers[name])'></span>
+			<span style='font-size: 65%' v-if="player.chem.toggle == 5" v-html='"科学家:<br>" + formatWhole(player.chem.scientists[name])'></span>
 			</button>
 		`,
 		methods: {
@@ -408,7 +408,7 @@ function loadVue() {
 	Vue.component('toggle', {
 		props: ['layer', 'data'],
 		template: `
-		<button class="smallUpg can" v-bind:style="{'background-color': tmp[data[0]].color}" v-on:click="toggleAuto(data)">{{player[data[0]][data[1]]?"ON":"OFF"}}</button>
+		<button class="smallUpg can" v-bind:style="{'background-color': tmp[data[0]].color}" v-on:click="toggleAuto(data)">{{player[data[0]][data[1]]?"开":"关"}}</button>
 		`
 	})
 
@@ -441,14 +441,14 @@ function loadVue() {
 	Vue.component('secondary-display-blood', {
 		props: ['layer'],
 		template: `
-		<div><span v-if="player.or.deoxygenated_blood.points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.oxygenated_blood.points)}}</h2> <bdi style='color:#66297D'>{{"OB"}}</bdi> and </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.deoxygenated_blood.points)}}</h2> <bdi style='color:#3379E3'>{{"DB"}}</bdi><br></div>
+		<div><span v-if="player.or.deoxygenated_blood.points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.oxygenated_blood.points)}}</h2> <bdi style='color:#66297D'>{{"OB"}}</bdi> 和 </span><h2 v-bind:style="{'color': tmp.or.color, 'text-shadow': '0px 0px 10px ' + tmp.or.color}">{{formatCurrency(player.or.deoxygenated_blood.points)}}</h2> <bdi style='color:#3379E3'>{{"DB"}}</bdi><br></div>
 		`
 	})
 
 	Vue.component('secondary-display-biomass', {
 		props: ['layer'],
 		template: `
-		<div><span v-if="player.pl.biomass.points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp.pl.color, 'text-shadow': '0px 0px 10px ' + tmp.pl.color}">{{formatCurrency(player.pl.biomass.points)}}</h2> Biomass (+{{formatCurrency(tmp.pl.biomass.getResetGain)}}/s)<br></div>
+		<div><span v-if="player.pl.biomass.points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp.pl.color, 'text-shadow': '0px 0px 10px ' + tmp.pl.color}">{{formatCurrency(player.pl.biomass.points)}}</h2> 生物量 (+{{formatCurrency(tmp.pl.biomass.getResetGain)}}/s)<br></div>
 		`
 	})
 
@@ -462,7 +462,7 @@ function loadVue() {
 	Vue.component('secondary-display-tokens2', {
 		props: ['layer', 'data'],
 		template: `
-		<div><span v-if="player[layer][data].points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{formatCurrency(player[layer][data].points)}}</h2> {{"Tokens II"}}<br><br></div>
+		<div><span v-if="player[layer][data].points.lt('1e1000')">你有 </span><h2 v-bind:style="{'color': tmp[layer].color, 'text-shadow': '0px 0px 10px ' + tmp[layer].color}">{{formatCurrency(player[layer][data].points)}}</h2> {{"代币II"}}<br><br></div>
 		`
 	})
 
@@ -542,8 +542,8 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 			<div v-if="tmp[layer].buyables && tmp[layer].buyables.respec && !(tmp[layer].buyables.showRespec !== undefined && tmp[layer].buyables.showRespec == false)">
-				<div class="tooltipBox respecCheckbox"><input type="checkbox" v-model="player[layer].noRespecConfirm" ><tooltip v-bind:text="'Disable respec confirmation'"></tooltip></div>
-				<button v-on:click="respecBuyables(layer)" v-bind:class="{ longUpg: true, can: player[layer].unlocked, locked: !player[layer].unlocked }" style="margin-right: 18px">{{tmp[layer].buyables.respecText ? tmp[layer].buyables.respecText : "Respec"}}</button>
+				<div class="tooltipBox respecCheckbox"><input type="checkbox" v-model="player[layer].noRespecConfirm" ><tooltip v-bind:text="'禁用重置确认'"></tooltip></div>
+				<button v-on:click="respecBuyables(layer)" v-bind:class="{ longUpg: true, can: player[layer].unlocked, locked: !player[layer].unlocked }" style="margin-right: 18px">{{tmp[layer].buyables.respecText ? tmp[layer].buyables.respecText : "重置"}}</button>
 			</div>
 			`
 	})
@@ -972,14 +972,14 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 			<button v-if="tmp[layer].buyables && tmp[layer].buyables[data].sellOne && !(tmp[layer].buyables[data].canSellOne !== undefined && tmp[layer].buyables[data].canSellOne == false)" v-on:click="run(tmp[layer].buyables[data].sellOne, tmp[layer].buyables[data])"
-				v-bind:class="{ longUpg: true, can: player[layer].unlocked, locked: !player[layer].unlocked }">{{tmp[layer].buyables.sellOneText ? tmp[layer].buyables.sellOneText : "Sell One"}}</button>
+				v-bind:class="{ longUpg: true, can: player[layer].unlocked, locked: !player[layer].unlocked }">{{tmp[layer].buyables.sellOneText ? tmp[layer].buyables.sellOneText : "出售一个"}}</button>
 	`
 	})
 	Vue.component('sell-all', {
 		props: ['layer', 'data'],
 		template: `
 			<button v-if="tmp[layer].buyables && tmp[layer].buyables[data].sellAll && !(tmp[layer].buyables[data].canSellAll !== undefined && tmp[layer].buyables[data].canSellAll == false)" v-on:click="run(tmp[layer].buyables[data].sellAll, tmp[layer].buyables[data])"
-				v-bind:class="{ longUpg: true, can: player[layer].unlocked, locked: !player[layer].unlocked }">{{tmp[layer].buyables.sellAllText ? tmp[layer].buyables.sellAllText : "Sell All"}}</button>
+				v-bind:class="{ longUpg: true, can: player[layer].unlocked, locked: !player[layer].unlocked }">{{tmp[layer].buyables.sellAllText ? tmp[layer].buyables.sellAllText : "全部出售"}}</button>
 	`
 	})
 
@@ -991,16 +991,16 @@ function loadVue() {
 		<div class="savePopup" v-if="!(!player.saveMenuOpen)">
 			<div class="savePopupBlocker" onclick="player.saveMenuOpen = false;"></div>
 			<div class="savePopup-content">
-				Click anywhere outside this popup to make it disappear.
-				<div v-if="!options.autosave">Note that changing any save in any way will save the game.</div>
+				点击此弹窗外任意处即可关闭。
+				<div v-if="!options.autosave">注意：以任何方式修改存档都会保存游戏。</div>
 				<div class="upgRow" style="width: 100%;" v-for="(data, name) in allSaves" v-if="name!='set' && data!==undefined">
 					<div v-bind:class="{ activeSave: (allSaves.set==name), widthLock: true }">{{name}}</div>
-					<button v-on:click="save(); loadSave(name);" class="savePopupBtn can">Load</button>
-					<button v-on:click="renameSave(name)" class="savePopupBtn can">Rename</button>
-					<button v-on:click="deleteSave(name)" class="savePopupBtn can">Delete</button>
+					<button v-on:click="save(); loadSave(name);" class="savePopupBtn can">载入</button>
+					<button v-on:click="renameSave(name)" class="savePopupBtn can">重命名</button>
+					<button v-on:click="deleteSave(name)" class="savePopupBtn can">删除</button>
 					<div><button class="savePopupBtnMini can" v-on:click="moveSave(name, -1)" v-bind:style="{ visibility: (showMoveSaveBtn(name, 'up')?'visible':'hidden')}">▲</button><button class="savePopupBtnMini can" v-on:click="moveSave(name, 1)" v-bind:style="{ visibility: (showMoveSaveBtn(name, 'down')?'visible':'hidden')}">▼</button></div>
 				</div>
-				<div class="upgRow" style="width: 100%;"><button onclick="newSave()" class="savePopupBtn can">New Save</button></div>
+				<div class="upgRow" style="width: 100%;"><button onclick="newSave()" class="savePopupBtn can">新建存档</button></div>
 			</div>
 			 
 		</div>

@@ -21,6 +21,7 @@ UNIT_RE = re.compile(
     r'Points?|Lives|Carbon|Oxygen|Protein|Air|Species|Ecosystems|'
     r'Contaminants|Biomass|Tissues|Heart|Kidney|Intestine|Lung|Fuel|Plants|'
     r'Chromosomeless|Nucleusless|Chromosome(?:s)?|Nucleus(?:es)?|'
+    r'Researchers?|Widgets?|Biomass|Humans?|Genes?|'
     r'Stem\s+Cells|Science|Multipliers)\b')
 
 

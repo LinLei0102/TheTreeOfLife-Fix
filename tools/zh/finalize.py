@@ -110,6 +110,10 @@ def apply_formula_replacements():
         ('eformula.replace("log2(代币)", "Chromosomes")','eformula.replace("log2(代币)", "染色体")'),
         ('makeOrange("Chromosomes")','makeOrange("染色体")'),
         ('eformula.replace("(细胞核)", "Chromosomes")','eformula.replace("(细胞核)", "染色体")'),
+        # 公式链条：检索键随上游汉化同步，插入值也汉化
+        ('eformula.replace("log10(动物)", "Humans")','eformula.replace("log10(动物)", "人类")'),
+        ('cost.replace("Humans", "Thoughts")','cost.replace("人类", "思想")'),
+        ('a2.replace("Plants", "Thoughts")','a2.replace("植物", "思想")'),
     ]
     n=0
     for a,b in pairs:
@@ -147,6 +151,23 @@ def apply_template_text():
                 ('"Levels:<br>"','"等级:<br>"'),('>You have ','>你有 ')]:
         c=s.count(a); s=s.replace(a,b); n+=c
     s=s.replace('>你有 {{','>你有 {{').replace('>You have made a total of {{','>你总共获得了 {{')
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_components_ui():
+    """引擎通用 Vue 组件模板 UI 文案（components.js，此前大量残留英文）。"""
+    p=os.path.join(ROOT,'js','components.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    mp=json.load(open(os.path.join(D,'components_zh.json'),encoding='utf-8'))
+    n=0; miss=[]
+    for a in sorted(mp,key=lambda x:-len(x)):
+        b=mp[a]
+        c=s.count(a)
+        if c==0: miss.append(a)
+        s=s.replace(a,b); n+=c
+    if miss:
+        print('  WARN 组件模板未命中:',len(miss),file=sys.stderr)
+        for a in miss[:10]: print('   ',repr(a[:60]),file=sys.stderr)
     open(p,'w',encoding='utf-8',newline='').write(s)
     return n
 
@@ -249,6 +270,10 @@ def main():
         'Radio Waves':'无线电波','Near-ultraviolet':'近紫外线','Gamma Rays':'伽马射线',
         'UHF Gamma Rays':'超高频伽马射线','Semi-exponential':'半指数','Double-exponential':'双指数',
         'Sell-all':'全部出售','Upgrades':'升级','Deuterium':'氘',
+        # 拼接标题前缀（'>Effect I / >Boosted Effect XXV / >Upgraded Effect X）
+        'Boosted Effect':'强化效果','Upgraded Effect':'升级效果','Effect':'效果',
+        'Currently: <bdi':'当前: <bdi','Currently: ': '当前: ',
+        'Reward: Remove':'奖励：移除',"Increase 3's base cost":"提高 3 的基础花费",
       },
     }
     print("包含匹配回填:",apply_contains(locale))
@@ -257,6 +282,7 @@ def main():
     print("公式检索词:",apply_formula_replacements())
     print("标签页按钮:",apply_tab_labels())
     print("模板文案:",apply_template_text())
+    print("组件模板:",apply_components_ui())
     print("系统面板:",apply_system_ui())
     print("公式说明页:",apply_formula_display())
     print("分类学效果表:",apply_taxonomy_tables())

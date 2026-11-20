@@ -1,6 +1,6 @@
 {
   "functionsCalled": 3702,
-  "cjk": 3430,
+  "cjk": 3436,
   "latinOnly": [
     {
       "where": "d.upgrades[13].title()",

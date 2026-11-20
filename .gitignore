@@ -21,6 +21,7 @@ tools/zh/after_replay.md5
 tools/zh/*.png
 tools/zh/formula_render_sample.txt
 tools/zh/formula_eng.txt
+tools/zh/scan_residual_result.json
 *.log
 
 # 项目数据（非游戏内容）
