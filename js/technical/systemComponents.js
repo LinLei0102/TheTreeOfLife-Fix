@@ -1,12 +1,14 @@
+var ZH_TAB_LABELS = {"Achievements": "成就", "Activate": "激活", "Air": "空气", "All": "全部", "Animals": "动物", "Anti": "反挑战", "Atomic Hydrogen": "原子氢", "Biomass": "生物质", "Boosted Effects": "强化效果", "Buyables": "可购买项", "Buyables II": "可购买项 II", "C Research": "C 研究", "Cells": "细胞", "Challenges": "挑战", "Chemistry 1": "化学 1", "Coins": "硬币", "Contaminants": "污染物", "DNA": "DNA", "DNA Research": "DNA 研究", "Deuterium": "氘", "Dilation": "膨胀", "Ecosystems": "生态系统", "Effects": "效果", "End": "终局", "Energy": "能量", "Factories": "工厂", "First": "第一", "Flat": "固定", "Fuel": "燃料", "Genes": "基因", "H Research": "H 研究", "Heart": "心脏", "Info": "信息", "Intestine": "肠道", "Iota": "ι", "Kappa": "κ", "Kidney": "肾脏", "Lambda": "λ", "Lung": "肺", "Main": "主要", "Mastery": "精通", "Micro": "微观", "Middle": "中期", "Milestones": "里程碑", "Mu": "μ", "Multipliers": "倍率", "N Research": "N 研究", "Nothing": "无", "O Research": "O 研究", "Old": "旧版", "Old+": "旧版+", "Organ Research": "器官研究", "Organs": "器官", "Points": "点数", "Protein": "蛋白质", "Protein Research": "蛋白质研究", "RNA Research": "RNA 研究", "Scaling": "递增", "Second": "第二", "Selection": "选择", "Species": "物种", "Speed": "速度", "Spelling": "拼写", "Start": "开始", "Stem": "干细胞", "Stem Cells": "干细胞", "Taxonomy": "分类学", "Taxonomy Limit": "分类学上限", "Third": "第三", "Tissues": "组织", "Upgrade Tree": "升级树", "Upgraded Effects": "升级效果", "Upgrades": "升级", "Upgrades II": "升级 II"};
 var systemComponents = {
 	'tab-buttons': {
 		props: ['layer', 'data', 'name'],
+		methods: { tabLabel: function(tab){ return ZH_TAB_LABELS[tab] || tab; } },
 		template: `
 			<div class="upgRow">
 				<div v-for="tab in Object.keys(data)">
 					<button v-if="data[tab].unlocked == undefined || data[tab].unlocked" v-bind:class="{tabButton: true, notify: subtabShouldNotify(layer, name, tab), resetNotify: subtabResetNotify(layer, name, tab)}"
 					v-bind:style="[{'border-color': tmp[layer].color}, (subtabShouldNotify(layer, name, tab) ? {'box-shadow': 'var(--hqProperty2a), 0 0 20px '  + (data[tab].glowColor || defaultGlow)} : {}), tmp[layer].componentStyles['tab-button'], data[tab].buttonStyle]"
-						v-on:click="function(){player.subtabs[layer][name] = tab; updateTabFormats(); needCanvasUpdate = true;}"><span v-html="tab"></span></button>
+						v-on:click="function(){player.subtabs[layer][name] = tab; updateTabFormats(); needCanvasUpdate = true;}"><span v-html="tabLabel(tab)"></span></button>
 				</div>
 			</div>
 		`
@@ -52,11 +54,11 @@ var systemComponents = {
       v-if="tmp[layer].tooltip != ''"
 			:text="(tmp[layer].isLayer) ? (
 				player[layer].unlocked ? (tmp[layer].tooltip ? tmp[layer].tooltip : formatWhole(player[layer].points, false, 3) + ' ' + tmp[layer].resource)
-				: (tmp[layer].tooltipLocked ? tmp[layer].tooltipLocked : 'Reach ' + formatWhole(tmp[layer].requires) + ' ' + tmp[layer].baseResource + ' to unlock (You have ' + formatWhole(tmp[layer].baseAmount) + ' ' + tmp[layer].baseResource + ')')
+				: (tmp[layer].tooltipLocked ? tmp[layer].tooltipLocked : '需要 ' + formatWhole(tmp[layer].requires) + ' ' + tmp[layer].baseResource + ' 才能解锁（当前有 ' + formatWhole(tmp[layer].baseAmount) + ' ' + tmp[layer].baseResource + '）')
 			)
 			: (
-				tmp[layer].canClick ? (tmp[layer].tooltip ? tmp[layer].tooltip : 'I am a button!')
-				: (tmp[layer].tooltipLocked ? tmp[layer].tooltipLocked : 'I am a button!')
+				tmp[layer].canClick ? (tmp[layer].tooltip ? tmp[layer].tooltip : '我是一个按钮！')
+				: (tmp[layer].tooltipLocked ? tmp[layer].tooltipLocked : '我是一个按钮！')
 			)"></tooltip>
 			<node-mark :layer='layer' :data='tmp[layer].marked'></node-mark></span>
 		</button>
@@ -109,10 +111,10 @@ var systemComponents = {
 			<br>Dev Speed: {{format(player.devSpeed)}}x<br>
 		</span>
 		<span v-if="player.offTime !== undefined"  class="overlayThing">
-			<br>Offline Time: {{formatTime(player.offTime.remain)}}<br>
+			<br>离线时间：{{formatTime(player.offTime.remain)}}<br>
 		</span>
 		<br>
-		<span v-if="player.points.lt('1e1000')"  class="overlayThing">You have </span>
+		<span v-if="player.points.lt('1e1000')"  class="overlayThing">你有 </span>
 		<h2  class="overlayThing" id="points">{{format(player.points)}}</h2>
 		<span v-if="player.points.lt('1e1e6')"  class="overlayThing"> {{modInfo.pointsName}}</span>
 		<br>

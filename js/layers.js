@@ -1255,7 +1255,7 @@ addLayer("h", {
                         },
                         description(){
                                 if (!player.shiftAlias) return "每次升级将生命点乘以碳"
-                                a = "Carbon<sup>[upgrades]</sup>"
+                                a = "碳<sup>[upgrades]</sup>"
                                 if (hasMilestone("tokens", 19)) a = a.replace("[upgrades]", "1.5*[upgrades]")
                                 if (hasUpgrade("h", 61)) return a
                                 return a + br + "预计时间: " + logisticTimeUntil(tmp.h.upgrades[61].cost, player.h.points, tmp.h.getResetGain, tmp.h.getLossRate)
@@ -1300,7 +1300,7 @@ addLayer("h", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氢 XVIII"
                         },
                         description(){
-                                if (!player.shiftAlias) return "sqrt(log10(Life Points)) 使碳和氧产出倍增"
+                                if (!player.shiftAlias) return "sqrt(log10(生命点)) 使碳和氧产出倍增"
                                 a = "sqrt(log10(生命点))"
                                 if (hasUpgrade("h", 63)) return a
                                 return a + br + "预计时间: " + logisticTimeUntil(tmp.h.upgrades[63].cost, player.h.points, tmp.h.getResetGain, tmp.h.getLossRate)
@@ -1390,8 +1390,8 @@ addLayer("h", {
                         },
                         description(){
                                 if (!hasUpgrade("tokens", 71) && !player.shiftAlias && !hasUpgrade("h", 72)) return "需要代币升级 71<br>按住 shift 查看效果"
-                                if (player.shiftAlias ^ hasUpgrade("tokens", 71)) return "ln(Carbon) 乘以近紫外线基础值"
-                                a = "ln(Carbon + 10)"
+                                if (player.shiftAlias ^ hasUpgrade("tokens", 71)) return "ln(碳) 乘以近紫外线基础值"
+                                a = "ln(碳 + 10)"
                                 return a
                         },
                         cost(){
@@ -1779,7 +1779,7 @@ addLayer("sci", {
                 if (t == "C 研究")          return format(player.sci.carbon_science.points) + " 碳科学"
                 if (t == "O 研究")          return format(player.sci.oxygen_science.points) + " 氧科学"
                 if (t == "H 研究")          return format(player.sci.hydrogen_science.points) + " 氢科学"
-                if (t == "Info")                return format(player.sci.points) + " Science"
+                if (t == "Info")                return format(player.sci.points) + " 科学"
         },
         getBaseGain(){
                 let amt = tmp.sci.baseAmount
@@ -3010,7 +3010,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>碳科学 I"
                         },
                         description(){
-                                return "每次升级将 C点产出乘以 log10(Carbon)"
+                                return "每次升级将 C点产出乘以 log10(碳)"
                         },
                         effect(){
                                 return player.c.points.plus(10).log10().pow(tmp.sci.upgrades.carbonUpgradesLength)
@@ -3819,7 +3819,7 @@ addLayer("sci", {
                         description(){
                                 if (!hasUpgrade("sci", 323) && !player.shiftAlias) return "需要：1e4046 D点<br>按住 shift 查看效果"
                                 if (player.shiftAlias && hasUpgrade("sci", 323)) return "注意：公式软上限为 1e100 倍率 x -> log10(x)<sup>50</sup>" + br + "上限为 1e800"
-                                return "<bdi style='font-size: 70%'>移除 Fuel Gauage 的基础花费，D 点<sup>.001</sup> 乘氮科学产出，但你只能获得 10 秒的氮科学产出</bdi>"
+                                return "<bdi style='font-size: 70%'>移除 燃料 Gauage 的基础花费，D 点<sup>.001</sup> 乘氮科学产出，但你只能获得 10 秒的氮科学产出</bdi>"
                         },
                         canAfford(){
                                 return player.mini.d_points.points.gte("1e4046") || false
@@ -4016,7 +4016,7 @@ addLayer("sci", {
                         },
                         description(){
                                 if (!hasUpgrade("sci", 344) && !player.shiftAlias) return "需要：400 E点<br>按住 shift 查看效果"
-                                return "移除常数的基础花费，ln(ln(ln(D Points))) 使 E 点产出倍增"
+                                return "移除常数的基础花费，ln(ln(ln(D 点数))) 使 E 点产出倍增"
                         },
                         canAfford(){
                                 return player.mini.e_points.points.gte(400) || false
@@ -4280,7 +4280,7 @@ addLayer("sci", {
 
                 401: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 I"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci I"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 401) && !player.shiftAlias) return "需要：1.00e1200 蛋白质<br>按住 shift 查看效果"
@@ -4300,7 +4300,7 @@ addLayer("sci", {
                 },
                 402: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 II"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci II"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 402) && !player.shiftAlias) return "需要：1.00e1260 蛋白质<br>按住 shift 查看效果"
@@ -4333,7 +4333,7 @@ addLayer("sci", {
                 },
                 403: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 III"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci III"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 403) && !player.shiftAlias) return "需要：1.00e1337 蛋白质<br>按住 shift 查看效果"
@@ -4353,7 +4353,7 @@ addLayer("sci", {
                 },
                 404: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 IV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci IV"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 404) && !player.shiftAlias) return "需要：1.00e2500 蛋白质<br>按住 shift 查看效果"
@@ -4373,7 +4373,7 @@ addLayer("sci", {
                 },
                 405: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 V"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci V"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 405) && !player.shiftAlias) return "需要：3.33e3333 蛋白质<br>按住 shift 查看效果"
@@ -4393,7 +4393,7 @@ addLayer("sci", {
                 },
                 411: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 VI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci VI"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 411) && !player.shiftAlias) return "需要：1.00e7654 蛋白质<br>按住 shift 查看效果"
@@ -4413,7 +4413,7 @@ addLayer("sci", {
                 },
                 412: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 VII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci VII"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 412) && !player.shiftAlias) return "需要：1.00e14441 蛋白质<br>按住 shift 查看效果"
@@ -4436,7 +4436,7 @@ addLayer("sci", {
                 },
                 413: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 VIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci VIII"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 413) && !player.shiftAlias) return "需要：1.00e20402 蛋白质<br>按住 shift 查看效果"
@@ -4456,7 +4456,7 @@ addLayer("sci", {
                 },
                 414: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 IX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci IX"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 414) && !player.shiftAlias) return "需要：1.00e22822 蛋白质<br>按住 shift 查看效果"
@@ -4476,7 +4476,7 @@ addLayer("sci", {
                 },
                 415: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 X"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci X"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 415) && !player.shiftAlias) return "需要：1.00e29092 蛋白质<br>按住 shift 查看效果"
@@ -4508,7 +4508,7 @@ addLayer("sci", {
                 },
                 421: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XI"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 421) && !player.shiftAlias) return "需要：1.00e30003 蛋白质<br>按住 shift 查看效果"
@@ -4528,7 +4528,7 @@ addLayer("sci", {
                 },
                 422: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XII"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 422) && !player.shiftAlias) return "需要：1.00e51515 蛋白质<br>按住 shift 查看效果"
@@ -4548,7 +4548,7 @@ addLayer("sci", {
                 },
                 423: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XIII"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 423) && !player.shiftAlias) return "需要：1.00e63036 蛋白质<br>按住 shift 查看效果"
@@ -4568,7 +4568,7 @@ addLayer("sci", {
                 },
                 424: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XIV"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 424) && !player.shiftAlias) return "需要：1.00e70307 蛋白质<br>按住 shift 查看效果"
@@ -4588,11 +4588,11 @@ addLayer("sci", {
                 },
                 425: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XV"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 425) && !player.shiftAlias) return "需要：1.00e71017 蛋白质<br>按住 shift 查看效果"
-                                return "移除 siRNA 的基础花费，Lives 使氮科学产出倍增"
+                                return "移除 siRNA 的基础花费，生命 使氮科学产出倍增"
                         },
                         canAfford(){
                                 return player.a.protein.points.gte("1e71017") || false
@@ -4608,7 +4608,7 @@ addLayer("sci", {
                 },
                 431: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XVI"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 431) && !player.shiftAlias) return "需要：1.00e75057 蛋白质<br>按住 shift 查看效果"
@@ -4628,7 +4628,7 @@ addLayer("sci", {
                 },
                 432: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XVII"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 432) && !player.shiftAlias) return "需要：1.00e105,501 蛋白质<br>按住 shift 查看效果"
@@ -4648,7 +4648,7 @@ addLayer("sci", {
                 },
                 433: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XVIII"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 433) && !player.shiftAlias) return "需要：1.00e113,311 蛋白质<br>按住 shift 查看效果"
@@ -4668,7 +4668,7 @@ addLayer("sci", {
                 },
                 434: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XIX"
                         },
                         description(){
                                 if (!hasUpgrade("sci", 434) && !player.shiftAlias) return "需要：1.00e159,300 蛋白质<br>按住 shift 查看效果"
@@ -4688,11 +4688,11 @@ addLayer("sci", {
                 },
                 435: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XX"
                         },
                         description(){
                                 if (player.shiftAlias) return "软上限为 1e10 (x -> log10(x)<sup>10</sup>)"
-                                return "log10(log10(Points)) 使蛋白质产出倍增<br>当前：" + format(tmp.sci.upgrades[435].effect)
+                                return "log10(log10(点数)) 使蛋白质产出倍增<br>当前：" + format(tmp.sci.upgrades[435].effect)
                         },
                         cost:() => new Decimal(1.81e33),
                         currencyLocation:() => player.sci.protein_science,
@@ -4710,7 +4710,7 @@ addLayer("sci", {
                 },
                 441: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXI"
                         },
                         description(){
                                 return "每次升级，log10(log10(蛋白质)) 使蛋白质产出倍增"
@@ -4726,7 +4726,7 @@ addLayer("sci", {
                 },
                 442: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXII"
                         },
                         description(){
                                 return "miRNA 花费指数为 1.7"
@@ -4742,7 +4742,7 @@ addLayer("sci", {
                 },
                 443: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXIII"
                         },
                         description(){
                                 return "每次升级给生命里程碑 1 上限增加 1"
@@ -4758,7 +4758,7 @@ addLayer("sci", {
                 },
                 444: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXIV"
                         },
                         description(){
                                 return "miRNA 花费指数为 1.6"
@@ -4774,7 +4774,7 @@ addLayer("sci", {
                 },
                 445: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXV"
                         },
                         description(){
                                 return "移除 crRNA 的基础花费"
@@ -4790,7 +4790,7 @@ addLayer("sci", {
                 },
                 451: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXVI"
                         },
                         description(){
                                 return "挑战 6 的膨胀基础值变为 .952"
@@ -4806,7 +4806,7 @@ addLayer("sci", {
                 },
                 452: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXVII"
                         },
                         description(){
                                 return "<bdi style='font-size: 80%'>每项升级使 log10(DNA)<sup>2</sup> 乘蛋白质产出，但禁用蛋白质科学 VIII 对蛋白质产出的效果</bdi>"
@@ -4822,7 +4822,7 @@ addLayer("sci", {
                 },
                 453: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXVIII"
                         },
                         description(){
                                 return "生命 IV 基础值变为 1.6^upgrades<sup>2</sup>"
@@ -4838,7 +4838,7 @@ addLayer("sci", {
                 },
                 454: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXIX"
                         },
                         description(){
                                 return "每次升级转生所需代币少 3.5 个，但禁用氮科学"
@@ -4871,7 +4871,7 @@ addLayer("sci", {
                 },
                 455: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质科学 XXX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>蛋白质 Sci XXX"
                         },
                         description(){
                                 return "移除shRNA的基础花费，DNA III的效果指数乘以DNA升级数量"
@@ -5045,7 +5045,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 X"
                         },
                         description(){
-                                return "log10(DNA科学) 乘以 Kappa 产出"
+                                return "log10(DNA科学) 乘以 κ 产出"
                         },
                         cost:() => new Decimal(1e239),
                         currencyLocation:() => player.sci.dna_science,
@@ -5060,7 +5060,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 XI"
                         },
                         description(){
-                                return "log10(DNA科学) 乘以 Mu 产出"
+                                return "log10(DNA科学) 乘以 μ 产出"
                         },
                         cost:() => new Decimal(5e298),
                         currencyLocation:() => player.sci.dna_science,
@@ -5075,7 +5075,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 XII"
                         },
                         description(){
-                                return "log10(DNA科学) 乘以 Lambda 产出"
+                                return "log10(DNA科学) 乘以 λ 产出"
                         },
                         cost:() => new Decimal("5e362"),
                         currencyLocation:() => player.sci.dna_science,
@@ -5090,7 +5090,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 XIII"
                         },
                         description(){
-                                return "log10(DNA科学) 乘以 Kappa 产出"
+                                return "log10(DNA科学) 乘以 κ 产出"
                         },
                         cost:() => new Decimal("2e447"),
                         currencyLocation:() => player.sci.dna_science,
@@ -5300,7 +5300,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 XXVI"
                         },
                         description(){
-                                return "此标签页中每次升级，log10(DNA Science) 使细胞产出倍增，次级难度降低 1e9 倍"
+                                return "此标签页中每次升级，log10(DNA 科学) 使细胞产出倍增，次级难度降低 1e9 倍"
                         },
                         lvls(){
                                 let ids = [551, 552, 553, 554, 555, 
@@ -5469,7 +5469,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 XXXVI"
                         },
                         description(){
-                                return "代币 II 通过代币的 25 变为 24，每个组织里程碑使次级难度降低 1e15 倍 - 15" 
+                                return "代币II 通过代币的 25 变为 24，每个组织里程碑使次级难度降低 1e15 倍 - 15" 
                         },
                         cost:() => new Decimal("1e249680"),
                         currencyLocation:() => player.sci.dna_science,
@@ -5500,7 +5500,7 @@ addLayer("sci", {
                         },
                         description(){
                                 if (player.shiftAlias) return "Currently: " + format(tmp.sci.upgrades[573].base) + " 每个和 " + format(tmp.sci.upgrades[573].effect) + " total"
-                                return "本排及以下的每次升级，使组织产出乘以 log10(log10(DNA Science))" 
+                                return "本排及以下的每次升级，使组织产出乘以 log10(log10(DNA 科学))" 
                         },
                         base(){
                                 let ret = player.sci.dna_science.points.max(10).log10().max(10).log10()
@@ -5659,7 +5659,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 XLVII"
                         },
                         description(){
-                                return "将心脏 I 基础值乘以 log10(10 + Token II)"
+                                return "将心脏 I 基础值乘以 log10(10 + 代币II)"
                         },
                         cost:() => new Decimal("1e3483.9e3"),
                         currencyLocation:() => player.sci.dna_science,
@@ -5704,7 +5704,7 @@ addLayer("sci", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA科学 L"
                         },
                         description(){
-                                return "解锁器官研究，log10(log10(DNA Science)) 使污染物产出倍增"
+                                return "解锁器官研究，log10(log10(DNA 科学)) 使污染物产出倍增"
                         },
                         cost:() => new Decimal("1e11851.6e3"),
                         currencyLocation:() => player.sci.dna_science,
@@ -5717,7 +5717,7 @@ addLayer("sci", {
 
                 601: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 I"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci I"
                         },
                         description(){
                                 let a = "移除 I'm 基础花费"
@@ -5739,7 +5739,7 @@ addLayer("sci", {
                 },
                 602: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 II"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci II"
                         },
                         description(){
                                 let a = "gonna 不受极限模式削弱影响"
@@ -5762,7 +5762,7 @@ addLayer("sci", {
                 },
                 603: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 III"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci III"
                         },
                         description(){
                                 if (player.nu.everMile3) return "解锁一个可购买项，你有 " + makeRed("2500") + " 转生所需代币减少，并移除蛋白质研究"
@@ -5788,7 +5788,7 @@ addLayer("sci", {
                 },
                 604: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 IV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci IV"
                         },
                         description(){
                                 if (player.nu.everMile3) return "Subtract " + makeRed(".5") + " 从全能基础值并增加 " + makeRed("1") + " 到净化基础" 
@@ -5811,7 +5811,7 @@ addLayer("sci", {
                 },
                 605: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 V"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci V"
                         },
                         description(){
                                 if (player.nu.everMile3) return "make 不受极限模式削弱影响，gonna 基础值被移除"
@@ -5834,10 +5834,10 @@ addLayer("sci", {
                 },
                 611: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 VI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci VI"
                         },
                         description(){
-                                if (player.nu.everMile3) return "代币四次幂除数翻倍且代币 II<sup>" + makeRed("5") + "</sup> 乘以污染物产出"
+                                if (player.nu.everMile3) return "代币四次幂除数翻倍且代币II<sup>" + makeRed("5") + "</sup> 乘以污染物产出"
                                 let a = "代币迭代幂除数翻倍，本行每次升级代币II乘以污染物产出"
                                 let b = "<br>需要：129 我思等级</bdi>"
                                 if (!hasUpgrade("sci", 611)) return a + b
@@ -5857,7 +5857,7 @@ addLayer("sci", {
                 },
                 612: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 VII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci VII"
                         },
                         description(){
                                 if (player.nu.everMile3) return "净化基础值 +4，并移除 make 的基础花费"
@@ -5874,7 +5874,7 @@ addLayer("sci", {
                 },
                 613: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 VIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci VIII"
                         },
                         description(){
                                 if (player.nu.everMile3) return "你有 " + makeRed("2000") + " 用于转生的代币更少并增加 " + makeRed("5") + " 到净化<sup>2</sup>基础值"
@@ -5892,7 +5892,7 @@ addLayer("sci", {
                 },
                 614: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 IX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci IX"
                         },
                         description(){
                                 if (player.nu.everMile3) return "解锁一个新可购买项，并使细胞和干细胞产出乘以 " + makeRed("1e1,000,000")
@@ -5911,10 +5911,10 @@ addLayer("sci", {
                 },
                 615: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 X"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci X"
                         },
                         description(){
-                                if (player.nu.everMile3) return "him 不受极限模式削弱影响，代币 II 通过干细胞的加数为 34"
+                                if (player.nu.everMile3) return "him 不受极限模式削弱影响，代币II 通过干细胞的加数为 34"
                                 return "him不受极限模式削弱影响，在1e1024污染物时通过干细胞的代币II加数为34"
                         },
                         cost:() => new Decimal(3e48),
@@ -5928,7 +5928,7 @@ addLayer("sci", {
                 },
                 621: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XI"
                         },
                         description(){
                                 if (player.nu.everMile3) return "Add " + makeRed(".5") + " 到 I'm 的基础和 " + makeRed("1") + " 到净化<sup>3</sup>基础值"
@@ -5951,7 +5951,7 @@ addLayer("sci", {
                 },
                 622: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XII"
                         },
                         description(){
                                 if (player.nu.everMile3) return makeRed("Triple") + " 器官科学 XI"
@@ -5974,7 +5974,7 @@ addLayer("sci", {
                 },
                 623: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XIII"
                         },
                         description(){
                                 if (player.nu.everMile3) return "器官<sup>" + makeRed("sqrt(him levels)") + "</sup> 使污染物产出和寡能干细胞等级倍增<sup>" + makeRed("1234") + "</sup> 乘以器官科学产出"
@@ -5998,7 +5998,7 @@ addLayer("sci", {
                 },
                 624: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XIV"
                         },
                         description(){
                                 if (player.nu.everMile3) return "移除净化<sup>2</sup>并 " + makeRed("remove") + " him 的基础花费"
@@ -6015,10 +6015,10 @@ addLayer("sci", {
                 },
                 625: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XV"
                         },
                         description(){
-                                return "代币 II 超过 200 后给予 1.1 倍器官、2 倍组织和 11 倍污染物"
+                                return "代币II 超过 200 后给予 1.1 倍器官、2 倍组织和 11 倍污染物"
                         },
                         cost:() => new Decimal(3e142),
                         currencyLocation:() => player.sci.organ_science,
@@ -6031,7 +6031,7 @@ addLayer("sci", {
                 },
                 631: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XVI"
                         },
                         description(){
                                 return "1 + 器官科学 / 1e155 使污染物和组织产出倍增"
@@ -6050,11 +6050,11 @@ addLayer("sci", {
                 },
                 632: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XVII"
                         },
                         description(){
-                                if (player.nu.everMile3) return makeRed("Remove") + " an 基础花费和通过干细胞获取的代币 II 加数 " + makeRed("is") + " 33"
-                                let a = "在 1e283 器官科学时移除花费基础，在 1e295 时代币 II 通过干细胞的加数为 33"
+                                if (player.nu.everMile3) return makeRed("Remove") + " an 基础花费和通过干细胞获取的代币II 加数 " + makeRed("is") + " 33"
+                                let a = "在 1e283 器官科学时移除花费基础，在 1e295 时代币II 通过干细胞的加数为 33"
                                 let b = "<br>需要：1e14000 污染物</bdi>"
                                 if (!hasUpgrade("sci", 632)) return a + b
                                 return a
@@ -6073,7 +6073,7 @@ addLayer("sci", {
                 },
                 633: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XVIII"
                         },
                         description(){
                                 if (player.nu.everMile3) return "Add " + makeRed("3") + " 到 I'm 基础以及 " + makeRed("remove") + " 肾脏学基础花费"
@@ -6091,7 +6091,7 @@ addLayer("sci", {
                 },
                 634: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XIX"
                         },
                         description(){
                                 if (player.nu.everMile3) return "him 不受极限模式削弱影响且 " + makeRed("remove") + " offer 的基础花费"
@@ -6108,7 +6108,7 @@ addLayer("sci", {
                 },
                 635: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XX"
                         },
                         description(){
                                 if (player.nu.everMile3) return "将器官科学产出乘以 " + makeRed("1e40,000") + " 且器官产出增加 " + makeRed("1e100")
@@ -6129,7 +6129,7 @@ addLayer("sci", {
                 },
                 641: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXI"
                         },
                         description(){
                                 if (player.nu.everMile3) return "解锁一个可购买项，将空气乘以 " + makeRed("64") + " 且提升为 ^" + makeRed("(1.04)<sup>6</sup>")
@@ -6146,7 +6146,7 @@ addLayer("sci", {
                 },
                 642: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXII"
                         },
                         description(){
                                 if (player.nu.everMile3) return makeRed("Remove") + " 无法计算基础花费"
@@ -6163,7 +6163,7 @@ addLayer("sci", {
                 },
                 643: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXIII"
                         },
                         description(){
                                 if (player.nu.everMile3) return "给过滤基础值增加 .5 并解锁两个新可购买项"
@@ -6180,7 +6180,7 @@ addLayer("sci", {
                 },
                 644: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXIV"
                         },
                         description(){
                                 if (player.shiftAlias) return "x -> <br>log10(x)<sup>50</sup>"
@@ -6197,13 +6197,13 @@ addLayer("sci", {
                 },
                 645: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXV"
                         },
                         description(){
                                 if (player.shiftAlias) {
                                         return "当前：<br>" + format(tmp.sci.upgrades[645].effect) + br + "x > 100, x -> sqrt(x)*10" + br + "x > 1e10, x -> log10<sup>10</sup>(x)"
                                 }
-                                return "cbrt(1 + Organ Science/1e3000) 使空气和器官科学产出倍增（软上限 100、1e10）"
+                                return "cbrt(1 + 器官 科学/1e3000) 使空气和器官科学产出倍增（软上限 100、1e10）"
                         },
                         effect(){
                                 let ret = player.sci.organ_science.points.div("1e3000").plus(1).cbrt()
@@ -6222,7 +6222,7 @@ addLayer("sci", {
                 },
                 651: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXVI"
                         },
                         description(){
                                 return "本行每次升级将器官科学产出除以1e140，在1e3831器官科学时给I'm基础加1"
@@ -6238,7 +6238,7 @@ addLayer("sci", {
                 },
                 652: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXVII"
                         },
                         description(){
                                 if (player.shiftAlias) return "当前：<br>" + format(tmp.sci.upgrades[652].effect)
@@ -6260,7 +6260,7 @@ addLayer("sci", {
                 },
                 653: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXVIII"
                         },
                         description(){
                                 return "本行每次升级将能量产出^1.01并解锁一个可购买项（3级in<u>TES</u>tine时翻倍）"
@@ -6276,10 +6276,10 @@ addLayer("sci", {
                 },
                 654: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXIX"
                         },
                         description(){
-                                return "代币 II 通过干细胞的加数为 50，但器官科学产出除以 1e555"
+                                return "代币II 通过干细胞的加数为 50，但器官科学产出除以 1e555"
                         },
                         cost:() => new Decimal("1e9356"),
                         currencyLocation:() => player.sci.organ_science,
@@ -6292,7 +6292,7 @@ addLayer("sci", {
                 },
                 655: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXX"
                         },
                         description(){
                                 let a = "移除第一行可购买项的基础花费并自动购买，在1e10,629器官科学时移除骨科的基础花费"
@@ -6309,7 +6309,7 @@ addLayer("sci", {
                 },
                 661: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXI"
                         },
                         description(){
                                 if (player.shiftAlias) return "Currently: " + format(tmp.sci.upgrades[661].effect, 4) 
@@ -6344,7 +6344,7 @@ addLayer("sci", {
                 },
                 662: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXII"
                         },
                         description(){
                                 return "在 55 级智人时，其等级使调理基础值 +.01，并自动购买病理学"
@@ -6360,7 +6360,7 @@ addLayer("sci", {
                 },
                 663: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXIII"
                         },
                         description(){
                                 return "移除胃肠病学基础花费，调节<sup>2</sup>基础为.5，且不再有软上限"
@@ -6376,7 +6376,7 @@ addLayer("sci", {
                 },
                 664: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXIV"
                         },
                         description(){
                                 return "器官科学XXXI按本行及以下每次升级乘以动物产出，并影响能量数量"
@@ -6392,7 +6392,7 @@ addLayer("sci", {
                 },
                 665: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXV"
                         },
                         description(){
                                 return "在灵长目8级时犬属等级给过滤<sup>2</sup>基础加.02，食肉目等级给净化<sup>2</sup>基础加.1（上限80）"
@@ -6408,7 +6408,7 @@ addLayer("sci", {
                 },
                 671: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXVI"
                         },
                         description(){
                                 return "在 502,400 动物时，本排升级使器官科学 XXXI 乘以 1.01"
@@ -6424,7 +6424,7 @@ addLayer("sci", {
                 },
                 672: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXVII"
                         },
                         description(){
                                 return "在灵长目22级时动物IV翻倍，27级时移除皮肤病学和过滤的基础花费"
@@ -6440,7 +6440,7 @@ addLayer("sci", {
                 },
                 673: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXVIII"
                         },
                         description(){
                                 return "在灵长目37/41/52级时，人属等级给净化/过滤/过滤<sup>2</sup>基础加.02"
@@ -6456,7 +6456,7 @@ addLayer("sci", {
                 },
                 674: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XXXIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XXXIX"
                         },
                         description(){
                                 return "获得的器官科学减少 1e1111 倍"
@@ -6472,7 +6472,7 @@ addLayer("sci", {
                 },
                 675: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XL"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XL"
                         },
                         description(){
                                 return "解锁一个新可购买项，在6e439/6e470基因时，移除调节/过滤<sup>2</sup>基础花费"
@@ -6488,7 +6488,7 @@ addLayer("sci", {
                 },
                 681: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLI"
                         },
                         description(){
                                 return "在 1e486 基因时，调理<sup>3</sup>基础值变为第 6 排分类学等级 / 200"
@@ -6504,7 +6504,7 @@ addLayer("sci", {
                 },
                 682: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLII"
                         },
                         description(){
                                 return "在4e548基因时移除灵长目基础花费，在8e564/1e571/6.6e576时给调节<sup>3</sup>基础加.5/.33/.15"
@@ -6520,7 +6520,7 @@ addLayer("sci", {
                 },
                 683: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLIII"
                         },
                         description(){
                                 return "染色体花费指数为1.33，但其花费基础乘以1.5，在鸟纲110级时降为1.4"
@@ -6536,7 +6536,7 @@ addLayer("sci", {
                 },
                 684: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLIV"
                         },
                         description(){
                                 return "每 100 级鸟纲（最高 1000）使调理<sup>2</sup>基础值 +.01"
@@ -6552,7 +6552,7 @@ addLayer("sci", {
                 },
                 685: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLV"
                         },
                         description(){
                                 return "哺乳纲 III 等级给调节基础值增加 .01"
@@ -6568,7 +6568,7 @@ addLayer("sci", {
                 },
                 691: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLVI"
                         },
                         description(){
                                 return "器官科学 XLIII 为 1.3，在 780 / 790 / 799 级食肉目 II 时为 1.2 / 1.1 / 1"
@@ -6584,7 +6584,7 @@ addLayer("sci", {
                 },
                 692: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLVII"
                         },
                         description(){
                                 return "鸟纲300级之后给调节<sup>3</sup>基础加.05，308级时器官科学XXXII为1.22"
@@ -6600,7 +6600,7 @@ addLayer("sci", {
                 },
                 693: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLVIII"
                         },
                         description(){
                                 return "器官科学XXXII增加.01，但将基因产出除以1e420；在最佳基因1e11,111和1e11,328时再次应用"
@@ -6616,7 +6616,7 @@ addLayer("sci", {
                 },
                 694: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 XLIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci XLIX"
                         },
                         description(){
                                 return "全能干细胞花费基数为 1e9，246 至 268 之间每条染色体使调理基础值 +1"
@@ -6632,7 +6632,7 @@ addLayer("sci", {
                 },
                 695: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官科学 L"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>器官 Sci L"
                         },
                         description(){
                                 return "给过滤<sup>3</sup>基础值增加 3"
@@ -6757,7 +6757,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Points)^x<br>" + format(tmp.sci.buyables[11].base) + "^x"
+                                let eformula = "log10(点数)^x<br>" + format(tmp.sci.buyables[11].base) + "^x"
                                 if (hasUpgrade("sci", 121)) eformula = eformula.replace("log10", "ln")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -6944,7 +6944,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(B Points)^x<br>" + format(tmp.sci.buyables[21].base) + "^x"
+                                let eformula = "log10(B 点数)^x<br>" + format(tmp.sci.buyables[21].base) + "^x"
                                 if (hasUpgrade("sci", 121)) eformula = eformula.replace("log10", "ln")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -7012,7 +7012,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(A Points)^x<br>" + format(tmp.sci.buyables[22].base) + "^x"
+                                let eformula = "log10(A 点数)^x<br>" + format(tmp.sci.buyables[22].base) + "^x"
                                 if (hasUpgrade("sci", 121)) eformula = eformula.replace("log10", "ln")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -7141,7 +7141,7 @@ addLayer("sci", {
 
                                 let eformula = "log10(log10(氢科学))^x<br>" + format(tmp.sci.buyables[101].base) + "^x"
                                 if (hasUpgrade("sci", 115)) eformula = eformula.replaceAll("log10", "ln")
-                                if (hasUpgrade("sci", 305)) eformula = eformula.replace("ln(ln(H Sci))^x", "log10(Science)^x")
+                                if (hasUpgrade("sci", 305)) eformula = eformula.replace("ln(ln(H Sci))^x", "log10(科学)^x")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -7263,7 +7263,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "ln(ln(Oxygen))^x<br>" + format(tmp.sci.buyables[103].base) + "^x"
+                                let eformula = "ln(ln(氧))^x<br>" + format(tmp.sci.buyables[103].base) + "^x"
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -7447,7 +7447,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Carbon)^x<br>" + format(tmp.sci.buyables[113].base) + "^x"
+                                let eformula = "log10(碳)^x<br>" + format(tmp.sci.buyables[113].base) + "^x"
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -7760,7 +7760,7 @@ addLayer("sci", {
                                 }
 
                                 let ef = "µ^" + makePurple("C") + "<sup>2</sup> 乘以蛋白质产出并<br>"
-                                ef += "log10(log10(log10(Points)))<sup>" + makePurple("C") + "</sup> 乘以DNA科学和DNA产出"
+                                ef += "log10(log10(log10(点数)))<sup>" + makePurple("C") + "</sup> 乘以DNA科学和DNA产出"
                                 let eformula = makePurple("C") + "=" + format(tmp.sci.buyables[503].base) + "*x"
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>" + ef + br
 
@@ -7957,7 +7957,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let ef = "log10(Cells)<sup>2" + makePurple("F") + "</sup> 乘以DNA科学产出且 1+"
+                                let ef = "log10(细胞)<sup>2" + makePurple("F") + "</sup> 乘以DNA科学产出且 1+"
                                 ef += makePurple("F") + "<sup>2</sup> 乘以小游戏产出"
                                 let eformula = makePurple("F") + "=" + format(tmp.sci.buyables[513].base) + "*x"
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>" + ef + br
@@ -8365,7 +8365,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let ef = "代币 II<sup>" + makePurple("L") + "</sup> 使污染物和器官科学产出倍增，且 2<sup>cbrt(" + makePurple("L") + ")</sup> 使器官产出倍增"
+                                let ef = "代币II<sup>" + makePurple("L") + "</sup> 使污染物和器官科学产出倍增，且 2<sup>cbrt(" + makePurple("L") + ")</sup> 使器官产出倍增"
                                 let eformula = makePurple("L") + "=" + format(tmp.sci.buyables[603].base) + "*x"
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>" + ef + br
 
@@ -8492,7 +8492,7 @@ addLayer("sci", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let ef = "log10<sup>(2)</sup>(Organ Science)<sup>" + makePurple("N") + "</sup> 乘以空气和器官科学产出"
+                                let ef = "log10<sup>(2)</sup>(器官 科学)<sup>" + makePurple("N") + "</sup> 乘以空气和器官科学产出"
                                 let eformula = makePurple("N") + "=" + format(tmp.sci.buyables[612].base) + "*x"
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>" + ef + br
 
@@ -8818,7 +8818,7 @@ addLayer("sci", {
                                 }
 
                                 let eformula = format(player.or.points.max(10).log10()) + "<sup>x</sup>"
-                                let allEff = "<b><h2>效果公式</h2>:<br>log10(Organs)^x" + br + eformula + br + "</b>"
+                                let allEff = "<b><h2>效果公式</h2>:<br>log10(器官)^x" + br + eformula + br + "</b>"
 
                                 let costmid = (player.cells.challenges[21] >= 5 ? "" : "1e99*") + "14^x<sup>1.9</sup>"
                                 let allCost = "<b><h2>花费公式</h2>:<br>" + costmid + "</b><br>"
@@ -8870,7 +8870,7 @@ addLayer("sci", {
                                 }
 
                                 let eformula = format(player.sci.organ_science.points.max(10).log10()) + "<sup>x</sup>"
-                                let allEff = "<b><h2>效果公式</h2>:<br>log10(Organ Science)^x" + br + eformula + br + "</b>"
+                                let allEff = "<b><h2>效果公式</h2>:<br>log10(器官 科学)^x" + br + eformula + br + "</b>"
 
                                 let costmid = (hasUpgrade("sci", 633) && (player.sci.buyables[631].gte(17) || player.nu.everMile3) ? "" : "1e139*") + "15^x<sup>1.8</sup>"
                                 let allCost = "<b><h2>花费公式</h2>:<br>" + costmid + "</b><br>"
@@ -8922,7 +8922,7 @@ addLayer("sci", {
                                 }
 
                                 let eformula = format(player.tokens.tokens2.total.max(1)) + "<sup>x</sup>"
-                                let allEff = "<b><h2>效果公式</h2>:<br>Token II^x" + br + eformula + br + "</b>"
+                                let allEff = "<b><h2>效果公式</h2>:<br>代币II^x" + br + eformula + br + "</b>"
 
                                 let costmid = (hasUpgrade("sci", 655) ? "" : "5e194*") + "16^x<sup>1.7</sup>"
                                 let allCost = "<b><h2>花费公式</h2>:<br>" + costmid + "</b><br>"
@@ -8974,7 +8974,7 @@ addLayer("sci", {
                                 }
 
                                 let eformula = format(player.or.air.points.max(10).log10()) + "<sup>x</sup>"
-                                let allEff = "<b><h2>效果公式</h2>:<br>log10(Air)^x" + br + eformula + br + "</b>"
+                                let allEff = "<b><h2>效果公式</h2>:<br>log10(空气)^x" + br + eformula + br + "</b>"
 
                                 let costmid = (hasUpgrade("sci", 672) && player.an.grid[505].buyables.gte(27) ? "" : "1e2552*") + "20^x<sup>1.6</sup>"
                                 let allCost = "<b><h2>花费公式</h2>:<br>" + costmid + "</b><br>"
@@ -9131,7 +9131,7 @@ addLayer("sci", {
                                 }
 
                                 let eformula = format(player.or.energy.points.max(10).log10()) + "<sup>x</sup>"
-                                let allEff = "<b><h2>效果公式</h2>:<br>log10(Energy)^x" + br + eformula + br + "</b>"
+                                let allEff = "<b><h2>效果公式</h2>:<br>log10(能量)^x" + br + eformula + br + "</b>"
 
                                 let costmid = (hasUpgrade("sci", 663) ? "" : "1e7338*") + "26^x<sup>1.3</sup>"
                                 let allCost = "<b><h2>花费公式</h2>:<br>" + costmid + "</b><br>"
@@ -9186,7 +9186,7 @@ addLayer("sci", {
                                 }
 
                                 let eformula = format(tmp.sci.buyables[652].base) + "<sup>x</sup>"
-                                let allEff = "<b><h2>效果公式</h2>:<br>Organ 升级^x" + br + eformula + br + "</b>"
+                                let allEff = "<b><h2>效果公式</h2>:<br>器官 升级^x" + br + eformula + br + "</b>"
                                 if (hasMilestone("ch", 4))      allEff = allEff.replace("器官升级", "(161 + Chromosomes)/5")
                                 if (hasUpgrade("an", 45))       allEff = allEff.replace("(161 + Chromosomes)/5", "(Chromosomes * 0.4)")
 
@@ -9478,7 +9478,7 @@ addLayer("sci", {
 
                                         let ret0 = a + br2 + b + br2
                                         if (hasUpgrade("sci", 305)) ret0 = ""
-                                        let c = "氧科学基础产出为 log10(Hydrogen Science)*log10(Oxygen)*log10(Carbon)"
+                                        let c = "氧科学基础产出为 log10(Hydrogen 科学)*log10(氧)*log10(碳)"
                                         
                                         if (!hasUpgrade("sci", 125) && !player.n.unlocked) return ret0 + c
 
@@ -9503,13 +9503,13 @@ addLayer("sci", {
 
                                         if (!layers.l.grid.getGemEffect(705) && !player.cells.unlocked) return ret2 + br2 + g
 
-                                        let h = "DNA 科学基础产出为<br>log10(DNA)*log10(Protein Science)<br>*2<sup>"
+                                        let h = "DNA 科学基础产出为<br>log10(DNA)*log10(蛋白质 科学)<br>*2<sup>"
                                         h += "tokens+5*[Anti- challenge completions]+2*[Non-0 gem challenges]-600</sup>"
 
                                         if (!hasUpgrade("sci", 595) && !player.an.unlocked) return ret2 + br2 + g + br2 + h
 
-                                        let i = "器官科学基础产出为<br>log10(Organs)*log10(DNA Science)*<br>2<sup>"
-                                        i += "Token II + 2*[Organ upgrades] + 2*[Organ milestones]-525</sup>*" + makeRed("Q") + "<sup>sqrt(代币II)</sup>"
+                                        let i = "器官科学基础产出为<br>log10(器官)*log10(DNA 科学)*<br>2<sup>"
+                                        i += "代币II + 2*[Organ upgrades] + 2*[Organ milestones]-525</sup>*" + makeRed("Q") + "<sup>sqrt(代币II)</sup>"
                                         i += br + "where " + makeRed("Q") + " 是所有器官子货币和组织的 log10(数量) 的乘积"
 
                                         if (!player.sp.unlocked && player.nu.best.lt(3) && !hasUpgrade("an", 54)) return ret2 + br2 + g + br2 + h + br2 + i
@@ -9899,7 +9899,7 @@ addLayer("c", {
                         },
                         description(){
                                 if (!player.shiftAlias) return "开始生产碳，但大幅提高氧 I 的花费"
-                                a = "(log2(Life Points)/256-3)*multipliers"
+                                a = "(log2(生命点)/256-3)*multipliers"
                                 if (hasUpgrade("tokens", 22)) a = a.replace("3)", "3)<sup>2</sup>")
                                 return a
                         },
@@ -10377,10 +10377,10 @@ addLayer("o", {
                         },
                         description(){
                                 if (!player.shiftAlias) return "开始生产氧，但大幅提高碳 I 的花费"
-                                a = "(log2(log2(Life Points))-9)<sup>2</sup><br>*multipliers"
+                                a = "(log2(log2(生命点))-9)<sup>2</sup><br>*multipliers"
                                 if (hasUpgrade("tokens", 21))   a = a.replace("<sup>2</sup>", "<sup>6</sup>")
                                 if (hasMilestone("tokens", 17)) a = a.replace("<sup>6</sup>", "<sup>18</sup>")
-                                if (hasUpgrade("h", 74))        a = "(log2(log2(Life Points)))^36<br>*multipliers"
+                                if (hasUpgrade("h", 74))        a = "(log2(log2(生命点)))^36<br>*multipliers"
                                 return a
                         },
                         cost(){
@@ -10447,9 +10447,9 @@ addLayer("o", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氧 IV"
                         },
                         description(){
-                                if (!player.shiftAlias) return "ln(Oxygen) 乘以氧气产出"
-                                a = "ln(Oxygen)"
-                                if (hasUpgrade("o", 15))        a = "(ln(Oxygen))<sup>2</sup>"
+                                if (!player.shiftAlias) return "ln(氧) 乘以氧气产出"
+                                a = "ln(氧)"
+                                if (hasUpgrade("o", 15))        a = "(ln(氧))<sup>2</sup>"
                                 if (hasMilestone("tokens", 13)) a = a.replace("<sup>2</sup>", "<sup>4</sup>")
                                 if (hasUpgrade("h", 81))        a = a.replace("<sup>4</sup>", "<sup>8</sup>")
                                 if (hasUpgrade("o", 14)) return a
@@ -10477,9 +10477,9 @@ addLayer("o", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氧 V"
                         },
                         description(){
-                                if (!player.shiftAlias) return "Oxygen^upgrades 使生命点产出倍增，并使氧 IV 平方"
-                                a = "min(1ee6, Oxygen) ^[upgrades]"
-                                if (hasMilestone("tokens", 10)) a = "min(1ee6, Oxygen) ^[upgrades]<sup>2</sup>"
+                                if (!player.shiftAlias) return "氧^upgrades 使生命点产出倍增，并使氧 IV 平方"
+                                a = "min(1ee6, 氧) ^[upgrades]"
+                                if (hasMilestone("tokens", 10)) a = "min(1ee6, 氧) ^[upgrades]<sup>2</sup>"
                                 if (hasUpgrade("tokens", 11)) a = a.replace("[upgrades]","([upgrades]+3)")
                                 if (hasUpgrade("o", 15)) return a
                                 return a + br + "预计时间: " + logisticTimeUntil(tmp.o.upgrades[15].cost, player.o.points, tmp.o.getResetGain, tmp.o.getLossRate)
@@ -10520,7 +10520,7 @@ addLayer("o", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氧 VII"
                         },
                         description(){
-                                if (!player.shiftAlias) return "伽马射线基础值乘以 log10(Life Points)，金币产出翻倍"
+                                if (!player.shiftAlias) return "伽马射线基础值乘以 log10(生命点)，金币产出翻倍"
                                 if (hasUpgrade("o", 22)) return ""
                                 return "预计时间: " + logisticTimeUntil(tmp.o.upgrades[22].cost, player.o.points, tmp.o.getResetGain, tmp.o.getLossRate)
                         },
@@ -10535,8 +10535,8 @@ addLayer("o", {
                         },
                         description(){
                                 if (!player.shiftAlias) return "<bdi style='font-size: 80%'>将近紫外基础值乘以 log10(生命点)，且红外与可见光效果提升为 [tokens]^3 次方"
-                                if (hasUpgrade("o", 23)) return "log10(Life Points)"
-                                return "log10(Life Points)<br>预计时间: " + logisticTimeUntil(tmp.o.upgrades[23].cost, player.o.points, tmp.o.getResetGain, tmp.o.getLossRate)
+                                if (hasUpgrade("o", 23)) return "log10(生命点)"
+                                return "log10(生命点)<br>预计时间: " + logisticTimeUntil(tmp.o.upgrades[23].cost, player.o.points, tmp.o.getResetGain, tmp.o.getLossRate)
                         },
                         cost(){
                                 return new Decimal(2e48)
@@ -10556,9 +10556,9 @@ addLayer("o", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氧 IX"
                         },
                         description(){
-                                if (!player.shiftAlias) return "无线电波基础值乘以 log10(Life Points)，再平方"
-                                if (hasUpgrade("o", 24)) return "log10(Life Points)"
-                                return "log10(Life Points)<br>预计时间: " + logisticTimeUntil(tmp.o.upgrades[24].cost, player.o.points, tmp.o.getResetGain, tmp.o.getLossRate)
+                                if (!player.shiftAlias) return "无线电波基础值乘以 log10(生命点)，再平方"
+                                if (hasUpgrade("o", 24)) return "log10(生命点)"
+                                return "log10(生命点)<br>预计时间: " + logisticTimeUntil(tmp.o.upgrades[24].cost, player.o.points, tmp.o.getResetGain, tmp.o.getLossRate)
                         },
                         cost(){
                                 if (player.extremeMode) return new Decimal(2e140)
@@ -11083,7 +11083,7 @@ addLayer("n", {
                         },
                         description(){
                                 let b = "需求：1e16 E点数"
-                                let a = "log10(Nitrogen) 使 E 点产出倍增，log10(E Points) 使氮产出倍增"
+                                let a = "log10(Nitrogen) 使 E 点产出倍增，log10(E 点数) 使氮产出倍增"
                                 if (!hasUpgrade("n", 41)) return "<bdi style='font-size: 80%'>" + b + br + a + "</bdi>"
                                 return a
                         },
@@ -11551,9 +11551,9 @@ addLayer("n", {
                         name: "四",
                         challengeDescription: "A 可购买项与 <bdi style='color:#CC0033'>C</bdi> 提升 1 的效果失效",
                         goalDescription(){
-                                if (player.extremeMode) return "e312,700,000 Points"
-                                if (player.hardMode) return "e291,590,000 Points"
-                                return "e287,000,000 Points"
+                                if (player.extremeMode) return "e312,700,000 点数"
+                                if (player.hardMode) return "e291,590,000 点数"
+                                return "e287,000,000 点数"
                         },
                         goal(){
                                 if (player.extremeMode) return Decimal.pow(10, 312700e3)
@@ -11575,8 +11575,8 @@ addLayer("n", {
                         name: "六",
                         challengeDescription: "氧产出平方根",
                         goalDescription(){
-                                if (player.extremeMode) return "e150,279,000 Points"
-                                return "e109,300,000 Points"
+                                if (player.extremeMode) return "e150,279,000 点数"
+                                return "e109,300,000 点数"
                         },
                         goal: () => Decimal.pow(10, player.extremeMode ? 150279e3 : 109.3e6),
                         canComplete: () => player.points.gte(tmp.n.challenges[12].goal),
@@ -11592,8 +11592,8 @@ addLayer("n", {
                         name: "九",
                         challengeDescription: "四 且 C点产出 6 失效",
                         goalDescription(){
-                                if (player.extremeMode) return "e107,387,000 Points"
-                                return "e7,400,000 Points"
+                                if (player.extremeMode) return "e107,387,000 点数"
+                                return "e7,400,000 点数"
                         },
                         goal: () => Decimal.pow(10, player.extremeMode ? 107387e3 : 74e5),
                         canComplete: () => player.points.gte(tmp.n.challenges[21].goal),
@@ -11612,8 +11612,8 @@ addLayer("n", {
                         name: "十",
                         challengeDescription: "六与 <bdi style='color:#CC0033'>C</bdi> 提升 2 的效果失效",
                         goalDescription(){
-                                if (player.extremeMode) return "e143,250,000 Points"
-                                return "e166,700,000 Points"
+                                if (player.extremeMode) return "e143,250,000 点数"
+                                return "e166,700,000 点数"
                         },
                         goal: () => Decimal.pow(10, player.extremeMode ? 14325e4 : 1667e5),
                         canComplete: () => player.points.gte(tmp.n.challenges[22].goal),
@@ -11632,8 +11632,8 @@ addLayer("n", {
                         name: "十四",
                         challengeDescription: "九 且 你重置获得的代币不能超过五十个",
                         goalDescription(){
-                                if (player.extremeMode) return "e70,984,000 Points"
-                                return "e16,950,000 Points" 
+                                if (player.extremeMode) return "e70,984,000 点数"
+                                return "e16,950,000 点数" 
                         },
                         goal: () => Decimal.pow(10, player.extremeMode ? 70984e3 : 1695e4),
                         canComplete: () => player.points.gte(tmp.n.challenges[31].goal),
@@ -11649,8 +11649,8 @@ addLayer("n", {
                         name: "十五",
                         challengeDescription: "十 且 C点产出 5 失效",
                         goalDescription(){
-                                if (player.extremeMode) return "e145,629,000 Points"
-                                return "e165,800,000 Points"
+                                if (player.extremeMode) return "e145,629,000 点数"
+                                return "e165,800,000 点数"
                         },
                         goal(){
                                 if (player.extremeMode) return Decimal.pow(10, 145629e3)
@@ -11679,8 +11679,8 @@ addLayer("n", {
                         name: "十六",
                         challengeDescription: "十四 且 你无法获得 A点",
                         goalDescription(){
-                                if (player.extremeMode) return "e332,120,000 Points"
-                                return "e253,800,000 Points"
+                                if (player.extremeMode) return "e332,120,000 点数"
+                                return "e253,800,000 点数"
                         },
                         goal(){
                                 if (player.extremeMode) return Decimal.pow(10, 332120e3)
@@ -11711,9 +11711,9 @@ addLayer("n", {
                         name: "二十一",
                         challengeDescription: "十五 且 氧气产出无法从基础值提高",
                         goalDescription(){
-                                if (player.extremeMode) return "e137,490,000 Points"
-                                if (player.hardMode) return "e169,000,000 Points"
-                                return "e167,100,000 Points"
+                                if (player.extremeMode) return "e137,490,000 点数"
+                                if (player.hardMode) return "e169,000,000 点数"
+                                return "e167,100,000 点数"
                         },
                         goal(){
                                 if (player.extremeMode) return Decimal.pow(10, 137490e3)
@@ -13766,7 +13766,7 @@ addLayer("mu", {
                         description(){
                                 let a = "α → ∂α 的 log6 变为 log5"
                                 if (player.extremeMode) a += "，生命里程碑 21 为 e2e44，" 
-                                return a + " 且 log10(Lives) 使生命点产出指数化"
+                                return a + " 且 log10(生命) 使生命点产出指数化"
                         },
                         cost:() => new Decimal(player.extremeMode ? 2e32 : 7e31),
                         unlocked(){
@@ -13842,8 +13842,8 @@ addLayer("mu", {
                 }, // hasMilestone("mu", 1)
                 2: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,000,000 E Points"
-                                return "1e1,200,000 E Points"
+                                if (player.extremeMode) return "1e1,000,000 E 点数"
+                                return "1e1,200,000 E 点数"
                         },
                         done(){
                                 return player.mini.e_points.points.gte(Decimal.pow(10, player.extremeMode ? 1e6 : 12e5))
@@ -15132,9 +15132,9 @@ addLayer("l", {
         row: 3, 
         prestigeButtonText(){
                 let b = ""
-                if (tmp.l.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.l.getNextAt) + " points."
+                if (tmp.l.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.l.getNextAt) + " points."
 
-                return "重置以获得 <b>" + formatWhole(tmp.l.getResetGain) + "</b> Lives" + b
+                return "重置以获得 <b>" + formatWhole(tmp.l.getResetGain) + "</b> 生命" + b
         },
         deactivated(){
                 return hasUpgrade("or", 135) || player.hu.unlocked
@@ -15464,7 +15464,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 1)
                 2: {
                         requirementDescription(){
-                                return "2 Lives"
+                                return "2 生命"
                         },
                         done(){
                                 return player.l.points.gte(2)
@@ -15479,7 +15479,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 2)
                 3: {
                         requirementDescription(){
-                                return "3 Lives"
+                                return "3 生命"
                         },
                         done(){
                                 return player.l.points.gte(3)
@@ -15496,7 +15496,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 3)
                 4: {
                         requirementDescription(){
-                                return "4 Lives"
+                                return "4 生命"
                         },
                         done(){
                                 return player.l.points.gte(4)
@@ -15511,7 +15511,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 4)
                 5: {
                         requirementDescription(){
-                                return "5 Lives"
+                                return "5 生命"
                         },
                         done(){
                                 return player.l.points.gte(5)
@@ -15528,7 +15528,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 5)
                 6: {
                         requirementDescription(){
-                                return "6 Lives"
+                                return "6 生命"
                         },
                         done(){
                                 return player.l.points.gte(6)
@@ -15543,7 +15543,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 6)
                 7: {
                         requirementDescription(){
-                                return "7 Lives"
+                                return "7 生命"
                         },
                         done(){
                                 return player.l.points.gte(7)
@@ -15557,7 +15557,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 7)
                 8: {
                         requirementDescription(){
-                                return "10 Lives"
+                                return "10 生命"
                         },
                         done(){
                                 return player.l.points.gte(10)
@@ -15690,7 +15690,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 15)
                 16: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.93e12 Lives"
+                                if (player.extremeMode) return "2.93e12 生命"
                                 return "2.00e22 µ"
                         },
                         done(){
@@ -15706,8 +15706,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 16)
                 17: {
                         requirementDescription(){
-                                if (player.extremeMode) return "4.50e12 Lives"
-                                return "2.68e12 Lives"
+                                if (player.extremeMode) return "4.50e12 生命"
+                                return "2.68e12 生命"
                         },
                         done(){
                                 return player.l.points.gte(player.extremeMode ? 4.5e12 : 2.68e12)
@@ -15740,7 +15740,7 @@ addLayer("l", {
                 19: {
                         requirementDescription(){
                                 if (player.extremeMode) return "7.00e24 µ"
-                                return "e1.00e1000 Points"
+                                return "e1.00e1000 点数"
                         },
                         done(){
                                 if (player.extremeMode) return player.mu.points.gte(7e24)
@@ -15756,7 +15756,7 @@ addLayer("l", {
                 20: {
                         requirementDescription(){
                                 if (player.extremeMode) return "7.00e25 µ"
-                                return "e3.20e306 Points"
+                                return "e3.20e306 点数"
                         },
                         done(){
                                 if (player.extremeMode) return player.mu.points.gte(7e25)
@@ -15778,7 +15778,7 @@ addLayer("l", {
                 21: {
                         requirementDescription(){
                                 if (player.extremeMode) return "39 次膨胀完成"
-                                return "e9.50e305 Points"
+                                return "e9.50e305 点数"
                         },
                         done(){
                                 if (player.l.challenges[11] > (player.extremeMode ? 38 : 39)) return true
@@ -15798,7 +15798,7 @@ addLayer("l", {
                 }, // hasMilestone("l", 21)
                 22: {
                         requirementDescription(){
-                                if (player.extremeMode) return "7.77e20 Lives"
+                                if (player.extremeMode) return "7.77e20 生命"
                                 return "1.00e31 µ"
                         },
                         done(){
@@ -15816,8 +15816,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 22)
                 23: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.75e25 Lives"
-                                return "3.45e31 Lives"
+                                if (player.extremeMode) return "2.75e25 生命"
+                                return "3.45e31 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(2.75e25)
@@ -15832,8 +15832,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 23)
                 24: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.71e45 Lives"
-                                return "1.70e50 Lives"
+                                if (player.extremeMode) return "1.71e45 生命"
+                                return "1.70e50 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(1.71e45)
@@ -15848,8 +15848,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 24)
                 25: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.26e116 Lives"
-                                return "5.00e113 Lives"
+                                if (player.extremeMode) return "2.26e116 生命"
+                                return "5.00e113 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(2.26e116)
@@ -15865,8 +15865,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 25)
                 26: {
                         requirementDescription(){
-                                if (player.extremeMode) return "9.75e126 Lives"
-                                return "2.50e125 Lives"
+                                if (player.extremeMode) return "9.75e126 生命"
+                                return "2.50e125 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(9.75e126)
@@ -15882,8 +15882,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 26)
                 27: {
                         requirementDescription(){
-                                if (player.extremeMode) return "7.40e128 Lives"
-                                return "4.00e128 Lives"
+                                if (player.extremeMode) return "7.40e128 生命"
+                                return "4.00e128 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(7.4e128)
@@ -15898,8 +15898,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 27)
                 28: {
                         requirementDescription(){
-                                if (player.extremeMode) return "5.00e136 Lives"
-                                return "1.00e148 Lives"
+                                if (player.extremeMode) return "5.00e136 生命"
+                                return "1.00e148 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(5e136)
@@ -15914,8 +15914,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 28)
                 29: {
                         requirementDescription(){
-                                if (player.extremeMode) return "6.20e159 Lives"
-                                return "1.00e157 Lives"
+                                if (player.extremeMode) return "6.20e159 生命"
+                                return "1.00e157 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(6.2e159)
@@ -15930,8 +15930,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 29)
                 30: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.25e168 Lives"
-                                return "1.00e182 Lives"
+                                if (player.extremeMode) return "2.25e168 生命"
+                                return "1.00e182 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(2.25e168)
@@ -15946,8 +15946,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 30)
                 31: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.76e181 Lives"
-                                return "4.00e198 Lives"
+                                if (player.extremeMode) return "2.76e181 生命"
+                                return "4.00e198 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(2.76e181)
@@ -15963,8 +15963,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 31)
                 32: {
                         requirementDescription(){
-                                if (player.extremeMode) return "5.00e191 Lives"
-                                return "2.00e219 Lives"
+                                if (player.extremeMode) return "5.00e191 生命"
+                                return "2.00e219 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(5e191)
@@ -15979,8 +15979,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 32)
                 33: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e214 Lives"
-                                return "2.50e242 Lives"
+                                if (player.extremeMode) return "1.00e214 生命"
+                                return "2.50e242 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(1e214)
@@ -15997,8 +15997,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 33)
                 34: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e229 Lives"
-                                return "2.00e261 Lives"
+                                if (player.extremeMode) return "1.00e229 生命"
+                                return "2.00e261 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(1e229)
@@ -16013,8 +16013,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 34)
                 35: {
                         requirementDescription(){
-                                if (player.extremeMode) return "4.00e290 Lives"
-                                return "5.00e311 Lives"
+                                if (player.extremeMode) return "4.00e290 生命"
+                                return "5.00e311 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte(4e290)
@@ -16046,8 +16046,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 36)
                 37: {
                         requirementDescription(){
-                                if (player.extremeMode) return "5.00e345 Lives"
-                                return "3.00e382 Lives"
+                                if (player.extremeMode) return "5.00e345 生命"
+                                return "3.00e382 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("5e345")
@@ -16063,8 +16063,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 37)
                 38: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e378 Lives"
-                                return "1.00e434 Lives"
+                                if (player.extremeMode) return "1.00e378 生命"
+                                return "1.00e434 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e378")
@@ -16080,8 +16080,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 38)
                 39: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e409 Lives"
-                                return "1.00e486 Lives"
+                                if (player.extremeMode) return "1.00e409 生命"
+                                return "1.00e486 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e409")
@@ -16097,8 +16097,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 39)
                 40: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e419 Lives"
-                                return "1.00e500 Lives"
+                                if (player.extremeMode) return "1.00e419 生命"
+                                return "1.00e500 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e419")
@@ -16114,8 +16114,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 40)
                 41: {
                         requirementDescription(){
-                                 if (player.extremeMode) return "1.00e476 Lives"
-                                return "1.00e532 Lives"
+                                 if (player.extremeMode) return "1.00e476 生命"
+                                return "1.00e532 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e476")
@@ -16132,8 +16132,8 @@ addLayer("l", {
                 }, // hasMilestone("l", 41)
                 42: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e524 Lives"
-                                return "1.00e547 Lives"
+                                if (player.extremeMode) return "1.00e524 生命"
+                                return "1.00e547 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e524")
@@ -16269,8 +16269,8 @@ addLayer("l", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "logINS(logINS(logINS(Points)))^x<br>" + format(tmp.l.buyables[11].base) + "^x"
-                                if (layers.l.grid.getGemEffect(207)) eformula = eformula.replace("logINS(Points)", "Points")
+                                let eformula = "logINS(logINS(logINS(点数)))^x<br>" + format(tmp.l.buyables[11].base) + "^x"
+                                if (layers.l.grid.getGemEffect(207)) eformula = eformula.replace("logINS(点数)", "Points")
                                 let f = "log" + formatWhole(tmp.l.buyables[11].getLogBase)
                                 if (f == "log2.72") f = "ln"
                                 eformula = eformula.replaceAll("logINS", f)
@@ -16862,10 +16862,10 @@ addLayer("l", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Lives)^x<br>" + format(tmp.l.buyables[31].base) + "^x"
+                                let eformula = "log10(生命)^x<br>" + format(tmp.l.buyables[31].base) + "^x"
                                 if (hasMilestone("l", 25))      eformula = eformula.replace("log10", "ln")
                                 if (hasMilestone("l", 26))      eformula = eformula.replace("ln", "log2")
-                                if (hasMilestone("cells", 54))  eformula = eformula.replace("log2(Lives)", "Lambda")
+                                if (hasMilestone("cells", 54))  eformula = eformula.replace("log2(生命)", "Lambda")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -17121,7 +17121,7 @@ addLayer("l", {
                                 return a + formatSmall(e)
                         },
                         goalDescription(){
-                                return "e1.80e308 Points"
+                                return "e1.80e308 点数"
                         },
                         challengeEffect(){
                                 let eff = player.l.challenges[11] + 1
@@ -17331,7 +17331,7 @@ addLayer("l", {
                         fullDisplay(){
                                 if (hasUpgrade("or", 121)) return makeRed("<h3>禁用氢</h3>")
                                 let a = "膨胀达到 110 次完成，且所有氢内容被禁用"
-                                let b = "Goal: " + (player.extremeMode ? "e1e277,340" : "e1e140,400") + " Points"
+                                let b = "Goal: " + (player.extremeMode ? "e1e277,340" : "e1e140,400") + " 点数"
                                 let c = "奖励：每个反挑战，每颗非零宝石 log10(Amino Acid) 使氨基酸产出倍增"
                                 c += " 并使生命点基础产出 +1.9，但禁用氢内容"
                                 let d = "Currently: " + format(tmp.l.challenges[21].reward)
@@ -18257,7 +18257,7 @@ addLayer("l", {
                         content: [
                                 "main-display",
                                 ["display-text", function(){
-                                        let a = "初始生命产出：sqrt(log2(log2(log10(Life Points)))-9)" + br2 
+                                        let a = "初始生命产出：sqrt(log2(log2(log10(生命点)))-9)" + br2 
                                         let b = "生命重置会重置生命之前的全部内容，成就除外" + br2
                                         b += "为解锁生命，你保留所有小游戏自动购买器，代币重置不产生任何效果。" + br2
                                         let c = "生命影响大多数先前的货币：" + br
@@ -18281,8 +18281,8 @@ addLayer("l", {
                                         let h = "当前基础产出为 " + format(tmp.l.getBaseGain)
                                         h += " 且获得 exp 为 " + formExp
 
-                                        let i = "当前产出公式为 (log2(log2(log10(Life Points)))"
-                                        if (hasChallenge("l", 51)) i = "当前产出公式为 (log2(log10(Life Points))"
+                                        let i = "当前产出公式为 (log2(log2(log10(生命点)))"
+                                        if (hasChallenge("l", 51)) i = "当前产出公式为 (log2(log10(生命点))"
                                         if (tmp.l.getBaseSubAmount.gt(0)) i += "-" + format(tmp.l.getBaseSubAmount)
                                         else i += "+" + format(tmp.l.getBaseSubAmount.times(-1))
                                         i += ")<sup>" + formExp + "</sup>"
@@ -18671,7 +18671,7 @@ addLayer("a", {
         },
         tooltip(){
                 if (player.a.protein.points.eq(0)) return formatCurrency(player.a.points) + " 氨基酸"
-                return formatCurrency(player.a.points) + " 氨基酸和 " + formatCurrency(player.a.protein.points) + " Protein"
+                return formatCurrency(player.a.points) + " 氨基酸和 " + formatCurrency(player.a.protein.points) + " 蛋白质"
         },
         effect(){
                 let amt = player.a.best
@@ -18815,7 +18815,7 @@ addLayer("a", {
         row: 3, 
         prestigeButtonText(){
                 let b = ""
-                if (tmp.a.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.a.getNextAt) + " Lives."
+                if (tmp.a.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.a.getNextAt) + " 生命."
 
                 return "重置以获得 <b>" + formatWhole(tmp.a.getResetGain) + "</b> 氨基酸" + b
         },
@@ -19210,7 +19210,7 @@ addLayer("a", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氨基酸 XIV"
                         },
                         description(){
-                                return "tRNA 和 mRNA 基础值 +.001，log10(Protein) 使生命点产出指数化"
+                                return "tRNA 和 mRNA 基础值 +.001，log10(蛋白质) 使生命点产出指数化"
                         },
                         cost:() => new Decimal("1e5432"),
                         currencyLocation:() => player.a.protein,
@@ -19225,7 +19225,7 @@ addLayer("a", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>氨基酸 XV"
                         },
                         description(){
-                                return "tRNA 和 mRNA 基础值 +.001，log10(Protein) 使生命点产出指数化"
+                                return "tRNA 和 mRNA 基础值 +.001，log10(蛋白质) 使生命点产出指数化"
                         },
                         cost:() => new Decimal(player.extremeMode ? "ee4" : "1e9000"),
                         currencyLocation:() => player.a.protein,
@@ -19626,8 +19626,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 13)
                 14: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e700 Lives"
-                                return "1.00e851 Lives"
+                                if (player.extremeMode) return "1.00e700 生命"
+                                return "1.00e851 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e700")
@@ -19644,8 +19644,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 14)
                 15: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e781 Lives"
-                                return "1.00e882 Lives"
+                                if (player.extremeMode) return "1.00e781 生命"
+                                return "1.00e882 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e781")
@@ -19662,7 +19662,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 15)
                 16: {
                         requirementDescription(){
-                                return "1.00e932 Lives"
+                                return "1.00e932 生命"
                         },
                         done(){
                                 return player.l.points.gte("1e932")
@@ -19676,7 +19676,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 16)
                 17: {
                         requirementDescription(){
-                                return "1.00e1006 Lives"
+                                return "1.00e1006 生命"
                         },
                         done(){
                                 return player.l.points.gte("1e1006")
@@ -19692,8 +19692,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 17)
                 18: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e1150 Lives"
-                                return "1.00e1118 Lives"
+                                if (player.extremeMode) return "1.00e1150 生命"
+                                return "1.00e1118 生命"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e1150")
@@ -19708,7 +19708,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 18)
                 19: {
                         requirementDescription(){
-                                return "1.00e1256 Lives"
+                                return "1.00e1256 生命"
                         },
                         done(){
                                 return player.l.points.gte("1e1256")
@@ -19730,8 +19730,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 19)
                 20: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1.00e1337 Lives"
-                                return "e1.00e2600 Points"
+                                if (player.extremeMode) return "1.00e1337 生命"
+                                return "e1.00e2600 点数"
                         },
                         done(){
                                 if (player.extremeMode) return player.l.points.gte("1e1337")
@@ -19775,7 +19775,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 22)
                 23: {
                         requirementDescription(){
-                                return "1e11,111 Protein"
+                                return "1e11,111 蛋白质"
                         },
                         done(){
                                 return player.a.protein.points.gte("1e11111")
@@ -19789,8 +19789,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 23)
                 24: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e20,000 Protein"
-                                return "1e22,722 Protein"
+                                if (player.extremeMode) return "1e20,000 蛋白质"
+                                return "1e22,722 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e2e4")
@@ -19809,7 +19809,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 24)
                 25: {
                         requirementDescription(){
-                                return "1e23,456 Protein"
+                                return "1e23,456 蛋白质"
                         },
                         done(){
                                 return player.a.protein.points.gte("1e23456")
@@ -19823,8 +19823,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 25)
                 26: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e30,603 Protein"
-                                return "1e31,313 Protein"
+                                if (player.extremeMode) return "1e30,603 蛋白质"
+                                return "1e31,313 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e30603")
@@ -19839,8 +19839,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 26)
                 27: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e65,432 Protein"
-                                return "1e66,000 Protein"
+                                if (player.extremeMode) return "1e65,432 蛋白质"
+                                return "1e66,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e65432")
@@ -19855,7 +19855,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 27)
                 28: {
                         requirementDescription(){
-                                return "1e76,543 Protein"
+                                return "1e76,543 蛋白质"
                         },
                         done(){
                                 return player.a.protein.points.gte("1e76543")
@@ -19869,8 +19869,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 28)
                 29: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e77,777 Protein"
-                                return "1e80,000 Protein"
+                                if (player.extremeMode) return "1e77,777 蛋白质"
+                                return "1e80,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e77777")
@@ -19885,8 +19885,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 29)
                 30: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e123,456 Protein"
-                                return "1e120,000 Protein"
+                                if (player.extremeMode) return "1e123,456 蛋白质"
+                                return "1e120,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e123456")
@@ -19901,7 +19901,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 30)
                 31: {
                         requirementDescription(){
-                                return "1e165,432 Protein"
+                                return "1e165,432 蛋白质"
                         },
                         done(){
                                 return player.a.protein.points.gte("1e165432")
@@ -19916,7 +19916,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 31)
                 32: {
                         requirementDescription(){
-                                return "1e175,000 Protein"
+                                return "1e175,000 蛋白质"
                         },
                         done(){
                                 return player.a.protein.points.gte("1e175e3")
@@ -19930,7 +19930,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 32)
                 33: {
                         requirementDescription(){
-                                return "1e283,000 Protein"
+                                return "1e283,000 蛋白质"
                         },
                         done(){
                                 return player.a.protein.points.gte("1e283e3")
@@ -19944,8 +19944,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 33)
                 34: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e309,000 Protein"
-                                return "1e325,000 Protein"
+                                if (player.extremeMode) return "1e309,000 蛋白质"
+                                return "1e325,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e309e3")
@@ -19960,8 +19960,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 34)
                 35: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e518,000 Protein"
-                                return "1e354,000 Protein"
+                                if (player.extremeMode) return "1e518,000 蛋白质"
+                                return "1e354,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e518e3")
@@ -19976,8 +19976,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 35)
                 36: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e765,500 Protein"
-                                return "1e506,000 Protein"
+                                if (player.extremeMode) return "1e765,500 蛋白质"
+                                return "1e506,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e765.5e3")
@@ -19992,8 +19992,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 36)
                 37: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e959,000 Protein"
-                                return "1e572,000 Protein"
+                                if (player.extremeMode) return "1e959,000 蛋白质"
+                                return "1e572,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e959e3")
@@ -20008,8 +20008,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 37)
                 38: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,071,300 Protein"
-                                return "1e607,000 Protein"
+                                if (player.extremeMode) return "1e1,071,300 蛋白质"
+                                return "1e607,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e1071.3e3")
@@ -20024,8 +20024,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 38)
                 39: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,112,000 Protein"
-                                return "1e645,000 Protein"
+                                if (player.extremeMode) return "1e1,112,000 蛋白质"
+                                return "1e645,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e1112e3")
@@ -20040,8 +20040,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 39)
                 40: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,126,000 Protein"
-                                return "1e664,000 Protein"
+                                if (player.extremeMode) return "1e1,126,000 蛋白质"
+                                return "1e664,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e1126e3")
@@ -20056,8 +20056,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 40)
                 41: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,373,000 Protein"
-                                return "1e875,700 Protein"
+                                if (player.extremeMode) return "1e1,373,000 蛋白质"
+                                return "1e875,700 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e1373e3")
@@ -20072,8 +20072,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 41)
                 42: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,796,000 Protein"
-                                return "1e1,001,000 Protein"
+                                if (player.extremeMode) return "1e1,796,000 蛋白质"
+                                return "1e1,001,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e1796e3")
@@ -20088,8 +20088,8 @@ addLayer("a", {
                 }, // hasMilestone("a", 42)
                 43: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,851,000 Protein"
-                                return "1e1,099,000 Protein"
+                                if (player.extremeMode) return "1e1,851,000 蛋白质"
+                                return "1e1,099,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("1e1851e3")
@@ -20164,7 +20164,7 @@ addLayer("a", {
                 }, // hasMilestone("a", 47)
                 48: {
                         requirementDescription(){
-                                return "1e2,040,000 Protein"
+                                return "1e2,040,000 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return false
@@ -20451,7 +20451,7 @@ addLayer("a", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "LOGBASE(Lives)^x<br>" + format(tmp.a.buyables[13].base) + "^x"
+                                let eformula = "LOGBASE(生命)^x<br>" + format(tmp.a.buyables[13].base) + "^x"
                                 let lb = "log10"
                                 if (hasMilestone("d", 3)) lb = "log9"
                                 if (hasMilestone("d", 6)) lb = "log8"
@@ -20463,7 +20463,7 @@ addLayer("a", {
                                 if (hasMilestone("d", 12)) lb = "ln"
                                 if (hasMilestone("d", 13)) lb = "log2"
                                 eformula = eformula.replace("LOGBASE", lb)
-                                if (hasMilestone("cells", 29))  eformula = eformula.replace("log2(Lives)", "µ")
+                                if (hasMilestone("cells", 29))  eformula = eformula.replace("log2(生命)", "µ")
                                 if (hasUpgrade("t", 151))       eformula = eformula.replace("µ", "e1e13")
                                 if (player.extremeMode)         eformula = eformula.replace("e1e13", "e1e9")
                                 if (player.extremeMode && !hasUpgrade("sci", 544)) eformula = eformula.replace("µ^x", "(µ<sup>.1</sup>)^x")
@@ -20551,8 +20551,8 @@ addLayer("a", {
                                 let eformula = "[Non zero gem challenges]^x<br>" + format(tmp.a.buyables[21].base) + "^x"
                                 if (hasMilestone("cells", 18))  eformula = eformula.replace("[Non zero gem challenges]", "64+sqrt(Omnipotent)")
                                 if (hasMilestone("cells", 35))  eformula = eformula.replace("+sqrt(Omnipotent)", "*Omnipotent")
-                                if (hasMilestone("cells", 54))  eformula = eformula.replace("64*Omnipotent", "log10(Lives)")
-                                if (hasUpgrade("cells", 63))    eformula = eformula.replace("log10(Lives)", "(代币<sup>代币II</sup>)")
+                                if (hasMilestone("cells", 54))  eformula = eformula.replace("64*Omnipotent", "log10(生命)")
+                                if (hasUpgrade("cells", 63))    eformula = eformula.replace("log10(生命)", "(代币<sup>代币II</sup>)")
                                 if (player.extremeMode)         eformula = eformula.replace("II", "II<sup>1.5</sup>")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -20623,9 +20623,9 @@ addLayer("a", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情" + br + end
                                 }
 
-                                let eformula = "log10(Protein)^x<br>" + format(tmp.a.buyables[22].base) + "^x"
+                                let eformula = "log10(蛋白质)^x<br>" + format(tmp.a.buyables[22].base) + "^x"
                                 if (hasUpgrade("a", 54))        eformula = eformula.replace("log10", "log2")
-                                if (hasMilestone("cells", 19))  eformula = eformula.replace("log2(Protein)", "干细胞")
+                                if (hasMilestone("cells", 19))  eformula = eformula.replace("log2(蛋白质)", "干细胞")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -20696,7 +20696,7 @@ addLayer("a", {
                                 let eformula = "log10(氨基酸)^x<br>" + format(tmp.a.buyables[23].base) + "^x"
                                 if (hasMilestone("a", 36)) eformula = eformula.replace("log10", "ln")
                                 if (hasMilestone("a", 37)) eformula = eformula.replace("ln", "log2")
-                                if (hasUpgrade("cells", 25)) eformula = eformula.replace("log2(Amino Acid)", "sqrt(Cells)")
+                                if (hasUpgrade("cells", 25)) eformula = eformula.replace("log2(Amino Acid)", "sqrt(细胞)")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -20769,7 +20769,7 @@ addLayer("a", {
                                 if (hasUpgrade("d", 15)) eformula = eformula.replace("log10", "ln")
                                 if (hasUpgrade("d", 21)) eformula = eformula.replace("ln", "log2")
                                 if (hasUpgrade("d", 22)) eformula = eformula.replace("ln", "log2")
-                                if (hasMilestone("cells", 19)) eformula = eformula.replace("log2(log2(Points))", "Cells")
+                                if (hasMilestone("cells", 19)) eformula = eformula.replace("log2(log2(点数))", "Cells")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -20830,7 +20830,7 @@ addLayer("a", {
 
                                 let eformula = "ln(siRNA 等级)^x<br>" + format(tmp.a.buyables[32].base) + "^x"
                                 if (layers.l.grid.getGemEffect(806)) eformula = eformula.replace("ln(siRNA levels)", "siRNA 等级")
-                                if (hasUpgrade("cells", 63)) eformula = eformula.replace("siRNA 等级", "log10(log10(Points))")
+                                if (hasUpgrade("cells", 63)) eformula = eformula.replace("siRNA 等级", "log10(log10(点数))")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -20908,9 +20908,9 @@ addLayer("a", {
                                 }
 
                                 let eformula = format(tmp.a.buyables[33].base) + "^x"
-                                if (hasUpgrade("cells", 115)) eformula = "(Mu*Infrared)^x" + br + eformula
+                                if (hasUpgrade("cells", 115)) eformula = "(μ*Infrared)^x" + br + eformula
                                 if (hasUpgrade("t", 92)) eformula = eformula.replace("*Infrared", "")
-                                if (player.extremeMode && !hasUpgrade("cells", 55)) eformula = eformula.replace("Mu", "sqrt(Mu)")
+                                if (player.extremeMode && !hasUpgrade("cells", 55)) eformula = eformula.replace("Mu", "sqrt(μ)")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -21043,7 +21043,7 @@ addLayer("a", {
                                 ["display-text", function(){
                                         if (player.or.unlocked) return ""
 
-                                        let a = "初始氨基酸产出：(cbrt(log2(Lives)-1368)-7)<sup>2</sup>"
+                                        let a = "初始氨基酸产出：(cbrt(log2(生命)-1368)-7)<sup>2</sup>"
                                         let b = "氨基酸按顺序重置所有生命内容、N → ΔN 等级，"
                                         let c = "磷和 µ 升级的最后两排，最后进行一次生命重置。"
                                         let d = "为解锁氨基酸，氮和磷重置永久无效"
@@ -21082,7 +21082,7 @@ addLayer("a", {
                                                 boostPer[id] = decimalOne
                                                 if (!tmp.a.buyables[id].unlocked || id == 22 || id == 33) continue
                                                 boostPer[id] = boostPer[id].times(tmp.a.buyables[id].base)
-                                                j2 += "<br>Each "
+                                                j2 += "<br>每个 "
                                                 j2 += tmp.a.buyables[id].title + " 主要给予 "
                                                 j2 += doEndingFormula(tmp.a.buyables[id].base)
                                         }
@@ -21524,7 +21524,7 @@ addLayer("d", {
         row: 3, 
         prestigeButtonText(){
                 let b = ""
-                if (tmp.d.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.d.getNextAt) + " Amino Acid."
+                if (tmp.d.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.d.getNextAt) + " Amino Acid."
 
                 return "重置以获得 <b>" + formatWhole(tmp.d.getResetGain) + "</b> DNA" + b
         },
@@ -21636,7 +21636,7 @@ addLayer("d", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>DNA VIII"
                         },
                         description(){
-                                return "log10(Lives) 使 DNA 产出倍增，但重置时你最多只能获得 10 倍 DNA"
+                                return "log10(生命) 使 DNA 产出倍增，但重置时你最多只能获得 10 倍 DNA"
                         },
                         cost:() => new Decimal(player.extremeMode ? 2e37 : 2e36),
                         unlocked(){
@@ -21961,7 +21961,7 @@ addLayer("d", {
                 }, // hasMilestone("d", 14)
                 15: {
                         requirementDescription(){
-                                if (player.extremeMode) return "e89,012,345 Protein"
+                                if (player.extremeMode) return "e89,012,345 蛋白质"
                                 return "18,100 N → Δµ"
                         },
                         done(){
@@ -22108,7 +22108,7 @@ addLayer("d", {
                 24: {
                         requirementDescription(){
                                 if (player.extremeMode) return "1e9647 Amino Acids"
-                                return "e1e9 Protein"
+                                return "e1e9 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.points.gte("1e9647")
@@ -22123,8 +22123,8 @@ addLayer("d", {
                 }, // hasMilestone("d", 24)
                 25: {
                         requirementDescription(){
-                                if (player.extremeMode) return "e1,605,000,000 Protein"
-                                return "e2e9 Protein"
+                                if (player.extremeMode) return "e1,605,000,000 蛋白质"
+                                return "e2e9 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("e1605e6")
@@ -22140,8 +22140,8 @@ addLayer("d", {
                 }, // hasMilestone("d", 25)
                 26: {
                         requirementDescription(){
-                                if (player.extremeMode) return "e6,418,000,000 Protein"
-                                return "e3e9 Protein"
+                                if (player.extremeMode) return "e6,418,000,000 蛋白质"
+                                return "e3e9 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("e6418e6")
@@ -22156,8 +22156,8 @@ addLayer("d", {
                 }, // hasMilestone("d", 26)
                 27: {
                         requirementDescription(){
-                                if (player.extremeMode) return "e1.53e10 Protein"
-                                return "e4.8e9 Protein"
+                                if (player.extremeMode) return "e1.53e10 蛋白质"
+                                return "e4.8e9 蛋白质"
                         },
                         done(){
                                 if (player.extremeMode) return player.a.protein.points.gte("e1.53e10")
@@ -22468,7 +22468,7 @@ addLayer("cells", {
         baseAmount(){return player.d.points},
         type: "custom",
         tooltip(){
-                if (player.cells.stem_cells.points.eq(0) || tmp.mc.layerShown) return format(player.cells.points, 3) + " Cells"
+                if (player.cells.stem_cells.points.eq(0) || tmp.mc.layerShown) return format(player.cells.points, 3) + " 细胞"
                 return formatWhole(player.cells.points) + " 细胞和 " + formatCurrency(player.cells.stem_cells.points) + " 干细胞"
         },
         getResetGain(){
@@ -23234,9 +23234,9 @@ addLayer("cells", {
         row: 1, 
         prestigeButtonText(){
                 let b = ""
-                if (tmp.cells.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.cells.getNextAt) + " DNA."
+                if (tmp.cells.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.cells.getNextAt) + " DNA."
 
-                return "重置以获得 <b>" + formatWhole(tmp.cells.getResetGain) + "</b> Cells" + b
+                return "重置以获得 <b>" + formatWhole(tmp.cells.getResetGain) + "</b> 细胞" + b
         },
         deactivated(){
                 return hasMilestone("hu", 41)
@@ -23273,7 +23273,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 II"
                         },
                         description(){
-                                return "<bdi style='font-size: 90%'>使所有 Iota 基础值 +.3，使 Kappa bar 指数 +.1，且每秒无偿牺牲 1% 的细胞</bdi>"
+                                return "<bdi style='font-size: 90%'>使所有 ι 基础值 +.3，使 κ bar 指数 +.1，且每秒无偿牺牲 1% 的细胞</bdi>"
                         },
                         cost:() => new Decimal(5e8),
                         unlocked(){
@@ -23286,8 +23286,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 III"
                         },
                         description(){
-                                if (player.extremeMode) return "解锁干细胞，Kappa 进度条指数 +.1，DNA 解旋酶基础值 +.1"
-                                return "解锁干细胞，Kappa 进度条指数 +.1<br>需要：重置时有 6e11 细胞"
+                                if (player.extremeMode) return "解锁干细胞，κ 进度条指数 +.1，DNA 解旋酶基础值 +.1"
+                                return "解锁干细胞，κ 进度条指数 +.1<br>需要：重置时有 6e11 细胞"
                         },
                         canAfford(){
                                 return tmp.cells.getResetGain.gte(6e11) || player.extremeMode
@@ -23403,8 +23403,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 X"
                         },
                         description(){
-                                if (player.extremeMode) return "全能花费基数为 9.4，crRNA 基础值为 sqrt(Cells)，但使对数失效"
-                                return "全能花费基数为 9.42，crRNA 基础值为 sqrt(Cells)，但使对数失效"
+                                if (player.extremeMode) return "全能花费基数为 9.4，crRNA 基础值为 sqrt(细胞)，但使对数失效"
+                                return "全能花费基数为 9.42，crRNA 基础值为 sqrt(细胞)，但使对数失效"
                         },
                         cost:() => new Decimal(player.extremeMode ? "3e4973" : "3e6941"),
                         unlocked(){
@@ -23418,7 +23418,7 @@ addLayer("cells", {
                         },
                         description(){
                                 if (player.extremeMode) return "万能花费基础为9.2，β → ∂β基础为卡帕，但使常数失效且次级难度提高1e7倍"
-                                return "全能花费基数为 9.34，β → ∂β 的基础值为 Kappa，但使常数失效"
+                                return "全能花费基数为 9.34，β → ∂β 的基础值为 κ，但使常数失效"
                         },
                         cost:() => new Decimal(player.extremeMode ? "1.7e5313" : "3e7377"),
                         unlocked(){
@@ -23501,8 +23501,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 XVII"
                         },
                         description(){
-                                if (player.extremeMode) return "解锁代币 II，每个代币 II 获得 1e1000 倍 DNA 科学，但移除大部分代币内容"
-                                return "全能花费基数为 9，解锁代币 II，但移除大部分代币内容"
+                                if (player.extremeMode) return "解锁代币II，每个代币II 获得 1e1000 倍 DNA 科学，但移除大部分代币内容"
+                                return "全能花费基数为 9，解锁代币II，但移除大部分代币内容"
                         },
                         onPurchase(){
                                 player.tokens.buyables[11] = decimalZero
@@ -23522,8 +23522,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 XVIII"
                         },
                         description(){
-                                if (player.extremeMode) return "每个代币 II 使生命点产出膨胀 ^13，次级难度降低 1e40 倍"
-                                return "每个代币 II 使生命点产出膨胀 ^13"
+                                if (player.extremeMode) return "每个代币II 使生命点产出膨胀 ^13，次级难度降低 1e40 倍"
+                                return "每个代币II 使生命点产出膨胀 ^13"
                         },
                         cost:() => new Decimal(player.extremeMode ? "5e12521" : "2e12664"),
                         unlocked(){
@@ -23536,7 +23536,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 XIX"
                         },
                         description(){
-                                return "组织效果基础值为组织数量，但代币 II 使组织产出倍增"
+                                return "组织效果基础值为组织数量，但代币II 使组织产出倍增"
                         },
                         cost:() => new Decimal(player.extremeMode ? "2e15523" : "1e12973"),
                         unlocked(){
@@ -23578,7 +23578,7 @@ addLayer("cells", {
                         },
                         description(){
                                 if (player.extremeMode) return "通过细胞的代币II除数翻倍，每个代币II使干细胞产出乘以[Token II]^1.5*log10(细胞)"
-                                return "代币 II 通过细胞的除数翻倍，每个代币 II log10(Cells) 使干细胞产出倍增"
+                                return "代币II 通过细胞的除数翻倍，每个代币II log10(细胞) 使干细胞产出倍增"
                         },
                         cost:() => new Decimal(player.extremeMode ? "4e16678" : "1e13639"),
                         unlocked(){
@@ -23606,7 +23606,7 @@ addLayer("cells", {
                         },
                         description(){
                                 //if (player.extremeMode) return "log10(Lives) multiplies Stem Cell and Cell gain"
-                                return "log10(Lives)* log10(Amino Acid) 使干细胞和细胞产出倍增"
+                                return "log10(生命)* log10(Amino Acid) 使干细胞和细胞产出倍增"
                         },
                         effect(){
                                 //if (player.extremeMode) return player.l.points.max(10).log10()
@@ -23663,8 +23663,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞 XXVIII"
                         },
                         description(){
-                                if (player.extremeMode) return "rRNA 基础值为 Tokens<sup>Tokens II^1.5</sup>，snRNA 基础值为 log10(log10(Points))"
-                                return "rRNA 基础值为 Tokens<sup>Tokens II</sup>，snRNA 基础值为 log10(log10(Points))"
+                                if (player.extremeMode) return "rRNA 基础值为 代币<sup>代币II^1.5</sup>，snRNA 基础值为 log10(log10(点数))"
+                                return "rRNA 基础值为 代币<sup>代币II</sup>，snRNA 基础值为 log10(log10(点数))"
                         },
                         cost:() => new Decimal(player.extremeMode ? "1e52700" : "1e37682"),
                         unlocked(){
@@ -23719,7 +23719,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Mu I"
                         },
                         description(){
-                                let a = "log10(10+total Mu) 乘以 Mu 和细胞产出"
+                                let a = "log10(10+total μ) 乘以 μ 和细胞产出"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[111].effect)
                         },
                         effect(){
@@ -23756,7 +23756,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>μ III"
                         },
                         description(){
-                                let a = "解锁挤压，其在重置时保留，每次升级使总 Mu 倍增 DNA 产出"
+                                let a = "解锁挤压，其在重置时保留，每次升级使总 μ 倍增 DNA 产出"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[113].effect)
                         },
                         effect(){
@@ -23792,8 +23792,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Mu V"
                         },
                         description(){
-                                if (player.extremeMode) return "正弦指数不再开平方，shRNA 基础值为 sqrt(Mu)"
-                                return "正弦指数不再开平方，shRNA 基础值为 Mu"
+                                if (player.extremeMode) return "正弦指数不再开平方，shRNA 基础值为 sqrt(μ)"
+                                return "正弦指数不再开平方，shRNA 基础值为 μ"
                         },
                         cost:() => new Decimal(player.extremeMode ? "3e761" : "e1253"),
                         unlocked(){
@@ -23806,7 +23806,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Λ I"
                         },
                         description(){
-                                let a = "log10(10+total Lambda) 乘以 Lambda 和细胞产出"
+                                let a = "log10(10+total λ) 乘以 λ 和细胞产出"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[211].effect)
                         },
                         effect(){
@@ -23829,7 +23829,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Λ II"
                         },
                         description(){
-                                let a = "log100(总 Lambda) 使 Mu、Iota 和 Kappa 产出倍增"
+                                let a = "log100(总 λ) 使 μ、ι 和 κ 产出倍增"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[212].effect)
                         },
                         effect(){
@@ -23888,7 +23888,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>Λ V"
                         },
                         description(){
-                                return "<bdi style='font-size: 80%'>log10(Lambda) 乘近紫外基础值，生命可购买项指数为 2，但 α → ∂𝛾、β → ∂𝛾 和 𝛾 → ∂𝛾 的基础值为 1</bdi>"
+                                return "<bdi style='font-size: 80%'>log10(λ) 乘近紫外基础值，生命可购买项指数为 2，但 α → ∂𝛾、β → ∂𝛾 和 𝛾 → ∂𝛾 的基础值为 1</bdi>"
                         },
                         cost:() => new Decimal(player.extremeMode ? "3.9e798" : "e1315"),
                         unlocked(){
@@ -23901,7 +23901,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>κ I"
                         },
                         description(){
-                                let a = "log10(10+total Kappa) 乘以 Kappa 和细胞产出"
+                                let a = "log10(10+total κ) 乘以 κ 和细胞产出"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[311].effect)
                         },
                         effect(){
@@ -23922,7 +23922,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>κ II"
                         },
                         description(){
-                                let a = "1+Kappa<sup>.5</sup> 使 Kappa 产出倍增，进度条变化速度翻倍"
+                                let a = "1+κ<sup>.5</sup> 使 κ 产出倍增，进度条变化速度翻倍"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[312].effect)
                         },
                         effect(){
@@ -23942,8 +23942,8 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>κ III"
                         },
                         description(){
-                                let a = "细胞使 Kappa 产出倍增，进度条变化速度翻倍"
-                                if (player.extremeMode) a = a.replace("gain", "产出，log10(Kappa) 乘以DNA科学产出，")
+                                let a = "细胞使 κ 产出倍增，进度条变化速度翻倍"
+                                if (player.extremeMode) a = a.replace("gain", "产出，log10(κ) 乘以DNA科学产出，")
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[313].effect)
                         },
                         effect(){
@@ -23963,7 +23963,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>κ IV"
                         },
                         description(){
-                                return "log10(log10(Protein)) 使干细胞产出倍增，每次升级使 Kappa 产出倍增"
+                                return "log10(log10(蛋白质)) 使干细胞产出倍增，每次升级使 κ 产出倍增"
                         },
                         effect(){
                                 return player.a.protein.points.max(10).log10().max(10).log10()
@@ -23996,7 +23996,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>ι I"
                         },
                         description(){
-                                let a = "log10(10+total Iota) 乘以 Iota 和细胞产出"
+                                let a = "log10(10+total ι) 乘以 ι 和细胞产出"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[411].effect)
                         },
                         effect(){
@@ -24017,7 +24017,7 @@ addLayer("cells", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>ι II"
                         },
                         description(){
-                                let a = "每次升级，log10(log10(total Iota)) 使 Kappa、Mu 和 Lambda 产出倍增"
+                                let a = "每次升级，log10(log10(total ι)) 使 κ、μ 和 λ 产出倍增"
                                 return a + br + "Currently: " + format(tmp.cells.upgrades[412].effect)
                         },
                         effect(){
@@ -24093,7 +24093,7 @@ addLayer("cells", {
                                 return 60
                         },
                         display(){
-                                return "解锁 Mu 小游戏" + br + "总点数: " + format(player.cells.total11)
+                                return "解锁 μ 小游戏" + br + "总点数: " + format(player.cells.total11)
                         },
                         unlocked(){
                                 return hasChallenge("l", 102) || hasUpgrade("or", 135)
@@ -24114,7 +24114,7 @@ addLayer("cells", {
                                 return 60
                         },
                         display(){
-                                return "解锁 Lambda 小游戏" + br + "总点数: " + format(player.cells.total12)
+                                return "解锁 λ 小游戏" + br + "总点数: " + format(player.cells.total12)
                         },
                         unlocked(){
                                 return hasChallenge("l", 102) || hasUpgrade("or", 135)
@@ -24135,7 +24135,7 @@ addLayer("cells", {
                                 return 60
                         },
                         display(){
-                                return "解锁 Kappa 小游戏" + br + "总点数: " + format(player.cells.total13)
+                                return "解锁 κ 小游戏" + br + "总点数: " + format(player.cells.total13)
                         },
                         unlocked(){
                                 return hasChallenge("l", 102) || hasUpgrade("or", 135)
@@ -24156,7 +24156,7 @@ addLayer("cells", {
                                 return 60
                         },
                         display(){
-                                return "解锁 Iota 小游戏" + br + "总点数: " + format(player.cells.total14)
+                                return "解锁 ι 小游戏" + br + "总点数: " + format(player.cells.total14)
                         },
                         unlocked(){
                                 return hasChallenge("l", 102) || hasUpgrade("or", 135)
@@ -24290,7 +24290,7 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 5)
                 6: {
                         requirementDescription(){
-                                return "13 Cells"
+                                return "13 细胞"
                         },
                         done(){
                                 return player.cells.points.gte(13)
@@ -24309,7 +24309,7 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 6)
                 7: {
                         requirementDescription(){
-                                return "21 Cells"
+                                return "21 细胞"
                         },
                         done(){
                                 return player.cells.points.gte(21)
@@ -24323,7 +24323,7 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 7)
                 8: {
                         requirementDescription(){
-                                return "100 Cells"
+                                return "100 细胞"
                         },
                         done(){
                                 return player.cells.points.gte(100)
@@ -24358,8 +24358,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 9)
                 10: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e30 Kappa 和 5e141 DNA科学"
-                                return "1e100 Kappa"
+                                if (player.extremeMode) return "1e30 κ 和 5e141 DNA科学"
+                                return "1e100 κ"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.kappa.points.gte(1e30) && player.sci.dna_science.points.gte("5e141")
@@ -24369,14 +24369,14 @@ addLayer("cells", {
                                 return true
                         },
                         effectDescription(){
-                                if (player.extremeMode) return "奖励：总 Kappa 使氨基酸产出倍增，DNA 科学 VI 使用升级数。"
-                                return "奖励：Kappa 总数乘以氨基酸产出。"
+                                if (player.extremeMode) return "奖励：总 κ 使氨基酸产出倍增，DNA 科学 VI 使用升级数。"
+                                return "奖励：κ 总数乘以氨基酸产出。"
                         },
                 }, // hasMilestone("cells", 10)
                 11: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e86 Kappa"
-                                return "1e140 Kappa"
+                                if (player.extremeMode) return "1e86 κ"
+                                return "1e140 κ"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.kappa.points.gte(1e86)
@@ -24392,8 +24392,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 11)
                 12: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e35 Mu"
-                                return "1e28 Mu"
+                                if (player.extremeMode) return "1e35 μ"
+                                return "1e28 μ"
                         },
                         done(){
                                 return player.cells.mu.points.gte(player.extremeMode ? 1e35 : 1e28)
@@ -24408,8 +24408,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 12)
                 13: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e94 Stem Cells"
-                                return "1e96 Stem Cells"
+                                if (player.extremeMode) return "1e94 干细胞"
+                                return "1e96 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e94 : 1e96)
@@ -24432,8 +24432,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 13)
                 14: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e112 Stem Cells"
-                                return "1e109 Stem Cells"
+                                if (player.extremeMode) return "1e112 干细胞"
+                                return "1e109 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e112 : 1e109)
@@ -24461,8 +24461,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 15)
                 16: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e124 Stem Cells"
-                                return "5e122 Stem Cells"
+                                if (player.extremeMode) return "1e124 干细胞"
+                                return "5e122 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e124 : 5e122)
@@ -24482,8 +24482,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 16)
                 17: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e148 Stem Cells"
-                                return "1e138 Stem Cells"
+                                if (player.extremeMode) return "1e148 干细胞"
+                                return "1e138 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e148 : 1e138)
@@ -24498,8 +24498,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 17)
                 18: {
                         requirementDescription(){
-                                if (player.extremeMode) return "5e206 Stem Cells"
-                                return "1e167 Stem Cells"
+                                if (player.extremeMode) return "5e206 干细胞"
+                                return "1e167 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 5e206 : 1e167)
@@ -24513,8 +24513,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 18)
                 19: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e221 Stem Cells"
-                                return "1e178 Stem Cells"
+                                if (player.extremeMode) return "1e221 干细胞"
+                                return "1e178 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e221 : 1e178) 
@@ -24528,8 +24528,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 19)
                 20: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e233 Stem Cells"
-                                return "1e180 Stem Cells"
+                                if (player.extremeMode) return "1e233 干细胞"
+                                return "1e180 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e233 : 1e180)
@@ -24543,8 +24543,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 20)
                 21: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e262 Stem Cells"
-                                return "1e236 Stem Cells"
+                                if (player.extremeMode) return "1e262 干细胞"
+                                return "1e236 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? 1e262 : 1e236)
@@ -24558,8 +24558,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 21)
                 22: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e108 Mu"
-                                return "3e72 Mu"
+                                if (player.extremeMode) return "1e108 μ"
+                                return "3e72 μ"
                         },
                         done(){
                                 return player.cells.mu.points.gte(player.extremeMode ? 1e108 : 3e72)
@@ -24568,13 +24568,13 @@ addLayer("cells", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：全能等级 + 1 使 Mu 和干细胞产出倍增。"
+                                return "奖励：全能等级 + 1 使 μ 和干细胞产出倍增。"
                         },
                 }, // hasMilestone("cells", 22)
                 23: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e387 Stem Cells"
-                                return "1.80e308 Stem Cells"
+                                if (player.extremeMode) return "1e387 干细胞"
+                                return "1.80e308 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e387" : "1.8e308") 
@@ -24583,13 +24583,13 @@ addLayer("cells", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：log10(Best Mu) 乘以干细胞产出。"
+                                return "奖励：log10(Best μ) 乘以干细胞产出。"
                         },
                 }, // hasMilestone("cells", 23)
                 24: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e417 Stem Cells"
-                                return "1e355 Stem Cells"
+                                if (player.extremeMode) return "1e417 干细胞"
+                                return "1e355 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e417" : "1e355")
@@ -24607,8 +24607,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 24)
                 25: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e444 Stem Cells"
-                                return "1e416 Stem Cells"
+                                if (player.extremeMode) return "1e444 干细胞"
+                                return "1e416 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e444" : "1e416")
@@ -24623,8 +24623,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 25)
                 26: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e447 Stem Cells"
-                                return "1e430 Stem Cells"
+                                if (player.extremeMode) return "1e447 干细胞"
+                                return "1e430 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e447" : "1e430")
@@ -24639,8 +24639,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 26)
                 27: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e507 Stem Cells"
-                                return "1e495 Stem Cells"
+                                if (player.extremeMode) return "1e507 干细胞"
+                                return "1e495 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e507" : "1e495")
@@ -24654,8 +24654,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 27)
                 28: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e577 Stem Cells"
-                                return "1e572 Stem Cells"
+                                if (player.extremeMode) return "1e577 干细胞"
+                                return "1e572 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e577" : "1e572") 
@@ -24669,8 +24669,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 28)
                 29: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e748 Stem Cells"
-                                return "1e781 Stem Cells"
+                                if (player.extremeMode) return "1e748 干细胞"
+                                return "1e781 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e748" : "1e781")
@@ -24685,8 +24685,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 29)
                 30: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e872 Stem Cells"
-                                return "1e899 Stem Cells"
+                                if (player.extremeMode) return "1e872 干细胞"
+                                return "1e899 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e872" : "1e899")
@@ -24700,8 +24700,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 30)
                 31: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e884 Stem Cells"
-                                return "1e916 Stem Cells"
+                                if (player.extremeMode) return "1e884 干细胞"
+                                return "1e916 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e884" : "1e916")
@@ -24716,8 +24716,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 31)
                 32: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1052 Stem Cells"
-                                return "1e1177 Stem Cells"
+                                if (player.extremeMode) return "1e1052 干细胞"
+                                return "1e1177 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1052" : "1e1177")
@@ -24726,14 +24726,14 @@ addLayer("cells", {
                                 return true
                         },
                         effectDescription(){
-                                if (player.extremeMode) return "Reward: " + makePurple("C") + "log10(Lambda) 使干细胞产出倍增，Lambda 始终激活。"
-                                return "奖励：log10(Lambda) 使干细胞产出倍增，Lambda 始终激活。"
+                                if (player.extremeMode) return "Reward: " + makePurple("C") + "log10(λ) 使干细胞产出倍增，λ 始终激活。"
+                                return "奖励：log10(λ) 使干细胞产出倍增，λ 始终激活。"
                         },
                 }, // hasMilestone("cells", 32)
                 33: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1283 Stem Cells"
-                                return "1e1249 Stem Cells"
+                                if (player.extremeMode) return "1e1283 干细胞"
+                                return "1e1249 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1283" : "1e1249")
@@ -24753,8 +24753,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 33)
                 34: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1487 Stem Cells"
-                                return "1e1483 Stem Cells"
+                                if (player.extremeMode) return "1e1487 干细胞"
+                                return "1e1483 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1487" : "1e1483")
@@ -24769,8 +24769,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 34)
                 35: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1631 Stem Cells"
-                                return "1e1567 Stem Cells"
+                                if (player.extremeMode) return "1e1631 干细胞"
+                                return "1e1567 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1631" : "1e1567")
@@ -24784,8 +24784,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 35)
                 36: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1661 Stem Cells"
-                                return "1e1628 Stem Cells"
+                                if (player.extremeMode) return "1e1661 干细胞"
+                                return "1e1628 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1661" : "1e1628")
@@ -24799,8 +24799,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 36)
                 37: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1677 Stem Cells"
-                                return "1e1710 Stem Cells"
+                                if (player.extremeMode) return "1e1677 干细胞"
+                                return "1e1710 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1677" : "1e1710")
@@ -24814,8 +24814,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 37)
                 38: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1902 Stem Cells"
-                                return "1e1789 Stem Cells"
+                                if (player.extremeMode) return "1e1902 干细胞"
+                                return "1e1789 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e1902" : "1e1789")
@@ -24829,8 +24829,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 38)
                 39: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e2029 Stem Cells"
-                                return "1e1929 Stem Cells"
+                                if (player.extremeMode) return "1e2029 干细胞"
+                                return "1e1929 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e2029" : "1e1929")
@@ -24844,8 +24844,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 39)
                 40: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e2193 Stem Cells"
-                                return "1e2064 Stem Cells"
+                                if (player.extremeMode) return "1e2193 干细胞"
+                                return "1e2064 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e2193" : "1e2064")
@@ -24860,8 +24860,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 40)
                 41: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e2403 Stem Cells"
-                                return "1e2258 Stem Cells"
+                                if (player.extremeMode) return "1e2403 干细胞"
+                                return "1e2258 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e2403" : "1e2258")
@@ -24876,8 +24876,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 41)
                 42: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e2755 Stem Cells"
-                                return "1e2687 Stem Cells"
+                                if (player.extremeMode) return "1e2755 干细胞"
+                                return "1e2687 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e2755" : "1e2687")
@@ -24891,8 +24891,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 42)
                 43: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e3170 Stem Cells"
-                                return "1e3156 Stem Cells"
+                                if (player.extremeMode) return "1e3170 干细胞"
+                                return "1e3156 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e3170" : "1e3156") 
@@ -24907,8 +24907,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 43)
                 44: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e3810 Stem Cells"
-                                return "1e3906 Stem Cells"
+                                if (player.extremeMode) return "1e3810 干细胞"
+                                return "1e3906 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e3810" : "1e3906") 
@@ -24923,8 +24923,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 44)
                 45: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e4686 Stem Cells"
-                                return "1e4966 Stem Cells"
+                                if (player.extremeMode) return "1e4686 干细胞"
+                                return "1e4966 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e4686" : "1e4966")
@@ -24938,8 +24938,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 45)
                 46: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e5692 Stem Cells"
-                                return "1e6141 Stem Cells"
+                                if (player.extremeMode) return "1e5692 干细胞"
+                                return "1e6141 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e5692" : "1e6141")
@@ -24954,7 +24954,7 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 46)
                 47: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2e2840 DNA Science"
+                                if (player.extremeMode) return "2e2840 DNA 科学"
                                 if (player.or.unlocked) return makeRed("20 次细胞挑战完成")
                                 return "10 次次级挑战完成"
                         },
@@ -24973,8 +24973,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 47)
                 48: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e9,366 Stem Cells"
-                                return "1e11,611 Stem Cells"
+                                if (player.extremeMode) return "1e9,366 干细胞"
+                                return "1e11,611 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e9366" : "1e11611")
@@ -24989,8 +24989,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 48)
                 49: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e9,768 Stem Cells"
-                                return "1e11,666 Stem Cells"
+                                if (player.extremeMode) return "1e9,768 干细胞"
+                                return "1e11,666 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e9768" : "1e11666")
@@ -25005,8 +25005,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 49)
                 50: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e10,527 Stem Cells"
-                                return "1e12,127 Stem Cells"
+                                if (player.extremeMode) return "1e10,527 干细胞"
+                                return "1e12,127 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e10527" : "1e12127")
@@ -25020,8 +25020,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 50)
                 51: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e11,819 Stem Cells"
-                                return "1e15,500 Stem Cells"
+                                if (player.extremeMode) return "1e11,819 干细胞"
+                                return "1e15,500 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e11819" : "1e15500")
@@ -25035,8 +25035,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 51)
                 52: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e12,725 Stem Cells"
-                                return "1e16,011 Stem Cells"
+                                if (player.extremeMode) return "1e12,725 干细胞"
+                                return "1e16,011 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e12725" : "1e16011")
@@ -25051,8 +25051,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 52)
                 53: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e13,037 Stem Cells"
-                                return "1e16,471 Stem Cells"
+                                if (player.extremeMode) return "1e13,037 干细胞"
+                                return "1e16,471 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e13037" : "1e16471")
@@ -25073,8 +25073,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 53)
                 54: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e13,416 Stem Cells"
-                                return "1e16,895 Stem Cells"
+                                if (player.extremeMode) return "1e13,416 干细胞"
+                                return "1e16,895 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e13416" : "1e16895")
@@ -25089,8 +25089,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 54)
                 55: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e13,605 Stem Cells"
-                                return "1e17,301 Stem Cells"
+                                if (player.extremeMode) return "1e13,605 干细胞"
+                                return "1e17,301 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e13605" : "1e17301") 
@@ -25105,8 +25105,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 55)
                 56: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e14,212 Stem Cells"
-                                return "1e18,131 Stem Cells"
+                                if (player.extremeMode) return "1e14,212 干细胞"
+                                return "1e18,131 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e14212" : "1e18131")
@@ -25127,8 +25127,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 56)
                 57: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e14,403 Stem Cells"
-                                return "1e18,364 Stem Cells"
+                                if (player.extremeMode) return "1e14,403 干细胞"
+                                return "1e18,364 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e14403" : "1e18364")
@@ -25142,8 +25142,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 57)
                 58: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e14,577 Stem Cells"
-                                return "1e19,289 Stem Cells"
+                                if (player.extremeMode) return "1e14,577 干细胞"
+                                return "1e19,289 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e14577" : "1e19289")
@@ -25157,8 +25157,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 58)
                 59: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e15,471 Stem Cells"
-                                return "1e21,555 Stem Cells"
+                                if (player.extremeMode) return "1e15,471 干细胞"
+                                return "1e21,555 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e15471" : "1e21555")
@@ -25173,8 +25173,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 59)
                 60: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e15,853 Stem Cells"
-                                return "1e22,621 Stem Cells"
+                                if (player.extremeMode) return "1e15,853 干细胞"
+                                return "1e22,621 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e15853" : "1e22621")
@@ -25192,8 +25192,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 60)
                 61: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e16,241 Stem Cells"
-                                return "1e22,984 Stem Cells"
+                                if (player.extremeMode) return "1e16,241 干细胞"
+                                return "1e22,984 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e16241" : "1e22984") 
@@ -25207,8 +25207,8 @@ addLayer("cells", {
                 }, // hasMilestone("cells", 61)
                 62: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e16,751 Stem Cells"
-                                return "1e23,309 Stem Cells"
+                                if (player.extremeMode) return "1e16,751 干细胞"
+                                return "1e23,309 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e16751" : "1e23309")
@@ -25487,22 +25487,22 @@ addLayer("cells", {
                                 let d = "Next: "
                                 switch (player.cells.challenges[21]) {
                                         case 0:
-                                                d += "每次细胞升级 log10(log10(Points)) 乘以DNA "
+                                                d += "每次细胞升级 log10(log10(点数)) 乘以DNA "
                                                 if (player.extremeMode) d += " 与DNA科学 "
                                                 d += "gain"
                                                 break
                                         case 1:
-                                                d += "每次完成，log10(9+log10(10+Best Tissues)) 使组织产出倍增"
+                                                d += "每次完成，log10(9+log10(10+Best 组织)) 使组织产出倍增"
                                                 break
                                         case 2:
                                                 d += "解锁心脏和另一个细胞可购买项"
                                                 break
                                         case 3:
-                                                d += "代币 II 可购买项的花费为 ceil(x<sup>.9</sup>)"
+                                                d += "代币II 可购买项的花费为 ceil(x<sup>.9</sup>)"
                                                 break
                                         case 4:
                                                 if (!player.extremeMode) d += "REMOVE"
-                                                else d += "移除神经科学的花费基础，log10(Stem Cells) 按每 sqrt(he) 倍增污染物产出"
+                                                else d += "移除神经科学的花费基础，log10(干细胞) 按每 sqrt(he) 倍增污染物产出"
                                                 break 
                                         default:
                                                 d += "REMOVE"
@@ -25642,7 +25642,7 @@ addLayer("cells", {
                                 }
 
                                 let eformula = format(tmp.cells.buyables[11].baseConstant, 3) + "+log10(log10(细胞))^x<br>" 
-                                if (hasMilestone("ch", 18)) eformula = eformula.replace("+log10(log10(Cells))", "")
+                                if (hasMilestone("ch", 18)) eformula = eformula.replace("+log10(log10(细胞))", "")
                                 if (hasMilestone("an", 35)) eformula = "上夸克效果^x<br>"
                                 eformula += format(tmp.cells.buyables[11].base, 3) + "^x"
 
@@ -25761,8 +25761,8 @@ addLayer("cells", {
                                         if (hasMilestone("cells", 43)) eformula = eformula.replace("log4", "ln")
                                         if (hasMilestone("cells", 44)) eformula = eformula.replace("ln", "log2")
                                 }
-                                if (hasMilestone("pl", 9)) eformula = eformula.replace("^", "<sup>log10(Plants)</sup>^")
-                                if (hasMilestone("pl", 24)) eformula = eformula.replace("log10(Stem Cells)<sup>log10(Plants)", "Plants<sup>Plants")
+                                if (hasMilestone("pl", 9)) eformula = eformula.replace("^", "<sup>log10(植物)</sup>^")
+                                if (hasMilestone("pl", 24)) eformula = eformula.replace("log10(干细胞)<sup>log10(植物)", "植物<sup>植物")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -25885,7 +25885,7 @@ addLayer("cells", {
                                         eformula = eformula.replace("log2", "log10")
                                         eformula = eformula.replace("组织 XXIX", "Tissues")
                                 }
-                                if (hasMilestone("hu", 13)) eformula = eformula.replace("log10(Tissues)", "3<sup>精通代币</sup>")
+                                if (hasMilestone("hu", 13)) eformula = eformula.replace("log10(组织)", "3<sup>精通代币</sup>")
                                 if (tmp.hu.buyables[21].effect.gt(0)) eformula = eformula.replace("3", format(tmp.hu.buyables[21].effect.plus(3)))
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -26004,11 +26004,11 @@ addLayer("cells", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "Tokens II^x<br>" + format(tmp.cells.buyables[21].base) + "^x"
-                                if (hasUpgrade("e", 31))        eformula = eformula.replace("^", "<sup>log10(Nucleus)</sup>^")
-                                if (hasUpgrade("hu", 21))       eformula = eformula.replace("log10(Nucleus)", "sqrt(Plants)")
-                                if (hasMilestone("hu", 16))     eformula = eformula.replace("代币 II", "log10(Animals)")
-                                if (hasMilestone("hu", 17))     eformula = eformula.replace("Animals", "Organs")
+                                let eformula = "代币II^x<br>" + format(tmp.cells.buyables[21].base) + "^x"
+                                if (hasUpgrade("e", 31))        eformula = eformula.replace("^", "<sup>log10(细胞核)</sup>^")
+                                if (hasUpgrade("hu", 21))       eformula = eformula.replace("log10(细胞核)", "sqrt(植物)")
+                                if (hasMilestone("hu", 16))     eformula = eformula.replace("代币II", "log10(动物)")
+                                if (hasMilestone("hu", 17))     eformula = eformula.replace("动物", "器官")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -26102,9 +26102,9 @@ addLayer("cells", {
 
                                 let eformula = "(Tertiary Completions + 1)^x<br>" + format(tmp.cells.buyables[22].base) + "^x"
                                 if (hasUpgrade("or", 234))      eformula = eformula.replace("三级完成次数 + 1", "3^三级完成次数")
-                                if (hasMilestone("an", 15))     eformula = eformula.replace("(3^三级完成次数)", "log10(Air)")
+                                if (hasMilestone("an", 15))     eformula = eformula.replace("(3^三级完成次数)", "log10(空气)")
                                 if (hasUpgrade("an", 24))       eformula = eformula.replace("Air", "Contaminants")
-                                if (hasUpgrade("tokens", 132))  eformula = eformula.replace("log10(Contaminants)", "2<sup>Nucleuses</sup>")
+                                if (hasUpgrade("tokens", 132))  eformula = eformula.replace("log10(污染物)", "2<sup>细胞核</sup>")
                                 if (hasMilestone("hu", 33))     eformula = eformula.replace("2", "3")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -26121,7 +26121,7 @@ addLayer("cells", {
                         },
                 },
                 111: {
-                        title: "正弦 (Mu)",
+                        title: "正弦 (μ)",
                         cost(){
                                 let amt = getBuyableAmount("cells", 111)
                                 let exp = amt.pow(1.1)
@@ -26164,9 +26164,9 @@ addLayer("cells", {
                                 if (!player.shiftAlias) {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.cells.buyables[111]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: *"
-                                        let eff2 = format(tmp.cells.buyables[111].effect) + " 至 Mu 产出</b><br>"
-                                        if (hasUpgrade("sci", 545)) eff2 = eff2.replace("Mu", "Mu 与 DNA科学")
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 111)) + " Mu</b><br>"
+                                        let eff2 = format(tmp.cells.buyables[111].effect) + " 至 μ 产出</b><br>"
+                                        if (hasUpgrade("sci", 545)) eff2 = eff2.replace("Mu", "μ 与 DNA科学")
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 111)) + " μ</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -26186,7 +26186,7 @@ addLayer("cells", {
                         },
                 },
                 112: {
-                        title: "挤压 (Mu)",
+                        title: "挤压 (μ)",
                         cost(){
                                 let amt = getBuyableAmount("cells", 112)
                                 let exp = amt.pow(1.1)
@@ -26233,8 +26233,8 @@ addLayer("cells", {
                                 if (!player.shiftAlias) {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.cells.buyables[112]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: *"
-                                        let eff2 = format(tmp.cells.buyables[112].effect) + " 至 Mu 产出</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 112)) + " Mu</b><br>"
+                                        let eff2 = format(tmp.cells.buyables[112].effect) + " 至 μ 产出</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 112)) + " μ</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -26256,7 +26256,7 @@ addLayer("cells", {
                         },
                 },
                 411: {
-                        title: "质数 (Iota)",
+                        title: "质数 (ι)",
                         cost(){
                                 let amt = getBuyableAmount("cells", 411)
                                 let exp = amt.pow(1.1)
@@ -26303,8 +26303,8 @@ addLayer("cells", {
                                 if (!player.shiftAlias) {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.cells.buyables[411]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: *"
-                                        let eff2 = format(tmp.cells.buyables[411].effect) + " 到 Iota 产出</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 411)) + " Iota</b><br>"
+                                        let eff2 = format(tmp.cells.buyables[411].effect) + " 到 ι 产出</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 411)) + " ι</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -26321,7 +26321,7 @@ addLayer("cells", {
                         },
                 },
                 412: {
-                        title: "偶数 (Iota)",
+                        title: "偶数 (ι)",
                         cost(){
                                 let amt = getBuyableAmount("cells", 412)
                                 let exp = amt.pow(1.2)
@@ -26367,8 +26367,8 @@ addLayer("cells", {
                                 if (!player.shiftAlias) {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.cells.buyables[412]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: *"
-                                        let eff2 = format(tmp.cells.buyables[412].effect) + " 到 Iota 产出</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 412)) + " Iota</b><br>"
+                                        let eff2 = format(tmp.cells.buyables[412].effect) + " 到 ι 产出</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 412)) + " ι</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -26385,7 +26385,7 @@ addLayer("cells", {
                         },
                 },
                 413: {
-                        title: "奇数 (Iota)",
+                        title: "奇数 (ι)",
                         cost(){
                                 let amt = getBuyableAmount("cells", 413)
                                 let exp = amt.pow(1.1)
@@ -26431,8 +26431,8 @@ addLayer("cells", {
                                 if (!player.shiftAlias) {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.cells.buyables[413]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: *"
-                                        let eff2 = format(tmp.cells.buyables[413].effect) + " 到 Iota 产出</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 413)) + " Iota</b><br>"
+                                        let eff2 = format(tmp.cells.buyables[413].effect) + " 到 ι 产出</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("cells", 413)) + " ι</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -26530,7 +26530,7 @@ addLayer("cells", {
                                 "main-display",
                                 ["secondary-display", "mu"],
                                 ["display-text", function(){
-                                        return "你正在获得 " + format(tmp.cells.mu.getResetGain) + " 每秒 Mu"
+                                        return "你正在获得 " + format(tmp.cells.mu.getResetGain) + " 每秒 μ"
                                 }],
                                 ["upgrades", [11, 12]],
                                 ["buyables", [11]],
@@ -26545,7 +26545,7 @@ addLayer("cells", {
                                 "main-display",
                                 ["secondary-display", "lambda"],
                                 ["display-text", function(){
-                                        return "你正在获得 " + format(tmp.cells.lambda.getResetGain) + " Lambda/秒"
+                                        return "你正在获得 " + format(tmp.cells.lambda.getResetGain) + " λ/秒"
                                 }],
                                 ["upgrades", [21, 22]],
                                 ["clickables", [21]],
@@ -26560,7 +26560,7 @@ addLayer("cells", {
                                 "main-display",
                                 ["secondary-display", "kappa"],
                                 ["display-text", function(){
-                                        return "你正在获得 " + format(tmp.cells.kappa.getResetGain) + " Kappa/秒"
+                                        return "你正在获得 " + format(tmp.cells.kappa.getResetGain) + " κ/秒"
                                 }],
                                 ["bar", "kappa"],
                                 ["upgrades", [31, 32]],
@@ -26575,10 +26575,10 @@ addLayer("cells", {
                                 "main-display",
                                 ["secondary-display", "iota"],
                                 ["display-text", function(){
-                                        return "你已花费 " + formatTime(player.cells.timeInMinigame) + " in Iota"
+                                        return "你已花费 " + formatTime(player.cells.timeInMinigame) + " in ι"
                                 }],
                                 ["display-text", function(){
-                                        return "你正在获得 " + format(tmp.cells.iota.getResetGain) + " Iota/秒"
+                                        return "你正在获得 " + format(tmp.cells.iota.getResetGain) + " ι/秒"
                                 }],
                                 ["upgrades", [41, 42]],
                                 ["buyables", [41, 42]],
@@ -26652,17 +26652,17 @@ addLayer("cells", {
 
                                         let tertReward = br2 + "当前三级奖励：" + br
                                         if (player.cells.challenges[21] >= 1) {
-                                                tertReward += "1：每次细胞升级，log10(log10(Points)) 使 DNA 产出倍增" + br
+                                                tertReward += "1：每次细胞升级，log10(log10(点数)) 使 DNA 产出倍增" + br
                                                 if (player.extremeMode) tertReward = tertReward.replace("DNA", "DNA 与 DNA科学")
                                         }
                                         if (player.cells.challenges[21] >= 2) {
-                                                tertReward += "2：每次完成，log10(9+log10(10+Best Tissues)) 使组织产出倍增" + br
+                                                tertReward += "2：每次完成，log10(9+log10(10+Best 组织)) 使组织产出倍增" + br
                                         }
                                         if (player.cells.challenges[21] >= 3) {
                                                 tertReward += "3：解锁心脏和另一个细胞可购买项" + br
                                         }
                                         if (player.cells.challenges[21] >= 4) {
-                                                tertReward += "4：代币 II 可购买项的花费为 ceil(x<sup>.9</sup>)" + br
+                                                tertReward += "4：代币II 可购买项的花费为 ceil(x<sup>.9</sup>)" + br
                                         }
                                         if (player.cells.challenges[21] >= 4) {
                                                 tertReward += "5：移除神经科学基础花费，log10(干细胞)按sqrt(he)乘以污染物产出" + br
@@ -27069,7 +27069,7 @@ addLayer("t", {
                 if (player.cells.challenges[12] < 25) return "你需要 25 次次级挑战完成才能重置"
 
                 let b = ""
-                if (tmp.t.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.t.getNextAt) + " Cells."
+                if (tmp.t.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.t.getNextAt) + " 细胞."
 
                 return "重置以获得 <b>" + formatWhole(tmp.t.getResetGain) + "</b> 组织" + b
         },
@@ -27101,7 +27101,7 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 II"
                         },
                         description(){
-                                return "获得 100 倍 Mu 并批量 Squeeze"
+                                return "获得 100 倍 μ 并批量 Squeeze"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -27113,8 +27113,8 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 III"
                         },
                         description(){
-                                if (player.extremeMode) return "获得 100 倍 Lambda 并自动购买 DNA 解旋酶"
-                                return "获得 100 倍 Lambda"
+                                if (player.extremeMode) return "获得 100 倍 λ 并自动购买 DNA 解旋酶"
+                                return "获得 100 倍 λ"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -27126,8 +27126,8 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 IV"
                         },
                         description(){
-                                if (player.extremeMode) return "获得 100 倍 Kappa 并自动购买 DNA 聚合酶"
-                                return "获得 100 倍 Kappa"
+                                if (player.extremeMode) return "获得 100 倍 κ 并自动购买 DNA 聚合酶"
+                                return "获得 100 倍 κ"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -27139,7 +27139,7 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 V"
                         },
                         description(){
-                                return "获得 100 倍 Iota 且 偶数 始终激活"
+                                return "获得 100 倍 ι 且 偶数 始终激活"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -27254,7 +27254,7 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 XIV"
                         },
                         description(){
-                                return "cbrt(log10(10+Cells)) 使干细胞产出倍增<br>当前：" + format(tmp.t.upgrades[34].effect)
+                                return "cbrt(log10(10+细胞)) 使干细胞产出倍增<br>当前：" + format(tmp.t.upgrades[34].effect)
                         },
                         cost:() => decimalOne,
                         effect(){
@@ -27501,7 +27501,7 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 XXXI"
                         },
                         description(){
-                                let a = "组织初始产出公式为 (Cells)^(gain exponent)，组织 IX 变为每个 .1"
+                                let a = "组织初始产出公式为 (细胞)^(gain exponent)，组织 IX 变为每个 .1"
                                 let b = "<br>需要：30 次次级挑战完成"
                                 if (!hasUpgrade("t", 71)) return a + b
                                 return a
@@ -27903,11 +27903,11 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 LI"
                         },
                         description(){
-                                let a = "<bdi style='font-size: 80%'>组织产出开方值减少 3*sqrt(代币 II)（最多 500），获得 5 倍干细胞，且经干细胞获得的代币 II 增速减半</bdi>"
+                                let a = "<bdi style='font-size: 80%'>组织产出开方值减少 3*sqrt(代币II)（最多 500），获得 5 倍干细胞，且经干细胞获得的代币II 增速减半</bdi>"
                                 let b = "<br>需要：82 次次级挑战完成</bdi>"
                                 if (player.extremeMode) {
                                         b = b.replace("82", "84")
-                                        a = "<bdi style='font-size: 80%'>组织产出开方值减少 3*sqrt(代币 II)（最多 500），经干细胞获得的代币 II 除数为 2，且端粒酶不受次要影响</bdi>"
+                                        a = "<bdi style='font-size: 80%'>组织产出开方值减少 3*sqrt(代币II)（最多 500），经干细胞获得的代币II 除数为 2，且端粒酶不受次要影响</bdi>"
                                 }
                                 if (!hasUpgrade("t", 111)) return a + b
                                 return a + "</bdi>"
@@ -27947,8 +27947,8 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 LIII"
                         },
                         description(){
-                                let a = "每个代币将干细胞产出乘以 1 + 代币 II / 69"
-                                if (player.extremeMode) return "若你有 86 次次级完成，每个代币使干细胞产出乘以 1 + Token II / 69"
+                                let a = "每个代币将干细胞产出乘以 1 + 代币II / 69"
+                                if (player.extremeMode) return "若你有 86 次次级完成，每个代币使干细胞产出乘以 1 + 代币II / 69"
                                 let b = "<br>需要：84 次次级挑战完成</bdi>"
                                 if (player.extremeMode) {
                                         b = b.replace("84", "85")
@@ -28038,7 +28038,7 @@ addLayer("t", {
                                 let b = "<br>需要：88 次次级挑战完成</bdi>"
                                 if (player.extremeMode) {
                                          b = b.replace("88", "89")
-                                        a = "通过代币获取的代币 II 基础值为 25-[this row upgrades]"
+                                        a = "通过代币获取的代币II 基础值为 25-[this row upgrades]"
                                 }
                                 if (!hasUpgrade("t", 122)) return a + b
                                 return a + "</bdi>"
@@ -28152,7 +28152,7 @@ addLayer("t", {
                         description(){
                                 let a = "组织IX为每个.18，初级目标最高1e8500，每个代币II给万能基础加.002"
                                 if (player.extremeMode) {
-                                        a = "<bdi style='font-size: 80%'>组织 IX 为每项 .18，每代币 II 使全能基础值 +.002，获得 1.1 倍干细胞，并使端粒酶与 DNA 旋转酶基础值 +.1</bdi>"
+                                        a = "<bdi style='font-size: 80%'>组织 IX 为每项 .18，每代币II 使全能基础值 +.002，获得 1.1 倍干细胞，并使端粒酶与 DNA 旋转酶基础值 +.1</bdi>"
                                 }
                                 let b = "<br>需要：31 次主要挑战完成"
                                 if (!hasUpgrade("t", 133) && player.extremeMode) return a + b
@@ -28189,7 +28189,7 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 LXV"
                         },
                         description(){
-                                let a = "log10<sup>(2)</sup>(Points)<sup>.4</sup> 使细胞和干细胞产出倍增"
+                                let a = "log10<sup>(2)</sup>(点数)<sup>.4</sup> 使细胞和干细胞产出倍增"
                                 let b = "<br>需要：33 次主要挑战完成"
                                 if (player.extremeMode) {
                                         a = a.replace(".4", "1.61")
@@ -28365,8 +28365,8 @@ addLayer("t", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>组织 LXXV"
                         },
                         description(){
-                                if (player.extremeMode) return "解锁器官，粲夸克基于历史最佳，代币 II - 140 使组织产出提高 1.11 倍"
-                                return "解锁器官，粲夸克基于历史最佳，每个代币 II 使组织产出提高 1.11 倍"
+                                if (player.extremeMode) return "解锁器官，粲夸克基于历史最佳，代币II - 140 使组织产出提高 1.11 倍"
+                                return "解锁器官，粲夸克基于历史最佳，每个代币II 使组织产出提高 1.11 倍"
                         },
                         cost:() => new Decimal(player.extremeMode ? 5e94 : 5e95),
                         unlocked(){
@@ -28444,8 +28444,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 4)
                 5: {
                         requirementDescription(){
-                                if (player.extremeMode) return "8e863 Cells"
-                                return "5e1435 Cells"
+                                if (player.extremeMode) return "8e863 细胞"
+                                return "5e1435 细胞"
                         },
                         done(){
                                 return player.cells.points.gte(player.extremeMode ? "8e863" : "5e1435")
@@ -28459,8 +28459,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 5)
                 6: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.9e875 Cells"
-                                return "1e1469 Cells"
+                                if (player.extremeMode) return "2.9e875 细胞"
+                                return "1e1469 细胞"
                         },
                         done(){
                                 return player.cells.points.gte(player.extremeMode ? "2.9e875" : "1e1469")
@@ -28488,8 +28488,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 7)
                 8: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e51,021 Stem Cells"
-                                return "1e68,134 Stem Cells"
+                                if (player.extremeMode) return "1e51,021 干细胞"
+                                return "1e68,134 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e51021" : "1e68134")
@@ -28504,8 +28504,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 8)
                 9: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e54,738 Stem Cells"
-                                return "1e75,231 Stem Cells"
+                                if (player.extremeMode) return "1e54,738 干细胞"
+                                return "1e75,231 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e54738" : "1e75231")
@@ -28520,8 +28520,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 9)
                 10: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e60,600 Stem Cells"
-                                return "1e76,571 Stem Cells"
+                                if (player.extremeMode) return "1e60,600 干细胞"
+                                return "1e76,571 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e60600" : "1e76571")
@@ -28535,8 +28535,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 10)
                 11: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e62,130 Stem Cells"
-                                return "1e78,096 Stem Cells"
+                                if (player.extremeMode) return "1e62,130 干细胞"
+                                return "1e78,096 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e62130" : "1e78096")
@@ -28551,8 +28551,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 11)
                 12: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e63,718 Stem Cells"
-                                return "1e80,289 Stem Cells"
+                                if (player.extremeMode) return "1e63,718 干细胞"
+                                return "1e80,289 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e63718" : "1e80289")
@@ -28567,8 +28567,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 12)
                 13: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e88,229 Stem Cells"
-                                return "1e96,384 Stem Cells"
+                                if (player.extremeMode) return "1e88,229 干细胞"
+                                return "1e96,384 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e88229" : "1e96384")
@@ -28583,8 +28583,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 13)
                 14: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e124,683 Stem Cells"
-                                return "1e138,397 Stem Cells"
+                                if (player.extremeMode) return "1e124,683 干细胞"
+                                return "1e138,397 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e124683" : "1e138397")
@@ -28599,8 +28599,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 14)
                 15: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e130,158 Stem Cells"
-                                return "1e144,546 Stem Cells"
+                                if (player.extremeMode) return "1e130,158 干细胞"
+                                return "1e144,546 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e130158" : "1e144546")
@@ -28615,8 +28615,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 15)
                 16: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e153,149 Stem Cells"
-                                return "1e158,463 Stem Cells"
+                                if (player.extremeMode) return "1e153,149 干细胞"
+                                return "1e158,463 干细胞"
                         },
                         done(){
                                 return player.cells.stem_cells.points.gte(player.extremeMode ? "1e153149" : "1e158463")
@@ -28631,8 +28631,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 16)
                 17: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e11,228 Cells"
-                                return "1e560,130 Stem Cells"
+                                if (player.extremeMode) return "1e11,228 细胞"
+                                return "1e560,130 干细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.points.gte("1e11228")
@@ -28648,8 +28648,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 17)
                 18: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e11,954 Cells"
-                                return "1e592,633 Stem Cells"
+                                if (player.extremeMode) return "1e11,954 细胞"
+                                return "1e592,633 干细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.points.gte("1e11954")
@@ -28665,8 +28665,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 18)
                 19: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e12,918 Cells"
-                                return "1e611,726 Stem Cells"
+                                if (player.extremeMode) return "1e12,918 细胞"
+                                return "1e611,726 干细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.points.gte("1e12918")
@@ -28681,8 +28681,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 19)
                 20: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1,282,700 Stem Cells"
-                                return "1e634,788 Stem Cells"
+                                if (player.extremeMode) return "1e1,282,700 干细胞"
+                                return "1e634,788 干细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.stem_cells.points.gte("1e1282700")
@@ -28693,13 +28693,13 @@ addLayer("t", {
                         },
                         effectDescription(){
                                 //if (player.extremeMode) return "Reward: Per Token II multiply Stem Cell gain by 1.6, not effected by Secondary."
-                                return "奖励：每个代币 II 使干细胞产出乘以 1.5，不受次级影响。"
+                                return "奖励：每个代币II 使干细胞产出乘以 1.5，不受次级影响。"
                         },
                 }, // hasMilestone("t", 20)
                 21: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e23,264 Cells"
-                                return "1e17,204 Cells"
+                                if (player.extremeMode) return "1e23,264 细胞"
+                                return "1e17,204 细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.points.gte("1e23264")
@@ -28714,8 +28714,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 21)
                 22: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e27,035 Cells"
-                                return "1e18,741 Cells"
+                                if (player.extremeMode) return "1e27,035 细胞"
+                                return "1e18,741 细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.points.gte("1e27035")
@@ -28731,8 +28731,8 @@ addLayer("t", {
                 }, // hasMilestone("t", 22)
                 23: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e35,944 Cells"
-                                return "1e23,701 Cells"
+                                if (player.extremeMode) return "1e35,944 细胞"
+                                return "1e23,701 细胞"
                         },
                         done(){
                                 if (player.extremeMode) return player.cells.points.gte("1e35944")
@@ -28799,11 +28799,11 @@ addLayer("t", {
                         content: [
                                 "main-display",
                                 ["display-text", function(){
-                                        let a1 = "初始组织产出：(Cells*1e615)<sup>1/2,000</sup>-9"
-                                        let a2 = "当前组织产出：(Cells*1e615)<sup>1/"
+                                        let a1 = "初始组织产出：(细胞*1e615)<sup>1/2,000</sup>-9"
+                                        let a2 = "当前组织产出：(细胞*1e615)<sup>1/"
                                         a2 += formatWhole(tmp.t.getGainExp.pow(-1)) + "</sup>-9"
                                         if (hasUpgrade("t", 71)) {
-                                                a2 = a2.replace("(Cells*1e615)", "Cells")
+                                                a2 = a2.replace("(细胞*1e615)", "Cells")
                                                 a2 = a2.replace("-9", "")
                                         }
                                         if (player.extremeMode) {
@@ -28812,13 +28812,13 @@ addLayer("t", {
                                         }
                                         let a3 = "初始组织效果：组织+1"
                                         let a4 = "当前组织效果：(" + format(tmp.t.effectMult) 
-                                        a4 += "*Tissues+" + format(tmp.t.effectAdd) + ")<sup>" + format(tmp.t.effectExp, 3) + "</sup>"
-                                        a4 = a4.replace("(1.00*Tissues+0.00)", "Tissues")
+                                        a4 += "*组织+" + format(tmp.t.effectAdd) + ")<sup>" + format(tmp.t.effectExp, 3) + "</sup>"
+                                        a4 = a4.replace("(1.00*组织+0.00)", "Tissues")
                                         let a = a1 + br + a2 + br2 + a3 + br + a4
                                         let b = "组织重置所有未永久保留的先前内容。"
                                         let c = "注意，反挑战和宝石不再被重置。"
                                         let d1 = "组织效果影响磷、生命、氨基酸、蛋白质，"
-                                        let d2 = "DNA、细胞、干细胞、Mu、Lambda、Kappa 和 Iota 产出。"
+                                        let d2 = "DNA、细胞、干细胞、μ、λ、κ 和 ι 产出。"
                                         if (player.extremeMode) {
                                                 d1 += " DNA 科学，"
                                                 d2 = "蛋白质科学， " + d2 
@@ -29405,7 +29405,7 @@ addLayer("or", {
         row: 2, 
         prestigeButtonText(){
                 let b = ""
-                if (tmp.or.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.or.getNextAt) + " Tissues."
+                if (tmp.or.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.or.getNextAt) + " 组织."
 
                 return "重置以获得 <b>" + formatWhole(tmp.or.getResetGain) + "</b> 器官" + b
         },
@@ -29948,8 +29948,8 @@ addLayer("or", {
                                 let a = "本挑战中获得的空气可提升空气和污染物产出"
                                 let b = "效果公式：<br>(1+x)<sup>.5</sup>"
                                 if (hasMilestone("or", 18)) b += "log10(x)"
-                                if (hasUpgrade("or", 303)) b = b.replace("10", "10<sup>log2(Lung upgrades)</sup>")
-                                if (hasUpgrade("or", 331)) b = b.replace("log2(Lung upgrades)", "肺部升级")
+                                if (hasUpgrade("or", 303)) b = b.replace("10", "10<sup>log2(肺 upgrades)</sup>")
+                                if (hasUpgrade("or", 331)) b = b.replace("log2(肺 upgrades)", "肺部升级")
                                 let c = "Effect: " + format(tmp.or.challenges[11].reward)
                                 let d = "此挑战中的总空气量: " + format(player.or.bankedAir[11])
                                 let e = "注意：只有完成本挑战时，你才会储存本挑战中获得的空气"
@@ -30221,7 +30221,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 IV"
                         },
                         description(){
-                                return "代币 II 乘以器官产出并解锁肾脏"
+                                return "代币II 乘以器官产出并解锁肾脏"
                         },
                         cost:() => new Decimal(player.extremeMode ? 4.622e6 : 13.44e6),
                         unlocked(){
@@ -30234,7 +30234,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 V"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 .8"
+                                return "代币II 可购买项的花费指数为 .8"
                         },
                         cost:() => new Decimal(player.extremeMode ? 8.85e13 : 1.07e14),
                         unlocked(){
@@ -30260,7 +30260,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 VII"
                         },
                         description(){
-                                return "代币 II 可购买项花费减 1（最低 0）"
+                                return "代币II 可购买项花费减 1（最低 0）"
                         },
                         cost:() => new Decimal(player.extremeMode ? 6.17e64 : 4e46),
                         unlocked(){
@@ -30292,7 +30292,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode) return "<u>in</u>TEStine的log8变为log6，自动购买肺病学家，代币II可购买项花费指数为.58"
-                                return "<u>in</u>TEStine 的 log7 变为 log6，代币 II 可购买项的花费指数为 .58"
+                                return "<u>in</u>TEStine 的 log7 变为 log6，代币II 可购买项的花费指数为 .58"
                         },
                         cost:() => new Decimal(player.extremeMode ? 3.34e90 : 1.43e60),
                         unlocked(){
@@ -30305,7 +30305,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 X"
                         },
                         description(){
-                                return "in<u>TES</u>tine 的 log8 变为 log7，代币 II 可购买项的花费指数为 .56"
+                                return "in<u>TES</u>tine 的 log8 变为 log7，代币II 可购买项的花费指数为 .56"
                         },
                         cost:() => new Decimal(player.extremeMode ? 9.9e96 : 1.87e70),
                         unlocked(){
@@ -30319,7 +30319,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode) return "IN<u>tes</u>tine 的 log7 变为 log6，并自动购买过滤<sup>2</sup>"
-                                return "IN<u>tes</u>tine 的 log7 变为 log6，每个代币 II 使器官产出提高 1.03 倍"
+                                return "IN<u>tes</u>tine 的 log7 变为 log6，每个代币II 使器官产出提高 1.03 倍"
                         },
                         cost:() => new Decimal(player.extremeMode ? 2.1e118 : 1.3e87),
                         unlocked(){
@@ -30332,7 +30332,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 XII"
                         },
                         description(){
-                                if (player.extremeMode) return "解锁动物，且 log10(log10(Cells)) 使器官产出倍增"
+                                if (player.extremeMode) return "解锁动物，且 log10(log10(细胞)) 使器官产出倍增"
                                 return "解锁动物"
                         },
                         cost:() => new Decimal(player.extremeMode ? 2.08e119 : 1.98e98),
@@ -30399,7 +30399,7 @@ addLayer("or", {
                         description(){
                                 let a = "INtes<u>tine</u>的log5变为log4，代币II可购买项花费指数为.49，下夸克基础为(1+C/1000)"
                                 if (player.extremeMode) {
-                                        return "<bdi style='font-size: 80%'>每代币 II 获得 10 倍器官科学" + a.replace("4", "4,").replace("5", "6") + "</bdi>"
+                                        return "<bdi style='font-size: 80%'>每代币II 获得 10 倍器官科学" + a.replace("4", "4,").replace("5", "6") + "</bdi>"
                                 }
                                 return a
                         },
@@ -30416,7 +30416,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>器官 XVIII"
                         },
                         description(){
-                                return "<bdi style='font-size: 90%'>IN<u>tes</u>tine 的 log5 变为 log4，代币 II 可购买项的花费指数为 .48，且底夸克只影响能量与空气产出</bdi>"
+                                return "<bdi style='font-size: 90%'>IN<u>tes</u>tine 的 log5 变为 log4，代币II 可购买项的花费指数为 .48，且底夸克只影响能量与空气产出</bdi>"
                         },
                         cost:() => new Decimal(player.extremeMode ? "2.3e289" : "1e316"),
                         unlocked(){
@@ -30429,8 +30429,8 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode && player.shiftAlias) return "在 4e691 基因时，器官科学削弱仅为 1e186"
-                                if (player.extremeMode) return "<bdi style='font-size: 85%'>IN<u>tes</u>tine 的 log4 变为 log3，每条染色体获得的器官科学减少 1e194 倍，且经细胞获得的代币 II 翻倍指数为 8.7+x/500</bdi>"
-                                return "IN<u>tes</u>tine 的 log4 变为 log3，代币 II 通过细胞的翻倍指数为 9+x/500"
+                                if (player.extremeMode) return "<bdi style='font-size: 85%'>IN<u>tes</u>tine 的 log4 变为 log3，每条染色体获得的器官科学减少 1e194 倍，且经细胞获得的代币II 翻倍指数为 8.7+x/500</bdi>"
+                                return "IN<u>tes</u>tine 的 log4 变为 log3，代币II 通过细胞的翻倍指数为 9+x/500"
                         },
                         cost:() => new Decimal(player.extremeMode ? "6.15e339" : "9.36e334"),
                         unlocked(){
@@ -30529,7 +30529,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 III"
                         },
                         description(){
-                                let a = "73 之后每个代币II翻倍 " + makePurple("OB") + " 产出和代币 II 数量（公式中的 x）基于历史最佳"
+                                let a = "73 之后每个代币II翻倍 " + makePurple("OB") + " 产出和代币II 数量（公式中的 x）基于历史最佳"
                                 if (player.extremeMode) return a.replace("73", "75")
                                 return a
                         },
@@ -30608,7 +30608,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 VII"
                         },
                         description(){
-                                return "每次器官升级使器官产出指数 +.01，最佳代币 II 数量同步" 
+                                return "每次器官升级使器官产出指数 +.01，最佳代币II 数量同步" 
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 5e6 : 1e6)
@@ -30626,7 +30626,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 VIII"
                         },
                         description(){
-                                return "左列代币 II 可购买项的列总数量基于历史最佳" 
+                                return "左列代币II 可购买项的列总数量基于历史最佳" 
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 1e10 : 2e8)
@@ -30662,7 +30662,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 X"
                         },
                         description(){
-                                return "<bdi style='font-size: 80%'>log10(Tissues) multiplies " + makeBlue("DB") + " 产出且每次器官升级你获得你的 1% 的 " + makePurple("OB") + "/s while beating out and 1% of your " + makeBlue("DB") + "/s while beating in</bdi>"
+                                return "<bdi style='font-size: 80%'>log10(组织) multiplies " + makeBlue("DB") + " 产出且每次器官升级你获得你的 1% 的 " + makePurple("OB") + "/s while beating out and 1% of your " + makeBlue("DB") + "/s while beating in</bdi>"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 5e12 : 2e12)
@@ -30713,7 +30713,7 @@ addLayer("or", {
                 },
                 123: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>" + (player.shiftAlias ? "Pro-Carbon" : "心脏 XIII")
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>" + (player.shiftAlias ? "Pro-碳" : "心脏 XIII")
                         },
                         description(){
                                 return "每秒获得一次 DNA 和器官重置，但禁用反碳的正向效果"
@@ -30731,7 +30731,7 @@ addLayer("or", {
                 },
                 124: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>" + (player.shiftAlias ? "Pro-Oxygen" : "心脏 XIV")
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>" + (player.shiftAlias ? "Pro-氧" : "心脏 XIV")
                         },
                         description(){
                                 let a = "<bdi style='font-size: 70%'>本行每项升级使器官产出翻倍，但重置时被动产出上限为器官的 10 倍，效果基于最佳值，并禁用抗氧的正面效果</bdi>"
@@ -30813,7 +30813,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 XVIII"
                         },
                         description(){
-                                return "下夸克基础值变为 Tokens<sup>C</sup>，但禁用 C61 宝石"
+                                return "下夸克基础值变为 代币<sup>C</sup>，但禁用 C61 宝石"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 1e18 : 5e17)
@@ -30853,7 +30853,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.shiftAlias) return "<sup>*</sup>基础氨基酸产出为 1"
-                                return "器官升级数量使器官产出倍增，但移除 Lives<sup>*</sup>"
+                                return "器官升级数量使器官产出倍增，但移除 生命<sup>*</sup>"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 1e19 : 3e18)
@@ -30975,7 +30975,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 XXVI"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 .75"
+                                return "代币II 可购买项的花费指数为 .75"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 1e68 : 2e77)
@@ -31011,7 +31011,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>心脏 XXVIII"
                         },
                         description(){
-                                return "器官和组织不重置任何内容，代币 II 通过代币的花费公式为 x<sup>2</sup>"
+                                return "器官和组织不重置任何内容，代币II 通过代币的花费公式为 x<sup>2</sup>"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e334" : 1e300)
@@ -31030,7 +31030,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode) return "<bdi style='font-size: 90%'>基础器官产出为 10<sup>log10(组织)<sup>.2</sup></sup>，你始终将空气存入细支气管，且 log10(能量)<sup><u>in</u>TEStine<sup>.5</sup></sup> 乘能量产出</bdi>"
-                                return "器官基础产出为 10^(log10(Tissues)<sup>.2</sup>)，你总是将空气储存到细支气管"
+                                return "器官基础产出为 10^(log10(组织)<sup>.2</sup>)，你总是将空气储存到细支气管"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e509" : "1e600")
@@ -31064,7 +31064,7 @@ addLayer("or", {
 
                 201: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 I"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 I"
                         },
                         description(){
                                 return "每次肾脏升级使污染物产出翻倍，并解锁一个可购买项（最多 9 个）"
@@ -31082,7 +31082,7 @@ addLayer("or", {
                 },
                 202: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 II"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 II"
                         },
                         description(){
                                 return makePurple("OB") + "<sup>.1</sup> 乘以 " + makeBlue("DB") + " 产出和 " + makeBlue("DB") + "<sup>.1</sup> 乘以 " + makePurple("OB") + " gain"
@@ -31100,7 +31100,7 @@ addLayer("or", {
                 },
                 203: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 III"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 III"
                         },
                         description(){
                                 return "每次肾脏升级使我思等级乘以 " + makeBlue("DB") + " gain"
@@ -31118,10 +31118,10 @@ addLayer("or", {
                 },
                 204: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 IV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 IV"
                         },
                         description(){
-                                return "自动购买我思且代币 II 可购买项的花费指数为 .85"
+                                return "自动购买我思且代币II 可购买项的花费指数为 .85"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 5.51e155 : 1e149)
@@ -31136,7 +31136,7 @@ addLayer("or", {
                 },
                 205: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 V"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 V"
                         },
                         description(){
                                 return "自动购买 gonna，若你从左肾过滤则获得 ^1.001 干细胞"
@@ -31154,7 +31154,7 @@ addLayer("or", {
                 },
                 211: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 VI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 VI"
                         },
                         description(){
                                 return "自动购买make，若你正从右肾过滤则使基础细胞产出^(99/98)"
@@ -31172,11 +31172,11 @@ addLayer("or", {
                 },
                 212: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 VII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 VII"
                         },
                         description(){
                                 if (player.extremeMode) return "最多批量 10 次肾脏可购买项，器官科学 XI 的效果乘以本排升级数"
-                                return "心脏 III 计入每个代币 II，最多可批量 10 次肾脏可购买项"
+                                return "心脏 III 计入每个代币II，最多可批量 10 次肾脏可购买项"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e24400" : "1e30480")
@@ -31191,7 +31191,7 @@ addLayer("or", {
                 },
                 213: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 VIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 VIII"
                         },
                         description(){
                                 return "DNA 产出指数翻倍，可批量 5 次肾脏可购买项，并自动购买一个"
@@ -31209,7 +31209,7 @@ addLayer("or", {
                 },
                 214: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 IX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 IX"
                         },
                         description(){
                                 return "自动购买 offer，若你从右肾过滤则获得 ^1.001 干细胞"
@@ -31227,7 +31227,7 @@ addLayer("or", {
                 },
                 215: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 X"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 X"
                         },
                         description(){
                                 return "自动购买 he，批量 4 倍购买肾脏可购买项，并解锁肺"
@@ -31245,7 +31245,7 @@ addLayer("or", {
                 },
                 221: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XI"
                         },
                         description(){
                                 return "代币II可购买项的花费改为四舍五入而非向上取整，log10(组织)乘以空气产出"
@@ -31263,7 +31263,7 @@ addLayer("or", {
                 },
                 222: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XII"
                         },
                         description(){
                                 return "DNA 基础产出为 2^[Token II]，你总是将空气储存到三级支气管"
@@ -31281,7 +31281,7 @@ addLayer("or", {
                 },
                 223: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XIII"
                         },
                         description(){
                                 return "代币II可购买项花费改为向下取整而非四舍五入，解锁3个新层，但移除氨基酸"
@@ -31319,11 +31319,11 @@ addLayer("or", {
                 },
                 224: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XIV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XIV"
                         },
                         description(){
                                 if (player.shiftAlias) return "Currently: " + format(tmp.or.upgrades[224].effect)
-                                let a = "每个器官升级 - 50，log10(Token II) 使空气产出倍增，可批量 5 次肾脏可购买项"
+                                let a = "每个器官升级 - 50，log10(代币II) 使空气产出倍增，可批量 5 次肾脏可购买项"
                                 return a//<bdi style='font-size: 80%'>
                         },
                         effect(){
@@ -31343,7 +31343,7 @@ addLayer("or", {
                 },
                 225: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XV"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XV"
                         },
                         description(){
                                 return "<bdi style='font-size: 90%'>in<u>TES</u>tine 效果乘空气产出，且每器官升级使 能量/1e200 乘污染物产出</bdi>"
@@ -31365,7 +31365,7 @@ addLayer("or", {
                 },
                 231: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XVI"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XVI"
                         },
                         description(){
                                 return "<u>in</u>TEStine 的 log10 变为 log9，代币超指数花费基数为 8.5"
@@ -31383,7 +31383,7 @@ addLayer("or", {
                 },
                 232: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XVII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XVII"
                         },
                         description(){
                                 if (player.extremeMode) return "<u>in</u>TEStine的log9变为log8，本行每次升级给I'm基础加2，代币迭代幂花费基础为8"
@@ -31402,7 +31402,7 @@ addLayer("or", {
                 },
                 233: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XVIII"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XVIII"
                         },
                         description(){
                                 if (player.extremeMode) return "INtes<u>tine</u> 的 log10 变为 log9，自动购买骨科，肺 XIII 影响空气产出"
@@ -31421,7 +31421,7 @@ addLayer("or", {
                 },
                 234: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XIX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XIX"
                         },
                         description(){
                                 if (player.extremeMode) return "INtes<u>tine</u>的log9变为log8，自动购买皮肤病学，寡能基础为3^[Tertiary completions]"
@@ -31440,7 +31440,7 @@ addLayer("or", {
                 },
                 235: {
                         title(){
-                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾 XX"
+                                return "<bdi style='color: #" + getUndulatingColor() + "'>肾脏 XX"
                         },
                         description(){
                                 return "IN<u>tes</u>tine 的 log9 变为 log8，器官基础产出翻倍指数为 .25"
@@ -31521,7 +31521,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode) return "你总是将空气储存到主支气管，获得5e10倍器官科学，代币II可购买项花费指数为.7"
-                                return "你总是将空气储存到一级支气管，代币 II 可购买项的花费指数为 .7"
+                                return "你总是将空气储存到一级支气管，代币II 可购买项的花费指数为 .7"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? 1e192 : 1e238)
@@ -31539,7 +31539,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 V"
                         },
                         description(){
-                                return "你总是将空气储存到二级支气管，每次肺升级 log10(Air) 使……倍增" + makePurple("OB") + " gain"
+                                return "你总是将空气储存到二级支气管，每次肺升级 log10(空气) 使……倍增" + makePurple("OB") + " gain"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e395" : 1e305)
@@ -31598,8 +31598,8 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 VIII"
                         },
                         description(){
-                                if (player.extremeMode) return "代币 II 通过干细胞的花费翻倍指数为 (55+x/5)<sup>.5</sup>"
-                                return "<bdi style='font-size: 90%'>经干细胞获得的代币 II 花费翻倍指数为 (50+x/5)<sup>.5</sup>，且 log10(空气) 乘器官产出</bdi>" 
+                                if (player.extremeMode) return "代币II 通过干细胞的花费翻倍指数为 (55+x/5)<sup>.5</sup>"
+                                return "<bdi style='font-size: 90%'>经干细胞获得的代币II 花费翻倍指数为 (50+x/5)<sup>.5</sup>，且 log10(空气) 乘器官产出</bdi>" 
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e1805" : "1e1400")
@@ -31617,8 +31617,8 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 IX"
                         },
                         description(){
-                                if (player.extremeMode) return "次级支气管乘以 " + makeBlue("DB") + " 产出，代币 II 可购买项的花费指数为 .66，但器官科学产出减少 1e200 倍" 
-                                return "次级支气管乘以 " + makeBlue("DB") + " 产出且代币 II 可购买项的花费指数为 .66"  
+                                if (player.extremeMode) return "次级支气管乘以 " + makeBlue("DB") + " 产出，代币II 可购买项的花费指数为 .66，但器官科学产出减少 1e200 倍" 
+                                return "次级支气管乘以 " + makeBlue("DB") + " 产出且代币II 可购买项的花费指数为 .66"  
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e3620" : "1e1725")
@@ -31636,7 +31636,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 X"
                         },
                         description(){
-                                return "解锁肠道、一个新层级，代币 II 可购买项的花费指数为 .63"  
+                                return "解锁肠道、一个新层级，代币II 可购买项的花费指数为 .63"  
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e4105" : "1e2050")
@@ -31691,7 +31691,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 XIII"
                         },
                         description(){
-                                return "超过 500 后每个代币 II 使能量产出翻倍，<u>IN</u>testine 的 log9 变为 log8"  
+                                return "超过 500 后每个代币II 使能量产出翻倍，<u>IN</u>testine 的 log9 变为 log8"  
                         },
                         effect(){
                                 return Decimal.pow(2, player.tokens.tokens2.total.sub(500).max(0))
@@ -31803,7 +31803,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode) return "in<u>TES</u>tine的log9变为log8，自动购买过滤，代币II可购买项花费指数为.57"
-                                return "in<u>TES</u>tine 的 log9 变为 log8，代币 II 可购买项的花费指数为 .57"
+                                return "in<u>TES</u>tine 的 log9 变为 log8，代币II 可购买项的花费指数为 .57"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e17138" : "1e15215")
@@ -31821,7 +31821,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 XX"
                         },
                         description(){
-                                return "in<u>TES</u>tine 的 log7 变为 log6，代币 II 可购买项的花费指数为 .55"
+                                return "in<u>TES</u>tine 的 log7 变为 log6，代币II 可购买项的花费指数为 .55"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e18243" : "1e17300")
@@ -31964,7 +31964,7 @@ addLayer("or", {
                         },
                         description(){
                                 if (player.extremeMode) return "in<u>tes</u>TINE的内层log5变为log4，器官科学产出降低1e590倍，代币II可购买项花费指数为.51"
-                                return "in<u>tes</u>TINE 的内层 log5 变为 log4，代币 II 可购买项的花费指数为 .51"
+                                return "in<u>tes</u>TINE 的内层 log5 变为 log4，代币II 可购买项的花费指数为 .51"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e34743" : "1e36163")
@@ -32000,7 +32000,7 @@ addLayer("or", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>肺 XXX"
                         },
                         description(){
-                                return "in<u>tes</u>TINE 的内层 log3 变为 ln，代币 II 可购买项的花费指数为 .5"
+                                return "in<u>tes</u>TINE 的内层 log3 变为 ln，代币II 可购买项的花费指数为 .5"
                         },
                         cost(){
                                 return new Decimal(player.extremeMode ? "1e36563" : "1e39993")
@@ -32898,7 +32898,7 @@ addLayer("or", {
                                         eformula = eformula.replace("log2", "sqrt")
                                         eformula = eformula.replace("cbrt", "sqrt")
                                 }
-                                if (hasMilestone("ch", 29)) eformula = eformula.replace("sqrt(Tokens II)", "代币 II")
+                                if (hasMilestone("ch", 29)) eformula = eformula.replace("sqrt(代币II)", "代币II")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -33028,7 +33028,7 @@ addLayer("or", {
                                 if (hasUpgrade("an", 32))  logBase = decimalTwo
                                 eformula = eformula.replaceAll("g10", "g" + formatWhole(logBase))
                                 eformula = eformula.replaceAll("log2.72", "ln")
-                                if (hasMilestone("an", 37)) eformula = eformula.replace("log2(log2(Air)", "log10(Animals)")
+                                if (hasMilestone("an", 37)) eformula = eformula.replace("log2(log2(空气)", "log10(动物)")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -33262,7 +33262,7 @@ addLayer("or", {
                                         return br + lvl + amt + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Tokens)^x<br>" + format(tmp.or.buyables[id].base) + "^x"
+                                let eformula = "log10(代币)^x<br>" + format(tmp.or.buyables[id].base) + "^x"
                                 let logBase = new Decimal(10)
                                 if (hasMilestone("or", 24)) logBase = new Decimal(9)
                                 if (hasUpgrade("or", 235))  logBase = new Decimal(8)
@@ -33274,7 +33274,7 @@ addLayer("or", {
                                 if (hasUpgrade("or", 45))   logBase = decimalTwo
                                 eformula = eformula.replaceAll("g10", "g" + formatWhole(logBase))
                                 eformula = eformula.replaceAll("log2.72", "ln")
-                                if (hasMilestone("ch", 15)) eformula = eformula.replace("log2(Tokens)", "Chromosomes")
+                                if (hasMilestone("ch", 15)) eformula = eformula.replace("log2(代币)", "Chromosomes")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -33396,7 +33396,7 @@ addLayer("or", {
                                         return br + lvl + amt + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(log10(Contaminants)^x<br>" + format(tmp.or.buyables[id].base) + "^x"
+                                let eformula = "log10(log10(污染物)^x<br>" + format(tmp.or.buyables[id].base) + "^x"
                                 let logBase = new Decimal(10)
                                 if (hasMilestone("or", 23)) logBase = new Decimal(9)
                                 if (hasUpgrade("or", 334))  logBase = new Decimal(8)
@@ -33408,8 +33408,8 @@ addLayer("or", {
                                 if (hasMilestone("ch", 3))  logBase = decimalTwo
                                 eformula = eformula.replaceAll("g10", "g" + formatWhole(logBase))
                                 eformula = eformula.replaceAll("log2.72", "ln")
-                                if (hasMilestone("ch", 24)) eformula = eformula.replace("log2(log2(污染物)", "sqrt(log10(Organs))")
-                                if (hasUpgrade("nu", 23)) eformula = eformula.replace("sqrt(log10(Organs))", "log10(Organs)")
+                                if (hasMilestone("ch", 24)) eformula = eformula.replace("log2(log2(污染物)", "sqrt(log10(器官))")
+                                if (hasUpgrade("nu", 23)) eformula = eformula.replace("sqrt(log10(器官))", "log10(器官)")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -33545,8 +33545,8 @@ addLayer("or", {
                                 if (hasUpgrade("an", 13))  logBase = decimalTwo
                                 eformula = eformula.replaceAll("(log10", "(log" + formatWhole(logBase))
                                 eformula = eformula.replaceAll("log2.72", "ln")
-                                if (hasMilestone("an", 34)) eformula = eformula.replace("log10(log2(Energy)", "Nucleuses")
-                                if (hasMilestone("sp", 25)) eformula = eformula.replace("Nucleuses", "log10(Species)")
+                                if (hasMilestone("an", 34)) eformula = eformula.replace("log10(log2(能量)", "Nucleuses")
+                                if (hasMilestone("sp", 25)) eformula = eformula.replace("Nucleuses", "log10(物种)")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -33668,7 +33668,7 @@ addLayer("or", {
                                         return br + lvl + amt + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Organs)^x<br>" + format(tmp.or.buyables[id].base) + "^x"
+                                let eformula = "log10(器官)^x<br>" + format(tmp.or.buyables[id].base) + "^x"
                                 let logBase = new Decimal(10)
                                 if (hasUpgrade("or", 233)) logBase = new Decimal(9)
                                 if (hasUpgrade("or", 234)) logBase = new Decimal(8)
@@ -33681,7 +33681,7 @@ addLayer("or", {
                                 if (hasMilestone("an", 20))logBase = decimalTwo
                                 eformula = eformula.replace("g10", "g" + formatWhole(logBase))
                                 eformula = eformula.replace("log2.72", "ln")
-                                if (hasMilestone("nu", 8)) eformula = eformula.replace("log2(Organs)", "Tokens")
+                                if (hasMilestone("nu", 8)) eformula = eformula.replace("log2(器官)", "Tokens")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -33936,7 +33936,7 @@ addLayer("or", {
                                 eformula = eformula.replace("log2.72", "ln")
                                 if (hasMilestone("an", 24)) eformula = eformula.replace("log2(in<u>TES</u>tine)", "sqrt(intes<u>TINE</u>)")
                                 if (hasUpgrade("nu", 13)) eformula = eformula.replace("sqrt", "")
-                                if (hasUpgrade("nu", 25)) eformula = eformula.replace("(intes<u>TINE</u>)", "log2022(Energy)")
+                                if (hasUpgrade("nu", 25)) eformula = eformula.replace("(intes<u>TINE</u>)", "log2022(能量)")
                                 if (hasMilestone("sp", 6)) eformula = eformula.replace("2022", "10")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -33959,7 +33959,7 @@ addLayer("or", {
         milestones: {
                 1: {
                         requirementDescription(){
-                                return "1 Organ reset"
+                                return "1 器官 reset"
                         },
                         done(){
                                 return player.or.times >= 1
@@ -33976,7 +33976,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 1)
                 2: {
                         requirementDescription(){
-                                return "2 Organ resets"
+                                return "2 器官 resets"
                         },
                         done(){
                                 return player.or.times >= 2
@@ -33991,7 +33991,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 2)
                 3: {
                         requirementDescription(){
-                                return "3 Organ resets"
+                                return "3 器官 resets"
                         },
                         done(){
                                 return player.or.times >= 3
@@ -34006,8 +34006,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 3)
                 4: {
                         requirementDescription(){
-                                if (player.hardMode) return "6 Organ resets"
-                                return "4 Organ resets"
+                                if (player.hardMode) return "6 器官 resets"
+                                return "4 器官 resets"
                         },
                         done(){
                                 if (player.hardMode) return player.or.times >= 6
@@ -34024,7 +34024,7 @@ addLayer("or", {
                 5: {
                         requirementDescription(){
                                 if (player.hardMode) return "10 次器官重置"
-                                return "5 Organ resets"
+                                return "5 器官 resets"
                         },
                         done(){
                                 if (player.hardMode) return player.or.times >= 10
@@ -34040,7 +34040,7 @@ addLayer("or", {
                 6: {
                         requirementDescription(){
                                 if (player.hardMode) return "15 次器官重置"
-                                return "6 Organ resets"
+                                return "6 器官 resets"
                         },
                         done(){
 
@@ -34051,7 +34051,7 @@ addLayer("or", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：自动购买通过代币的代币 II，每次器官重置<sup>2</sup>保留一次组织重置。"
+                                return "奖励：自动购买通过代币的代币II，每次器官重置<sup>2</sup>保留一次组织重置。"
                         },
                 }, // hasMilestone("or", 6)
                 7: {
@@ -34067,7 +34067,7 @@ addLayer("or", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：自动购买通过干细胞的代币 II，顶夸克效果变为 4C<sup>.7</sup>*x。"
+                                return "奖励：自动购买通过干细胞的代币II，顶夸克效果变为 4C<sup>.7</sup>*x。"
                         },
                 }, // hasMilestone("or", 7)
                 8: {
@@ -34083,7 +34083,7 @@ addLayer("or", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：自动购买通过细胞的代币 II，底夸克基础值变为 6+C。"
+                                return "奖励：自动购买通过细胞的代币II，底夸克基础值变为 6+C。"
                         },
                 }, // hasMilestone("or", 8)
                 9: {
@@ -34105,7 +34105,7 @@ addLayer("or", {
                 10: {
                         requirementDescription(){
                                 if (player.hardMode) return "45 次器官重置"
-                                return "10 Organs"
+                                return "10 器官"
                         },
                         done(){
                                 if (player.hardMode) return player.or.times >= 45
@@ -34120,8 +34120,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 10)
                 11: {
                         requirementDescription(){
-                                if (player.hardMode) return "55 Organs"
-                                return "15 Organs"
+                                if (player.hardMode) return "55 器官"
+                                return "15 器官"
                         },
                         done(){
                                 if (player.hardMode) return player.or.points.gte(55)
@@ -34131,13 +34131,13 @@ addLayer("or", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：粲夸克基础值为 .1(C<sup>.6</sup>)，代币 II 可购买项的花费公式为 x。"
+                                return "奖励：粲夸克基础值为 .1(C<sup>.6</sup>)，代币II 可购买项的花费公式为 x。"
                         },
                 }, // hasMilestone("or", 11)
                 12: {
                         requirementDescription(){
-                                if (player.hardMode) return "66 Organs"
-                                return "20 Organs"
+                                if (player.hardMode) return "66 器官"
+                                return "20 器官"
                         },
                         done(){
                                 if (player.hardMode) return player.or.points.gte(66)
@@ -34147,13 +34147,13 @@ addLayer("or", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：上夸克基础值为 (1+C)<sup>.5</sup>/40，并保留代币 II 内容。"
+                                return "奖励：上夸克基础值为 (1+C)<sup>.5</sup>/40，并保留代币II 内容。"
                         },
                 }, // hasMilestone("or", 12)
                 13: {
                         requirementDescription(){
-                                if (player.hardMode) return "78 Organs"
-                                return "50 Organs"
+                                if (player.hardMode) return "78 器官"
+                                return "50 器官"
                         },
                         done(){
                                 if (player.hardMode) return player.or.points.gte(78)
@@ -34168,7 +34168,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 13)
                 14: {
                         requirementDescription(){
-                                return player.extremeMode ? "13,040 Organs" : "12,150 Organs"
+                                return player.extremeMode ? "13,040 Organs" : "12,150 器官"
                         },
                         done(){
                                 if (player.extremeMode) return player.or.points.gte(13040)
@@ -34183,7 +34183,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 14)
                 15: {
                         requirementDescription(){
-                                return player.extremeMode ? "1,578,000 Organs" : "221,300 Organs"
+                                return player.extremeMode ? "1,578,000 Organs" : "221,300 器官"
                         },
                         done(){
                                 return player.or.points.gte(player.extremeMode ? 1578000 : 221300)
@@ -34198,8 +34198,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 15)
                 16: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e200,819 Contaminants"
-                                return "1e290,418 Contaminants"
+                                if (player.extremeMode) return "1e200,819 污染物"
+                                return "1e290,418 污染物"
                         },
                         done(){
                                 return player.or.contaminants.points.gte(player.extremeMode ? "1e200819" : "1e290418")
@@ -34216,8 +34216,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 16)
                 17: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e336,200 Contaminants"
-                                return "1e538,064 Contaminants"
+                                if (player.extremeMode) return "1e336,200 污染物"
+                                return "1e538,064 污染物"
                         },
                         done(){
                                 return player.or.contaminants.points.gte(player.extremeMode ? "1e336200" : "1e538064")
@@ -34231,7 +34231,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 17)
                 18: {
                         requirementDescription(){
-                                return "1e9 Air"
+                                return "1e9 空气"
                         },
                         done(){
                                 return player.or.air.points.gte("1e9")
@@ -34245,8 +34245,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 18)
                 19: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e650 Air"
-                                return "1e999 Air"
+                                if (player.extremeMode) return "1e650 空气"
+                                return "1e999 空气"
                         },
                         done(){
                                 return player.or.air.points.gte(player.extremeMode ? "1e650" : "1e999")
@@ -34261,7 +34261,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 19)
                 20: {
                         requirementDescription(){
-                                return "1e176 Energy"
+                                return "1e176 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte("1e176")
@@ -34275,7 +34275,7 @@ addLayer("or", {
                 }, // hasMilestone("or", 20)
                 21: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e458 Energy" : "1e500 Energy"
+                                return player.extremeMode ? "1e458 能量" : "1e500 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte(player.extremeMode ? "1e458" : "1e500")
@@ -34301,8 +34301,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 21)
                 22: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1408 Energy"
-                                return "1e2609 Energy"
+                                if (player.extremeMode) return "1e1408 能量"
+                                return "1e2609 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte(player.extremeMode ? "1e1408" : "1e2609")
@@ -34320,8 +34320,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 22)
                 23: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1427 Energy"
-                                return "1e3200 Energy"
+                                if (player.extremeMode) return "1e1427 能量"
+                                return "1e3200 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte(player.extremeMode ? "1e1427" : "1e3200")
@@ -34338,8 +34338,8 @@ addLayer("or", {
                 }, // hasMilestone("or", 23)
                 24: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1640 Energy"
-                                return "1e3618 Energy"
+                                if (player.extremeMode) return "1e1640 能量"
+                                return "1e3618 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte(player.extremeMode ? "1e1640" : "1e3618")
@@ -34365,14 +34365,14 @@ addLayer("or", {
                         effectDescription(){
                                 let a = "奖励：IN<u>tes</u>tine 的 log10 变为 log9，"
                                 a += "解锁一个隐藏过滤点击项的开关[doesn't affect gameplay],"
-                                a += "，代币 II 通过细胞的翻倍指数为 7+x/150，但能量可购买项为零"
+                                a += "，代币II 通过细胞的翻倍指数为 7+x/150，但能量可购买项为零"
                                 return a + "额外数量，且你每秒会再损失 5% 的额外数量。"
                         },
                 }, // hasMilestone("or", 24)
                 25: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e1862 Energy"
-                                return "1e3826 Energy"
+                                if (player.extremeMode) return "1e1862 能量"
+                                return "1e3826 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte(player.extremeMode ? "1e1862" : "1e3826")
@@ -34386,7 +34386,7 @@ addLayer("or", {
                         effectDescription(){
                                 let a = "奖励：IN<u>tes</u>tine 的 log8 变为 log7，"
                                 a += "解锁一个隐藏空气挑战的开关[doesn't affect gameplay],"
-                                return a + " 且代币 II 可购买项的花费指数为 .54。"
+                                return a + " 且代币II 可购买项的花费指数为 .54。"
                         },
                 }, // hasMilestone("or", 25)
         },
@@ -34497,7 +34497,7 @@ addLayer("or", {
                                         ["secondary-display", "air"],
                                         ["display-text", function(){
                                                 let a = "在挑战中你不会获得污染物，" + makeBlue("DB") + ", or " + makePurple("OB") + "." 
-                                                let b = "你正在获得 " + format(tmp.or.lungs.getResetGain) + " Air/s"
+                                                let b = "你正在获得 " + format(tmp.or.lungs.getResetGain) + " 空气/s"
                                                 if (tmp.or.lungs.reqs.length > player.or.lungChallengesUnlocked) {
                                                         return a + br + b + br + "Get " + format(tmp.or.lungs.reqs[player.or.lungChallengesUnlocked]) + " 空气以解锁下一个挑战"
                                                 }
@@ -34532,7 +34532,7 @@ addLayer("or", {
                                                 if (player.or.air.total.lt("1e2300")) return "你可以在 1e2300 空气时开始能量生产"
                                                 if (player.shiftAlias) return "基础产出量为 [buyables]/10"
                                                 let a = "可购买项数量（加1）乘以能量产出以及<br>正上方和正左侧可购买项数量的产出。" 
-                                                let b = "你正在获得 " + format(tmp.or.intestine.getResetGain) + " Energy/s"
+                                                let b = "你正在获得 " + format(tmp.or.intestine.getResetGain) + " 能量/s"
                                                 return a + br + b
                                         }],
                                         ["buyables", [40, 41, 42]],
@@ -34566,7 +34566,7 @@ addLayer("or", {
                                 ["prestige-button", "", function (){ return hasUpgrade("or", 125) ? {'display': 'none'} : {}}],
                                 ["display-text", function (){
                                         if (!hasUpgrade("or", 125)) return ""
-                                        let a = "你可以重置获取 " + formatWhole(tmp.or.getResetGain, false, 3) + " Organs. "
+                                        let a = "你可以重置获取 " + formatWhole(tmp.or.getResetGain, false, 3) + " 器官. "
                                         if (tmp.or.getResetGain.gt(1e5)) return a 
                                         return a + " 下一个: " + format(tmp.or.getNextAt) + " Tissues"
                                 }], 
@@ -34617,26 +34617,26 @@ addLayer("or", {
                         content: [
                                 "main-display",
                                 ["display-text", function(){
-                                        let a1 = "初始器官产出：log10(Tissues)<sup>0.5</sup>-9"
-                                        let a2 = "当前器官产出：(log10(Tissues))<sup>EXP</sup>-9"
+                                        let a1 = "初始器官产出：log10(组织)<sup>0.5</sup>-9"
+                                        let a2 = "当前器官产出：(log10(组织))<sup>EXP</sup>-9"
                                         if (hasUpgrade("or", 114))      a2 = a2.replace("-9", "")
-                                        if (hasUpgrade("or", 154))      a2 = a2.replace("(log10(组织))<sup>EXP</sup>", "10<sup>log10(Tissues)<sup>.2</sup></sup>")
+                                        if (hasUpgrade("or", 154))      a2 = a2.replace("(log10(组织))<sup>EXP</sup>", "10<sup>log10(组织)<sup>.2</sup></sup>")
                                         if (hasUpgrade("or", 235))      a2 = a2.replace(".2", ".25")
                                         if (hasUpgrade("or", 41))       a2 = a2.replace("<sup>.25</sup>", "<sup>.3</sup>*EXP")
                                         if (!player.an.achActive[13] && hasAchievement("an", 13)) a2 = a2.replace(".3<",".31<")
                                         if (hasMilestone("ch", 33))     a2 = a2.replaceAll(".31<", ".35<")
-                                        if (hasMilestone("nu", 18))     a2 = "当前器官产出：10<sup>log10(Tissues)<sup>.35</sup>/4*EXP</sup>"
-                                        if (hasMilestone("sp", 9))      a2 = "当前器官产出：10<sup>log10(Tissues)<sup>.4</sup>*EXP</sup>"
-                                        if (hasUpgrade("e", 35))        a2 = "当前器官产出：10<sup>log10(Tissues)<sup>.41</sup>*EXP</sup>"
-                                        if (hasMilestone("hu", 13))     a2 = "当前器官产出：Nucleuses<sup>Plants^3*EXP</sup>"
+                                        if (hasMilestone("nu", 18))     a2 = "当前器官产出：10<sup>log10(组织)<sup>.35</sup>/4*EXP</sup>"
+                                        if (hasMilestone("sp", 9))      a2 = "当前器官产出：10<sup>log10(组织)<sup>.4</sup>*EXP</sup>"
+                                        if (hasUpgrade("e", 35))        a2 = "当前器官产出：10<sup>log10(组织)<sup>.41</sup>*EXP</sup>"
+                                        if (hasMilestone("hu", 13))     a2 = "当前器官产出：细胞核<sup>植物^3*EXP</sup>"
                                         a2 = a2.replace("EXP", format(tmp.or.getGainExp))
                                         a2 = a2.replace("*1.00", "")
-                                        let a3 = "初始器官效果：(Organs+1)<sup>min(100, 1+cbrt(Organs)/5)</sup>"
+                                        let a3 = "初始器官效果：(器官+1)<sup>min(100, 1+cbrt(器官)/5)</sup>"
                                         let a = a1 + br + a2 + br2 + a3
                                         let b = "器官重置所有未永久保留的先前内容，包括代币内容。"
                                         let c = "注意，反挑战、反宝石和三级完成次数永不被重置。"
                                         let d1 = "器官效果影响磷、生命、氨基酸、蛋白质，"
-                                        let d2 = "DNA、细胞、干细胞、组织、Mu、Lambda、Kappa 和 Iota 产出。"
+                                        let d2 = "DNA、细胞、干细胞、组织、μ、λ、κ 和 ι 产出。"
                                         let d3 = "为解锁器官，µ永久不重置任何东西并自动转生，干细胞可购买项免费。"
                                         let d = d1 + br + d2 + br2 + d3
 
@@ -35466,7 +35466,7 @@ addLayer("an", {
         row: 0, 
         prestigeButtonText(){
                 let b = ""
-                if (tmp.an.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.an.getNextAt) + " Organs."
+                if (tmp.an.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.an.getNextAt) + " 器官."
 
                 return "重置以获得 <b>" + formatWhole(tmp.an.getResetGain) + "</b> 动物" + b
         },
@@ -35694,8 +35694,8 @@ addLayer("an", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>动物 XVII"
                         },
                         description(){
-                                if (player.extremeMode) return "全能基础值为 7，代币 II 通过干细胞的翻倍指数为 (480+x/10)<sup>.4</sup>"
-                                return "代币 II 通过干细胞的翻倍指数为 (480+x/10)<sup>.4</sup>"
+                                if (player.extremeMode) return "全能基础值为 7，代币II 通过干细胞的翻倍指数为 (480+x/10)<sup>.4</sup>"
+                                return "代币II 通过干细胞的翻倍指数为 (480+x/10)<sup>.4</sup>"
                         },
                         cost:() => new Decimal(player.extremeMode ? 8.82e19 : 4.59e23),
                         unlocked(){
@@ -35708,8 +35708,8 @@ addLayer("an", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>动物 XVIII"
                         },
                         description(){
-                                if (player.shiftAlias) return "需要 2600 代币 II 才生效"
-                                if (player.extremeMode) return "染色体 V 计入每个代币 II，组织效果指数 +1"
+                                if (player.shiftAlias) return "需要 2600 代币II 才生效"
+                                if (player.extremeMode) return "染色体 V 计入每个代币II，组织效果指数 +1"
                                 return "染色体V计入每个代币II并给组织效果指数加1，但将基因产出除以1e42"
                         },
                         cost:() => new Decimal(player.extremeMode ? 1.08e21 : 4.09e24),
@@ -35738,7 +35738,7 @@ addLayer("an", {
                         },
                         description(){
                                 if (player.extremeMode) return "禁用缪IV、拉姆达IV、卡帕IV和约塔IV对干细胞的效果，死亡学基础为染色体*.4"
-                                return "禁用 Mu IV、Lambda IV、Kappa IV 和 Iota IV 对干细胞的效果"
+                                return "禁用 μ IV、λ IV、κ IV 和 ι IV 对干细胞的效果"
                         },
                         cost:() => new Decimal(player.extremeMode ? 3.33e29 : 6.95e27),
                         unlocked(){
@@ -35751,7 +35751,7 @@ addLayer("an", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>动物 XXI"
                         },
                         description(){
-                                if (player.extremeMode) return "代币 II 可购买项的花费指数为 .45，但禁用初级和次级奖励"
+                                if (player.extremeMode) return "代币II 可购买项的花费指数为 .45，但禁用初级和次级奖励"
                                 return "代币II可购买项花费指数为.45，基因产出翻倍，但禁用初级和次级奖励"
                         },
                         cost:() => new Decimal(player.extremeMode ? 3.73e32 : 1.8e30),
@@ -35780,7 +35780,7 @@ addLayer("an", {
                         },
                         description(){
                                 if (player.extremeMode) return "调节<sup>2</sup>基础加.02，代币II每超过7200多获得1.01倍动物和1.05倍基因"
-                                return "每个代币 II - 7200 使动物产出提高 1.01 倍、基因提高 1.05 倍"
+                                return "每个代币II - 7200 使动物产出提高 1.01 倍、基因提高 1.05 倍"
                         },
                         cost:() => new Decimal(player.extremeMode ? 3.15e38 : 8.25e32),
                         unlocked(){
@@ -35824,7 +35824,7 @@ addLayer("an", {
         milestones: {
                 1: {
                         requirementDescription(){
-                                return "1 Animal reset"
+                                return "1 次动物重置"
                         },
                         done(){
                                 return player.an.times >= 1
@@ -35903,8 +35903,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 5)
                 6: {
                         requirementDescription(){
-                                if (player.hardMode) return "9 Animals"
-                                return "6 Animals"
+                                if (player.hardMode) return "9 动物"
+                                return "6 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(9)
@@ -35920,8 +35920,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 6)
                 7: {
                         requirementDescription(){
-                                if (player.hardMode) return "13 Animals"
-                                return "7 Animals"
+                                if (player.hardMode) return "13 动物"
+                                return "7 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(13)
@@ -35936,8 +35936,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 7)
                 8: {
                         requirementDescription(){
-                                if (player.hardMode) return "19 Animals"
-                                return "8 Animals"
+                                if (player.hardMode) return "19 动物"
+                                return "8 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(19)
@@ -35955,8 +35955,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 8)
                 9: {
                         requirementDescription(){
-                                if (player.hardMode) return "28 Animals"
-                                return "12 Animals"
+                                if (player.hardMode) return "28 动物"
+                                return "12 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(28)
@@ -35978,8 +35978,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 9)
                 10: {
                         requirementDescription(){
-                                if (player.hardMode) return "41 Animals"
-                                return "16 Animals"
+                                if (player.hardMode) return "41 动物"
+                                return "16 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(41)
@@ -35995,8 +35995,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 10)
                 11: {
                         requirementDescription(){
-                                if (player.hardMode) return "60 Animals"
-                                return "25 Animals"
+                                if (player.hardMode) return "60 动物"
+                                return "25 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(60)
@@ -36006,13 +36006,13 @@ addLayer("an", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：保留肠道可购买项，代币 II 可购买项的花费指数为 .53。"
+                                return "奖励：保留肠道可购买项，代币II 可购买项的花费指数为 .53。"
                         },
                 }, // hasMilestone("an", 11)
                 12: {
                         requirementDescription(){
-                                if (player.hardMode) return "88 Animals"
-                                return "36 Animals"
+                                if (player.hardMode) return "88 动物"
+                                return "36 动物"
                         },
                         done(){
                                 if (player.hardMode) return player.an.points.gte(88)
@@ -36028,7 +36028,7 @@ addLayer("an", {
                 13: {
                         requirementDescription(){
                                 if (!hasUpgrade("or", 344)) return "肺 XXIV 与 ???"
-                                return "169 Animals"
+                                return "169 动物"
                         },
                         done(){
                                 return player.an.points.gte(169) && hasUpgrade("or", 344)
@@ -36043,8 +36043,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 13)
                 14: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e3215 Energy"
-                                return "1e5676 Energy"
+                                if (player.extremeMode) return "1e3215 能量"
+                                return "1e5676 能量"
                         },
                         done(){
                                 return player.or.energy.points.gte(player.extremeMode ? "1e3215" : "1e5676")
@@ -36058,8 +36058,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 14)
                 15: {
                         requirementDescription(){
-                                if (player.extremeMode) return "1e34,182 Air"
-                                return "1e33133 Air"
+                                if (player.extremeMode) return "1e34,182 空气"
+                                return "1e33133 空气"
                         },
                         done(){
                                 return player.or.air.points.gte(player.extremeMode ? "1e34182" : "1e33133")
@@ -36076,8 +36076,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 15)
                 16: {
                         requirementDescription(){
-                                if (player.sp.unlocked) return makePurple("1e9") + " Genes"
-                                return "1e14 Genes"
+                                if (player.sp.unlocked) return makePurple("1e9") + " 基因"
+                                return "1e14 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.sp.unlocked ? "1e9" : "1e14")
@@ -36088,12 +36088,12 @@ addLayer("an", {
                         effectDescription(){
                                 let a = "奖励：智人数量乘以空气产出"
                                 if (player.sp.unlocked) a += makePurple("，前 22 次物种重置每次使基因产出乘以 10，")
-                                return a + "，超过 1000 后每个代币 II（乘法）使基因产出提高 1%。"
+                                return a + "，超过 1000 后每个代币II（乘法）使基因产出提高 1%。"
                         },
                 }, // hasMilestone("an", 16)
                 17: {
                         requirementDescription(){
-                                return "5e22 Genes"
+                                return "5e22 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte("5e22")
@@ -36109,8 +36109,8 @@ addLayer("an", {
                 }, // hasMilestone("an", 17)
                 18: {
                         requirementDescription(){
-                                if (player.extremeMode) return "2.5e54 Genes"
-                                return "1e49 Genes"
+                                if (player.extremeMode) return "2.5e54 基因"
+                                return "1e49 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? 2.5e54 : 1e49)
@@ -36122,16 +36122,16 @@ addLayer("an", {
                                 player.an.points = player.an.points.min(tmp.an.getResetGain.times(10))
                         },
                         effectDescription(){
-                                let a = "奖励：犬属数量乘以 " + makePurple("OB") + " 产出，log10(Animals)"
+                                let a = "奖励：犬属数量乘以 " + makePurple("OB") + " 产出，log10(动物)"
                                 if (player.extremeMode) a += "<sup>2</sup>"
                                 if (player.nu.unlocked) a = a.replace(">2", ">" + makeRed("3"))
-                                a += " 乘以基因产出，且 log10(Genes)"
+                                a += " 乘以基因产出，且 log10(基因)"
                                 return a + " 乘以动物产出，但禁用肺XXVI对动物产出的影响并移除动物重置的能力"
                         },
                 }, // hasMilestone("an", 18)
                 19: {
                         requirementDescription(){
-                                return player.extremeMode ? "3e70 Genes" : "3e82 Genes"
+                                return player.extremeMode ? "3e70 基因" : "3e82 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? 3e70 : 3e82)
@@ -36148,14 +36148,14 @@ addLayer("an", {
                                 player.an.grid[808].extras = decimalZero
                         },
                         effectDescription(){
-                                let a = "奖励：log10(Contaminants) 使基因产出倍增，并解锁新的一排分类学"
+                                let a = "奖励：log10(污染物) 使基因产出倍增，并解锁新的一排分类学"
                                 a += "，但交叉污染率提高至 5%，前三排的额外数量归零。"
                                 return a
                         },
                 }, // hasMilestone("an", 19)
                 20: {
                         requirementDescription(){
-                                return player.extremeMode ? "3e400 Genes" : "1e413 Genes"
+                                return player.extremeMode ? "3e400 基因" : "1e413 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "3e400" : "1e413")
@@ -36185,7 +36185,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 20)
                 21: {
                         requirementDescription(){
-                                return player.extremeMode ? "2.9e511 Genes" : "2.7e563 Genes"
+                                return player.extremeMode ? "2.9e511 基因" : "2.7e563 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "2.9e511" : "2.7e563")
@@ -36209,7 +36209,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 21)
                 22: {
                         requirementDescription(){
-                                return player.extremeMode ? "3.4e862 Genes" : "1.8e820 Genes"
+                                return player.extremeMode ? "3.4e862 基因" : "1.8e820 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "3.4e862" : "1.8e820")
@@ -36237,7 +36237,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 22)
                 23: {
                         requirementDescription(){
-                                return player.extremeMode ? "7e1226 Genes" : "8e1222 Genes"
+                                return player.extremeMode ? "7e1226 基因" : "8e1222 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "7e1226" : "8e1222")
@@ -36247,14 +36247,14 @@ addLayer("an", {
                         },
                         effectDescription(){
                                 let a = "奖励：<u>in</u>TEStine的log4变为log3，每条染色体哺乳纲I数量乘以能量产出，"
-                                a += " 且 (Energy / 1e14000 + 1)<sup>.002</sup> 使基因产出倍增。"
+                                a += " 且 (能量 / 1e14000 + 1)<sup>.002</sup> 使基因产出倍增。"
                                 if (player.extremeMode) a = a.replace("14,000 + 1", "17,250")
                                 return a
                         },
                 }, // hasMilestone("an", 23)
                 24: {
                         requirementDescription(){
-                                return player.extremeMode ? "1.4e1467 Genes" : "2.4e1507 Genes"
+                                return player.extremeMode ? "1.4e1467 基因" : "2.4e1507 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1.4e1467" : "2.4e1507")
@@ -36269,7 +36269,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 24)
                 25: {
                         requirementDescription(){
-                                return player.extremeMode ? "1.6e2993 Genes" : "2.2e2932 Genes"
+                                return player.extremeMode ? "1.6e2993 基因" : "2.2e2932 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1.6e2993" : "2.2e2932")
@@ -36285,12 +36285,12 @@ addLayer("an", {
                         },
                         effectDescription(){
                                 if (player.extremeMode) return "奖励：寡能基础为1e80，自动购买调节，调节<sup>2</sup>基础为.76-染色体/300（最低.5），代币II可购买项花费指数为.47。"
-                                return "奖励：寡能干细胞基础值为 1e80，代币 II 可购买项的花费指数为 .47。"
+                                return "奖励：寡能干细胞基础值为 1e80，代币II 可购买项的花费指数为 .47。"
                         },
                 }, // hasMilestone("an", 25)
                 26: {
                         requirementDescription(){
-                                return player.extremeMode ? "9e3152 Genes" : "8.7e2987 Genes"
+                                return player.extremeMode ? "9e3152 基因" : "8.7e2987 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "9e3152" : "8.7e2987")
@@ -36305,7 +36305,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 26)
                 27: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e5600 Genes" : "3.4e4263 Genes"
+                                return player.extremeMode ? "1e5600 基因" : "3.4e4263 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1e5600" : "3.4e4263")
@@ -36321,7 +36321,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 27)
                 28: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e8121 Genes" : "6.2e8149 Genes"
+                                return player.extremeMode ? "1e8121 基因" : "6.2e8149 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1e8121" : "6.2e8149")
@@ -36339,7 +36339,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 28)
                 29: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e12199 Genes" : "8.8e12049 Genes"
+                                return player.extremeMode ? "1e12199 基因" : "8.8e12049 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1e12199" : "8.8e12049")
@@ -36348,12 +36348,12 @@ addLayer("an", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：顶夸克系数为 .011，但禁用 Mu I、Lambda I、Kappa I 和 Iota I。"
+                                return "奖励：顶夸克系数为 .011，但禁用 μ I、λ I、κ I 和 ι I。"
                         },
                 }, // hasMilestone("an", 29)
                 30: {
                         requirementDescription(){
-                                return player.extremeMode ? "5e13602 Genes" : "1e12708 Genes"
+                                return player.extremeMode ? "5e13602 基因" : "1e12708 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "5e13602" : "1e12708")
@@ -36367,7 +36367,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 30)
                 31: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e14183 Genes" : "1e14125 Genes"
+                                return player.extremeMode ? "1e14183 基因" : "1e14125 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1e14183" : "1e14125")
@@ -36381,7 +36381,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 31)
                 32: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e14348 Genes" : "2.9e14654 Genes"
+                                return player.extremeMode ? "1e14348 基因" : "2.9e14654 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1e14348" : "2.9e14654")
@@ -36396,7 +36396,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 32)
                 33: {
                         requirementDescription(){
-                                return player.extremeMode ? "1e14805 Genes" : "3e15111 Genes"
+                                return player.extremeMode ? "1e14805 基因" : "3e15111 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte(player.extremeMode ? "1e14805" : "3e15111")
@@ -36410,7 +36410,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 33)
                 34: {
                         requirementDescription(){
-                                return "6e27961 Genes"
+                                return "6e27961 基因"
                         },
                         done(){
                                 return player.an.genes.points.gte("6e27961")
@@ -36424,7 +36424,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 34)
                 35: {
                         requirementDescription(){
-                                return "2e99 Animals"
+                                return "2e99 动物"
                         },
                         done(){
                                 return player.an.points.gte("2e99")
@@ -36438,7 +36438,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 35)
                 36: {
                         requirementDescription(){
-                                return "2.22e157 Animals"
+                                return "2.22e157 动物"
                         },
                         done(){
                                 return player.an.points.gte("2.22e157")
@@ -36452,7 +36452,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 36)
                 37: {
                         requirementDescription(){
-                                return "2e327 Animals"
+                                return "2e327 动物"
                         },
                         done(){
                                 return player.an.points.gte("2e327")
@@ -36461,12 +36461,12 @@ addLayer("an", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：<u>in</u>TEStine 基础值为 log10(Animals)。"
+                                return "奖励：<u>in</u>TEStine 基础值为 log10(动物)。"
                         },
                 }, // hasMilestone("an", 37)
                 38: {
                         requirementDescription(){
-                                return "1e402 Animals"
+                                return "1e402 动物"
                         },
                         done(){
                                 return player.an.points.gte("1e402")
@@ -36480,7 +36480,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 38)
                 39: {
                         requirementDescription(){
-                                return "2.98e498 Animals"
+                                return "2.98e498 动物"
                         },
                         done(){
                                 return player.an.points.gte("2.98e498")
@@ -36494,7 +36494,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 39)
                 40: {
                         requirementDescription(){
-                                return "7e518 Animals"
+                                return "7e518 动物"
                         },
                         done(){
                                 return player.an.points.gte("7e518")
@@ -36503,12 +36503,12 @@ addLayer("an", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：代币 II 通过干细胞的翻倍指数为 (9640+x/2)<sup>.3</sup>。"
+                                return "奖励：代币II 通过干细胞的翻倍指数为 (9640+x/2)<sup>.3</sup>。"
                         },
                 }, // hasMilestone("an", 40)
                 41: {
                         requirementDescription(){
-                                return "2e592 Animals"
+                                return "2e592 动物"
                         },
                         done(){
                                 return player.an.points.gte("2e592")
@@ -36517,12 +36517,12 @@ addLayer("an", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：通过细胞获取的代币 II 双倍指数为 15+x/4300。"
+                                return "奖励：通过细胞获取的代币II 双倍指数为 15+x/4300。"
                         },
                 }, // hasMilestone("an", 41)
                 42: {
                         requirementDescription(){
-                                return "1.7e654 Animals"
+                                return "1.7e654 动物"
                         },
                         done(){
                                 return player.an.points.gte("1.7e654")
@@ -36536,7 +36536,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 42)
                 43: {
                         requirementDescription(){
-                                return "5.4e884 Animals"
+                                return "5.4e884 动物"
                         },
                         done(){
                                 return player.an.points.gte("5.4e884")
@@ -36550,7 +36550,7 @@ addLayer("an", {
                 }, // hasMilestone("an", 43)
                 44: {
                         requirementDescription(){
-                                return "1.5e1153 Animals"
+                                return "1.5e1153 动物"
                         },
                         done(){
                                 return player.an.points.gte("1.5e1153")
@@ -36559,7 +36559,7 @@ addLayer("an", {
                                 return player.sp.unlocked && player.sp.times >= 44 // to keep all of the milestones
                         },
                         effectDescription(){
-                                return "奖励：解锁物种挑战，代币 II 可购买项的花费指数为 1.25。"
+                                return "奖励：解锁物种挑战，代币II 可购买项的花费指数为 1.25。"
                         },
                 }, // hasMilestone("an", 44)
         },
@@ -36574,7 +36574,7 @@ addLayer("an", {
                                 let costs = getTaxonomyCost(id)
                                 let a = "Levels: " + formatWhole(player.an.grid[id].buyables) 
                                 let b = "Amount: " + format(player.an.grid[id].extras)
-                                let c = "Cost: " + format(tmp.an.clickables[11].cost) + " Genes"
+                                let c = "Cost: " + format(tmp.an.clickables[11].cost) + " 基因"
 
                                 let split = TAXONOMY_EFFECTS[id]().split(" per ")
                                 let d
@@ -36647,8 +36647,8 @@ addLayer("an", {
                         },
                         display(){
                                 if (player.an.achActive[11]) return "禁用基因可购买项自动购买器"
-                                if (!player.an.achActive[22] && hasAchievement("an", 22)) return "批量购买基因可购买项并获得 " + makeOrange("5<sup>成就 + 4</sup>") + "x Genes"
-                                return "批量购买基因可购买项并获得 " + (player.extremeMode ? "25x 基因与动物" : "100x Genes")
+                                if (!player.an.achActive[22] && hasAchievement("an", 22)) return "批量购买基因可购买项并获得 " + makeOrange("5<sup>成就 + 4</sup>") + "x 基因"
+                                return "批量购买基因可购买项并获得 " + (player.extremeMode ? "25x 基因与动物" : "100x 基因")
                         },
                         tooltip(){
                                 let a = makeBlue("ON") + "：禁用基因可购买项自动购买器" + br 
@@ -36848,11 +36848,11 @@ addLayer("an", {
                                 return "ONE II (" + (player.an.achActive[24] ? "ON" : "OFF") + ")"
                         },
                         display(){
-                                if (player.an.achActive[24]) return hasMilestone("nu", 12) ? "效果被细胞核里程碑 12 覆盖" : "<u>IN</u>testine 基础值为 cbrt(Tokens II)"
+                                if (player.an.achActive[24]) return hasMilestone("nu", 12) ? "效果被细胞核里程碑 12 覆盖" : "<u>IN</u>testine 基础值为 cbrt(代币II)"
                                 return hasUpgrade("ch", 43) ? "效果被染色体 XVIII 覆盖" : "解锁后你可以转生获取细胞核"
                         },
                         tooltip(){
-                                let a = makeBlue("ON") + "：<u>IN</u>testine 基础值为 cbrt(Tokens II)" + br 
+                                let a = makeBlue("ON") + "：<u>IN</u>testine 基础值为 cbrt(代币II)" + br 
                                 return a + makeBlue("OFF") + "：解锁后你可以转生获取细胞核"
                         },
                         unlocked(){
@@ -36907,7 +36907,7 @@ addLayer("an", {
                                 return "PRI III (" + (player.an.achActive[32] ? "ON" : "OFF") + ")"
                         },
                         display(){
-                                if (player.an.achActive[32]) return "本排每个关闭（且已解锁）成就使代币 II 可购买项的花费指数降低 .01"
+                                if (player.an.achActive[32]) return "本排每个关闭（且已解锁）成就使代币II 可购买项的花费指数降低 .01"
                                 return ""
                         },
                         tooltip(){
@@ -37272,7 +37272,7 @@ addLayer("an", {
                                 return player.tokens.tokens2.total.gte(player.extremeMode ? 6827 : 6308)
                         },
                         tooltip(){
-                                return player.extremeMode ? "获得 6827 代币 II<br>奖励：基因低于 1e10,000 时获得 2.5e12 倍基因" : "获得 6308 代币 II"
+                                return player.extremeMode ? "获得 6827 代币II<br>奖励：基因低于 1e10,000 时获得 2.5e12 倍基因" : "获得 6308 代币II"
                         }, // hasAchievement("an", 21)
                 },
                 22: {
@@ -37413,9 +37413,9 @@ addLayer("an", {
                                 ["prestige-button", "", function (){ return hasMilestone("an", 18) ? {'display': 'none'} : {}}],
                                 ["display-text", function (){
                                         if (!hasMilestone("an", 18)) return ""
-                                        let a = "你可以重置获取 " + formatWhole(tmp.an.getResetGain, false, 3) + " Animals. "
+                                        let a = "你可以重置获取 " + formatWhole(tmp.an.getResetGain, false, 3) + " 动物。 "
                                         if (tmp.an.getResetGain.gt(1e5)) return a 
-                                        return a + " 下一个: " + format(tmp.an.getNextAt) + " Organs"
+                                        return a + " 下一个: " + format(tmp.an.getNextAt) + " 器官"
                                 }], 
                                 "blank",
                                 ["upgrades", [1,2,3,4,5]],
@@ -37482,12 +37482,12 @@ addLayer("an", {
                         content: [
                                 "main-display",
                                 ["display-text", function(){
-                                        let a1 = "初始动物产出：cbrt(log10(Organs)-99)"
+                                        let a1 = "初始动物产出：cbrt(log10(器官)-99)"
                                         if (player.extremeMode) a1 = a1.replace("99", "120")
                                         let a2
 
                                         if (hasMilestone("hu", 41))     {
-                                                a2 = "当前动物产出：Plants<sup>Nucleuses<sup>2.3</sup>*EXP</sup>"
+                                                a2 = "当前动物产出：植物<sup>细胞核<sup>2.3</sup>*EXP</sup>"
                                                 if (hasMilestone("hu", 46))                     a2 = a2.replace("2.3", "2.5")
                                                 if (hasMilestone("hu", 81))                     a2 = a2.replace("2.5", "3")
                                                 if (hasMilestone("hu", 90)) {
@@ -37523,24 +37523,24 @@ addLayer("an", {
                                                 if (hasUpgrade("hu", 92))                       a2 = a2.replace("6.6", "7.2")
                                                 if (hasMilestone("hu", 82))     a2 = a2.replace("Plants", "Thoughts")
                                         } else if (hasUpgrade("tokens", 102))  {
-                                                a2 = "当前动物产出：10<sup>log10(Organs)<sup>.11</sup>*EXP</sup>"
+                                                a2 = "当前动物产出：10<sup>log10(器官)<sup>.11</sup>*EXP</sup>"
                                                 if (hasUpgrade("tokens", 221))  a2 = a2.replace(".11", ".15")
                                                 if (hasMilestone("pl", 5))      a2 = a2.replace(".15", ".16")
                                                 if (hasUpgrade("hu", 23))       a2 = a2.replace(".16", ".2")
                                         } else if (hasUpgrade("ch", 14)) {
-                                                a2 = "当前动物产出：log10(Organs)<sup>EXP</sup>"
+                                                a2 = "当前动物产出：log10(器官)<sup>EXP</sup>"
                                         } else {
-                                                a2 = "当前动物产出：cbrt(log10(Organs)-99)"
+                                                a2 = "当前动物产出：cbrt(log10(器官)-99)"
                                                 if (hasUpgrade("an", 12))       a2 = a2.replace("cbrt", "sqrt")
                                                 if (hasUpgrade("or", 33))       a2 = a2.replace("-99", "")
                                                 if (player.extremeMode)         a2 = a2.replace("99", "120")
                                         }
                                         
-                                        let a3 = "初始动物效果：(Animals + 1)<sup>log10(99 + Animals)</sup>"
+                                        let a3 = "初始动物效果：(动物 + 1)<sup>log10(99 + 动物)</sup>"
                                         let a = a1 + br + a2.replace("EXP", format(tmp.an.getGainExp)) + br2 + a3
                                         let b = "动物重置所有未永久保留的先前内容，包括代币内容。"
                                         let c = "注意三级挑战完成次数永远不会被重置。"
-                                        let d1 = "动物效果影响器官、DNA、细胞、干细胞、组织、<br>Mu、Lambda、Kappa、Iota，" + (player.extremeMode ? "器官科学， " : "")
+                                        let d1 = "动物效果影响器官、DNA、细胞、干细胞、组织、<br>μ、λ、κ、ι，" + (player.extremeMode ? "器官科学， " : "")
                                         let d2 = "能量、空气、<u>in</u>TEStine 数量、<br>IN<u>tes</u>tine 数量、污染物，" + makeBlue("DB")
                                         d2 += " and, " + makePurple("OB") + " gain."
                                         let d = d1 + d2
@@ -38162,7 +38162,7 @@ addLayer("ch", {
                         description(){
                                 if (player.shiftAlias) return "效果软上限为 1e10，<br>x->log10(x)<sup>10</sup> <br>当前：" + format(tmp.ch.upgrades[14].effect)
                                 if (player.extremeMode) return "<bdi style='font-size: 90%'>基础动物产出取平方，(器官/1e900)<sup>.08</sup> 乘基因产出，且染色体 III 变为每染色体 - 37 增加 4</bdi>"
-                                return "动物基础产出平方，(1+Organs/1e900)<sup>.08</sup> 使基因产出倍增"
+                                return "动物基础产出平方，(1+器官/1e900)<sup>.08</sup> 使基因产出倍增"
                         },
                         cost:() => new Decimal(player.extremeMode ? 45 : 50),
                         effect(){
@@ -38180,8 +38180,8 @@ addLayer("ch", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>染色体 V"
                         },
                         description(){
-                                if (player.extremeMode) return "<bdi style='font-size: 85%'>超过 2600 后每代币 II 多获得 1% 的基因，移除调节<sup>2</sup> 的基础花费，动物 IV 的第三项效果为每项 .007，并使细胞效果指数乘以 1.33</bdi>"
-                                return "细胞效果指数 +13.75，超过 2600 后每个代币 II 使基因产出提高 1%"
+                                if (player.extremeMode) return "<bdi style='font-size: 85%'>超过 2600 后每代币II 多获得 1% 的基因，移除调节<sup>2</sup> 的基础花费，动物 IV 的第三项效果为每项 .007，并使细胞效果指数乘以 1.33</bdi>"
+                                return "细胞效果指数 +13.75，超过 2600 后每个代币II 使基因产出提高 1%"
                         },
                         cost:() => new Decimal(player.extremeMode ? 58 : 57),
                         unlocked(){
@@ -38195,9 +38195,9 @@ addLayer("ch", {
                         },
                         description(){
                                 if (player.extremeMode) {
-                                        return "<bdi style='font-size: 90%'>经干细胞获得的代币 II 翻倍指数变为 (x/5+326)<sup>.4</sup>，且哺乳纲 II 数量<sup>染色体升级</sup> 乘 in<u>TES</u>tine 产出</bdi>"
+                                        return "<bdi style='font-size: 90%'>经干细胞获得的代币II 翻倍指数变为 (x/5+326)<sup>.4</sup>，且哺乳纲 II 数量<sup>染色体升级</sup> 乘 in<u>TES</u>tine 产出</bdi>"
                                 }
-                                return "<bdi style='font-size: 90%'>经干细胞获得的代币 II 翻倍指数变为 (x/5+330)<sup>.4</sup>，且哺乳纲 II 数量<sup>染色体升级</sup> 乘 in<u>TES</u>tine 产出</bdi>"
+                                return "<bdi style='font-size: 90%'>经干细胞获得的代币II 翻倍指数变为 (x/5+330)<sup>.4</sup>，且哺乳纲 II 数量<sup>染色体升级</sup> 乘 in<u>TES</u>tine 产出</bdi>"
                         },
                         cost:() => new Decimal(player.extremeMode ? 68 : 73),
                         unlocked(){
@@ -38227,10 +38227,10 @@ addLayer("ch", {
                         description(){
                                 if (player.extremeMode) {
                                         if (player.ch.everUpgrade33) return "每条染色体使分类学可购买项上限提高 3，最高 1100，但禁用染色体 III"
-                                        return "<bdi style='font-size: 80%'>代币 II 可购买项的花费指数为 .46，每条染色体使 Taxonomy 可购买项上限提高 3（最高 1100），但禁用染色体 III</bdi>"
+                                        return "<bdi style='font-size: 80%'>代币II 可购买项的花费指数为 .46，每条染色体使 Taxonomy 可购买项上限提高 3（最高 1100），但禁用染色体 III</bdi>"
                                 }
                                 if (player.ch.everUpgrade33) return "<bdi style='font-size: 90%'>获得 20 倍基因，每条染色体使 Taxonomy 可购买项上限提高 3（最高 1100），但禁用染色体 III</bdi>"
-                                return "<bdi style='font-size: 70%'>代币 II 可购买项的花费指数为 .46，获得 20 倍基因，每条染色体使 Taxonomy 可购买项上限提高 3（最高 1100），但禁用染色体 III</bdi>"
+                                return "<bdi style='font-size: 70%'>代币II 可购买项的花费指数为 .46，获得 20 倍基因，每条染色体使 Taxonomy 可购买项上限提高 3（最高 1100），但禁用染色体 III</bdi>"
                         },
                         cost:() => new Decimal(151),
                         unlocked(){
@@ -38258,7 +38258,7 @@ addLayer("ch", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>染色体 X"
                         },
                         description(){
-                                return "染色体保留基因，染色体花费基数为 9.8e9，但禁用 Kappa V 和 Mu III"
+                                return "染色体保留基因，染色体花费基数为 9.8e9，但禁用 κ V 和 μ III"
                         },
                         cost:() => new Decimal(234),
                         unlocked(){
@@ -38272,8 +38272,8 @@ addLayer("ch", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>染色体 XI"
                         },
                         description(){
-                                if (player.extremeMode) return "代币 II 通过细胞的翻倍指数为 12+x/2000，多能干细胞基础花费除以 1e10"
-                                return "通过细胞获取的代币 II 双倍指数为 12+x/2000"
+                                if (player.extremeMode) return "代币II 通过细胞的翻倍指数为 12+x/2000，多能干细胞基础花费除以 1e10"
+                                return "通过细胞获取的代币II 双倍指数为 12+x/2000"
                         },
                         cost:() => new Decimal(player.extremeMode ? 250 : 247),
                         unlocked(){
@@ -38305,7 +38305,7 @@ addLayer("ch", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>染色体 XIII"
                         },
                         description(){
-                                return "<bdi style='font-size: 80%'>顶夸克系数为 .012，代币 II 可购买项永久免费，且其花费公式为 x<sup>1.36</sup></bdi>"
+                                return "<bdi style='font-size: 80%'>顶夸克系数为 .012，代币II 可购买项永久免费，且其花费公式为 x<sup>1.36</sup></bdi>"
                         },
                         cost:() => new Decimal(292),
                         onPurchase(){
@@ -38400,7 +38400,7 @@ addLayer("ch", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>染色体 XX"
                         },
                         description(){
-                                return "代币 II 通过干细胞的翻倍指数为 (x/20+800)<sup>.4</sup>"
+                                return "代币II 通过干细胞的翻倍指数为 (x/20+800)<sup>.4</sup>"
                         },
                         cost:() => new Decimal(650),
                         unlocked(){
@@ -38443,7 +38443,7 @@ addLayer("ch", {
                 3: {
                         requirementDescription(){
                                 if (player.extremeMode && !hasMilestone("ch", 3) && player.ch.points.lt(7)) return "7 条染色体和 ???"
-                                if (player.extremeMode) return "1.7e715 Genes"
+                                if (player.extremeMode) return "1.7e715 基因"
                                 return "7 Chromosomes"
                         },
                         done(){
@@ -38519,7 +38519,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 7)
                 8: {
                         requirementDescription(){
-                                if (player.extremeMode && player.ch.points.gte(31)) return "1e1608 Genes"
+                                if (player.extremeMode && player.ch.points.gte(31)) return "1e1608 基因"
                                 if (player.extremeMode) return "31 条染色体和 ???"
                                 return "33 Chromosomes"
                         },
@@ -38752,7 +38752,7 @@ addLayer("ch", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：ONE III 的开启效果始终激活，代币 II 可购买项的花费指数为 1.29。"
+                                return "奖励：ONE III 的开启效果始终激活，代币II 可购买项的花费指数为 1.29。"
                         },
                 }, // hasMilestone("ch", 22)
                 23: {
@@ -38766,7 +38766,7 @@ addLayer("ch", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：log2(Nucleuses) 乘以DNA产出指数。"
+                                return "奖励：log2(细胞核) 乘以DNA产出指数。"
                         },
                 }, // hasMilestone("ch", 23)
                 24: {
@@ -38780,7 +38780,7 @@ addLayer("ch", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：in<u>TES</u>tine 基础值为 sqrt(log10(Organs))。"
+                                return "奖励：in<u>TES</u>tine 基础值为 sqrt(log10(器官))。"
                         },
                 }, // hasMilestone("ch", 24)
                 25: {
@@ -38794,7 +38794,7 @@ addLayer("ch", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：sqrt(Nucleuses) 使 DNA 产出指数倍增（至少 1 倍）。"
+                                return "奖励：sqrt(细胞核) 使 DNA 产出指数倍增（至少 1 倍）。"
                         },
                 }, // hasMilestone("ch", 25)
                 26: {
@@ -38836,7 +38836,7 @@ addLayer("ch", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：代币 II 可购买项的花费指数为 1.274，你可批量 5 次代币 II。"
+                                return "奖励：代币II 可购买项的花费指数为 1.274，你可批量 5 次代币II。"
                         },
                 }, // hasMilestone("ch", 28)
                 29: {
@@ -39353,7 +39353,7 @@ addLayer("nu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞核 VII"
                         },
                         description(){
-                                return "粲夸克指数为 .7，代币 II 可购买项的指数为 1.272"
+                                return "粲夸克指数为 .7，代币II 可购买项的指数为 1.272"
                         },
                         cost:() => new Decimal(player.hu.everMile2 ? 7 : 57),
                         unlocked(){
@@ -39422,7 +39422,7 @@ addLayer("nu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞核 XI"
                         },
                         description(){
-                                if (!hasUpgrade("nu", 31) && !player.shiftAlias) return "需要：78930 代币 II<br>按住 shift 查看效果"
+                                if (!hasUpgrade("nu", 31) && !player.shiftAlias) return "需要：78930 代币II<br>按住 shift 查看效果"
                                 if (player.hardMode) return "物种产出指数为 [upgrades]，重置时每秒获得 20% 的物种"
                                 return "物种产出指数为 [upgrades]，重置时每秒获得 100% 的物种"
                         },
@@ -39546,7 +39546,7 @@ addLayer("nu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞核 XIX"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.22"
+                                return "代币II 可购买项的花费指数为 1.22"
                         },
                         cost:() => new Decimal(player.hu.everMile2 ? 19 : 181),
                         unlocked(){
@@ -39559,7 +39559,7 @@ addLayer("nu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞核 XX"
                         },
                         description(){
-                                return "物种里程碑 10 计入每个代币 II，并解锁两个更多物种挑战"
+                                return "物种里程碑 10 计入每个代币II，并解锁两个更多物种挑战"
                         },
                         cost:() => new Decimal(player.hu.everMile2 ? 20 : 188),
                         unlocked(){
@@ -39585,7 +39585,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 1)
                 2: {
                         requirementDescription(){
-                                return "2 Nucleuses"
+                                return "2 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(2)
@@ -39599,7 +39599,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 2)
                 3: {
                         requirementDescription(){
-                                return "3 Nucleuses"
+                                return "3 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(3)
@@ -39617,7 +39617,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 3)
                 4: {
                         requirementDescription(){
-                                return "4 Nucleuses"
+                                return "4 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(4)
@@ -39631,7 +39631,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 4)
                 5: {
                         requirementDescription(){
-                                return "5 Nucleuses"
+                                return "5 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(5)
@@ -39646,7 +39646,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 5)
                 6: {
                         requirementDescription(){
-                                return "7 Nucleuses"
+                                return "7 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(7)
@@ -39663,7 +39663,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 6)
                 7: {
                         requirementDescription(){
-                                return "8 Nucleuses"
+                                return "8 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(8)
@@ -39677,7 +39677,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 7)
                 8: {
                         requirementDescription(){
-                                return "10 Nucleuses"
+                                return "10 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(10)
@@ -39691,7 +39691,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 8)
                 9: {
                         requirementDescription(){
-                                return "15 Nucleuses"
+                                return "15 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(15)
@@ -39700,13 +39700,13 @@ addLayer("nu", {
                                 return true
                         },
                         effectDescription(){
-                                if (player.hu.unlocked) return "奖励：动物 XXIII 计入每个代币 II，动物效果指数硬上限为 300。" + makePurple(" 细胞核重置无损失。")
-                                return "奖励：动物 XXIII 计入每个代币 II，动物效果指数硬上限为 300。"
+                                if (player.hu.unlocked) return "奖励：动物 XXIII 计入每个代币II，动物效果指数硬上限为 300。" + makePurple(" 细胞核重置无损失。")
+                                return "奖励：动物 XXIII 计入每个代币II，动物效果指数硬上限为 300。"
                         },
                 }, // hasMilestone("nu", 9)
                 10: {
                         requirementDescription(){
-                                return "18 Nucleuses"
+                                return "18 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(18)
@@ -39722,7 +39722,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 10)
                 11: {
                         requirementDescription(){
-                                return "23 Nucleuses"
+                                return "23 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(23)
@@ -39736,7 +39736,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 11)
                 12: {
                         requirementDescription(){
-                                return "25 Nucleuses"
+                                return "25 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(25)
@@ -39745,12 +39745,12 @@ addLayer("nu", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：PRI III 的开启效果始终激活，<u>IN</u>testine 基础值为 sqrt(Token II)。"
+                                return "奖励：PRI III 的开启效果始终激活，<u>IN</u>testine 基础值为 sqrt(代币II)。"
                         },
                 }, // hasMilestone("nu", 12)
                 13: {
                         requirementDescription(){
-                                return "27 Nucleuses"
+                                return "27 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(27)
@@ -39764,7 +39764,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 13)
                 14: {
                         requirementDescription(){
-                                return "38 Nucleuses"
+                                return "38 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(38)
@@ -39778,7 +39778,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 14)
                 15: {
                         requirementDescription(){
-                                return "43 Nucleuses"
+                                return "43 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(43)
@@ -39787,12 +39787,12 @@ addLayer("nu", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：PRO III 的开启效果始终激活，代币 II 可购买项的花费指数为 1.286。"
+                                return "奖励：PRO III 的开启效果始终激活，代币II 可购买项的花费指数为 1.286。"
                         },
                 }, // hasMilestone("nu", 15)
                 16: {
                         requirementDescription(){
-                                return "45 Nucleuses"
+                                return "45 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(45)
@@ -39807,7 +39807,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 16)
                 17: {
                         requirementDescription(){
-                                return "65 Nucleuses"
+                                return "65 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(65)
@@ -39821,7 +39821,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 17)
                 18: {
                         requirementDescription(){
-                                return "66 Nucleuses"
+                                return "66 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(66)
@@ -39835,7 +39835,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 18)
                 19: {
                         requirementDescription(){
-                                return "68 Nucleuses"
+                                return "68 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(68)
@@ -39844,12 +39844,12 @@ addLayer("nu", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：解锁物种，代币 II 通过细胞的除数为 4444.4。"
+                                return "奖励：解锁物种，代币II 通过细胞的除数为 4444.4。"
                         },
                 }, // hasMilestone("nu", 19)
                 20: {
                         requirementDescription(){
-                                return "78 Nucleuses"
+                                return "78 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(78)
@@ -39863,7 +39863,7 @@ addLayer("nu", {
                 }, // hasMilestone("nu", 20)
                 21: {
                         requirementDescription(){
-                                return "80 Nucleuses"
+                                return "80 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(80)
@@ -40330,7 +40330,7 @@ addLayer("sp", {
         row: 1,
         prestigeButtonText(){
                 let b = ""
-                if (tmp.sp.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.sp.getNextAt) + " Animals."
+                if (tmp.sp.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.sp.getNextAt) + " 动物。"
 
                 return "重置以获得 <b>" + formatWhole(tmp.sp.getResetGain) + "</b> 物种" + b
         },
@@ -40371,7 +40371,7 @@ addLayer("sp", {
                         },
                         description(){
                                 let a = "物种效果乘以 " + makePurple("OB") + " and " + makeBlue("DB")
-                                return a + " 每个代币 II<sup>1.5</sup> 的产出"
+                                return a + " 每个代币II<sup>1.5</sup> 的产出"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40448,7 +40448,7 @@ addLayer("sp", {
                         },
                         description(){
                                 if (hasUpgrade("sp", 74) && player.shiftAlias) return "物种效果按每 (8&nbsp+&nbspNucleuses)<sup> 倍增第 6 排分类学数量产出" + makeOrange(".7") + "</sup>"
-                                return "物种效果按每 cbrt(8 + Nucleuses) 倍增第 6 排分类学数量"
+                                return "物种效果按每 cbrt(8 + 细胞核) 倍增第 6 排分类学数量"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40499,8 +40499,8 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XIII"
                         },
                         description(){
-                                if (hasUpgrade("sp", 83) && player.shiftAlias) return "物种效果按每 log10(Token II)/ 倍增第 2 排分类学数量" + makeOrange("4")
-                                return "物种效果按每 log10(Token II)/25 倍增第 2 排分类学数量"
+                                if (hasUpgrade("sp", 83) && player.shiftAlias) return "物种效果按每 log10(代币II)/ 倍增第 2 排分类学数量" + makeOrange("4")
+                                return "物种效果按每 log10(代币II)/25 倍增第 2 排分类学数量"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40512,7 +40512,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XIV"
                         },
                         description(){
-                                return "物种效果按每 sqrt(Token) 倍增 DNA 基础产出（上限 200,000）"
+                                return "物种效果按每 sqrt(代币) 倍增 DNA 基础产出（上限 200,000）"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40537,7 +40537,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XVI"
                         },
                         description(){
-                                return "动物界 III 数量<sup>sqrt(Nucleuses)</sup> 使 in<u>tes</u>TINE 产出倍增"
+                                return "动物界 III 数量<sup>sqrt(细胞核)</sup> 使 in<u>tes</u>TINE 产出倍增"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40561,7 +40561,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XVIII"
                         },
                         description(){
-                                return "真细菌 I 数量<sup>sqrt(Token II)</sup> 使 <u>in</u>tesTINE 产出倍增"
+                                return "真细菌 I 数量<sup>sqrt(代币II)</sup> 使 <u>in</u>tesTINE 产出倍增"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40573,7 +40573,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XIX"
                         },
                         description(){
-                                return "真细菌 II 数量<sup>Nucleuses<sup>6</sup></sup> 使污染物产出倍增"
+                                return "真细菌 II 数量<sup>细胞核<sup>6</sup></sup> 使污染物产出倍增"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40585,7 +40585,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XX"
                         },
                         description(){
-                                return "古菌数量<sup>Nucleuses<sup>9</sup></sup> 使 DNA 产出倍增"
+                                return "古菌数量<sup>细胞核<sup>9</sup></sup> 使 DNA 产出倍增"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40845,7 +40845,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>升级效果 XVI"
                         },
                         description(){
-                                return "能量基础数量产出为 [buyables]<sup>Nucleuses</sup>"
+                                return "能量基础数量产出为 [buyables]<sup>细胞核</sup>"
                         },
                         cost:() => new Decimal(1e88),
                         unlocked(){
@@ -40869,7 +40869,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>升级效果 XVIII"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.23"
+                                return "代币II 可购买项的花费指数为 1.23"
                         },
                         cost:() => new Decimal(5e43),
                         unlocked(){
@@ -40893,7 +40893,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>升级效果 XX"
                         },
                         description(){
-                                return "通过细胞获取的代币 II 双倍指数为 20 + x/30,000"
+                                return "通过细胞获取的代币II 双倍指数为 20 + x/30,000"
                         },
                         cost:() => new Decimal(1e180),
                         unlocked(){
@@ -41145,7 +41145,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>强化效果 XVI"
                         },
                         description(){
-                                return "<bdi style='font-size: 80%'>真核生物 II 数量乘每代币 II 的器官产出，且物种里程碑 13 的 sqrt 被移除</bdi>"
+                                return "<bdi style='font-size: 80%'>真核生物 II 数量乘每代币II 的器官产出，且物种里程碑 13 的 sqrt 被移除</bdi>"
                         },
                         cost:() => new Decimal("5e871"),
                         unlocked(){
@@ -41169,7 +41169,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>强化效果 XVIII"
                         },
                         description(){
-                                return "真核生物 IV 数量<sup>Mastery Tokens</sup> 使基因产出倍增"
+                                return "真核生物 IV 数量<sup>Mastery 代币</sup> 使基因产出倍增"
                         },
                         cost:() => new Decimal("5e629"),
                         unlocked(){
@@ -41217,7 +41217,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>强化效果 XXII"
                         },
                         description(){
-                                return "原核生物 II 数量<sup>Mastery Tokens/100</sup> 使动物产出倍增"
+                                return "原核生物 II 数量<sup>Mastery 代币/100</sup> 使动物产出倍增"
                         },
                         cost:() => new Decimal("2e1028"),
                         unlocked(){
@@ -41335,7 +41335,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 5)
                 6: {
                         requirementDescription(){
-                                return "720 Species"
+                                return "720 物种"
                         },
                         done(){
                                 return player.sp.points.gte(720)
@@ -41344,12 +41344,12 @@ addLayer("sp", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：intes<u>TINE</u> 基础值为 log10(Energy)，物种重置时保留器官里程碑。"
+                                return "奖励：intes<u>TINE</u> 基础值为 log10(能量)，物种重置时保留器官里程碑。"
                         },
                 }, // hasMilestone("sp", 6)
                 7: {
                         requirementDescription(){
-                                return "5040 Species"
+                                return "5040 物种"
                         },
                         done(){
                                 return player.sp.points.gte(5040)
@@ -41363,7 +41363,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 7)
                 8: {
                         requirementDescription(){
-                                return "40,320 Species"
+                                return "40,320 物种"
                         },
                         done(){
                                 return player.sp.points.gte(40320)
@@ -41377,7 +41377,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 8)
                 9: {
                         requirementDescription(){
-                                return "362,880 Species"
+                                return "362,880 物种"
                         },
                         done(){
                                 return player.sp.points.gte(362880)
@@ -41394,7 +41394,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 9)
                 10: {
                         requirementDescription(){
-                                return "3,628,800 Species"
+                                return "3,628,800 物种"
                         },
                         done(){
                                 return player.sp.points.gte(3628800)
@@ -41408,7 +41408,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 10)
                 11: {
                         requirementDescription(){
-                                return "1e10 Species"
+                                return "1e10 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e10)
@@ -41422,7 +41422,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 11)
                 12: {
                         requirementDescription(){
-                                return "1e13 Species"
+                                return "1e13 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e13)
@@ -41436,7 +41436,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 12)
                 13: {
                         requirementDescription(){
-                                return "1e16 Species"
+                                return "1e16 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e16)
@@ -41450,7 +41450,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 13)
                 14: {
                         requirementDescription(){
-                                return "1e20 Species"
+                                return "1e20 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e20)
@@ -41474,7 +41474,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 14)
                 15: {
                         requirementDescription(){
-                                return "1e25 Species"
+                                return "1e25 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e25)
@@ -41488,7 +41488,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 15)
                 16: {
                         requirementDescription(){
-                                return "1e36 Species"
+                                return "1e36 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e36)
@@ -41502,7 +41502,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 16)
                 17: {
                         requirementDescription(){
-                                return "1e49 Species"
+                                return "1e49 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e49)
@@ -41516,7 +41516,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 17)
                 18: {
                         requirementDescription(){
-                                return "1e64 Species"
+                                return "1e64 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e64)
@@ -41530,7 +41530,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 18)
                 19: {
                         requirementDescription(){
-                                return "1e81 Species"
+                                return "1e81 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e81)
@@ -41544,7 +41544,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 19)
                 20: {
                         requirementDescription(){
-                                return "1e100 Species"
+                                return "1e100 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e100)
@@ -41553,12 +41553,12 @@ addLayer("sp", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：代币 II 通过细胞的翻倍指数为 18 + x/15,000。"
+                                return "奖励：代币II 通过细胞的翻倍指数为 18 + x/15,000。"
                         },
                 }, // hasMilestone("sp", 20)
                 21: {
                         requirementDescription(){
-                                return "1e121 Species"
+                                return "1e121 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e121)
@@ -41572,7 +41572,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 21)
                 22: {
                         requirementDescription(){
-                                return "1e169 Species"
+                                return "1e169 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e169)
@@ -41586,7 +41586,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 22)
                 23: {
                         requirementDescription(){
-                                return "1e225 Species"
+                                return "1e225 物种"
                         },
                         done(){
                                 return player.sp.points.gte(1e225)
@@ -41600,7 +41600,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 23)
                 24: {
                         requirementDescription(){
-                                return "1e361 Species"
+                                return "1e361 物种"
                         },
                         done(){
                                 return player.sp.points.gte("1e361")
@@ -41614,7 +41614,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 24)
                 25: {
                         requirementDescription(){
-                                return "1e441 Species"
+                                return "1e441 物种"
                         },
                         done(){
                                 return player.sp.points.gte("1e441")
@@ -41628,7 +41628,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 25)
                 26: {
                         requirementDescription(){
-                                return "1e529 Species"
+                                return "1e529 物种"
                         },
                         done(){
                                 return player.sp.points.gte("1e529")
@@ -41642,7 +41642,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 26)
                 27: {
                         requirementDescription(){
-                                return "1e841 Species"
+                                return "1e841 物种"
                         },
                         done(){
                                 return player.sp.points.gte("1e841")
@@ -41656,7 +41656,7 @@ addLayer("sp", {
                 }, // hasMilestone("sp", 27)
                 28: {
                         requirementDescription(){
-                                return "1e2555 Species"
+                                return "1e2555 物种"
                         },
                         done(){
                                 return player.sp.points.gte("1e2555")
@@ -41665,7 +41665,7 @@ addLayer("sp", {
                                 return player.e.unlocked
                         },
                         effectDescription(){
-                                return "奖励：代币 II 通过细胞的除数为 40,000 + 500 * 无染色体？完成次数。"
+                                return "奖励：代币II 通过细胞的除数为 40,000 + 500 * 无染色体？完成次数。"
                         },
                 }, // hasMilestone("sp", 28)
         },
@@ -41688,7 +41688,7 @@ addLayer("sp", {
                         completionLimit: 5,
                         fullDisplay(){
                                 let a = "你无法获得染色体。"
-                                let b = "Goal: " + format(tmp.sp.challenges[11].goal) + " Genes"
+                                let b = "Goal: " + format(tmp.sp.challenges[11].goal) + " 基因"
                                 let c = "奖励：每次物种挑战完成获得 50*完成次数 的额外物种"
                                 let d = "Currently: *" + format(tmp.sp.challenges[11].reward) 
                                 d += " (*" + format(tmp.sp.challenges[11].rewardBase) + " per)"
@@ -41718,7 +41718,7 @@ addLayer("sp", {
                         completionLimit: 5,
                         fullDisplay(){
                                 let a = "你无法获得细胞核并将其设为 0。"
-                                let b = "Goal: " + format(tmp.sp.challenges[12].goal) + " Genes"
+                                let b = "Goal: " + format(tmp.sp.challenges[12].goal) + " 基因"
                                 let c = "奖励：增加到组织效果指数"
                                 let d = "Currently: +" + format(tmp.sp.challenges[12].reward)
                                 let e = "总完成次数: " + player.sp.challenges[12] + "/5"
@@ -41749,7 +41749,7 @@ addLayer("sp", {
                         completionLimit: 5,
                         fullDisplay(){
                                 let a = "你无法获得能量并将其设为 0。"
-                                let b = "Goal: " + format(tmp.sp.challenges[21].goal) + " Genes"
+                                let b = "Goal: " + format(tmp.sp.challenges[21].goal) + " 基因"
                                 let c = "奖励：将多能花费基础值除以"
                                 let d = "Currently: /" + format(tmp.sp.challenges[21].reward)
                                 let e = "总完成次数: " + player.sp.challenges[21] + "/5"
@@ -41775,7 +41775,7 @@ addLayer("sp", {
                         completionLimit: 5,
                         fullDisplay(){
                                 let a = "你无法获得动物。"
-                                let b = "Goal: " + format(tmp.sp.challenges[22].goal) + " Genes"
+                                let b = "Goal: " + format(tmp.sp.challenges[22].goal) + " 基因"
                                 let c = "奖励：从细胞核花费指数中减去"
                                 let d = "Currently: -" + format(tmp.sp.challenges[22].reward, 4)
                                 let e = "总完成次数: " + player.sp.challenges[22] + "/5"
@@ -41804,7 +41804,7 @@ addLayer("sp", {
                         completionLimit: 5,
                         fullDisplay(){
                                 let a = "无染色体且无细胞核。"
-                                let b = "Goal: " + format(tmp.sp.challenges[31].goal) + " Genes"
+                                let b = "Goal: " + format(tmp.sp.challenges[31].goal) + " 基因"
                                 let c = "奖励：提高分类学上限"
                                 let d = "Currently: +" + format(tmp.sp.challenges[31].reward)
                                 let e = "总完成次数: " + player.sp.challenges[31] + "/5"
@@ -41833,7 +41833,7 @@ addLayer("sp", {
                         completionLimit: 5,
                         fullDisplay(){
                                 let a = "无能量且无动物。"
-                                let b = "Goal: " + format(tmp.sp.challenges[32].goal) + " Genes"
+                                let b = "Goal: " + format(tmp.sp.challenges[32].goal) + " 基因"
                                 let c = "奖励：将DNA产出指数乘以"
                                 let d = "Currently: *" + format(tmp.sp.challenges[32].reward)
                                 let e = "总完成次数: " + player.sp.challenges[32] + "/5"
@@ -41915,7 +41915,7 @@ addLayer("sp", {
                                         let b1 = "初始效果：物种总数 + 1"
                                         let b2 = "不过，每当物种效果扩大10倍，<br>就对有效（更远的）物种取平方根。"
                                         let b = b1 + br + b2
-                                        let c = "初始产出：(log10(Animals)/900)<sup>8</sup>"
+                                        let c = "初始产出：(log10(动物)/900)<sup>8</sup>"
                                         c += br + "当前产出：(log10(动物)/" + formatWhole(tmp.sp.getResetDiv) + ")<sup>" + formatWhole(tmp.sp.getGainExp) + "</sup>"
                                         c = c.replace("/1)", ")")
                                         let d = "为解锁物种，你总是自动购买所有能量可购买项，且<br>可批量5倍更多能量和代币II可购买项。"
@@ -42438,7 +42438,7 @@ addLayer("e", {
         row: 2,
         prestigeButtonText(){
                 let b = ""
-                if (tmp.e.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.e.getNextAt) + " Species."
+                if (tmp.e.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.e.getNextAt) + " 物种."
 
                 return "重置以获得 <b>" + formatWhole(tmp.e.getResetGain) + "</b> 生态系统" + b
         },
@@ -42514,7 +42514,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 VI"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.18，但禁用组织 XV 和效果 XXIV"
+                                return "代币II 可购买项的花费指数为 1.18，但禁用组织 XV 和效果 XXIV"
                         },
                         cost:() => new Decimal(1e17),
                         unlocked(){
@@ -42550,7 +42550,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 IX"
                         },
                         description(){
-                                return "DNA 产出指数乘以 sqrt(Mastery Tokens)，多能干细胞花费基数减半"
+                                return "DNA 产出指数乘以 sqrt(Mastery 代币)，多能干细胞花费基数减半"
                         },
                         cost:() => new Decimal(1e86),
                         unlocked(){
@@ -42586,7 +42586,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 XII"
                         },
                         description(){
-                                return "代币 II 可购买项的指数为 1.17"
+                                return "代币II 可购买项的指数为 1.17"
                         },
                         cost:() => new Decimal(1e133),
                         unlocked(){
@@ -42598,7 +42598,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 XIII"
                         },
                         description(){
-                                return "代币 II 可购买项的指数为 1.165，并移除植物公式中的 *1000"
+                                return "代币II 可购买项的指数为 1.165，并移除植物公式中的 *1000"
                         },
                         cost:() => new Decimal(1e158),
                         unlocked(){
@@ -42649,7 +42649,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 XVII"
                         },
                         description(){
-                                return "代币 II 通过干细胞的翻倍指数变为 (200,000 + x/30)<sup>.3</sup>"
+                                return "代币II 通过干细胞的翻倍指数变为 (200,000 + x/30)<sup>.3</sup>"
                         },
                         cost:() => new Decimal("3e332"),
                         unlocked(){
@@ -42673,7 +42673,7 @@ addLayer("e", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>生态系统 XIX"
                         },
                         description(){
-                                return "获得 1e10<sup>floor(cbrt(Plants))</sup><br>/1e39 生物质"
+                                return "获得 1e10<sup>floor(cbrt(植物))</sup><br>/1e39 生物质"
                         },
                         cost:() => new Decimal("3e477"),
                         unlocked(){
@@ -42706,7 +42706,7 @@ addLayer("e", {
                         canComplete: () => player.nu.points.gte(tmp.e.challenges[11].goal),
                         fullDisplay(){
                                 let a = "给染色体花费指数增加 .1" + br 
-                                a += "Goal: " + formatWhole(tmp.e.challenges[11].goal) + " Nucleuses" + br2
+                                a += "Goal: " + formatWhole(tmp.e.challenges[11].goal) + " 细胞核" + br2
                                 a += "奖励：<br>无染色体基础值为 " + formatWhole(tmp.e.challenges[11].chromosomelessBase) + br
                                 a += "subtract " + formatWhole(player.e.challenges[11]) + " 从物种基础产出除数，"
                                 a += "并添加 " + (player.e.challenges[11] ? "11" : "0") + " 到基础生态系统产出"
@@ -42739,7 +42739,7 @@ addLayer("e", {
                         canComplete: () => player.nu.points.gte(tmp.e.challenges[12].goal),
                         fullDisplay(){
                                 let a = "给细胞核花费指数增加 .1" + br 
-                                a += "Goal: " + formatWhole(tmp.e.challenges[12].goal) + " Nucleuses" + br2
+                                a += "Goal: " + formatWhole(tmp.e.challenges[12].goal) + " 细胞核" + br2
                                 a += "奖励：将生态系统产出乘以 " + format(tmp.e.challenges[12].ecoMultBase) 
                                 a += " 每次挑战，总计 " + format(tmp.e.challenges[12].ecoMult) 
                                 //a += " from the Species base gain divider, "
@@ -42773,7 +42773,7 @@ addLayer("e", {
                         canComplete: () => player.nu.points.gte(tmp.e.challenges[21].goal),
                         fullDisplay(){
                                 let a = "你只能从肠道可购买项获得能量" + br 
-                                a += "Goal: " + formatWhole(tmp.e.challenges[21].goal) + " Nucleuses" + br2
+                                a += "Goal: " + formatWhole(tmp.e.challenges[21].goal) + " 细胞核" + br2
                                 a += "奖励：添加 " + format(player.e.challenges[21] / 10) + " 到细胞效果指数"
                                 a += " 并减去 " + format(player.e.challenges[21] * 18) + " 来自精通 I 系数"
                                 //a += " from the Species base gain divider, "
@@ -42809,7 +42809,7 @@ addLayer("e", {
                         canComplete: () => player.nu.points.gte(tmp.e.challenges[22].goal),
                         fullDisplay(){
                                 let a = "将动物和基因产出开平方" + br 
-                                a += "Goal: " + formatWhole(tmp.e.challenges[22].goal) + " Nucleuses" + br2
+                                a += "Goal: " + formatWhole(tmp.e.challenges[22].goal) + " 细胞核" + br2
                                 a += "奖励：log10(生物质)<sup>" + formatWhole(player.e.challenges[22]) + "</sup> 使生物质产出倍增"
                                 a += " 产出。本挑战计入无染色体？和无细胞核？的完成次数以计算其主要效果。"
                                 //a += " from the Species base gain divider, "
@@ -42902,7 +42902,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 5)
                 6: {
                         requirementDescription(){
-                                return "6 Ecosystems"
+                                return "6 生态系统"
                         },
                         done(){
                                 return player.e.points.gte(6)
@@ -42917,7 +42917,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 6)
                 7: {
                         requirementDescription(){
-                                return "10 Ecosystems"
+                                return "10 生态系统"
                         },
                         done(){
                                 return player.e.points.gte(10)
@@ -42932,7 +42932,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 7)
                 8: {
                         requirementDescription(){
-                                return "15 Ecosystems"
+                                return "15 生态系统"
                         },
                         done(){
                                 return player.e.points.gte(15)
@@ -42941,12 +42941,12 @@ addLayer("e", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：重置时保留代币 II 内容，并保留最佳细胞和最佳干细胞。"
+                                return "奖励：重置时保留代币II 内容，并保留最佳细胞和最佳干细胞。"
                         },
                 }, // hasMilestone("e", 8)
                 9: {
                         requirementDescription(){
-                                return "30 Ecosystems"
+                                return "30 生态系统"
                         },
                         done(){
                                 return player.e.points.gte(30)
@@ -42960,7 +42960,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 9)
                 10: {
                         requirementDescription(){
-                                return "100 Ecosystems"
+                                return "100 生态系统"
                         },
                         done(){
                                 return player.e.points.gte(100)
@@ -43048,8 +43048,8 @@ addLayer("e", {
                 }, // hasMilestone("e", 15)
                 16: {
                         requirementDescription(){
-                                if (player.hu.unlocked) return "799 Nucleuses " + makeRed(" 或 80,000 条染色体")
-                                return "799 Nucleuses"
+                                if (player.hu.unlocked) return "799 细胞核 " + makeRed(" 或 80,000 条染色体")
+                                return "799 细胞核"
                         },
                         done(){
                                 if (player.hu.unlocked && player.ch.points.gte(8e4)) return true
@@ -43092,7 +43092,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 18)
                 19: {
                         requirementDescription(){
-                                return "1e405 Ecosystems"
+                                return "1e405 生态系统"
                         },
                         done(){
                                 return player.e.points.gte("1e405")
@@ -43147,7 +43147,7 @@ addLayer("e", {
                                         let b1 = "初始效果：(生态系统总数 + 1)<sup>5</sup>"
                                         let b2 = "当前效果：(生态系统总数 + 1)<sup>" + format(tmp.e.effectExp) + "</sup>"
                                         let b = b1 + br + b2
-                                        let c1 = "初始产出：(log10(Species)-154)<sup>1/3</sup>-11"
+                                        let c1 = "初始产出：(log10(物种)-154)<sup>1/3</sup>-11"
                                         let c2 = br + "当前产出：(log10(物种)-" + formatWhole(tmp.e.getResetSub) + ")<sup>" + format(tmp.e.getGainExp) + "</sup>-11"
                                         if (player.e.challenges[11]) c2 = c2.replace("-11", "")
                                         let d = "为解锁生态系统，永久保留器官升级、里程碑和重置次数，" + br
@@ -43521,7 +43521,7 @@ addLayer("pl", {
         },
         effectDescription(){
                 if (player.shiftAlias) return " 将有效生物质提升至 " + format(player.pl.points.div(80).plus(1.25), 3) + "次幂"
-                return " 将生物质产出乘以 Biomass<sup>" + format(tmp.pl.effect, 4) + "</sup>."
+                return " 将生物质产出乘以 生物质<sup>" + format(tmp.pl.effect, 4) + "</sup>."
         },
         resetsNothing(){
                 return hasUpgrade("pl", 44) || hasMilestone("hu", 1) || player.r.unlocked
@@ -43556,7 +43556,7 @@ addLayer("pl", {
                 return a + br2 + b + c
         },
         tooltip(){
-                return formatWhole(player.pl.points) + " 植物和 " + format(player.pl.biomass.points) + " Biomass"
+                return formatWhole(player.pl.points) + " 植物和 " + format(player.pl.biomass.points) + " 生物质"
         },
         layerShown(){
                 if (tmp.pl.deactivated) return false
@@ -43776,9 +43776,9 @@ addLayer("pl", {
                                 }
 
                                 let eformula = "log10(log10(细胞))^x<br>" + format(tmp.pl.buyables[11].base) + "^x"
-                                if (hasMilestone("hu", 41)) eformula = eformula.replace("log10(log10(Cells))", "Nucleuses<sup>.25</sup>")
+                                if (hasMilestone("hu", 41)) eformula = eformula.replace("log10(log10(细胞))", "细胞核<sup>.25</sup>")
                                 if (hasUpgrade("hu", 62))       eformula = eformula.replace("<sup>.25</sup>", "")
-                                if (hasMilestone("hu", 13)) eformula = eformula.replace("Cells", "干细胞")
+                                if (hasMilestone("hu", 13)) eformula = eformula.replace("细胞", "干细胞")
                                 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -43872,7 +43872,7 @@ addLayer("pl", {
                                 }
 
                                 let eformula = "[Ecosystem Challenges]^x<br>" + format(tmp.pl.buyables[12].base) + "^x"
-                                if (hasUpgrade("hu", 31)) eformula = eformula.replace("生态系统挑战", "Plants/4")
+                                if (hasUpgrade("hu", 31)) eformula = eformula.replace("生态系统挑战", "植物/4")
                                 if (hasMilestone("hu", 33) && player.pl.points.gte(38280)) eformula = eformula.replace("4", "1.4")
                                 if (hasMilestone("hu", 34) && player.pl.points.gte(41444)) eformula = eformula.replace("/1.4", "")
                                 
@@ -43987,8 +43987,8 @@ addLayer("pl", {
                                 }
 
                                 let eformula = "[Leaf levels]^x<br>" + format(tmp.pl.buyables[13].base) + "^x"
-                                if (hasMilestone("hu", 65)) eformula = eformula.replace("[Leaf levels]", "log10(Animals)")
-                                if (hasChallenge("hu", 12))     eformula = eformula.replace("log10(Animals)", "Humans")
+                                if (hasMilestone("hu", 65)) eformula = eformula.replace("[Leaf levels]", "log10(动物)")
+                                if (hasChallenge("hu", 12))     eformula = eformula.replace("log10(动物)", "Humans")
                                 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -44087,7 +44087,7 @@ addLayer("pl", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(Nucleus-SUB)^x<br>" + format(tmp.pl.buyables[21].base) + "^x"
+                                let eformula = "(细胞核-SUB)^x<br>" + format(tmp.pl.buyables[21].base) + "^x"
                                 let sub = hasMilestone("pl", 16) ? 100 * (36 - Math.min(player.pl.milestones.length, 36)) : 2100
                                 if (hasMilestone("hu", 12)) eformula = eformula.replace("-SUB", "")
                                 if (hasMilestone("pl", 16)) eformula = eformula.replace("SUB", formatWhole(sub))
@@ -44186,7 +44186,7 @@ addLayer("pl", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>植物 VII"
                         },
                         description(){
-                                return "make 指数为 .65 且你可以批量 5 倍购买代币 II"
+                                return "make 指数为 .65 且你可以批量 5 倍购买代币II"
                         },
                         cost:() => new Decimal(34),
                         unlocked(){
@@ -44210,7 +44210,7 @@ addLayer("pl", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>植物 IX"
                         },
                         description(){
-                                return "Plants<sup>sqrt(Plants-44)</sup> 使生态系统和生物质产出倍增"
+                                return "植物<sup>sqrt(植物-44)</sup> 使生态系统和生物质产出倍增"
                         },
                         cost:() => new Decimal(44),
                         unlocked(){
@@ -44246,7 +44246,7 @@ addLayer("pl", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>植物 XII"
                         },
                         description(){
-                                return "make 指数为 .69，你可批量 1000 次代币 II 可购买项"
+                                return "make 指数为 .69，你可批量 1000 次代币II 可购买项"
                         },
                         cost:() => new Decimal(69),
                         unlocked(){
@@ -44258,7 +44258,7 @@ addLayer("pl", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>植物 XIII"
                         },
                         description(){
-                                return "make 指数为 .70 且你可以批量 5 倍购买代币 II"
+                                return "make 指数为 .70 且你可以批量 5 倍购买代币II"
                         },
                         cost:() => new Decimal(80),
                         unlocked(){
@@ -44270,7 +44270,7 @@ addLayer("pl", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>植物 XIV"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.155"
+                                return "代币II 可购买项的花费指数为 1.155"
                         },
                         cost:() => new Decimal(85),
                         unlocked(){
@@ -44355,7 +44355,7 @@ addLayer("pl", {
         milestones: {
                 1: {
                         requirementDescription(){
-                                return "2000 Biomass"
+                                return "2000 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte(2000)
@@ -44369,7 +44369,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 1)
                 2: {
                         requirementDescription(){
-                                return "200,000 Biomass"
+                                return "200,000 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte(2e5)
@@ -44383,7 +44383,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 2)
                 3: {
                         requirementDescription(){
-                                return "1e41 Biomass"
+                                return "1e41 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte(1e41)
@@ -44397,7 +44397,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 3)
                 4: {
                         requirementDescription(){
-                                return "1e112 Biomass"
+                                return "1e112 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte(1e112)
@@ -44411,7 +44411,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 4)
                 5: {
                         requirementDescription(){
-                                return "1e146 Biomass"
+                                return "1e146 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte(1e146)
@@ -44425,7 +44425,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 5)
                 6: {
                         requirementDescription(){
-                                return "1e217 Biomass"
+                                return "1e217 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte(1e217)
@@ -44439,7 +44439,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 6)
                 7: {
                         requirementDescription(){
-                                return "1e437 Biomass"
+                                return "1e437 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e437")
@@ -44453,7 +44453,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 7)
                 8: {
                         requirementDescription(){
-                                return "1e574 Biomass"
+                                return "1e574 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e574")
@@ -44467,7 +44467,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 8)
                 9: {
                         requirementDescription(){
-                                return "5e955 Biomass"
+                                return "5e955 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("5e955")
@@ -44476,12 +44476,12 @@ addLayer("pl", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：全能基础值提升至 log10(Plants) 次方。"
+                                return "奖励：全能基础值提升至 log10(植物) 次方。"
                         },
                 }, // hasMilestone("pl", 9)
                 10: {
                         requirementDescription(){
-                                return "5e1019 Biomass"
+                                return "5e1019 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("5e1019")
@@ -44490,12 +44490,12 @@ addLayer("pl", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：器官效果指数乘以代币 II。"
+                                return "奖励：器官效果指数乘以代币II。"
                         },
                 }, // hasMilestone("pl", 10)
                 11: {
                         requirementDescription(){
-                                return "1e1362 Biomass"
+                                return "1e1362 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e1362")
@@ -44509,7 +44509,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 11)
                 12: {
                         requirementDescription(){
-                                return "1e1438 Biomass"
+                                return "1e1438 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e1438")
@@ -44523,7 +44523,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 12)
                 13: {
                         requirementDescription(){
-                                return "2e2206 Biomass"
+                                return "2e2206 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("2e2206")
@@ -44537,7 +44537,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 13)
                 14: {
                         requirementDescription(){
-                                return "1e2787 Biomass"
+                                return "1e2787 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e2787")
@@ -44551,7 +44551,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 14)
                 15: {
                         requirementDescription(){
-                                return "1e2999 Biomass"
+                                return "1e2999 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e2999")
@@ -44560,12 +44560,12 @@ addLayer("pl", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：植物里程碑 3 上限为 75，代币 II 通过细胞变为 40 + x/400,000。"
+                                return "奖励：植物里程碑 3 上限为 75，代币II 通过细胞变为 40 + x/400,000。"
                         },
                 }, // hasMilestone("pl", 15)
                 16: {
                         requirementDescription(){
-                                return "1e3825 Biomass"
+                                return "1e3825 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e3825")
@@ -44579,7 +44579,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 16)
                 17: {
                         requirementDescription(){
-                                return "1e4075 Biomass"
+                                return "1e4075 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e4075")
@@ -44593,7 +44593,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 17)
                 18: {
                         requirementDescription(){
-                                return "1e6863 Biomass"
+                                return "1e6863 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e6863")
@@ -44607,7 +44607,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 18)
                 19: {
                         requirementDescription(){
-                                return "1e7046 Biomass"
+                                return "1e7046 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e7046")
@@ -44621,7 +44621,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 19)
                 20: {
                         requirementDescription(){
-                                return "1e8065 Biomass"
+                                return "1e8065 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e8065")
@@ -44635,7 +44635,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 20)
                 21: {
                         requirementDescription(){
-                                return "1e10578 Biomass"
+                                return "1e10578 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e10578")
@@ -44644,12 +44644,12 @@ addLayer("pl", {
                                 return true
                         },
                         effectDescription(){
-                                return "奖励：代币 II 可购买项的花费指数为 1.15。"
+                                return "奖励：代币II 可购买项的花费指数为 1.15。"
                         },
                 }, // hasMilestone("pl", 21)
                 22: {
                         requirementDescription(){
-                                return "1e12495 Biomass"
+                                return "1e12495 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e12495")
@@ -44663,7 +44663,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 22)
                 23: {
                         requirementDescription(){
-                                return "1e13650 Biomass"
+                                return "1e13650 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e13650")
@@ -44677,7 +44677,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 23)
                 24: {
                         requirementDescription(){
-                                return "1e14622 Biomass"
+                                return "1e14622 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e14622")
@@ -44691,7 +44691,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 24)
                 25: {
                         requirementDescription(){
-                                return "1e17115 Biomass"
+                                return "1e17115 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e17115")
@@ -44705,7 +44705,7 @@ addLayer("pl", {
                 }, // hasMilestone("pl", 25)
                 26: {
                         requirementDescription(){
-                                return "1e23318 Biomass"
+                                return "1e23318 生物质"
                         },
                         done(){
                                 return player.pl.biomass.points.gte("1e23318")
@@ -44756,7 +44756,7 @@ addLayer("pl", {
                                 ["display-text", function(){
                                         let a = "植物强制生态系统重置。"
                                         let b = "效果公式：(.2+x/100)/(1+x/100)"
-                                        let c = "初始生物质产出：log10(Ecosystems)-100"
+                                        let c = "初始生物质产出：log10(生态系统)-100"
 
                                         if (player.pl.points.lt(450)) return a + br2 + b + br2 + c
 
@@ -44981,7 +44981,7 @@ addLayer("hu", {
         row: 3,
         prestigeButtonText(){
                 let b = ""
-                if (tmp.hu.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.hu.getNextAt) + " Biomass."
+                if (tmp.hu.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.hu.getNextAt) + " 生物质."
 
                 return "重置以获得 <b>" + formatWhole(tmp.hu.getResetGain) + "</b> 人类" + b
         },
@@ -45070,7 +45070,7 @@ addLayer("hu", {
                         },
                         description(){
                                 if (player.r.unlocked) return "每次升级给人类产出指数增加 1 - 2"
-                                return "每次升级使人类产出指数 +1 - 2，可批量 10 次代币 II 可购买项"
+                                return "每次升级使人类产出指数 +1 - 2，可批量 10 次代币II 可购买项"
                         },
                         cost:() => new Decimal(1e5),
                         unlocked(){
@@ -45107,8 +45107,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 VI"
                         },
                         description(){
-                                if (player.r.unlocked) return "多能的指数为 sqrt(Plants)"
-                                return "你可批量 5 次植物可购买项，多能干细胞的指数为 sqrt(Plants)"
+                                if (player.r.unlocked) return "多能的指数为 sqrt(植物)"
+                                return "你可批量 5 次植物可购买项，多能干细胞的指数为 sqrt(植物)"
                         },
                         cost:() => new Decimal(1e12),
                         unlocked(){
@@ -45149,8 +45149,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 IX"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "精通 IV 指数为 1.22，代币 II 可购买项的指数为 1.14"
-                                return "<bdi style='font-size: 80%'>886 之后每第 6 个植物使精通 IV 指数 -.1（上限 7）（在 949 时为 1.22），且代币 II 可购买项的指数为 1.14</bdi>"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "精通 IV 指数为 1.22，代币II 可购买项的指数为 1.14"
+                                return "<bdi style='font-size: 80%'>886 之后每第 6 个植物使精通 IV 指数 -.1（上限 7）（在 949 时为 1.22），且代币II 可购买项的指数为 1.14</bdi>"
                         },
                         cost:() => new Decimal(1e24),
                         unlocked(){
@@ -45200,8 +45200,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XIII"
                         },
                         description(){
-                                if (player.r.unlocked) return "代币 II 可购买项的指数为 1.13，并解锁人类可购买项"
-                                return "代币 II 可购买项的指数为 1.13，解锁人类可购买项，批量 4 次植物可购买项"
+                                if (player.r.unlocked) return "代币II 可购买项的指数为 1.13，并解锁人类可购买项"
+                                return "代币II 可购买项的指数为 1.13，解锁人类可购买项，批量 4 次植物可购买项"
                         },
                         cost:() => new Decimal(1e50),
                         unlocked(){
@@ -45287,7 +45287,7 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XX"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.12，全能花费为 1e20^x<sup>1.02</sup>"
+                                return "代币II 可购买项的花费指数为 1.12，全能花费为 1e20^x<sup>1.02</sup>"
                         },
                         cost:() => new Decimal("1e783"),
                         unlocked(){
@@ -45299,8 +45299,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXI"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币 II 可购买项的花费指数为 1.11，精通 VI 基础值为 1.35"
-                                return "代币 II 可购买项的花费指数为 1.11，在 1e4502 人类时精通 VI 基础值为 1.35"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币II 可购买项的花费指数为 1.11，精通 VI 基础值为 1.35"
+                                return "代币II 可购买项的花费指数为 1.11，在 1e4502 人类时精通 VI 基础值为 1.35"
                         },
                         cost:() => new Decimal("1e4417"),
                         unlocked(){
@@ -45312,8 +45312,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXII"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币 II 可购买项的花费指数为 1.10，精通 VI 基础值为 1.30"
-                                return "代币 II 可购买项的花费指数为 1.10，在 5e4602 人类时精通 VI 基础值为 1.30"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币II 可购买项的花费指数为 1.10，精通 VI 基础值为 1.30"
+                                return "代币II 可购买项的花费指数为 1.10，在 5e4602 人类时精通 VI 基础值为 1.30"
                         },
                         cost:() => new Decimal("1e4515"),
                         unlocked(){
@@ -45325,8 +45325,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXIII"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币 II 可购买项的花费指数为 1.09，精通 VI 基础值为 1.28"
-                                return "代币 II 可购买项的花费指数为 1.09，在 1e4705 人类时精通 VI 基础值为 1.28"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币II 可购买项的花费指数为 1.09，精通 VI 基础值为 1.28"
+                                return "代币II 可购买项的花费指数为 1.09，在 1e4705 人类时精通 VI 基础值为 1.28"
                         },
                         cost:() => new Decimal("1e4611"),
                         unlocked(){
@@ -45338,8 +45338,8 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXIV"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币 II 可购买项的花费指数为 1.08，精通 VI 基础值为 1.26"
-                                return "代币 II 可购买项的花费指数为 1.08，在 1e4823 人类时精通 VI 基础值为 1.26"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币II 可购买项的花费指数为 1.08，精通 VI 基础值为 1.26"
+                                return "代币II 可购买项的花费指数为 1.08，在 1e4823 人类时精通 VI 基础值为 1.26"
                         },
                         cost:() => new Decimal("1e4718"),
                         unlocked(){
@@ -45351,7 +45351,7 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXV"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币 II 可购买项的花费指数为 1.07，<i>IttIa</i> 花费基数为 50"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "代币II 可购买项的花费指数为 1.07，<i>IttIa</i> 花费基数为 50"
                                 return "代币II可购买项的花费指数为1.07，在2e5162人类时<i>IttIa</i>花费基础为50"
                         },
                         cost:() => new Decimal("1e5082"),
@@ -45404,7 +45404,7 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXIX"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "<i>Tinhiragt</i> 花费基数除以 7，代币 II 可购买项的花费指数为 1.06"
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "<i>Tinhiragt</i> 花费基数除以 7，代币II 可购买项的花费指数为 1.06"
                                 return "在1e6219人类时将<i>Tinhiragt</i>花费基础除以7，代币II可购买项花费指数为1.06"
                         },
                         cost:() => new Decimal("1e6125"),
@@ -45470,7 +45470,7 @@ addLayer("hu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>人类 XXXIV"
                         },
                         description(){
-                                if (hasMilestone("r", 6) && !player.shiftAlias) return "通过动物获取的代币 II 除数为 1e7" 
+                                if (hasMilestone("r", 6) && !player.shiftAlias) return "通过动物获取的代币II 除数为 1e7" 
                                 return "在3e12,943/1e13,045/1e13,133/1e13,482人类时，通过动物的代币II除数为4e6/6e6/8e6/1e7"
                         },
                         cost:() => new Decimal("1e12758"),
@@ -45533,7 +45533,7 @@ addLayer("hu", {
                         },
                         description(){
                                 if (player.r.unlocked) return "<i>Badwaftapw</i>基础为.176，通过动物的代币II除数乘以3.2，人类产出指数加1"
-                                return "<bdi style='font-size: 80%'><i>Badwaftapw</i> 基础值为 .176，批量购买 10 倍上夸克，使经动物获得的代币 II 除数乘以 3.2，并使人类产出指数 +1</bdi>"
+                                return "<bdi style='font-size: 80%'><i>Badwaftapw</i> 基础值为 .176，批量购买 10 倍上夸克，使经动物获得的代币II 除数乘以 3.2，并使人类产出指数 +1</bdi>"
                         },
                         cost:() => new Decimal("1e60749"),
                         unlocked(){
@@ -45598,7 +45598,7 @@ addLayer("hu", {
                         },
                         description(){
                                 if (hasMilestone("r", 7)) return "精通VI基础为1.002，人类产出指数减3，通过动物的代币II指数为.17"
-                                return "<bdi style='font-size: 80%'>精通 VI 基础值为 1.002，使人类产出指数 -3，且在 1e88,819 个人类时，经动物获得的代币 II 指数为 .17</bdi>"
+                                return "<bdi style='font-size: 80%'>精通 VI 基础值为 1.002，使人类产出指数 -3，且在 1e88,819 个人类时，经动物获得的代币II 指数为 .17</bdi>"
                         },
                         cost:() => new Decimal("1e88670"),
                         unlocked(){
@@ -47300,7 +47300,7 @@ addLayer("hu", {
                                 if (!player.shiftAlias) {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.hu.buyables[33]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: +"
-                                        let eff2 = format(tmp.hu.buyables[33].effect, 3) + " 到通过动物获取的代币 II 除数</b><br>"
+                                        let eff2 = format(tmp.hu.buyables[33].effect, 3) + " 到通过动物获取的代币II 除数</b><br>"
                                         let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("hu", 33)) + " 思绪</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -47487,7 +47487,7 @@ addLayer("hu", {
                 6: {
                         requirementDescription(){
                                 if (player.hu.times < 20) return "暂时未知。达到 20 次人类重置即可查看！"
-                                return "255 Plants"
+                                return "255 植物"
                         },
                         done(){
                                 if (player.hu.times < 20) return false
@@ -47502,7 +47502,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 6)
                 7: {
                         requirementDescription(){
-                                return "271 Plants"
+                                return "271 植物"
                         },
                         done(){
                                 return player.pl.points.gte(271)
@@ -47516,7 +47516,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 7)
                 8: {
                         requirementDescription(){
-                                return "281 Plants"
+                                return "281 植物"
                         },
                         done(){
                                 return player.pl.points.gte(281)
@@ -47541,7 +47541,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 8)
                 9: {
                         requirementDescription(){
-                                return "283 Plants"
+                                return "283 植物"
                         },
                         done(){
                                 return player.pl.points.gte(283)
@@ -47555,7 +47555,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 9)
                 10: {
                         requirementDescription(){
-                                return "321 Plants"
+                                return "321 植物"
                         },
                         done(){
                                 return player.pl.points.gte(321)
@@ -47569,7 +47569,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 10)
                 11: {
                         requirementDescription(){
-                                return "422 Plants"
+                                return "422 植物"
                         },
                         done(){
                                 return player.pl.points.gte(422)
@@ -47583,7 +47583,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 11)
                 12: {
                         requirementDescription(){
-                                return "442 Plants"
+                                return "442 植物"
                         },
                         done(){
                                 return player.pl.points.gte(442)
@@ -47612,7 +47612,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 12)
                 13: {
                         requirementDescription(){
-                                return "533 Plants"
+                                return "533 植物"
                         },
                         done(){
                                 return player.pl.points.gte(533)
@@ -47652,7 +47652,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 13)
                 14: {
                         requirementDescription(){
-                                return "675 Plants"
+                                return "675 植物"
                         },
                         done(){
                                 return player.pl.points.gte(675)
@@ -47666,7 +47666,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 14)
                 15: {
                         requirementDescription(){
-                                return "1194 Plants"
+                                return "1194 植物"
                         },
                         done(){
                                 return player.pl.points.gte(1194)
@@ -47680,7 +47680,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 15)
                 16: {
                         requirementDescription(){
-                                return "1325 Plants"
+                                return "1325 植物"
                         },
                         done(){
                                 return player.pl.points.gte(1325)
@@ -47694,7 +47694,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 16)
                 17: {
                         requirementDescription(){
-                                return "1409 Plants"
+                                return "1409 植物"
                         },
                         done(){
                                 return player.pl.points.gte(1409)
@@ -47711,7 +47711,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 17)
                 18: {
                         requirementDescription(){
-                                return "1618 Plants"
+                                return "1618 植物"
                         },
                         done(){
                                 return player.pl.points.gte(1618)
@@ -47725,7 +47725,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 18)
                 19: {
                         requirementDescription(){
-                                return "1950 Plants"
+                                return "1950 植物"
                         },
                         done(){
                                 return player.pl.points.gte(1950)
@@ -47739,7 +47739,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 19)
                 20: {
                         requirementDescription(){
-                                return "2500 Plants"
+                                return "2500 植物"
                         },
                         done(){
                                 return player.pl.points.gte(2500)
@@ -47753,7 +47753,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 20)
                 21: {
                         requirementDescription(){
-                                return "3350 Plants"
+                                return "3350 植物"
                         },
                         done(){
                                 return player.pl.points.gte(3350)
@@ -47762,12 +47762,12 @@ addLayer("hu", {
                                 return hasMilestone("hu", 6)
                         },
                         effectDescription(){
-                                return "奖励：上夸克指数为 log10(x)<sup>2</sup>，并移除代币 II 通过干细胞的加数。"
+                                return "奖励：上夸克指数为 log10(x)<sup>2</sup>，并移除代币II 通过干细胞的加数。"
                         },
                 }, // hasMilestone("hu", 21)
                 22: {
                         requirementDescription(){
-                                return "4210 Plants"
+                                return "4210 植物"
                         },
                         done(){
                                 return player.pl.points.gte(4210)
@@ -47781,7 +47781,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 22)
                 23: {
                         requirementDescription(){
-                                return "5240 Plants"
+                                return "5240 植物"
                         },
                         done(){
                                 return player.pl.points.gte(5240)
@@ -47795,7 +47795,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 23)
                 24: {
                         requirementDescription(){
-                                return "6280 Plants"
+                                return "6280 植物"
                         },
                         done(){
                                 return player.pl.points.gte(6280)
@@ -47809,7 +47809,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 24)
                 25: {
                         requirementDescription(){
-                                return "6920 Plants"
+                                return "6920 植物"
                         },
                         done(){
                                 return player.pl.points.gte(6920)
@@ -47823,7 +47823,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 25)
                 26: {
                         requirementDescription(){
-                                return "9650 Plants"
+                                return "9650 植物"
                         },
                         done(){
                                 return player.pl.points.gte(9650)
@@ -47837,7 +47837,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 26)
                 27: {
                         requirementDescription(){
-                                return "11,700 Plants"
+                                return "11,700 植物"
                         },
                         done(){
                                 return player.pl.points.gte(11700)
@@ -47851,7 +47851,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 27)
                 28: {
                         requirementDescription(){
-                                return "13,660 Plants"
+                                return "13,660 植物"
                         },
                         done(){
                                 return player.pl.points.gte(13660)
@@ -47865,7 +47865,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 28)
                 29: {
                         requirementDescription(){
-                                return "16,761 Plants"
+                                return "16,761 植物"
                         },
                         done(){
                                 return player.pl.points.gte(16761)
@@ -47879,7 +47879,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 29)
                 30: {
                         requirementDescription(){
-                                return "20,260 Plants"
+                                return "20,260 植物"
                         },
                         done(){
                                 return player.pl.points.gte(20260)
@@ -47893,7 +47893,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 30)
                 31: {
                         requirementDescription(){
-                                return "23,880 Plants"
+                                return "23,880 植物"
                         },
                         done(){
                                 return player.pl.points.gte(23880)
@@ -47907,7 +47907,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 31)
                 32: {
                         requirementDescription(){
-                                return "30,310 Plants"
+                                return "30,310 植物"
                         },
                         done(){
                                 return player.pl.points.gte(30310)
@@ -47922,7 +47922,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 32)
                 33: {
                         requirementDescription(){
-                                return "33,560 Plants"
+                                return "33,560 植物"
                         },
                         done(){
                                 return player.pl.points.gte(33560)
@@ -47936,7 +47936,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 33)
                 34: {
                         requirementDescription(){
-                                return "40,000 Plants"
+                                return "40,000 植物"
                         },
                         done(){
                                 return player.pl.points.gte(40000)
@@ -47950,7 +47950,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 34)
                 35: {
                         requirementDescription(){
-                                return "47,000 Plants"
+                                return "47,000 植物"
                         },
                         done(){
                                 return player.pl.points.gte(47000)
@@ -47964,7 +47964,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 35)
                 36: {
                         requirementDescription(){
-                                return "48,710 Plants"
+                                return "48,710 植物"
                         },
                         done(){
                                 return player.pl.points.gte(48710)
@@ -47978,7 +47978,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 36)
                 37: {
                         requirementDescription(){
-                                return "63,575 Plants"
+                                return "63,575 植物"
                         },
                         done(){
                                 return player.pl.points.gte(63575)
@@ -47992,7 +47992,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 37)
                 38: {
                         requirementDescription(){
-                                return "70,300 Plants"
+                                return "70,300 植物"
                         },
                         done(){
                                 return player.pl.points.gte(70300)
@@ -48006,7 +48006,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 38)
                 39: {
                         requirementDescription(){
-                                return "83,940 Plants"
+                                return "83,940 植物"
                         },
                         done(){
                                 return player.pl.points.gte(83940)
@@ -48020,7 +48020,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 39)
                 40: {
                         requirementDescription(){
-                                return "94,790 Plants"
+                                return "94,790 植物"
                         },
                         done(){
                                 return player.pl.points.gte(94790)
@@ -48034,7 +48034,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 40)
                 41: {
                         requirementDescription(){
-                                return "168,100 Plants"
+                                return "168,100 植物"
                         },
                         done(){
                                 return player.pl.points.gte(168100)
@@ -48074,7 +48074,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 41)
                 42: {
                         requirementDescription(){
-                                return "192,230 Plants"
+                                return "192,230 植物"
                         },
                         done(){
                                 return player.pl.points.gte(192230)
@@ -48088,7 +48088,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 42)
                 43: {
                         requirementDescription(){
-                                return "379,560 Plants"
+                                return "379,560 植物"
                         },
                         done(){
                                 return player.pl.points.gte(379560)
@@ -48102,7 +48102,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 43)
                 44: {
                         requirementDescription(){
-                                return "458,790 Plants"
+                                return "458,790 植物"
                         },
                         done(){
                                 return player.pl.points.gte(458790)
@@ -48116,7 +48116,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 44)
                 45: {
                         requirementDescription(){
-                                return "535,040 Plants"
+                                return "535,040 植物"
                         },
                         done(){
                                 return player.pl.points.gte(535040)
@@ -48130,7 +48130,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 45)
                 46: {
                         requirementDescription(){
-                                return "573,280 Plants"
+                                return "573,280 植物"
                         },
                         done(){
                                 return player.pl.points.gte(573280)
@@ -48144,7 +48144,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 46)
                 47: {
                         requirementDescription(){
-                                return "808,720 Plants"
+                                return "808,720 植物"
                         },
                         done(){
                                 return player.pl.points.gte(808720)
@@ -48158,7 +48158,7 @@ addLayer("hu", {
                 }, // hasMilestone("hu", 47)
                 48: {
                         requirementDescription(){
-                                return "864,050 Plants"
+                                return "864,050 植物"
                         },
                         done(){
                                 return player.pl.points.gte(864050)
@@ -49170,7 +49170,7 @@ addLayer("hu", {
                                 let b = "目标：17,786,000 植物"
                                 let c = "奖励：顶夸克指数为 .86，精通 III 基础值为 1.0001"
                                 c += "，<i>Badwaftapw</i> 基础值为 .173"
-                                if (!player.r.unlocked) c += "，可批量 100 次上夸克、精通代币和代币 II 可购买项"
+                                if (!player.r.unlocked) c += "，可批量 100 次上夸克、精通代币和代币II 可购买项"
                                 if (!hasMilestone("r", 2)) c += "，在1154/1234/1380级之后每第10/12/15级<i>Hual</i>使其基础减半并使精通VII基础减.01（最多8/12/10次）"
                                 else c += "，将 <i>Hual</i> 基础花费除以 2<sup>30</sup>"
                                 
@@ -49292,8 +49292,8 @@ addLayer("hu", {
                                 ["display-text", function(){
                                         let a = "人类重置所有先前层级。为解锁人类，始终批量购买染色体。"
                                         let b = "效果公式：10<sup>sqrt(Thoughts)</sup>"
-                                        let c = "初始人类产出：(log10(Biomass/1e44,000)/2,000)<sup>3</sup>"
-                                        c += br + "当前人类产出：(log10(Biomass/1e44,000)/DIV)<sup>EXP</sup>"
+                                        let c = "初始人类产出：(log10(生物质/1e44,000)/2,000)<sup>3</sup>"
+                                        c += br + "当前人类产出：(log10(生物质/1e44,000)/DIV)<sup>EXP</sup>"
                                         if (hasMilestone("hu", 49)) c = c.replace("/DIV", "")
                                         let func = tmp.hu.buyables[23].effect.gt(0) ? format : formatWhole
                                         c = c.replace("DIV", formatWhole(tmp.hu.getGainDivider)).replace("EXP", func(tmp.hu.getGainExp))
@@ -49522,7 +49522,7 @@ addLayer("r", {
         row: 1,
         prestigeButtonText(){
                 let b = ""
-                if (tmp.r.getResetGain.lt(1e3)) b = "<br>Next: " + format(tmp.r.getNextAt) + " Humans."
+                if (tmp.r.getResetGain.lt(1e3)) b = "<br>下一个：" + format(tmp.r.getNextAt) + " Humans."
 
                 return "重置以获得 <b>" + formatWhole(tmp.r.getResetGain) + "</b> 研究员" + b
         },
@@ -49590,7 +49590,7 @@ addLayer("r", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>研究 III"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.02，被动获得 10 倍研究员"
+                                return "代币II 可购买项的花费指数为 1.02，被动获得 10 倍研究员"
                         },
                         cost:() => new Decimal(4e4),
                         unlocked(){
@@ -51519,7 +51519,7 @@ addLayer("mc", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(Tokens)^x<br>" + format(tmp.mc.buyables[12].base) + "^x"
+                                let eformula = "log10(代币)^x<br>" + format(tmp.mc.buyables[12].base) + "^x"
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -51615,7 +51615,7 @@ addLayer("mc", {
                                         [
                                                 ["secondary-display", "mu"],
                                                 ["display-text", function(){
-                                                        return "你正在获得 " + format(tmp.cells.mu.getResetGain) + " 每秒 Mu"
+                                                        return "你正在获得 " + format(tmp.cells.mu.getResetGain) + " 每秒 μ"
                                                 }],
                                                 ["upgrades", [11, 12]],
                                                 ["buyables", [11]],
@@ -51636,7 +51636,7 @@ addLayer("mc", {
                                         [
                                                 ["secondary-display", "lambda"],
                                                 ["display-text", function(){
-                                                        return "你正在获得 " + format(tmp.cells.lambda.getResetGain) + " Lambda/秒"
+                                                        return "你正在获得 " + format(tmp.cells.lambda.getResetGain) + " λ/秒"
                                                 }],
                                                 ["upgrades", [21, 22]],
                                                 ["clickables", [21]],
@@ -51657,7 +51657,7 @@ addLayer("mc", {
                                         [
                                                 ["secondary-display", "kappa"],
                                                 ["display-text", function(){
-                                                        return "你正在获得 " + format(tmp.cells.kappa.getResetGain) + " Kappa/秒"
+                                                        return "你正在获得 " + format(tmp.cells.kappa.getResetGain) + " κ/秒"
                                                 }],
                                                 ["bar", "kappa"],
                                                 ["upgrades", [31, 32]],
@@ -51679,10 +51679,10 @@ addLayer("mc", {
                                                 ["secondary-display", "iota"],
                                                 ["display-text", function(){
                                                         if (hasMilestone("cells", 38) || hasMilestone("or", 4)) return ""
-                                                        return "你已花费 " + formatTime(player.cells.timeInMinigame) + " in Iota"
+                                                        return "你已花费 " + formatTime(player.cells.timeInMinigame) + " in ι"
                                                 }],
                                                 ["display-text", function(){
-                                                        return "你正在获得 " + format(tmp.cells.iota.getResetGain) + " Iota/秒"
+                                                        return "你正在获得 " + format(tmp.cells.iota.getResetGain) + " ι/秒"
                                                 }],
                                                 ["upgrades", [41, 42]],
                                                 ["buyables", [41, 42]],
@@ -51727,7 +51727,7 @@ addLayer("mc", {
                                 ["upgrades", [1,2,3,4]],
                                 "blank",
                                 ["display-text", function(){
-                                        let a = "基础产出 = log10(log10(log10(Points)))/1000"
+                                        let a = "基础产出 = log10(log10(log10(点数)))/1000"
                                         let b = "警告：此标签页没有任何功能，仅提供消遣"
                                         let c = "这意味着你可以放心忽略此标签页"
                                         return a + br2 + b + br + c
@@ -51875,7 +51875,7 @@ addLayer("mk", {
         baseAmount(){return player.points},
         type: "custom",
         tooltip(){
-                return format(player.or.contaminants.points, 3) + " Contaminants"
+                return format(player.or.contaminants.points, 3) + " 污染物"
         },
         getResetGain(){
                 return decimalOne
@@ -51977,7 +51977,7 @@ addLayer("ml", {
         baseAmount(){return player.points},
         type: "custom",
         tooltip(){
-                return format(player.or.air.points) + " Air"
+                return format(player.or.air.points) + " 空气"
         },
         getResetGain(){
                 return decimalOne
@@ -52030,7 +52030,7 @@ addLayer("ml", {
                                                 ["secondary-display", "air"],
                                                 ["display-text", function(){//Entering a challenge resets air. 
                                                         let a = "在挑战中你不会获得污染物，" + makeBlue("DB") + ", or " + makePurple("OB") + "." 
-                                                        let b = "你正在获得 " + format(tmp.or.lungs.getResetGain) + " Air/s"
+                                                        let b = "你正在获得 " + format(tmp.or.lungs.getResetGain) + " 空气/s"
                                                         if (tmp.or.lungs.reqs.length > player.or.lungChallengesUnlocked) {
                                                                 return a + br + b + br + "Get " + format(tmp.or.lungs.reqs[player.or.lungChallengesUnlocked]) + " 空气以解锁下一个挑战"
                                                         }
@@ -52087,7 +52087,7 @@ addLayer("mi", {
         baseAmount(){return player.points},
         type: "custom",
         tooltip(){
-                return format(player.or.energy.points) + " Energy"
+                return format(player.or.energy.points) + " 能量"
         },
         getResetGain(){
                 return decimalOne
@@ -52135,12 +52135,12 @@ addLayer("mi", {
                                                 ["display-text", function(){
                                                         if (player.or.air.total.lt("1e2300")) return "你可以在 1e2300 空气时开始能量生产"
                                                         if (player.shiftAlias) {
-                                                                if (hasUpgrade("sp", 91))       return "基础产出量为 [buyables]<sup>Nucleuses</u>"
+                                                                if (hasUpgrade("sp", 91))       return "基础产出量为 [buyables]<sup>细胞核</u>"
                                                                 if (hasMilestone("nu", 1))      return "基础产出量为 [buyables]<sup>2</sup>" + (hasMilestone("an", 3) ? "" : "/10")
                                                                 return "基础产出量为 [buyables]" + (hasMilestone("an", 3) ? "" : "/10")
                                                         }
                                                         let a = "可购买项数量（加1）乘以能量产出以及<br>正上方和正左侧可购买项数量的产出。" 
-                                                        let b = "你正在获得 " + format(tmp.or.intestine.getResetGain) + " Energy/s"
+                                                        let b = "你正在获得 " + format(tmp.or.intestine.getResetGain) + " 能量/s"
                                                         return a + br + b
                                                 }],
                                                 ["buyables", [40, 41, 42]],
@@ -52194,7 +52194,7 @@ addLayer("mt", {
         baseAmount(){return player.points},
         type: "custom",
         tooltip(){
-                return format(player.an.genes.points) + " Genes"
+                return format(player.an.genes.points) + " 基因"
         },
         getResetGain(){
                 return decimalOne
@@ -53161,11 +53161,11 @@ addLayer("mini", {
         tooltip(){
                 let tab = player.subtabs.mini.mainTabs
                 let data = player.mini
-                if (tab == "A") return format(data.a_points.points) + " A Points"
-                if (tab == "B") return format(data.b_points.points) + " B Points"
-                if (tab == "C") return format(data.c_points.points) + " C Points"
-                if (tab == "D") return format(data.d_points.points) + " D Points"
-                if (tab == "E") return format(data.e_points.points) + " E Points"
+                if (tab == "A") return format(data.a_points.points) + " A 点数"
+                if (tab == "B") return format(data.b_points.points) + " B 点数"
+                if (tab == "C") return format(data.c_points.points) + " C 点数"
+                if (tab == "D") return format(data.d_points.points) + " D 点数"
+                if (tab == "E") return format(data.e_points.points) + " E 点数"
                 return ""
         },
         baseResource: "points",
@@ -55322,7 +55322,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(log10(Life Points))<sup>x</sup><br>" + format(getBuyableBase("mini", 92)) + "^x"
+                                let eformula = "(log10(生命点))<sup>x</sup><br>" + format(getBuyableBase("mini", 92)) + "^x"
                                 if (hasMilestone("n", 14)) eformula = eformula.replace("log10", "ln")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -55386,7 +55386,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(log10(log10(A Points)))<sup>x</sup><br>" + format(getBuyableBase("mini", 93)) + "^x"
+                                let eformula = "(log10(log10(A 点数)))<sup>x</sup><br>" + format(getBuyableBase("mini", 93)) + "^x"
                                 if (hasUpgrade("tokens", 93)) eformula = eformula.replace("log10", "ln") //only replaces the first one
                                 if (hasUpgrade("tokens", 94)) eformula = eformula.replace("log10", "ln")
                                 if (hasUpgrade("mini", 44)) eformula = eformula.replace("ln", "log2")
@@ -55735,7 +55735,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(log10(B Points))<sup>x</sup><br>" + format(getBuyableBase("mini", 113)) + "^x"
+                                let eformula = "(log10(B 点数))<sup>x</sup><br>" + format(getBuyableBase("mini", 113)) + "^x"
                                 if (hasMilestone("n", 16)) eformula = eformula.replace("(l", "(x*l")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
@@ -56317,7 +56317,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(log10(D Points))<sup>x</sup><br>" + format(getBuyableBase("mini", 161)) + "^x"
+                                let eformula = "(log10(D 点数))<sup>x</sup><br>" + format(getBuyableBase("mini", 161)) + "^x"
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -56665,7 +56665,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(C Points)<sup>x</sup><br>" + format(getBuyableBase("mini", 181)) + "^x"
+                                let eformula = "log10(C 点数)<sup>x</sup><br>" + format(getBuyableBase("mini", 181)) + "^x"
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -56722,7 +56722,7 @@ addLayer("mini", {
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "log10(E Points)<sup>x</sup><br>" + format(getBuyableBase("mini", 182)) + "^x"
+                                let eformula = "log10(E 点数)<sup>x</sup><br>" + format(getBuyableBase("mini", 182)) + "^x"
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -58044,7 +58044,7 @@ addLayer("mini", {
                         cost:() => new Decimal(1e25),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 73).gt(5) || player.n.unlocked
                         }, // hasUpgrade("mini", 11)
@@ -58082,7 +58082,7 @@ addLayer("mini", {
                         cost:() => new Decimal(1e50),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 11) || player.n.unlocked
                         }, // hasUpgrade("mini", 12)
@@ -58092,12 +58092,12 @@ addLayer("mini", {
                                 return "<bdi style='color: #FF0000'>Cake</bdi>"
                         },
                         description(){
-                                return "log10(C Points) 使紫外基础值倍增，log10(Ultraviolet) 使 C 点产出倍增"
+                                return "log10(C 点数) 使紫外基础值倍增，log10(Ultraviolet) 使 C 点产出倍增"
                         },
                         cost:() => new Decimal(1e68),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 12) || player.n.unlocked
                         }, // hasUpgrade("mini", 13)
@@ -58107,12 +58107,12 @@ addLayer("mini", {
                                 return "<bdi style='color: #FF0000'>Carrot</bdi>"
                         },
                         description(){
-                                return "log10(Life Points) 使 C 点产出倍增，玉米间隔缩短至 9"
+                                return "log10(生命点) 使 C 点产出倍增，玉米间隔缩短至 9"
                         },
                         cost:() => new Decimal(1e98),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 13) || player.n.unlocked
                         }, // hasUpgrade("mini", 14)
@@ -58122,12 +58122,12 @@ addLayer("mini", {
                                 return "<bdi style='color: #FF0000'>Cheese</bdi>"
                         },
                         description(){
-                                return "log10(B Points) 使 C 点产出倍增，玉米间隔缩短至 8"
+                                return "log10(B 点数) 使 C 点产出倍增，玉米间隔缩短至 8"
                         },
                         cost:() => new Decimal(1e140),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 14) || player.n.unlocked
                         }, // hasUpgrade("mini", 15)
@@ -58142,7 +58142,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 555),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 81).gte(43) || player.n.unlocked
                         }, // hasUpgrade("mini", 21)
@@ -58157,7 +58157,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 777),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 21) || player.n.unlocked
                         }, // hasUpgrade("mini", 22)
@@ -58172,7 +58172,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 900),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 22) || player.n.unlocked
                         }, // hasUpgrade("mini", 23)
@@ -58190,7 +58190,7 @@ addLayer("mini", {
                         },
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 23) || player.n.unlocked
                         }, // hasUpgrade("mini", 24)
@@ -58205,7 +58205,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1322 : 1275),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 24) || player.n.unlocked
                         }, // hasUpgrade("mini", 25)
@@ -58220,7 +58220,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1385 : 1375),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 25) || player.n.unlocked
                         }, // hasUpgrade("mini", 31)
@@ -58235,7 +58235,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1860 : 1775),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 31) || player.n.unlocked
                         }, // hasUpgrade("mini", 32)
@@ -58250,7 +58250,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1950 : 1825),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 32) || player.n.unlocked
                         }, // hasUpgrade("mini", 33)
@@ -58265,7 +58265,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 2900 : 2750),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 33) || player.n.unlocked
                         }, // hasUpgrade("mini", 34)
@@ -58280,7 +58280,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 13490 : 11825),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 34) || player.n.unlocked
                         }, // hasUpgrade("mini", 35)
@@ -58295,7 +58295,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 54780 : 50518),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return hasUpgrade("mini", 35) || player.n.unlocked
                         }, // hasUpgrade("mini", 41)
@@ -58310,7 +58310,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 95300 : 82650),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return player.tokens.total.gte(74) || player.n.unlocked
                         }, // hasUpgrade("mini", 42)
@@ -58325,7 +58325,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 97590),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return player.tokens.total.gte(player.extremeMode ? 75 : 76) || player.n.unlocked
                         }, // hasUpgrade("mini", 43)
@@ -58340,7 +58340,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 112327 : 128846),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return player.tokens.total.gte(77) || player.n.unlocked
                         }, // hasUpgrade("mini", 44)
@@ -58355,7 +58355,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 172582 : 168627),
                         currencyLocation:() => player.mini.c_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "C Points",
+                        currencyDisplayName:() => "C 点数",
                         unlocked(){
                                 return player.tokens.total.gte(78) || player.n.unlocked
                         }, // hasUpgrade("mini", 45)
@@ -58370,7 +58370,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 25),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(9) || player.n.unlocked
                         }, // hasUpgrade("mini", 51)
@@ -58386,7 +58386,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 125),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(33) || player.p.unlocked
                         }, // hasUpgrade("mini", 52)
@@ -58401,7 +58401,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 338 : 350),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(73) || player.p.unlocked
                         }, // hasUpgrade("mini", 53)
@@ -58416,7 +58416,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 431 : 410),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(83) || player.p.unlocked
                         }, // hasUpgrade("mini", 54)
@@ -58431,7 +58431,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 969),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(162) || player.p.unlocked
                         }, // hasUpgrade("mini", 55)
@@ -58446,7 +58446,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1833 : 1776),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(255) || player.p.unlocked
                         }, // hasUpgrade("mini", 61)
@@ -58465,7 +58465,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 2543 : 2275),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(310) || player.p.unlocked
                         }, // hasUpgrade("mini", 62)
@@ -58480,7 +58480,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, 3151),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(400) || player.p.unlocked
                         }, // hasUpgrade("mini", 63)
@@ -58495,7 +58495,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 4515 : 4167),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(490) || player.p.unlocked
                         }, // hasUpgrade("mini", 64)
@@ -58510,7 +58510,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 5347 : 5225),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(590) || player.p.unlocked
                         }, // hasUpgrade("mini", 65)
@@ -58525,7 +58525,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 6684 : 6584),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(700) || player.p.unlocked
                         }, // hasUpgrade("mini", 71)
@@ -58540,7 +58540,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 9651 : 8868),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(880) || player.p.unlocked
                         }, // hasUpgrade("mini", 72)
@@ -58555,7 +58555,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 24428 : 19428),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(1620) || player.p.unlocked
                         }, // hasUpgrade("mini", 73)
@@ -58571,7 +58571,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 37346 : 31051),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(2300) || player.p.unlocked
                         }, // hasUpgrade("mini", 74)
@@ -58586,7 +58586,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 42400 : 36561),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(2600) || player.p.unlocked
                         }, // hasUpgrade("mini", 75)
@@ -58601,7 +58601,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 46081 : 45477.698),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(3100) || player.p.unlocked
                         }, // hasUpgrade("mini", 81)
@@ -58616,7 +58616,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 62537 : 56749),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(3670) || player.p.unlocked
                         }, // hasUpgrade("mini", 82)
@@ -58631,7 +58631,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 937500 : 691315),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(25e3) || player.p.unlocked
                         }, // hasUpgrade("mini", 83)
@@ -58646,7 +58646,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1026117 : 775628),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(27e3) || player.p.unlocked
                         }, // hasUpgrade("mini", 84)
@@ -58661,7 +58661,7 @@ addLayer("mini", {
                         cost:() => Decimal.pow(10, player.extremeMode ? 1037e3 : 787029),
                         currencyLocation:() => player.mini.d_points,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "D Points",
+                        currencyDisplayName:() => "D 点数",
                         unlocked(){
                                 return getBuyableAmount("mini", 151).gte(28e3) || player.p.unlocked
                         }, // hasUpgrade("mini", 85)
@@ -58934,8 +58934,8 @@ addLayer("mini", {
         milestones: {
                 1: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e84 B Points"
-                                return "1e63 B Points"
+                                if (hasUpgrade("h", 44)) return "1e84 B 点数"
+                                return "1e63 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -58950,8 +58950,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 1)
                 2: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e105 B Points"
-                                return "5e94 B Points"
+                                if (hasUpgrade("h", 44)) return "1e105 B 点数"
+                                return "5e94 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -58966,8 +58966,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 2)
                 3: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e128 B Points"
-                                return "3e106 B Points"
+                                if (hasUpgrade("h", 44)) return "1e128 B 点数"
+                                return "3e106 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -58982,8 +58982,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 3)
                 4: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e156 B Points"
-                                return "3e121 B Points"
+                                if (hasUpgrade("h", 44)) return "1e156 B 点数"
+                                return "3e121 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -58998,8 +58998,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 4)
                 5: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e459 B Points"
-                                return "1e170 B Points"
+                                if (hasUpgrade("h", 44)) return "1e459 B 点数"
+                                return "1e170 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59014,8 +59014,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 5)
                 6: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e532 B Points"
-                                return "1e192 B Points"
+                                if (hasUpgrade("h", 44)) return "1e532 B 点数"
+                                return "1e192 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59030,8 +59030,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 6)
                 7: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 44)) return "1e741 B Points"
-                                return "1e281 B Points"
+                                if (hasUpgrade("h", 44)) return "1e741 B 点数"
+                                return "1e281 B 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59046,8 +59046,8 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 7)
                 8: {
                         requirementDescription(){
-                                if (hasUpgrade("h", 45)) return "1e34 A Points"
-                                return "1e46 A Points"
+                                if (hasUpgrade("h", 45)) return "1e34 A 点数"
+                                return "1e46 A 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59062,7 +59062,7 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 8)
                 9: {
                         requirementDescription(){
-                                return "3e55 A Points"
+                                return "3e55 A 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59077,7 +59077,7 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 9)
                 10: {
                         requirementDescription(){
-                                return "5e73 A Points"
+                                return "5e73 A 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59092,7 +59092,7 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 10)
                 11: {
                         requirementDescription(){
-                                return "1e89 A Points"
+                                return "1e89 A 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59107,7 +59107,7 @@ addLayer("mini", {
                 }, // hasMilestone("mini", 11)
                 12: {
                         requirementDescription(){
-                                return "1e114 A Points"
+                                return "1e114 A 点数"
                         },
                         done(){
                                 if (!player.extremeMode) return false
@@ -59699,17 +59699,17 @@ addLayer("tokens", {
                         return formatWhole(data.mastery_tokens.total) + " 精通代币"
                 }
                 if (player.sp.total.gte(1e5) || data.tokens2.points.gte(2e5)) {
-                        return formatWhole(data.tokens2.points) + " Token II"
+                        return formatWhole(data.tokens2.points) + " 代币II"
                 }
                 if (player.ch.everUpgrade33) {
-                        return formatWhole(data.tokens2.points) + "/" + formatWhole(tmp.tokens.buyables[101].cost) + " Token II"
+                        return formatWhole(data.tokens2.points) + "/" + formatWhole(tmp.tokens.buyables[101].cost) + " 代币II"
                 }
                 if (hasUpgrade("cells", 42) || player.e.unlocked){
                         let end = ""
                         if (data.lastRespecDisplayFormula2ID < tmp.tokens.buyables.costFormulaText2ID) {
                                 end = br + "需要洗点"
                         }
-                        return formatWhole(data.tokens2.points) + "/" + formatWhole(data.tokens2.total) + " Token II" + end
+                        return formatWhole(data.tokens2.points) + "/" + formatWhole(data.tokens2.total) + " 代币II" + end
                 }
                 let start = formatWhole(data.points, true) + "/" + formatWhole(data.total) + " tokens"
 
@@ -59966,7 +59966,7 @@ addLayer("tokens", {
                                         let cost = "<b><h2>花费</h2>: " + format(getBuyableCost("tokens", 21)) + " 代币</b><br>"
                                 
                                         if (hasMilestone("cells", 24)) eff2 = eff2.replace("氘", "干细胞")
-                                        if (hasUpgrade("t", 62)) eff2 = eff2.replace("ll", "lls and Cells")
+                                        if (hasUpgrade("t", 62)) eff2 = eff2.replace("ll", "lls and 细胞")
                                 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
@@ -60826,7 +60826,7 @@ addLayer("tokens", {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.tokens.buyables[101]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: +"
                                         let eff2 = format(tmp.tokens.buyables[101].effect, 4) + " 到全能基础</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 101)) + " 代币 II</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 101)) + " 代币II</b><br>"
                                         if (player.ch.everUpgrade33) cost = cost.replace("Cost", "Requires")
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -60928,15 +60928,15 @@ addLayer("tokens", {
                                         let eff1 = "<b><h2>效果</h2>: *"
                                         let eff2 = format(tmp.tokens.buyables[102].effect, 4) + " 到干细胞产出</b><br>"
                                         if (hasUpgrade("an", 34)) eff2 = eff2.replace("干细胞", "Tissue")
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 102)) + " 代币 II</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 102)) + " 代币II</b><br>"
                                         if (player.ch.everUpgrade33) cost = cost.replace("Cost", "Requires")
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
                                 }
 
-                                let eformula = "(Tokens+50(C-R<sup>.5</sup>))<sup>x</sup><br>" + format(tmp.tokens.buyables[102].base, 4) + "^x" 
+                                let eformula = "(代币+50(C-R<sup>.5</sup>))<sup>x</sup><br>" + format(tmp.tokens.buyables[102].base, 4) + "^x" 
                                 if (hasUpgrade("or", 133) || hasMilestone("hu", 41)) {
-                                        eformula = eformula.replace("(代币+50(C-R<sup>.5</sup>))", "(Tokens<sup>C</sup>)")
+                                        eformula = eformula.replace("(代币+50(C-R<sup>.5</sup>))", "(代币<sup>C</sup>)")
                                 } else {
                                         if (hasMilestone("or", 9)) eformula = eformula.replace("+50(C-R<sup>.5</sup>)", "<sup>sqrt(1+C)</sup>")
                                         let sliced = eformula.split("<sup>x</sup>")
@@ -61012,7 +61012,7 @@ addLayer("tokens", {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.tokens.buyables[111]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: +"
                                         let eff2 = format(tmp.tokens.buyables[111].effect, 4) + " 到组织效果指数</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 111)) + " 代币 II</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 111)) + " 代币II</b><br>"
                                         if (player.ch.everUpgrade33) cost = cost.replace("Cost", "Requires")
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -61114,7 +61114,7 @@ addLayer("tokens", {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.tokens.buyables[112]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: -"
                                         let eff2 = format(tmp.tokens.buyables[112].effect, 4) + " 到有效代币</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 112)) + " 代币 II</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 112)) + " 代币II</b><br>"
                                         if (player.ch.everUpgrade33) cost = cost.replace("Cost", "Requires")
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -61233,7 +61233,7 @@ addLayer("tokens", {
                                         let eff1 = "<b><h2>效果</h2>: +"
                                         if (hasMilestone("ch", 12)) eff1 = eff1.replace("+", "*")
                                         let eff2 = format(tmp.tokens.buyables[121].effect, 4) + " 到代币四次幂除数</b><br>"
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 121)) + " 代币 II</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 121)) + " 代币II</b><br>"
                                         if (player.ch.everUpgrade33) cost = cost.replace("Cost", "Requires")
                                         
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -61340,7 +61340,7 @@ addLayer("tokens", {
                                         let eff1 = "<b><h2>效果</h2>: *"
                                         let eff2 = format(tmp.tokens.buyables[122].effect, 4) + " 到组织产出</b><br>"
                                         if (hasUpgrade("or", 43)) eff2 = eff2.replace("Tissue", "能量与空气")
-                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 122)) + " 代币 II</b><br>"
+                                        let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("tokens", 122)) + " 代币II</b><br>"
                                         if (player.ch.everUpgrade33) cost = cost.replace("Cost", "Requires")
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -61402,7 +61402,7 @@ addLayer("tokens", {
                         return ret
                 },
                 191: {
-                        title: "通过代币获取代币 II",
+                        title: "通过代币获取代币II",
                         getAdd(){
                                 let add = hasMilestone("r", 3) || hasUpgrade("or", 153) ? 0 : (player.extremeMode ? 25 : 21)
                                 if (hasUpgrade("sci", 571) && add > 0) {
@@ -61603,13 +61603,13 @@ addLayer("tokens", {
                                 let expDigits = 1 + (costData[2] < .2) + (costData[2] < .14)
                                 eformula = eformula.replace("EXP", format(costData[2], expDigits))
                                 eformula = eformula.replace("x/1)", "x)")
-                                if (hasMilestone("hu", 41)) cost = cost.replace("干细胞", "Animals")
+                                if (hasMilestone("hu", 41)) cost = cost.replace("干细胞", "动物")
                                 
                                 return br + lvl + cost + "<b><h2>花费公式</h2>:<br>" + eformula + "</b><br>"
                         },
                 },
                 193: {
-                        title: "通过细胞获取代币 II",
+                        title: "通过细胞获取代币II",
                         cost(){
                                 let data = tmp.tokens.buyables[193].costData
                                 if (!data.length) data = layers.tokens.buyables[193].costData()
@@ -61771,7 +61771,7 @@ addLayer("tokens", {
                         },
                         display(){
                                 let lvl = "<b><h2>等级</h2>: " + formatWhole(player.tokens.buyables[201]) + "</b><br>"
-                                let cost = "<b><h2>需要</h2>：<br>" + formatWhole(getBuyableCost("tokens", 201)) + " 代币 II</b><br>"
+                                let cost = "<b><h2>需要</h2>：<br>" + formatWhole(getBuyableCost("tokens", 201)) + " 代币II</b><br>"
                                 let eformula = "MULT*(ADD+x)<sup>2</sup>"
                                 let f = hasMilestone("hu", 18) ? format : formatWhole
                                 if (tmp.tokens.buyables[201].getBases[1] <= 1) eformula = eformula.slice(5,) 
@@ -62379,7 +62379,7 @@ addLayer("tokens", {
                 11: {
                         title: "出售代币II可购买项", 
                         display(){
-                                return "你总共有 " + format(player.tokens.tokens2.total) + " Token II's"
+                                return "你总共有 " + format(player.tokens.tokens2.total) + " 代币II's"
                         },
                         unlocked(){
                                 return player.tokens.tokens2.total.lt(1e5)
@@ -62602,7 +62602,7 @@ addLayer("tokens", {
                         effectDescription(){
                                 let a = "奖励：可见与二次基于历史最佳数量，"
                                 
-                                if (!player.extremeMode) a += " 且 ln(A Points) 乘以无线电波基础值。<br>"
+                                if (!player.extremeMode) a += " 且 ln(A 点数) 乘以无线电波基础值。<br>"
                                 else a += "ln(A点)乘以无线电波基础，保留氢科学升级，并自动购买21%。<br>"
                                 
                                 let b = "Currently: *" + format(tmp.tokens.milestones[7].effect)
@@ -62672,8 +62672,8 @@ addLayer("tokens", {
                         },
                         effectDescription(){
                                 let a = "奖励：X 射线和半指数基于历史最佳数量，氧 V 指数平方，"
-                                if (!player.extremeMode) a += "且 ln(B Points) 乘以微波基础值。<br>"     
-                                else a += "ln(B Points) 使微波基础值倍增，并自动购买人工。<br>"
+                                if (!player.extremeMode) a += "且 ln(B 点数) 乘以微波基础值。<br>"     
+                                else a += "ln(B 点数) 使微波基础值倍增，并自动购买人工。<br>"
                                                 
                                 let b = "Currently: *" + format(tmp.tokens.milestones[10].effect)
                                 if (player.shiftAlias) {
@@ -63230,7 +63230,7 @@ addLayer("tokens", {
 
                                         return a + b
                                 }
-                                return "Oxygen^ .1 乘以碳产出"
+                                return "氧^ .1 乘以碳产出"
                         },
                         canAfford(){
                                 if (player.tokens.coins.points.lt(tmp.tokens.upgrades[51].cost)) return false
@@ -63260,7 +63260,7 @@ addLayer("tokens", {
 
                                         return a + b
                                 }
-                                return "Carbon^ .1 乘以氧气产出"
+                                return "碳^ .1 乘以氧气产出"
                         },
                         canAfford(){
                                 if (player.tokens.coins.points.lt(tmp.tokens.upgrades[51].cost)) return false
@@ -63303,7 +63303,7 @@ addLayer("tokens", {
                 62: {
                         title(){
                                 if (player.shiftAlias) return "<bdi style='color: #FF00FF'>Upgrade 62</bdi>"
-                                return "<bdi style='color: #FF0000'>Oxygen</bdi>"
+                                return "<bdi style='color: #FF0000'>氧</bdi>"
                         },
                         description(){
                                 if (player.shiftAlias) return "<bdi style='color: #863813'></bdi><br>Current requirement:<br>"
@@ -63597,7 +63597,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> I</h3>" + br
                                 let cost = br2 + "需要：416800 代币II"
-                                return title + "上夸克除数为 7，并可批量 4 次代币 II 可购买项" + cost
+                                return title + "上夸克除数为 7，并可批量 4 次代币II 可购买项" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(416800)
@@ -63627,7 +63627,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> III</h3>" + br
                                 let cost = br2 + "需要：427,500 代币II"
-                                return title + "代币 II 通过干细胞的除数为 2 + [this row upgrades]" + cost
+                                return title + "代币II 通过干细胞的除数为 2 + [this row upgrades]" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(427500)
@@ -63725,7 +63725,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> X</h3>" + br
                                 let cost = br2 + "需要：763,400 代币II"
-                                return title + "代币 II 通过细胞的除数为 33,000，并解锁强化效果" + cost
+                                return title + "代币II 通过细胞的除数为 33,000，并解锁强化效果" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(763400)
@@ -63795,7 +63795,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> XV</h3>" + br
                                 let cost = br2 + "需要：931,800 代币II"
-                                return title + "代币 II 可购买项的花费指数为 1.2，但 I'm 的除数为 100" + cost
+                                return title + "代币II 可购买项的花费指数为 1.2，但 I'm 的除数为 100" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(931800)
@@ -63809,7 +63809,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> XVI</h3>" + br
                                 let cost = br2 + "需要：1,077,500 代币II"
-                                return title + "上夸克除数为 4 且代币 II 除数为 38,600" + cost
+                                return title + "上夸克除数为 4 且代币II 除数为 38,600" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(1077500)
@@ -63823,7 +63823,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> XVII</h3>" + br
                                 let cost = br2 + "需要：1,141,000 代币II"
-                                return title + "寡能干细胞效果基础值为 2<sup>Nucleuses</sup>，但全能花费基数为 10" + cost
+                                return title + "寡能干细胞效果基础值为 2<sup>细胞核</sup>，但全能花费基数为 10" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(1141000)
@@ -63851,7 +63851,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> XIX</h3>" + br
                                 let cost = br2 + "需要：1,173,000 代币II"
-                                return title + "代币 II 可购买项的花费指数为 1.19" + cost
+                                return title + "代币II 可购买项的花费指数为 1.19" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(1173000)
@@ -63865,7 +63865,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> XX</h3>" + br
                                 let cost = br2 + "需要：1,300,000 代币II"
-                                return title + "代币 II 通过细胞的除数为 40,000，INtes<u>tine</u> 花费基数为 1.49" + cost
+                                return title + "代币II 通过细胞的除数为 40,000，INtes<u>tine</u> 花费基数为 1.49" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(1300000)
@@ -63935,7 +63935,7 @@ addLayer("tokens", {
                         fullDisplay(){
                                 let title = "<h3>代币<sup>2</sup> XXV</h3>" + br
                                 let cost = br2 + "需要：1,727,000 代币II"
-                                return title + "通过 X 的代币 II 等级持续被提升到 100 的倍数" + cost
+                                return title + "通过 X 的代币II 等级持续被提升到 100 的倍数" + cost
                         },
                         canAfford(){
                                 return player.tokens.tokens2.total.gte(1727000)
@@ -63951,7 +63951,7 @@ addLayer("tokens", {
                                 return "<h2 style='color: #" + getUndulatingColor() + "'>M 11"
                         },
                         description(){
-                                return "代币 II 可购买项的花费指数为 1.21"
+                                return "代币II 可购买项的花费指数为 1.21"
                         },
                         cost:() => new Decimal(player.tokens.everM61 ? 0 : 1 - hasUpgrade("tokens", 241)),
                         currencyLocation:() => player.tokens.mastery_tokens,
@@ -64012,7 +64012,7 @@ addLayer("tokens", {
                         description(){
                                 if (!hasUpgrade("tokens", 211)) return "购买 M 21 解锁我！"
                                 if (!tmp.tokens.upgrades[221].canAfford) return makeRed("<b>已锁定</b>") + br + "M 32"
-                                return "动物基础产出为 10<sup>log10(Organs)<sup>.15</sup>"
+                                return "动物基础产出为 10<sup>log10(器官)<sup>.15</sup>"
                         },
                         canAfford(){
                                 if (!hasUpgrade("tokens", 211)) return false
@@ -64187,7 +64187,7 @@ addLayer("tokens", {
                         },
                         description(){
                                 if (!hasUpgrade("tokens", 261) && !hasUpgrade("tokens", 262)) return "购买 M 71 或 M 72 来解锁我！"
-                                return "本排及以下的每次升级使代币 II 通过干细胞的除数 +1"
+                                return "本排及以下的每次升级使代币II 通过干细胞的除数 +1"
                         },
                         canAfford(){
                                 if (!hasUpgrade("tokens", 261) && !hasUpgrade("tokens", 262)) return false
@@ -64572,7 +64572,7 @@ addLayer("tokens", {
                                         let sub = formatWhole(tmp.tokens.getMinusEffectiveTokens.plus(add))
                                         let baseStr = formatWhole(tmp.tokens.getTetrationBase, false, 1)
                                         let init = br + a + "<sup>" + (hasChallenge("hu", 11) ? "1" : "4")
-                                        return init + "+(Tokens-" + sub + ")/" + div + "</sup>" + baseStr
+                                        return init + "+(代币-" + sub + ")/" + div + "</sup>" + baseStr
                                 }],
                                 "blank",
                                 "blank",
@@ -64599,7 +64599,7 @@ addLayer("tokens", {
                                         let baseStr = formatWhole(tmp.tokens.getTetrationBase, false, 1)
                                         let init = br + a + "<sup>"
                                         if (!hasUpgrade("hu", 101)) init += (hasChallenge("hu", 11) ? "1" : "4") + "+"
-                                        return init + "(Tokens-" + sub + ")/" + div + "</sup>" + baseStr
+                                        return init + "(代币-" + sub + ")/" + div + "</sup>" + baseStr
                                 }],
                                 "blank",
                                 "blank",

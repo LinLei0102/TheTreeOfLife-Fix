@@ -1,6 +1,6 @@
 {
   "functionsCalled": 3702,
-  "cjk": 3426,
+  "cjk": 3427,
   "latinOnly": [
     {
       "where": "d.upgrades[13].title()",
@@ -148,5 +148,16 @@
       "where": "h.upgrades[25].description()",
       "text": "每次升级将生命点产出提升至 ^1.01"
     }
+  ],
+  "tabLabels": [
+    {
+      "layer": "tokens",
+      "fam": "currency_displays",
+      "tab": "DNA"
+    }
+  ],
+  "tabTextResidual": [],
+  "domResidual": [
+    "The Modding Tree Discord"
   ]
 }

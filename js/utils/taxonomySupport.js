@@ -186,11 +186,11 @@ var TAXONOMY_KEYS = [
         808]
 
 function taxonomyLowerText(){
-        let a = "Gene gain is <b>Sapien</b> amount plus 1,<br>and amount gain is 2<sup><b>levels</b></sup>-1, multiplied by above<sup>*</sup> amounts plus 1."
+        let a = "基因产出为 <b>智人</b> 数量加 1，<br>数量产出为 2<sup><b>等级</b></sup>-1，再乘以上述<sup>*</sup>数量加 1。"
         if (player.ch.unlocked) {
-                a = a.replace("2", "(Chromosome effect)")
+                a = a.replace("2", "（染色体效果）")
         }
-        let b = "Amounts and gene amount decays by PC per second due to genetic cross contamination."
+        let b = "由于基因交叉污染，数量与基因数量每秒按 PC 衰减。"
         let pc = "1%"
         if (hasMilestone("an", 19)) pc = "5%"
         if (hasMilestone("an", 20)) pc = "25%"
@@ -200,9 +200,9 @@ function taxonomyLowerText(){
         if (hasMilestone("an", 22)) pc = "100%"
         if (hasMilestone("sp", 1) && player.ch.points.lt(11)) pc = "1%"
         b = b.replace("PC", pc)
-        let part1 = a + br2 + b + br + "Press shift to bulk buy 5x. The buyable in light blue is the cheapest." + br
+        let part1 = a + br2 + b + br + "按住 Shift 批量购买 5 倍。浅蓝色可购买项最便宜。" + br
         if (!player.sp.unlocked) return part1
-        return part1 + br + "The number of Chromosomes in amount effects is maxed at 5000."
+        return part1 + br + "数量效果中的染色体数量上限为 5000。"
 }
 
 function updateTaxonomyAmounts(diff) {

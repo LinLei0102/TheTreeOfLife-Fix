@@ -51,6 +51,88 @@ def apply_contains(locale):
             open(p,'w',encoding='utf-8',newline='').write(s); total+=len(edits)
     return total
 
+def apply_system_text():
+    """系统组件里的固定 UI 文案。"""
+    p=os.path.join(ROOT,'js','technical','systemComponents.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    pairs=[
+        ("'Reach ' + formatWhole(tmp[layer].requires) + ' ' + tmp[layer].baseResource + ' to unlock (You have ' + formatWhole(tmp[layer].baseAmount) + ' ' + tmp[layer].baseResource + ')'",
+         "'需要 ' + formatWhole(tmp[layer].requires) + ' ' + tmp[layer].baseResource + ' 才能解锁（当前有 ' + formatWhole(tmp[layer].baseAmount) + ' ' + tmp[layer].baseResource + '）'"),
+        ("'I am a button!'", "'我是一个按钮！'"),
+        ('<br>Offline Time: {{formatTime(player.offTime.remain)}}<br>', '<br>离线时间：{{formatTime(player.offTime.remain)}}<br>'),
+        ('class="overlayThing">You have </span>', 'class="overlayThing">你有 </span>'),
+    ]
+    n=0
+    for a,b in pairs:
+        c=s.count(a)
+        if c==0:
+            print('  WARN 系统文案未命中:',a[:40],file=sys.stderr)
+        s=s.replace(a,b); n+=c
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_taxonomy_text():
+    """taxonomySupport.js 未被提取器覆盖，直接固化该函数文案。"""
+    p=os.path.join(ROOT,'js','utils','taxonomySupport.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    pairs=[
+        ('"Gene gain is <b>Sapien</b> amount plus 1,<br>and amount gain is 2<sup><b>levels</b></sup>-1, multiplied by above<sup>*</sup> amounts plus 1."',
+         '"基因产出为 <b>智人</b> 数量加 1，<br>数量产出为 2<sup><b>等级</b></sup>-1，再乘以上述<sup>*</sup>数量加 1。"'),
+        ('a.replace("2", "(Chromosome effect)")','a.replace("2", "（染色体效果）")'),
+        ('"Amounts and gene amount decays by PC per second due to genetic cross contamination."',
+         '"由于基因交叉污染，数量与基因数量每秒按 PC 衰减。"'),
+        ('"Press shift to bulk buy 5x. The buyable in light blue is the cheapest."',
+         '"按住 Shift 批量购买 5 倍。浅蓝色可购买项最便宜。"'),
+        ('"The number of Chromosomes in amount effects is maxed at 5000."',
+         '"数量效果中的染色体数量上限为 5000。"'),
+    ]
+    n=0
+    for a,b in pairs:
+        c=s.count(a)
+        if c==0:
+            print('  WARN 分类学文案未命中:',a[:40],file=sys.stderr)
+        s=s.replace(a,b); n+=c
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_formula_replacements():
+    """修正公式字符串里的 replace() 检索词，保证与已汉化公式一致。"""
+    p=os.path.join(ROOT,'js','layers.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    pairs=[
+        ('eformula.replace("Animals", "Organs")','eformula.replace("动物", "器官")'),
+        ('eformula.replace("Cells", "干细胞")','eformula.replace("细胞", "干细胞")'),
+        ('cost.replace("干细胞", "Animals")','cost.replace("干细胞", "动物")'),
+        ('eformula.replace("代币 II",','eformula.replace("代币II",'),
+    ]
+    n=0
+    for a,b in pairs:
+        c=s.count(a)
+        if c==0:
+            print('  WARN 公式替换未命中:',a,file=sys.stderr)
+        s=s.replace(a,b); n+=c
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return n
+
+def apply_tab_labels():
+    """标签页按钮显示中文，但保留英文对象键作为存档键。"""
+    p=os.path.join(ROOT,'js','technical','systemComponents.js')
+    s=open(p,encoding='utf-8',newline='').read()
+    labels=json.load(open(os.path.join(D,'tab_labels.json'),encoding='utf-8'))
+    marker='var ZH_TAB_LABELS ='
+    if marker not in s:
+        payload='var ZH_TAB_LABELS = '+json.dumps(labels,ensure_ascii=False)+';\n'
+        s=payload+s
+    if 'tabLabel: function' not in s:
+        s,n=re.subn(r"(props: \['layer', 'data', 'name'\],)(\r?\n)(\s*)(template: `)",
+                    r"\1\2\3methods: { tabLabel: function(tab){ return ZH_TAB_LABELS[tab] || tab; } },\2\3\4",
+                    s,count=1)
+        if n==0:
+            print('  WARN 标签方法注入失败',file=sys.stderr)
+    s=s.replace('<span v-html="tab"></span>','<span v-html="tabLabel(tab)"></span>',1)
+    open(p,'w',encoding='utf-8',newline='').write(s)
+    return 1
+
 def apply_template_text():
     p=os.path.join(ROOT,'js','components.js'); s=open(p,encoding='utf-8',newline='').read()
     n=0
@@ -79,6 +161,10 @@ def main():
       },
     }
     print("包含匹配回填:",apply_contains(locale))
+    print("系统文案:",apply_system_text())
+    print("分类学文案:",apply_taxonomy_text())
+    print("公式检索词:",apply_formula_replacements())
+    print("标签页按钮:",apply_tab_labels())
     print("模板文案:",apply_template_text())
 
 if __name__=='__main__': main()
