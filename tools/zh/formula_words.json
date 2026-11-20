@@ -29,6 +29,14 @@
     "使生命点产出膨胀 ^(.96^depth<sup>1/8</sup>)": "使生命点产出膨胀 ^(.96^深度<sup>1/8</sup>)",
     "a = \"cbrt(max(36000, seconds played))\"": "a = \"cbrt(max(36000, 游玩时间))\"",
     "let eformula = \"log10(Hydrogen)^x<br>\"": "let eformula = \"log10(氢)^x<br>\"",
-    "let eformula = \"(log10(Hydrogen))<sup>x</sup><br>\"": "let eformula = \"(log10(氢))<sup>x</sup><br>\""
+    "let eformula = \"(log10(Hydrogen))<sup>x</sup><br>\"": "let eformula = \"(log10(氢))<sup>x</sup><br>\"",
+    "<bdi style='color:#CC0033'>C</bdi> increase 1": "<bdi style='color:#CC0033'>C</bdi> 增加 1",
+    "<bdi style='color:#CC0033'>C</bdi> increase 2": "<bdi style='color:#CC0033'>C</bdi> 增加 2",
+    "<bdi style='color:#CC0033'>C</bdi> increase 3": "<bdi style='color:#CC0033'>C</bdi> 增加 3",
+    " increase 1 基础值乘以挑战完成次数的平方根": " 提升 1 基础值乘以挑战完成次数的平方根",
+    "log10(Ultraviolet)": "log10(紫外)",
+    "suit 基础值平方": "花色基础值平方",
+    "每套 suit 平方后": "每套花色平方后",
+    " gives ": " 给予 "
   }
 }

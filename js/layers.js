@@ -11598,7 +11598,7 @@ addLayer("n", {
                         goal: () => Decimal.pow(10, player.extremeMode ? 107387e3 : 74e5),
                         canComplete: () => player.points.gte(tmp.n.challenges[21].goal),
                         rewardDescription(){
-                                return makeRed("C") + " increase 1 基础值乘以挑战完成次数的平方根" + br + "当前: *" + format(tmp.n.challenges[21].rewardEffect, 3)
+                                return makeRed("C") + " 提升 1 基础值乘以挑战完成次数的平方根" + br + "当前: *" + format(tmp.n.challenges[21].rewardEffect, 3)
                         },
                         rewardEffect(){
                                 return Decimal.sqrt(layerChallengeCompletions("n"))
@@ -55032,7 +55032,7 @@ addLayer("mini", {
                         },
                 },
                 81: {
-                        title: "<bdi style='color:#CC0033'>C</bdi> increase 1",
+                        title: "<bdi style='color:#CC0033'>C</bdi> 增加 1",
                         cost(){
                                 let init = new Decimal(player.extremeMode ? 1e96 : 1e90)
                                 if (hasUpgrade("sci", 221) || player.sci.everhasnsci2) init = decimalOne
@@ -55220,7 +55220,7 @@ addLayer("mini", {
                         },
                 },
                 91: {
-                        title: "<bdi style='color:#CC0033'>C</bdi> increase 2",
+                        title: "<bdi style='color:#CC0033'>C</bdi> 增加 2",
                         cost(){
                                 let init = new Decimal("1e1300")
                                 if (hasUpgrade("sci", 233) || player.sci.everhasnsci2) init = decimalOne
@@ -55575,7 +55575,7 @@ addLayer("mini", {
                         },
                 },
                 111: {
-                        title: "<bdi style='color:#CC0033'>C</bdi> increase 3",
+                        title: "<bdi style='color:#CC0033'>C</bdi> 增加 3",
                         cost(){
                                 let init = new Decimal(player.extremeMode ? "1e58000" : "1e56700")
                                 if (hasMilestone("tokens", 28) || player.sci.everhasnsci2) init = decimalOne
@@ -58092,7 +58092,7 @@ addLayer("mini", {
                                 return "<bdi style='color: #FF0000'>蛋糕</bdi>"
                         },
                         description(){
-                                return "log10(C 点数) 使紫外基础值倍增，log10(Ultraviolet) 使 C 点产出倍增"
+                                return "log10(C 点数) 使紫外基础值倍增，log10(紫外) 使 C 点产出倍增"
                         },
                         cost:() => new Decimal(1e68),
                         currencyLocation:() => player.mini.c_points,
@@ -58215,7 +58215,7 @@ addLayer("mini", {
                                 return "<bdi style='color: #FF0000'>椰子</bdi>"
                         },
                         description(){
-                                return "suit 基础值平方，💰 基础值提高三倍，你可购买并保留第 7 和第 8 排金币升级"
+                                return "花色基础值平方，💰 基础值提高三倍，你可购买并保留第 7 和第 8 排金币升级"
                         },
                         cost:() => Decimal.pow(10, player.extremeMode ? 1385 : 1375),
                         currencyLocation:() => player.mini.c_points,
@@ -58905,7 +58905,7 @@ addLayer("mini", {
                                                 let a = "每个字符都有给定值，你获得的该字符越多，"
                                                 a += "<br>其值就越强大。"
 
-                                                let b = "<br>此外，每套 suit 平方后，你获得 30 倍点数。<br>"
+                                                let b = "<br>此外，每套花色平方后，你获得 30 倍点数。<br>"
                                                 b += "最后，C 点产出是以上所有数值与倍率的乘积。"
                                                 b += "<br>倍率: x" + format(tmp.mini.c_points.getGainMult) + " C 点产出"
 
@@ -58919,7 +58919,7 @@ addLayer("mini", {
                                                 for (i = 0; i < len; i++){
                                                         let id = poss[i]
                                                         ret += getUnicodeCharacter(id, true)
-                                                        ret += " gives " + format(getCharacterValue(id))
+                                                        ret += " 给予 " + format(getCharacterValue(id))
                                                         ret += " 倍点数。<br>"
                                                 }
                                                 return ret 
@@ -62889,7 +62889,7 @@ addLayer("tokens", {
                         effect(){
                                 let c = decimalFour // red c red d
                                 // i want df/dt = X and you can upgrade X with stuff and there is prestige
-                                // for d simialr concept but there is a wacka mole game that gives buffs
+                                // for d simialr concept but there is a wacka mole game that 给予 buffs
                                 c = c.plus(tmp.mini.buyables[81].effect)
                                 c = c.plus(tmp.mini.buyables[91].effect)
                                 c = c.plus(tmp.mini.buyables[111].effect)

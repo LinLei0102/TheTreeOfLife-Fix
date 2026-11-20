@@ -45,7 +45,7 @@ const allText=await page.evaluate(()=>{
 });
 
 // 普通英文词残留检测（带中文的串里夹这些词）；注意排除 makeBlue 参数/混淆词已不在渲染文本里
-const BAD=/\b(Thoughts|resets|Amino Acid|Hydrogen|Phosphorus|seconds played|depth|Mastery 代币|coins|slots)\b/g;
+const BAD=/\b(Thoughts|resets|Amino Acid|Hydrogen|Phosphorus|seconds played|depth|Mastery 代币|coins|slots|increase|gives|suit|Ultraviolet)\b/g;
 let bad=[];
 for(const [label,text] of allText){
   if(!/[\u4e00-\u9fff]/.test(text)) continue;
