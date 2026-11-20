@@ -284,6 +284,17 @@ def apply_theme_name():
         return 1
     return 0
 
+def apply_bracket_tokens():
+    """方括号占位符 [xxx] 里的英文词中文化。
+
+    这些 token 是字面显示的公式占位说明（英文原版也如此），不在运行时替换。
+    只改字符串字面量内的 token，避免误伤代码里的数组索引 arr[tokens]。
+    带方括号整体匹配，保证 .replace("[upgrades]", ...) 检索键与插入值同步。
+    """
+    mp=json.load(open(os.path.join(D,'bracket_tokens.json'),encoding='utf-8'))
+    locale={'js/layers.js':mp}
+    return apply_contains(locale)
+
 def apply_formula_words():
     """公式/描述串里夹带的普通英文词（Thoughts→思想、resets→重置次数等）。
 
@@ -388,5 +399,6 @@ def main():
     print("零散单位:",apply_misc_units())
     print("资源显示名:",apply_resource_names())
     print("公式普通词:",apply_formula_words())
+    print("方括号占位符:",apply_bracket_tokens())
 
 if __name__=='__main__': main()

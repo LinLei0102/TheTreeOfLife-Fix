@@ -52,6 +52,13 @@ for(const [label,text] of allText){
   const m=text.match(BAD);
   if(m) bad.push([label,[...new Set(m)].join(','),text.slice(0,90)]);
 }
+// 方括号英文 token 残留
+const BRACKET=/\[[A-Za-z][A-Za-z0-9 ]{1,30}\]/g;
+let bracketBad=[];
+for(const [label,text] of allText){const m=text.match(BRACKET); if(m) bracketBad.push([label,[...new Set(m)].join(',')]);}
+console.log('英文方括号 token 残留:',bracketBad.length);
+for(const x of bracketBad.slice(0,20)) console.log('  BR',x[0],'|',x[1]);
+
 console.log('渲染文本总数:',allText.length);
 console.log('普通英文词残留:',bad.length);
 for(const x of bad.slice(0,30)) console.log('  ',x[0],'|',x[1],'|',x[2]);
