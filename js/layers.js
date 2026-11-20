@@ -9187,8 +9187,8 @@ addLayer("sci", {
 
                                 let eformula = format(tmp.sci.buyables[652].base) + "<sup>x</sup>"
                                 let allEff = "<b><h2>效果公式</h2>:<br>器官 升级^x" + br + eformula + br + "</b>"
-                                if (hasMilestone("ch", 4))      allEff = allEff.replace("器官升级", "(161 + Chromosomes)/5")
-                                if (hasUpgrade("an", 45))       allEff = allEff.replace("(161 + Chromosomes)/5", "(Chromosomes * 0.4)")
+                                if (hasMilestone("ch", 4))      allEff = allEff.replace("器官升级", "(161 + 染色体)/5")
+                                if (hasUpgrade("an", 45))       allEff = allEff.replace("(161 + 染色体)/5", "(染色体 * 0.4)")
 
                                 let costmid = (hasMilestone("ch", 4) ? "" : "1e41,143*") + "27^x<sup>1.2</sup>"
                                 let allCost = "<b><h2>花费公式</h2>:<br>" + costmid + "</b><br>"
@@ -14556,7 +14556,7 @@ addLayer("mu", {
                                         let lvl = "<b><h2>等级</h2>: " + formatWhole(player.mu.buyables[31]) + "</b><br>"
                                         let eff1 = "<b><h2>效果</h2>: *"
                                         let eff2 = format(tmp.mu.buyables[31].effect) + " 到磷</b><br>"
-                                        if (hasChallenge("l", 61)) eff2 = eff2.replace("Phosphorus", "Protein")
+                                        if (hasChallenge("l", 61)) eff2 = eff2.replace("Phosphorus", "蛋白质")
                                         let cost = "<b><h2>花费</h2>: " + formatWhole(getBuyableCost("mu", 31)) + " µ</b><br>"
 
                                         return br + lvl + eff1 + eff2 + cost + "按住 Shift 查看详情"
@@ -19029,7 +19029,7 @@ addLayer("a", {
                         cost:() => new Decimal(15e3),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 2 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 12)
@@ -19044,7 +19044,7 @@ addLayer("a", {
                         cost:() => new Decimal(2e5),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 3 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 13)
@@ -19061,7 +19061,7 @@ addLayer("a", {
                         cost:() => new Decimal(3e14),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 4 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 14)
@@ -19076,7 +19076,7 @@ addLayer("a", {
                         cost:() => new Decimal(3e35),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 5 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 15)
@@ -19091,7 +19091,7 @@ addLayer("a", {
                         cost:() => new Decimal(1e75),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 6 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 21)
@@ -19106,7 +19106,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e420"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 7 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 22)
@@ -19123,7 +19123,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e999"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return layers.l.grid.getGemEffect(404) >= 8 || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 23)
@@ -19138,7 +19138,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e1400"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 23) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 24)
@@ -19153,7 +19153,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e3000"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 24) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 25)
@@ -19168,7 +19168,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e3200"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 25) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 31)
@@ -19185,7 +19185,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e4200"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 31) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 32)
@@ -19200,7 +19200,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e5100"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 32) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 33)
@@ -19215,7 +19215,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e5432"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 33) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 34)
@@ -19230,7 +19230,7 @@ addLayer("a", {
                         cost:() => new Decimal(player.extremeMode ? "ee4" : "1e9000"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 34) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 35)
@@ -19245,7 +19245,7 @@ addLayer("a", {
                         cost:() => new Decimal(player.extremeMode ? "1e47274" : "1e51000"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 35) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 41)
@@ -19260,7 +19260,7 @@ addLayer("a", {
                         cost:() => new Decimal(player.extremeMode ? "1e62026" : "1e63636"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 41) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 42)
@@ -19276,7 +19276,7 @@ addLayer("a", {
                         cost:() => new Decimal(player.extremeMode ? "1e170e3" : "1e198e3"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 42) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 43)
@@ -19291,7 +19291,7 @@ addLayer("a", {
                         cost:() => new Decimal(player.extremeMode ? "1e220e3" : "1e209e3"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 43) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 44)
@@ -19306,7 +19306,7 @@ addLayer("a", {
                         cost:() => new Decimal("1e263e3"),
                         currencyLocation:() => player.a.protein,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Protein",
+                        currencyDisplayName:() => "蛋白质",
                         unlocked(){
                                 return hasUpgrade("a", 44) || hasMilestone("d", 5) || player.cells.unlocked
                         }, // hasUpgrade("a", 45)
@@ -20965,7 +20965,7 @@ addLayer("a", {
                                 return true
                         },
                 },
-                "Protein": {
+                "蛋白质": {
                         content: [
                                 "main-display",
                                 ["secondary-display3", "protein"],
@@ -22236,7 +22236,7 @@ addLayer("d", {
                                         if (hasUpgrade("or", 222)) a2 = "当前DNA产出：(2^[Tokens II])" + exp
                                         if (hasUpgrade("or", 21)) a2 = a2.replace("2", "4")
                                         if (hasUpgrade("an", 15)) a2 = a2.replace("4", "[Animal upgrades]")
-                                        if (hasUpgrade("an", 33)) a2 = a2.replace("动物升级", "Chromosomes")
+                                        if (hasUpgrade("an", 33)) a2 = a2.replace("动物升级", "染色体")
                                         if ((layers.l.grid.getGemEffect(701) || hasUpgrade("or", 145)) && !player.extremeMode) a2 = a2.replace("/2", "")
                                         if (layers.l.grid.getGemEffect(408) || hasUpgrade("or", 145)) a2 = a2.replace("/" + div, "")
                                         if (hasMilestone("cells", 31)) a2 = a2.replace("sqrt(", "").replace(")+0.00", "")
@@ -26103,7 +26103,7 @@ addLayer("cells", {
                                 let eformula = "(Tertiary Completions + 1)^x<br>" + format(tmp.cells.buyables[22].base) + "^x"
                                 if (hasUpgrade("or", 234))      eformula = eformula.replace("三级完成次数 + 1", "3^三级完成次数")
                                 if (hasMilestone("an", 15))     eformula = eformula.replace("(3^三级完成次数)", "log10(空气)")
-                                if (hasUpgrade("an", 24))       eformula = eformula.replace("Air", "Contaminants")
+                                if (hasUpgrade("an", 24))       eformula = eformula.replace("空气", "污染物")
                                 if (hasUpgrade("tokens", 132))  eformula = eformula.replace("log10(污染物)", "2<sup>细胞核</sup>")
                                 if (hasMilestone("hu", 33))     eformula = eformula.replace("2", "3")
 
@@ -28751,7 +28751,7 @@ addLayer("t", {
                         content: [
                                 "main-display",
                                 ["prestige-button", "", function (){ return hasUpgrade("t", 132) ? {'display': 'none'} : {}}],
-                                ["display-text", function (){ return hasUpgrade("t", 132) ? "你可以重置获取 " + formatWhole(tmp.t.getResetGain) + " Tissues" : ""}], 
+                                ["display-text", function (){ return hasUpgrade("t", 132) ? "你可以重置获取 " + formatWhole(tmp.t.getResetGain) + " 组织" : ""}], 
                                 "blank",
                                 ["upgrades", [1,2,3,4,5]],
                         ],
@@ -28763,7 +28763,7 @@ addLayer("t", {
                         content: [
                                 "main-display",
                                 ["prestige-button", "", function (){ return hasUpgrade("t", 132) ? {'display': 'none'} : {}}],
-                                ["display-text", function (){ return hasUpgrade("t", 132) ? "你可以重置获取 " + formatWhole(tmp.t.getResetGain) + " Tissues" : ""}], 
+                                ["display-text", function (){ return hasUpgrade("t", 132) ? "你可以重置获取 " + formatWhole(tmp.t.getResetGain) + " 组织" : ""}], 
                                 "blank",
                                 ["upgrades", [6,7,8,9,10]],
                         ],
@@ -28775,7 +28775,7 @@ addLayer("t", {
                         content: [
                                 "main-display",
                                 ["prestige-button", "", function (){ return hasUpgrade("t", 132) ? {'display': 'none'} : {}}],
-                                ["display-text", function (){ return hasUpgrade("t", 132) ? "你可以重置获取 " + formatWhole(tmp.t.getResetGain) + " Tissues" : ""}], 
+                                ["display-text", function (){ return hasUpgrade("t", 132) ? "你可以重置获取 " + formatWhole(tmp.t.getResetGain) + " 组织" : ""}], 
                                 "blank",
                                 ["upgrades", [11,12,13,14,15]],
                         ],
@@ -31074,7 +31074,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return true
@@ -31092,7 +31092,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 201)
@@ -31110,7 +31110,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 202)
@@ -31128,7 +31128,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 203)
@@ -31146,7 +31146,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 204)
@@ -31164,7 +31164,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 205)
@@ -31183,7 +31183,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 144)
@@ -31201,7 +31201,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 15)
@@ -31219,7 +31219,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 213)
@@ -31237,7 +31237,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 214)
@@ -31255,7 +31255,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 305)
@@ -31273,7 +31273,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 221)
@@ -31311,7 +31311,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 222)
@@ -31335,7 +31335,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 223)
@@ -31357,7 +31357,7 @@ addLayer("or", {
                         }, 
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 224)
@@ -31375,7 +31375,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 331)
@@ -31394,7 +31394,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 231)
@@ -31413,7 +31413,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 232)
@@ -31432,7 +31432,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 233)
@@ -31450,7 +31450,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.contaminants,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Contaminants",
+                        currencyDisplayName:() => "污染物",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 234)
@@ -31473,7 +31473,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return player.or.lungChallengesUnlocked >= 3
@@ -31491,7 +31491,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 301)
@@ -31509,7 +31509,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 302)
@@ -31528,7 +31528,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 303)
@@ -31546,7 +31546,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 304)
@@ -31565,7 +31565,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasMilestone("or", 19)
@@ -31587,7 +31587,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 311)
@@ -31606,7 +31606,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 312)
@@ -31625,7 +31625,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return player.extremeMode ? player.sci.buyables[643].gte(8) : hasUpgrade("or", 313)
@@ -31643,7 +31643,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 314)
@@ -31662,7 +31662,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 22)
@@ -31680,7 +31680,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 321)
@@ -31701,7 +31701,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 322)
@@ -31719,7 +31719,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 323)
@@ -31737,7 +31737,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 324)
@@ -31755,7 +31755,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 325)
@@ -31773,7 +31773,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 331)
@@ -31791,7 +31791,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 332)
@@ -31810,7 +31810,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 333)
@@ -31828,7 +31828,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (hasMilestone("an", 4)) return true
                                 return hasUpgrade("or", 334)
@@ -31847,7 +31847,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasMilestone("an", 4) && hasUpgrade("or", 215)
                         }, // hasUpgrade("or", 341)
@@ -31865,7 +31865,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (player.extremeMode && player.sci.buyables[652].eq(0) && !player.nu.unlocked) return false
                                 return hasMilestone("an", 12) || player.nu.best.gt(0)
@@ -31883,7 +31883,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasUpgrade("or", 342) || player.nu.best.gt(0)
                         }, // hasUpgrade("or", 343)
@@ -31901,7 +31901,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasUpgrade("or", 343) || player.nu.best.gt(0)
                         }, // hasUpgrade("or", 344)
@@ -31919,7 +31919,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasUpgrade("or", 344) || player.nu.best.gt(0)
                         }, // hasUpgrade("or", 345)
@@ -31936,7 +31936,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasUpgrade("or", 35) || player.nu.best.gt(0)
                         }, // hasUpgrade("or", 351)
@@ -31953,7 +31953,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasUpgrade("or", 351) || player.nu.best.gt(0)
                         }, // hasUpgrade("or", 352)
@@ -31971,7 +31971,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (player.extremeMode) return player.an.grid[708].buyables.gte(3)
                                 return hasUpgrade("or", 352) || player.nu.best.gt(0)
@@ -31990,7 +31990,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 return hasUpgrade("or", 353) || player.nu.best.gt(0)
                         }, // hasUpgrade("or", 354)
@@ -32007,7 +32007,7 @@ addLayer("or", {
                         },
                         currencyLocation:() => player.or.air,
                         currencyInternalName:() => "points",
-                        currencyDisplayName:() => "Air",
+                        currencyDisplayName:() => "空气",
                         unlocked(){
                                 if (player.extremeMode) return player.an.grid[708].buyables.gte(14)
                                 return hasUpgrade("or", 354) || player.nu.best.gt(0)
@@ -32177,7 +32177,7 @@ addLayer("or", {
                                 eformula = eformula.replace(" + 0.00", "")
                                 if (hasUpgrade("or", 144))      eformula = eformula.replace("1", ".03 * 器官升级")
                                 if (hasUpgrade("or", 333))      eformula = eformula.replace("肾脏升级 + .03 * 器官升级", "器官升级/4")
-                                if (hasUpgrade("ch", 22))       eformula = eformula.replace("器官升级/4", "25 + Chromosomes/100")
+                                if (hasUpgrade("ch", 22))       eformula = eformula.replace("器官升级/4", "25 + 染色体/100")
                                 if (hasMilestone("nu", 18))     eformula = eformula.replace("25 + ", "")
                                 if (hasUpgrade("sp", 94) && !hasUpgrade("tokens", 125)) {
                                                                 eformula = eformula.replace("/100", "/99")
@@ -33274,7 +33274,7 @@ addLayer("or", {
                                 if (hasUpgrade("or", 45))   logBase = decimalTwo
                                 eformula = eformula.replaceAll("g10", "g" + formatWhole(logBase))
                                 eformula = eformula.replaceAll("log2.72", "ln")
-                                if (hasMilestone("ch", 15)) eformula = eformula.replace("log2(代币)", "Chromosomes")
+                                if (hasMilestone("ch", 15)) eformula = eformula.replace("log2(代币)", "染色体")
 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -34568,7 +34568,7 @@ addLayer("or", {
                                         if (!hasUpgrade("or", 125)) return ""
                                         let a = "你可以重置获取 " + formatWhole(tmp.or.getResetGain, false, 3) + " 器官. "
                                         if (tmp.or.getResetGain.gt(1e5)) return a 
-                                        return a + " 下一个: " + format(tmp.or.getNextAt) + " Tissues"
+                                        return a + " 下一个: " + format(tmp.or.getNextAt) + " 组织"
                                 }], 
                                 "blank",
                                 ["upgrades", [1,2,3,4,5]],
@@ -35766,7 +35766,7 @@ addLayer("an", {
                         },
                         description(){
                                 if (player.extremeMode) return "log74(染色体)乘以代币迭代幂除数，基因除以调节<sup>3</sup>基础花费"
-                                return "log74(max(74, Chromosomes)) 使代币超指数除数倍增"
+                                return "log74(max(74, 染色体)) 使代币超指数除数倍增"
                         },
                         cost:() => new Decimal(player.extremeMode ? 8.65e33 : 4.38e30),
                         unlocked(){
@@ -36717,13 +36717,13 @@ addLayer("an", {
                         },
                         display(){
                                 if (!player.an.achActive[13]) return hasMilestone("ch", 33) ? "效果被染色体里程碑 33 覆盖" : "基础器官产出双倍指数为 .31"
-                                if (hasMilestone("sp", 21)) return "变形菌 II 数量<sup>" + makeOrange("Chromosomes") + "</sup> 使器官产出倍增"
-                                return "变形菌 II 数量<sup>Chromosomes/17</sup> 使器官产出倍增"
+                                if (hasMilestone("sp", 21)) return "变形菌 II 数量<sup>" + makeOrange("染色体") + "</sup> 使器官产出倍增"
+                                return "变形菌 II 数量<sup>染色体/17</sup> 使器官产出倍增"
                                 
                         },
                         tooltip(){
-                                let a = makeBlue("ON") + "：变形菌 II 数量<sup>Chromosomes/17</sup> 使器官产出倍增" + br 
-                                if (hasMilestone("sp", 21)) a = a.replace("Chromosomes/17", makeOrange("Chromosomes"))
+                                let a = makeBlue("ON") + "：变形菌 II 数量<sup>染色体/17</sup> 使器官产出倍增" + br 
+                                if (hasMilestone("sp", 21)) a = a.replace("染色体/17", makeOrange("染色体"))
                                 return a + makeBlue("OFF") + "：基础器官产出双倍指数为 .31"
                         },
                         unlocked(){
@@ -38412,7 +38412,7 @@ addLayer("ch", {
         milestones: {
                 1: {
                         requirementDescription(){
-                                return "1 Chromosome"
+                                return "1 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1)
@@ -38427,7 +38427,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 1)
                 2: {
                         requirementDescription(){
-                                return "3 Chromosomes"
+                                return "3 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(3)
@@ -38444,7 +38444,7 @@ addLayer("ch", {
                         requirementDescription(){
                                 if (player.extremeMode && !hasMilestone("ch", 3) && player.ch.points.lt(7)) return "7 条染色体和 ???"
                                 if (player.extremeMode) return "1.7e715 基因"
-                                return "7 Chromosomes"
+                                return "7 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(7) && (!player.extremeMode || player.an.genes.points.gte("1.7e715"))
@@ -38459,7 +38459,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 3)
                 4: {
                         requirementDescription(){
-                                return player.extremeMode ? "13 Chromosomes" : "11 Chromosomes"
+                                return player.extremeMode ? "13 条染色体" : "11 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 13 : 11)
@@ -38474,7 +38474,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 4)
                 5: {
                         requirementDescription(){
-                                return player.extremeMode ? "14 Chromosomes" : "13 Chromosomes"
+                                return player.extremeMode ? "14 条染色体" : "13 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 14 : 13)
@@ -38489,7 +38489,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 5)
                 6: {
                         requirementDescription(){
-                                return player.extremeMode ? "15 Chromosomes" : "14 Chromosomes"
+                                return player.extremeMode ? "15 Chromosomes" : "14 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 15 : 14)
@@ -38504,7 +38504,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 6)
                 7: {
                         requirementDescription(){
-                                return player.extremeMode ? "29 Chromosomes" : "32 Chromosomes"
+                                return player.extremeMode ? "29 Chromosomes" : "32 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 29 : 32)
@@ -38521,7 +38521,7 @@ addLayer("ch", {
                         requirementDescription(){
                                 if (player.extremeMode && player.ch.points.gte(31)) return "1e1608 基因"
                                 if (player.extremeMode) return "31 条染色体和 ???"
-                                return "33 Chromosomes"
+                                return "33 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 31 : 33) && (!player.extremeMode || player.an.genes.points.gte("1e1608"))
@@ -38536,7 +38536,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 8)
                 9: {
                         requirementDescription(){
-                                return player.extremeMode ? "44 Chromosomes" : "48 Chromosomes"
+                                return player.extremeMode ? "44 Chromosomes" : "48 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 44 : 48)
@@ -38551,7 +38551,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 9)
                 10: {
                         requirementDescription(){
-                                return player.extremeMode ? "78 Chromosomes" : "76 Chromosomes"
+                                return player.extremeMode ? "78 Chromosomes" : "76 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 78 : 76)
@@ -38566,7 +38566,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 10)
                 11: {
                         requirementDescription(){
-                                return player.extremeMode ? "92 Chromosomes" : "103 Chromosomes"
+                                return player.extremeMode ? "92 Chromosomes" : "103 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 92 : 103)
@@ -38581,7 +38581,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 11)
                 12: {
                         requirementDescription(){
-                                return player.extremeMode ? "103 Chromosomes" : "104 Chromosomes"
+                                return player.extremeMode ? "103 条染色体" : "104 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 103 : 104)
@@ -38599,7 +38599,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 12)
                 13: {
                         requirementDescription(){
-                                return player.extremeMode ? "215 Chromosomes" : "209 Chromosomes"
+                                return player.extremeMode ? "215 Chromosomes" : "209 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 215 : 209)
@@ -38613,7 +38613,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 13)
                 14: {
                         requirementDescription(){
-                                return "235 Chromosomes"
+                                return "235 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(235)
@@ -38630,7 +38630,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 14)
                 15: {
                         requirementDescription(){
-                                return "242 Chromosomes"
+                                return "242 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(242)
@@ -38646,7 +38646,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 15)
                 16: {
                         requirementDescription(){
-                                return player.extremeMode ? "321 Chromosomes" : "322 Chromosomes"
+                                return player.extremeMode ? "321 Chromosomes" : "322 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 321 : 322)
@@ -38660,7 +38660,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 16)
                 17: {
                         requirementDescription(){
-                                return player.extremeMode ? "330 Chromosomes" : "329 Chromosomes"
+                                return player.extremeMode ? "330 Chromosomes" : "329 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(player.extremeMode ? 330 : 329)
@@ -38675,7 +38675,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 17)
                 18: {
                         requirementDescription(){
-                                return "380 Chromosomes"
+                                return "380 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(380)
@@ -38689,7 +38689,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 18)
                 19: {
                         requirementDescription(){
-                                return "392 Chromosomes"
+                                return "392 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(392)
@@ -38703,7 +38703,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 19)
                 20: {
                         requirementDescription(){
-                                return "421 Chromosomes"
+                                return "421 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(421)
@@ -38729,7 +38729,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 20)
                 21: {
                         requirementDescription(){
-                                return "437 Chromosomes"
+                                return "437 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(437)
@@ -38743,7 +38743,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 21)
                 22: {
                         requirementDescription(){
-                                return "677 Chromosomes"
+                                return "677 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(677)
@@ -38757,7 +38757,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 22)
                 23: {
                         requirementDescription(){
-                                return "776 Chromosomes"
+                                return "776 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(776)
@@ -38771,7 +38771,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 23)
                 24: {
                         requirementDescription(){
-                                return "812 Chromosomes"
+                                return "812 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(812)
@@ -38785,7 +38785,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 24)
                 25: {
                         requirementDescription(){
-                                return "975 Chromosomes"
+                                return "975 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(975)
@@ -38799,7 +38799,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 25)
                 26: {
                         requirementDescription(){
-                                return "1014 Chromosomes"
+                                return "1014 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1014)
@@ -38813,7 +38813,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 26)
                 27: {
                         requirementDescription(){
-                                return "1125 Chromosomes"
+                                return "1125 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1125)
@@ -38827,7 +38827,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 27)
                 28: {
                         requirementDescription(){
-                                return "1171 Chromosomes"
+                                return "1171 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1171)
@@ -38841,7 +38841,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 28)
                 29: {
                         requirementDescription(){
-                                return "1241 Chromosomes"
+                                return "1241 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1241)
@@ -38868,7 +38868,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 29)
                 30: {
                         requirementDescription(){
-                                return "1377 Chromosomes"
+                                return "1377 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1377)
@@ -38882,7 +38882,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 30)
                 31: {
                         requirementDescription(){
-                                return "1401 Chromosomes"
+                                return "1401 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1401)
@@ -38896,7 +38896,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 31)
                 32: {
                         requirementDescription(){
-                                return "1424 Chromosomes"
+                                return "1424 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1424)
@@ -38923,7 +38923,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 32)
                 33: {
                         requirementDescription(){
-                                return "1454 Chromosomes"
+                                return "1454 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1454)
@@ -38940,7 +38940,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 33)
                 34: {
                         requirementDescription(){
-                                return "1639 Chromosomes"
+                                return "1639 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1639)
@@ -38954,7 +38954,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 34)
                 35: {
                         requirementDescription(){
-                                return "1668 Chromosomes"
+                                return "1668 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(1668)
@@ -38968,7 +38968,7 @@ addLayer("ch", {
                 }, // hasMilestone("ch", 35)
                 36: {
                         requirementDescription(){
-                                return "5020 Chromosomes"
+                                return "5020 条染色体"
                         },
                         done(){
                                 return player.ch.points.gte(5020)
@@ -38977,7 +38977,7 @@ addLayer("ch", {
                                 return player.sp.unlocked
                         },
                         effectDescription(){
-                                return "奖励：哺乳纲 I 的指数为 sqrt(5,000 * Chromosomes)（最多为染色体数）。"
+                                return "奖励：哺乳纲 I 的指数为 sqrt(5,000 * 染色体)（最多为染色体数）。"
                         },
                 }, // hasMilestone("ch", 36)
         },
@@ -39339,7 +39339,7 @@ addLayer("nu", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>细胞核 VI"
                         },
                         description(){
-                                return "能量产出提升为 cbrt(max(Chromosomes, 1234)/1234)，上限 1.01"
+                                return "能量产出提升为 cbrt(max(染色体, 1234)/1234)，上限 1.01"
                         },
                         cost:() => new Decimal(player.hu.everMile2 ? 6 : 53),
                         unlocked(){
@@ -39571,7 +39571,7 @@ addLayer("nu", {
         milestones: {
                 1: {
                         requirementDescription(){
-                                return "1 Nucleus"
+                                return "1 细胞核"
                         },
                         done(){
                                 return player.nu.best.gte(1)
@@ -40434,8 +40434,8 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 VIII"
                         },
                         description(){
-                                if (hasUpgrade("sp", 73) && player.shiftAlias) return "物种效果按每 (10&nbsp+&nbspChromosomes)<sup> 倍增第 7 排分类学数量产出" + makeOrange(".6") + "</sup>"
-                                return "物种效果按每 sqrt(10 + Chromosomes) 倍增第 7 排分类学数量产出"
+                                if (hasUpgrade("sp", 73) && player.shiftAlias) return "物种效果按每 (10&nbsp+&nbsp染色体)<sup> 倍增第 7 排分类学数量产出" + makeOrange(".6") + "</sup>"
+                                return "物种效果按每 sqrt(10 + 染色体) 倍增第 7 排分类学数量产出"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -40447,7 +40447,7 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 IX"
                         },
                         description(){
-                                if (hasUpgrade("sp", 74) && player.shiftAlias) return "物种效果按每 (8&nbsp+&nbspNucleuses)<sup> 倍增第 6 排分类学数量产出" + makeOrange(".7") + "</sup>"
+                                if (hasUpgrade("sp", 74) && player.shiftAlias) return "物种效果按每 (8&nbsp+&nbsp细胞核)<sup> 倍增第 6 排分类学数量产出" + makeOrange(".7") + "</sup>"
                                 return "物种效果按每 cbrt(8 + 细胞核) 倍增第 6 排分类学数量"
                         },
                         cost:() => decimalOne,
@@ -40486,8 +40486,8 @@ addLayer("sp", {
                                 return "<bdi style='color: #" + getUndulatingColor() + "'>效果 XII"
                         },
                         description(){
-                                if (hasUpgrade("sp", 82) && player.shiftAlias) return "物种效果按每 log2(Chromosomes)/ 倍增第 3 排分类学数量" + makeOrange("2")
-                                return "物种效果按每 log2(Chromosomes)/25 倍增第 3 排分类学数量"
+                                if (hasUpgrade("sp", 82) && player.shiftAlias) return "物种效果按每 log2(染色体)/ 倍增第 3 排分类学数量" + makeOrange("2")
+                                return "物种效果按每 log2(染色体)/25 倍增第 3 排分类学数量"
                         },
                         cost:() => decimalOne,
                         unlocked(){
@@ -42695,7 +42695,7 @@ addLayer("e", {
         },
         challenges: {
                 11: {
-                        name: "Chromosomeless?",
+                        name: "无染色体？",
                         goal(){
                                 let ret = new Decimal(180).plus(player.e.challenges[11])
                                 if (ret.gte(200)) ret = ret.times(2).sub(200)
@@ -42726,7 +42726,7 @@ addLayer("e", {
                         completionLimit: 75,
                 }, // inChallenge("e", 11)
                 12: {
-                        name: "Nucleusless?",
+                        name: "无细胞核？",
                         goal(){
                                 let c = player.e.challenges[12]
                                 let ret = new Decimal(260).plus(c * 2)
@@ -42988,7 +42988,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 11)
                 12: {
                         requirementDescription(){
-                                return "4 Chromosomeless?"
+                                return "4 无染色体？"
                         },
                         done(){
                                 return player.e.challenges[11] >= 4
@@ -43002,7 +43002,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 12)
                 13: {
                         requirementDescription(){
-                                return "16 Chromosomeless?"
+                                return "16 无染色体？"
                         },
                         done(){
                                 return player.e.challenges[11] >= 16
@@ -43020,7 +43020,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 13)
                 14: {
                         requirementDescription(){
-                                return "2 Nucleusless?"
+                                return "2 无细胞核？"
                         },
                         done(){
                                 return player.e.challenges[12] >= 2
@@ -43034,7 +43034,7 @@ addLayer("e", {
                 }, // hasMilestone("e", 14)
                 15: {
                         requirementDescription(){
-                                return "75 Chromosomeless?"
+                                return "75 无染色体？"
                         },
                         done(){
                                 return player.e.challenges[11] >= 75
@@ -44091,7 +44091,7 @@ addLayer("pl", {
                                 let sub = hasMilestone("pl", 16) ? 100 * (36 - Math.min(player.pl.milestones.length, 36)) : 2100
                                 if (hasMilestone("hu", 12)) eformula = eformula.replace("-SUB", "")
                                 if (hasMilestone("pl", 16)) eformula = eformula.replace("SUB", formatWhole(sub))
-                                if (hasUpgrade("hu", 62)) eformula = eformula.replace("(Nucleus)", "Chromosomes")
+                                if (hasUpgrade("hu", 62)) eformula = eformula.replace("(细胞核)", "染色体")
                                 
                                 let allEff = "<b><h2>效果公式</h2>:<br>" + eformula + "</b><br>"
 
@@ -64442,13 +64442,13 @@ addLayer("tokens", {
                                         return !hasMilestone("hu", 41)
                                 },
                         },
-                        "Contaminants": {
+                        "污染物": {
                                 content: [["d-t", contaminantFormulaDisplay]],
                                 unlocked(){
                                         return !hasMilestone("hu", 41)
                                 },
                         },
-                        "Air": {
+                        "空气": {
                                 content: [["d-t", airFormulaDisplay]],
                                 unlocked(){
                                         if (player.pl.unlocked) return false

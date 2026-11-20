@@ -20,11 +20,18 @@ UNIT_RE = re.compile(
     r'\b(?:Animals?|Cells?|Genes?|Energy|Organs?|Tokens?(?:\s+II)?|'
     r'Points?|Lives|Carbon|Oxygen|Protein|Air|Species|Ecosystems|'
     r'Contaminants|Biomass|Tissues|Heart|Kidney|Intestine|Lung|Fuel|Plants|'
-    r'Nucleuses|Stem\s+Cells|Science|Multipliers)\b')
+    r'Chromosomeless|Nucleusless|Chromosome(?:s)?|Nucleus(?:es)?|'
+    r'Stem\s+Cells|Science|Multipliers)\b')
 
 
 def is_object_key(src, value):
-    """任一出现位置后面紧跟冒号，就当作键名跳过。"""
+    """只有所有出现位置都紧跟冒号，才当作纯键名跳过。
+
+    有些字符串既是对象键、又在别处作为显示值（如三元表达式里的
+    "13 Chromosomes"），这种必须保留翻译，否则显示值会漏掉。
+    """
+    total = 0
+    keys = 0
     for q in ['"', "'"]:
         needle = q + value.replace(q, '\\' + q) + q
         pos = 0
@@ -32,13 +39,14 @@ def is_object_key(src, value):
             i = src.find(needle, pos)
             if i < 0:
                 break
+            total += 1
             j = i + len(needle)
             while j < len(src) and src[j] in ' \t\r\n':
                 j += 1
             if j < len(src) and src[j] == ':':
-                return True
+                keys += 1
             pos = i + 1
-    return False
+    return total > 0 and keys == total
 
 
 def main():

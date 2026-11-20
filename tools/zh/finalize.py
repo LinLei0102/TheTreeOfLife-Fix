@@ -104,6 +104,12 @@ def apply_formula_replacements():
         ('eformula.replace("Cells", "干细胞")','eformula.replace("细胞", "干细胞")'),
         ('cost.replace("干细胞", "Animals")','cost.replace("干细胞", "动物")'),
         ('eformula.replace("代币 II",','eformula.replace("代币II",'),
+        # 插入值（replace 第二参数 / makeOrange 参数）里的资源名要汉化；
+        # 检索键（第一参数）由词典回填同步处理，不要在这里动。
+        ('a2.replace("动物升级", "Chromosomes")','a2.replace("动物升级", "染色体")'),
+        ('eformula.replace("log2(代币)", "Chromosomes")','eformula.replace("log2(代币)", "染色体")'),
+        ('makeOrange("Chromosomes")','makeOrange("染色体")'),
+        ('eformula.replace("(细胞核)", "Chromosomes")','eformula.replace("(细胞核)", "染色体")'),
     ]
     n=0
     for a,b in pairs:
