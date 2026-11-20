@@ -1,0 +1,38 @@
+{
+  "js/layers.js": {
+    "cost = cost.replace(\"花费\", \"Requires\")": "cost = cost.replace(\"花费\", \"需要\")",
+    "eformula = \"x<sup>cbrt(Plant 升级)</sup><br>\"": "eformula = \"x<sup>cbrt(植物升级)</sup><br>\"",
+    "eformula = eformula.replace(\"升级\", \"Milestones\")": "eformula = eformula.replace(\"升级\", \"里程碑\")",
+    "eformula = eformula.replace(\"(植物里程碑)<sup>.6</sup>\", \"Animaless? - 100\")": "eformula = eformula.replace(\"(植物里程碑)<sup>.6</sup>\", \"无动物？ - 100\")",
+    "eformula = eformula.replace(\"Animaless? - 100\", \"log10(x)<sup>2</sup>\")": "eformula = eformula.replace(\"无动物？ - 100\", \"log10(x)<sup>2</sup>\")",
+    "eff2 = eff2.replace(\"干细胞\", \"Tissue\")": "eff2 = eff2.replace(\"干细胞\", \"组织\")",
+    "a = a.replace(\"doubles\", \"quintuples\")": "a = a.replace(\"翻倍\", \"五倍\")",
+    "a = a.replace(\"doubles\", \"triples\")": "a = a.replace(\"翻倍\", \"三倍\")",
+    "return a.replace(\"doubles\", \"triples\")": "return a.replace(\"翻倍\", \"三倍\")",
+    "return a.replace(\"Double\", \"Triple\")": "return a.replace(\"翻倍\", \"三倍\")",
+    "a = a.replace(\"Cube\", \"Square\")": "a = a.replace(\"立方\", \"平方\")",
+    "eformula = eformula.replace(\"组织 XXIX\", \"Tissues\")": "eformula = eformula.replace(\"组织 XXIX\", \"组织\")",
+    "a2 = a2.replace(\"(细胞*1e615)\", \"Cells\")": "a2 = a2.replace(\"(细胞*1e615)\", \"细胞\")",
+    "a4 = a4.replace(\"(1.00*组织+0.00)\", \"Tissues\")": "a4 = a4.replace(\"(1.00*组织+0.00)\", \"组织\")",
+    "eformula = eformula.replace(\"log2(器官)\", \"Tokens\")": "eformula = eformula.replace(\"log2(器官)\", \"代币\")",
+    "eformula = eformula.replace(\"log2(生命)\", \"Lambda\")": "eformula = eformula.replace(\"生命\", \"λ\")",
+    "eformula = eformula.replace(\"膨胀完成次数\", \"Lambda\")": "eformula = eformula.replace(\"膨胀完成次数\", \"λ\")",
+    "eformula = eformula.replace(\"恒定效果\", \"Kappa\")": "eformula = eformula.replace(\"常数效果\", \"κ\")",
+    "eformula = eformula.replace(\"logINS(点数)\", \"Points\")": "eformula = eformula.replace(\"logINS(点数)\", \"点数\")",
+    "eformula = eformula.replace(\"log2(log2(点数))\", \"Cells\")": "eformula = eformula.replace(\"log2(log2(点数))\", \"细胞\")",
+    "eff2 = eff2.replace(\"Carbon\", \"𝛾 → ∂β base\")": "eff2 = eff2.replace(\"碳\", \"𝛾 → ∂β base\")",
+    "eff2 = eff2.replace(\"Hydrogen\", \"crRNA\")": "eff2 = eff2.replace(\"氢\", \"crRNA\")",
+    "a2 = a2.replace(\"4\", \"[Animal upgrades]\")": "a2 = a2.replace(\"4\", \"[动物升级]\")",
+    "let a = \"你有 \" + formatWhole(bu[f]) + \" \" + f + \" buildings\"": "let a = \"你有 \" + formatWhole(bu[f]) + \" \" + f + \" 座建筑\"",
+    "return \"增加其中的工人 \" + player.chem.focus + \" by 1\"": "return \"为 \" + player.chem.focus + \" 增加 1 名工人\"",
+    "return \"减少其中的工人 \" + player.chem.focus + \" by 1\"": "return \"从 \" + player.chem.focus + \" 减少 1 名工人\"",
+    "return \"增加其中的科学家 \" + player.chem.focus + \" by 1\"": "return \"为 \" + player.chem.focus + \" 增加 1 名科学家\"",
+    "return \"减少其中的科学家 \" + player.chem.focus + \" by 1\"": "return \"从 \" + player.chem.focus + \" 减少 1 名科学家\"",
+    "title: \"6 \" + \"D\" + \"e\" + \"caseconds\"": "title: \"6 十秒\"",
+    "makeOrange(\"multiplies\")": "makeOrange(\"乘以\")",
+    "return \"<bdi style='font-size: 80%'>log10(组织) multiplies \" + makeBlue(\"DB\") + \" 产出且每次器官升级你获得你的 1% 的 \" + makePurple(\"OB\") + \"/s while beating out and 1% of your \" + makeBlue(\"DB\") + \"/s while beating in</bdi>\"": "return \"<bdi style='font-size: 80%'>log10(组织) 乘以 \" + makeBlue(\"DB\") + \" 产出，每次器官升级时，若产出高于投入，你获得你 \" + makePurple(\"OB\") + \"/s 的 1%；若投入高于产出，你获得你 \" + makeBlue(\"DB\") + \"/s 的 1%</bdi>\""
+  },
+  "js/technical/displays.js": {
+    "?\"Finish\":\"提前退出\"):(hasChallenge(layer, id)?\"Completed\":\"Start\")": "?\"完成\":\"提前退出\"):(hasChallenge(layer, id)?\"已完成\":\"开始\")"
+  }
+}

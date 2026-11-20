@@ -51,6 +51,61 @@ def apply_contains(locale):
             open(p,'w',encoding='utf-8',newline='').write(s); total+=len(edits)
     return total
 
+def apply_residual_phrases():
+    """漏网短串：成就提示、里程碑需求单位、化学元素/初始效果等。
+
+    使用位置性字符串扫描，只改展示文本字面量；对象键与存档键不受影响。
+    """
+    mp = json.load(open(os.path.join(D,'residual_zh.json'),encoding='utf-8'))
+    chem = json.load(open(os.path.join(D,'chemistry_zh.json'),encoding='utf-8'))
+    locale = {
+      'js/layers.js': mp,
+      'js/achievements.js': mp,
+      'js/utils/standardModelSupport.js': chem,
+    }
+    return apply_contains(locale)
+
+def apply_exact_strings():
+    """整条展示文本精确替换（忽略 HTML 包装），避免短词误伤对象键。"""
+    mp = json.load(open(os.path.join(D,'exact_zh.json'),encoding='utf-8'))
+    p = os.path.join(ROOT,'js','layers.js')
+    s = open(p,encoding='utf-8',newline='').read()
+    strings,_ = scan(s)
+    def plain(v): return re.sub(r'<[^>]*>','',v).strip()
+    edits=[]
+    for x in strings:
+        v=decode_js_string(x['raw'],x['quote'])
+        key=plain(v)
+        if key not in mp: continue
+        new=v.replace(key,mp[key],1)
+        if new==v: continue
+        out=new.replace('\\','\\\\').replace('\n','\\n')
+        if x['quote']=="'": out=out.replace("'","\\'")
+        elif x['quote']=='"': out=out.replace('"','\\"')
+        edits.append((x['start'],x['end'],x['quote'],out))
+    edits.sort(key=lambda e:e[0],reverse=True)
+    for st,en,q,out in edits:
+        s=s[:st]+q+out+q+s[en:]
+    if edits:
+        open(p,'w',encoding='utf-8',newline='').write(s)
+    return len(edits)
+
+def apply_chain_fixes():
+    """修正汉化后断开的 .replace() 公式链与挑战按钮文案。"""
+    mp = json.load(open(os.path.join(D,'chain_fix_zh.json'),encoding='utf-8'))
+    total = 0
+    for f, pairs in mp.items():
+        p = os.path.join(ROOT, f)
+        if not os.path.exists(p): continue
+        s = open(p,encoding='utf-8',newline='').read()
+        for a,b in pairs.items():
+            c = s.count(a)
+            if c == 0:
+                print('  WARN 链条修正未命中:',f,a[:48],file=sys.stderr)
+            s = s.replace(a,b); total += c
+        open(p,'w',encoding='utf-8',newline='').write(s)
+    return total
+
 def apply_system_text():
     """系统组件里的固定 UI 文案。"""
     p=os.path.join(ROOT,'js','technical','systemComponents.js')
@@ -277,6 +332,9 @@ def main():
       },
     }
     print("包含匹配回填:",apply_contains(locale))
+    print("漏网短串回填:",apply_residual_phrases())
+    print("整条标题回填:",apply_exact_strings())
+    print("链条/按钮修正:",apply_chain_fixes())
     print("系统文案:",apply_system_text())
     print("分类学文案:",apply_taxonomy_text())
     print("公式检索词:",apply_formula_replacements())

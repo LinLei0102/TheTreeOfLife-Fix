@@ -42,17 +42,21 @@ const result=await page.evaluate(()=>{
       if(out.byToken[w].samples.length<3) out.byToken[w].samples.push(clean);
     }
   }
+  if(typeof chemInitialEffects!=='undefined') for(const [k,v] of Object.entries(chemInitialEffects)) consider(v,'chemInitialEffects['+k+']');
+  if(typeof chemAbbrev!=='undefined') for(const [k,v] of Object.entries(chemAbbrev)) consider(v,'chemAbbrev['+k+']');
   const L=window.layers||{};
   for(const layer of Object.keys(L)){
     const def=L[layer];
     if(!def||typeof def!=='object')continue;
+    consider(typeof def.prestegeButtonText==='function'?def.prestegeButtonText():'',layer+'.prestegeButtonText');
+    consider(typeof def.tooltip==='function'?def.tooltip():'',layer+'.tooltip');
     consider(typeof def.name==='function'?def.name():def.name, layer+'.name');
     consider(typeof def.resource==='function'?def.resource():def.resource, layer+'.resource');
     for(const kind of ['upgrades','milestones','achievements','buyables','challenges','clickables']){
       const obj=def[kind];if(!obj||typeof obj!=='object')continue;
       for(const id in obj){
         const item=obj[id];if(!item||typeof item!=='object')continue;
-        for(const key of ['title','description','name','text','done','requirement','goal','effectDisplay','costDisplay','display']){
+        for(const key of ['title','description','name','text','done','requirement','goal','effectDisplay','costDisplay','display','fullDisplay','requirementDescription','effectDescription','prestigeButtonText','tooltip','name','resource','effect','cost']){
           try{
             const v=item[key];
             if(typeof v==='function') consider(v(),`${layer}.${kind}[${id}].${key}()`);
@@ -68,7 +72,7 @@ const result=await page.evaluate(()=>{
 });
 
 // 白名单：刻意保留的代号/缩写/文字游戏/公式函数名
-const WL=new Set(['dna','intestine','testine','pro','pri','com','one','bb','r','sci','hydrogen','pm','wc','lg','tulinwl','tgwitlcwl','hula','e','x','y','z','n','a','b','c','d','max','min','log','sqrt','cbrt','pow','floor','ceil','abs','sin','cos','tan','ln','exp','mod','bot','if','else','true','false','null','undefined','nan','infinity','off','on']);
+const WL=new Set(['dna','intestine','testine','pro','pri','com','one','bb','r','sci','pm','wc','lg','tulinwl','tgwitlcwl','hula','e','x','y','z','n','a','b','c','d','max','min','log','sqrt','cbrt','pow','floor','ceil','abs','sin','cos','tan','ln','exp','mod','bot','if','else','true','false','null','undefined','nan','infinity','off','on']);
 const sorted=Object.entries(result.byToken).filter(([w])=>!WL.has(w)).sort((a,b)=>b[1].count-a[1].count);
 console.log(`含英文无中文片段 ${result.raw.length} 条，DOM 英文行 ${result.domLines.length}`);
 console.log(`\n=== 非白名单英文 token（按频次） ===`);
