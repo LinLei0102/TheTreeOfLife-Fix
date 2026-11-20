@@ -371,6 +371,14 @@ def apply_mod_text():
         '[okay]':'[确定]',
     }})
 
+def apply_engine_text():
+    """引擎 NaN 检测弹窗（tmp.js）里的英文提示中文化，保留调试输出与拼接变量。"""
+    return apply_contains({'js/technical/temp.js':{
+        "Invalid value found in tmp, named '": "tmp 中发现无效值，名称：'",
+        "'. Please let the creator of this mod know with a screenshot of the console and the save! You can refresh the page, and you will be un-NaNed.":
+            "'。请把控制台截图和存档发给本模组作者！刷新页面即可恢复正常。",
+    }})
+
 def apply_options_text():
     """系统设置里里程碑显示模式的两个英文枚举值。"""
     p=os.path.join(ROOT,'js','utils','options.js')
@@ -514,6 +522,7 @@ def main():
     print("英文连接词:",apply_connector_words())
     print("列表标点:",apply_list_punctuation())
     print("mod.js 状态栏:",apply_mod_text())
+    print("引擎报错提示:",apply_engine_text())
     print("设置枚举值:",apply_options_text())
     print("宝石效果说明:",apply_gem_descriptions())
     print("方括号占位符:",apply_bracket_tokens())
